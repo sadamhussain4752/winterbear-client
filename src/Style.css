@@ -1,7 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
-    overflow-x: scroll !important;
-    overflow-Y: hidden !important;
+    overflow: scroll;
 }
 
 .top-header {

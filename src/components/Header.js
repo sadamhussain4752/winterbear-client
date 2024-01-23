@@ -32,13 +32,13 @@ const Header = () => {
   }, []);
   return (
     <>
-        <header>
+      <header>
         {/* Top Header */}
         <div className="top-header fixed-top shadow-sm bg-white">
           <div className="container-fluid px-5">
-            <div className="row align-items-center">
+            <div className="row align-items-center p-2">
               {/* Language Selection */}
-              <div className="col-md-4 col-6 ps-md-5 ps-1  text-left  border-0 shadow-none">
+              <div className="col-md-4 col-6 ps-md-5 ps-1 order-first text-left  border-0 shadow-none">
                 <div class="container-fluid ">
                   <div className="row">
                     <div className="col-md-3 col-12">
@@ -97,7 +97,7 @@ const Header = () => {
                           HOME
                         </Link>
                       </li>
-                      {/*<li className="nav-item dropdown">
+                      <li className="nav-item dropdown">
                         <a
                           className="nav-link pb-3 fs-5 dropdown-toggle"
                           href="#"
@@ -128,9 +128,6 @@ const Header = () => {
                           </li>
                         </ul>
                       </li>
-                        */}
-                      
-                      
                       <li className="nav-item">
                         <Link
                           className={`nav-link pb-3 fs-5 ${
@@ -139,17 +136,6 @@ const Header = () => {
                           to="/about"
                         >
                           ABOUT
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
-                          to="/shop"
-                        >
-                          SHOP ALL
                         </Link>
                       </li>
 
@@ -192,12 +178,12 @@ const Header = () => {
                           data-bs-toggle="dropdown"
                           aria-expanded="false"
                         >
-                          LANGUAGE
+                          Language
                         </a>
                         <ul class="dropdown-menu">
                           <li>
                             <a className="dropdown-item pb-3 fs-5" href="#">
-                              ENGLISH
+                              English
                             </a>
                           </li>
                           <li>
@@ -205,7 +191,7 @@ const Header = () => {
                           </li>
                           <li>
                             <a className="dropdown-item pb-3 fs-5" href="#">
-                              JAPANESE
+                              Japanese
                             </a>
                           </li>
                           <li>
@@ -213,21 +199,10 @@ const Header = () => {
                           </li>
                           <li>
                             <a className="dropdown-item pb-3 fs-5" href="#">
-                              AUSTRALIAN
+                              Australian
                             </a>
                           </li>
                         </ul>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/accounts" ? "active" : ""
-                          }`}
-                          to="/accounts"
-                        >
-                          ACCOUNTS
-                        </Link>
                       </li>
 
                       <li className="mt-md-5 nav-item">
@@ -265,7 +240,7 @@ const Header = () => {
                 </div>
               </div>
               {/* Logo */}
-              <div className="col-md-4 col-6 ">
+              <div className="col-md-3">
                 <img
                   src="../assets/images/winterbear-logo.png"
                   className="d-block mx-auto img-fluid"
@@ -273,10 +248,10 @@ const Header = () => {
                 />
               </div>
               {/* Login/Register and Cart Icons */}
-              <div className="col-md-4 d-md-block d-none  text-start mt-4 mt-md-0">
-                <div className="row">
-                  <div className="col-md-4 offset-md-2">
-                    <form
+              <div className="col-md-5 d-md-block d-none  text-start mt-md-0">
+                <div className="row d-flex justify-content-between">
+                  <div className="col-md-4">
+                    <form 
                       className="row-cols-lg-auto  align-items-center form"
                       role="search"
                     >
@@ -284,22 +259,23 @@ const Header = () => {
                       <input
                         type="text"
                         className="form-control form-input bg-white"
-                        placeholder="Search anything..."
+                        placeholder="Search"
                       />
                     </form>
+                    
                   </div>
-                  <div className="col-md-6">
-                    <div className="text-end pe-1">
+                  <div className="col-md-8 mt-1">
+                    <div className="text-end">
                       <div>
                         <div className="me-3 my-2">
-                          <a href="#" className="text-decoration-none px-1">
+                          <a href="/login" className="text-decoration-none">
                             Login
                           </a>{" "}
                           |{" "}
-                          <a href="#" className="text-decoration-none  px-1">
+                          <a href="#" className="text-decoration-none">
                             Register
                           </a>
-                          <a href="#" className="text-decoration-none ps-1">
+                          <a href="#" className="text-decoration-none">
                             <i className="fa-solid fa-bag-shopping" />
                           </a>
                         </div>
@@ -308,6 +284,7 @@ const Header = () => {
                     </div>
                   </div>
                 </div>
+                
               </div>
             </div>
           </div>
