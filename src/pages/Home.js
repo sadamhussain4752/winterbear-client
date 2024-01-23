@@ -10,6 +10,7 @@ import BrandSlider from "../components/BrandSlider";
 import { fetchBannerData, fetchProductData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
+import ShopBy from "../components/ShopBy";
 const Home = () => {
   const dispatch = useDispatch();
   // Destructuring with different names to avoid conflict
@@ -39,9 +40,9 @@ const Home = () => {
         {/* Content Section */}
         <HomeSlider />
 
-        <BrandSlider />
-
-        <section className="py-5">
+        <BrandSlider  customClass="section body-bg" containerClass="container-fluid " />
+     
+        <section className="body-bg section">
           <div className="container">
             <div className="heading  "> Our Collection </div>
             <div className="row">
@@ -58,6 +59,8 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        <ShopBy />
         <section className="py-5 shop">
           <div className="container-fluid">
             <div className="row">

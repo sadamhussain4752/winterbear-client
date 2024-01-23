@@ -6,11 +6,11 @@ import "owl.carousel/dist/assets/owl.theme.green.css";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 
-const HomeSlider = () => {
+const BrandSlider = ({ customClass, containerClass }) => {
   const { data, loading, error } = useSelector((state) => state.data);
   return (
-    <section className="py-5">
-      <div className="container-fluid px-3">
+    <section className={`${customClass}`}>
+      <div className={` ${containerClass}`}>
         <OwlCarousel
           className="owl-theme"
           loop
@@ -54,4 +54,4 @@ const HomeSlider = () => {
   );
 };
 
-export default HomeSlider;
+export default BrandSlider;

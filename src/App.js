@@ -9,6 +9,7 @@ import ShopAll from "./pages/Shopall";
 import Login from "./pages/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import EventsSection from "./pages/Events";
+import MyAccount from "./pages/Account";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/events" element={<EventsSection />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/accounts" element={<MyAccount />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>

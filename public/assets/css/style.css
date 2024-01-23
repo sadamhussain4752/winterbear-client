@@ -1,11 +1,12 @@
 body {
     font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
 }
 
 .top-header {
-    padding: 5px 5px;
+   
+    padding: 20px 0;
 }
 
 .top-header .lang {
@@ -207,23 +208,21 @@ input {
     font-size: 80px;
     font-weight: 400;
     line-height: normal;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     /* Add margin for spacing */
 }
 
 .heading::after {
     content: '';
-    background-image: url('../images/Winterbear-Purple-Logo.png');
-    background-size: contain;
     position: absolute;
-    top: -33%;
+    bottom: 0%;
     left: 50%;
     transform: translateX(-50%);
-    width: 50%;
+    width: 33%;
     height: 136px;
     display: block;
     background-repeat: no-repeat;
-    border-bottom: 5px solid #221A42;
+    border-bottom: 2px solid #221A42;
 }
 
 .collection-box {
@@ -366,6 +365,7 @@ footer ul a {
 .copy-rights-img {
     height: 18vh;
     position: relative;
+    margin: 25px 0;
 }
 
 .copy-rights-img img {
@@ -500,35 +500,21 @@ footer ul a {
     padding-bottom: 50px;
 }
 
-.tile-1 .item {
-    width: 280px;
-    margin: 5px;
+
+
+.cart-item  {
     position: relative;
     overflow: hidden;
+    margin: 10px 5px;
 }
 
-.tile-1 .item img {
+.cart-item img {
     width: 100%;
     height: auto;
     transition: transform 0.3s;
 }
 
-/*.tile-1 .item:hover img {
-transform: scale(1.1);
-}*/
 
-/*.add-to-cart {
-position: absolute;
-bottom: -68px;
-left: 50%;
-transform: translateX(-50%);
-background-color: #D9D9D9;
-color: #221A42;
-padding: 10px;
-border-radius: 5px;
-cursor: pointer;
-width: 77%;
-}*/
 
 
 .add-to-cart {
@@ -538,11 +524,12 @@ width: 77%;
     transform: translate(-50%, 50%);
     background-color: #D9D9D9;
     color: #221A42;
-    padding: 10px;
+    padding: 3px 6px;
     border-radius: 5px;
     cursor: pointer;
-    width: 77%;
+    width: 150px;
     text-align: center;
+    display: none;
     /* Align text to the center */
     transition: bottom 0.5s ease;
     /* Add smooth transition */
@@ -550,10 +537,19 @@ width: 77%;
 
 .add-to-cart i {
     margin-right: 5px;
+    ;
 }
-
-.tile-1 .item:hover .add-to-cart {
-    bottom: 100px;
+.cart-item img:hover   {
+  opacity: .7;
+  background: rgba(0, 0, 0, 0.8);
+}
+.cart-item:hover .add-to-cart {
+    opacity: 1;
+    display: block;
+    bottom: 50%;
+    transform: translate(-50%);
+    max-width: 150px;
+    transition: transform 0.1s ease;
 }
 
 .sticky-logo-text {
@@ -571,24 +567,22 @@ width: 77%;
 }
 
 .sticky-logo-1 {
-    display: flex;
-    height: 75px;
+    display: block;
+    max-width: 180px !important;
     padding: 0 1rem;
     position: sticky;
     top: 15%;
     transition: transform 0.3s ease-in-out;
+    margin: 0 auto;
 }
+
+
 
 
 
 .sticky.stick {
     transform: translateY(-75px);
 }
-
-.sticky-body {
-    position: sticky;
-    top: 0;
-  }
 
 /************************* About Page *************************/
 
@@ -770,12 +764,17 @@ width: 77%;
 }
 .shop-overlay:hover .add-to-cart-btn  {
     position: absolute;
-    bottom: 10%;;
+    bottom: 50% !important;
     transform: translate(-50%, 50%);
     left: 50%;
     transition: bottom 1.5s ease;
     border-radius: 5px;
     transition-timing-function: ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: bottom 0.5s ease;
 }
 .shop-container:hover .shop-overlay {
     opacity: 1;
@@ -811,8 +810,8 @@ width: 77%;
 .form .fa-search{
 
     position: absolute;
-    top:10px;
-    left: 20px;
+    top:14px;
+    left: 12px;
     color: #9ca3af;
 
 }
@@ -837,13 +836,10 @@ width: 77%;
 }
 
 .form-input{
-    height: 32px;
-    width: 237px;
+
+    height: 40px;
     text-indent: 20px;
     border-radius: 10px;
-    margin: 10px 0px 0px 10px;
-    background-color: #FFE5E5 !important;
-    
 }
 
 .form-input:focus{
@@ -869,15 +865,94 @@ width: 77%;
   .left-20 {position:absolute;left:20%;z-index: 2}
   .left--20 {position:absolute;left:48%;z-index: 2}
 
-  .margin-height{
-    margin-top: 10%;
+
+/* My Account styling (thilak)  */
+
+
+.myaccount {
+    padding-top: 10%;
+}
+
+.bgg {
+    background-color: #F5F5F5;
+    padding: 4%;
+}
+
+.cmfont{
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+}
+
+.co3seg{
+    border-right: 1px solid #C2C2C2;
+}
+
+.card {
+    padding: 30px 40px;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #4e3c98 !important;
+    color: white !important;
+}
+
+.accBtn{
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000 !important;
+}
+
+.form-control-label{
+    font-size: 18px;
+    text-align: left;
+    text-transform: capitalize;
+    padding-bottom: 2%;
+    color: #000 ;
+}
+
+.form-card input{
+    margin-bottom: 4%;
+    background-color: #F5F5F5 !important;
+    border-radius: 10px;
+    border: none;
+    height: 40px;
+    padding-left: 4%;
+}
+
+.btnn{
+    border-radius: 40px;
+    background-color: #F5F5F5;
+    border: none;
+    margin-right: 5%;
+    font-size: 16px;
+    padding: 1% 4%;
+}
+
+.btnn1{
+    border-radius: 40px;
+    background-color:#221A42;
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 1% 5%;
+}
+  /* wokr by thilak */
+  .section {padding:40px 0}
+  .body-bg {background: #E1E6F2 !important;}
+
+  @media only screen and (max-width:768px) {
+    .heading::after {bottom:0 !important;width: 80%;}
+    .sticky-logo-1 {min-height: 180px;position: relative;}
+    .sticky-logo-1 img {width: auto !important;}
+    .footer-heading {text-align: center;padding:30px 0}
+    .footer-heading h4{padding:15px 0}
+    .copy-rights-img img {left: auto;}
   }
 
-  .width-dynimc{
-    width: 60%  !important;
-  }
-
-  .text-decoration-none {
-    margin: 10px 10px 10px 10px;
-  }
-
+  .faqs .accordion-button:not(.collapsed) {background: none;}
