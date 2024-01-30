@@ -7,8 +7,12 @@ import Stores from "./pages/Stores";
 import Faqs from "./pages/Faqs";
 import ShopAll from "./pages/Shopall";
 import Login from "./pages/Login";
+import Account from "./pages/Account";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import EventsSection from "./pages/Events";
+import Product from "./pages/Product";
+import Checkout from "./pages/Checkout";
+import Payment from "./pages/Payment";
 
 const App = () => {
   return (
@@ -23,6 +27,11 @@ const App = () => {
           <Route path="/events" element={<EventsSection />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/cart" element={<Checkout />} />
+          <Route path="/checkout" element={<Payment />} />
+          <Route path="/product/:id" element={<Product />} />
         </Routes>
       </Router>
     </div>

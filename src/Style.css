@@ -705,3 +705,22 @@ width: 77%;
 .store-box img{
     width: 175px;
 }
+
+.form-control{
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.bg-input{
+    background-color: "#F5F5F5" !important;
+  }
+  .product-item {
+    display: flex;
+    flex-direction: row;
+    width: 50% !important;
+    background-color: 'red' !important;
+  }
+  

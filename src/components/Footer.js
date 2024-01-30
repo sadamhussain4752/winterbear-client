@@ -33,7 +33,7 @@ const Footer = () => {
                 <div className="col-md-6 col-6">
                   <ul>
                     <li>
-                      <a href="#">my account</a>
+                      <a href="/account">my account</a>
                     </li>
                     <li>
                       <a href="#">wishlist</a>

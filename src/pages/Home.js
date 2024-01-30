@@ -9,15 +9,21 @@ import HomeSlider from "../components/HomeSlider";
 import BrandSlider from "../components/BrandSlider";
 import { fetchBannerData, fetchProductData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+
+
 import constant from "../constant/constant";
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   // Destructuring with different names to avoid conflict
   const {
     data,
     loading: bannerLoading,
     error: bannerError,
   } = useSelector((state) => state.data);
+  
 
   const {
     productlist,
@@ -28,6 +34,13 @@ const Home = () => {
 
   document.title = "Winter Bear";
   document.getElementsByTagName("META")[2].content = "Winter Bear";
+
+
+
+  const handleNavigation = (productId) => {
+    // Navigate to the specified product id
+    navigate(`/product/${productId}`);
+  };
   useEffect(() => {
     dispatch(fetchBannerData());
     dispatch(fetchProductData());
@@ -276,7 +289,7 @@ const Home = () => {
                                 <span className="text-white">
                                   {prod.name} ₹{prod.amount}
                                 </span>
-                                <div className="add-to-cart">
+                                <div className="add-to-cart" onClick={() => handleNavigation(prod._id)}>
                                   <i className="fas fa-cart-plus" /> Add to Cart
                                 </div>
                               </div>

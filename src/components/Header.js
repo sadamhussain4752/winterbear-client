@@ -5,9 +5,52 @@ import { Link, useLocation } from "react-router-dom";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import Google from "../constant/images/google.svg";
+import RegisterModal from "./RegisterModal";
+import LoginModal from "./LoginModal";
+import { ProfileUserData } from "../reducer/thunks";
+import { useDispatch, useSelector } from "react-redux";
+import { message } from "antd/es";
+import { IoIosLogIn } from "react-icons/io";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  let userId = localStorage.getItem("userId");
   const [navbarBg, setNavbarBg] = useState("bg-white");
+  const [modalVisible, setModalVisible] = useState(false);
+  const [loginVisible, setLoginVisible] = useState(false);
+  const {
+    loading: getprofileUserLoading,
+    loginerror: getprofileUserError,
+    getprofile: getUserResponse,
+  } = useSelector((state) => state.getprofile);
+  const handleOpenLogin = () => {
+    setLoginVisible(true);
+  };
+
+  const handleCloseLogin = () => {
+    setLoginVisible(false);
+  };
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+  useEffect(() => {
+    console.log(userId, "userId");
+    if (userId !== undefined || userId !== null) {
+      dispatch(ProfileUserData(userId));
+    }
+    // if (getUserResponse) {
+    //   const { firstname, lastname } = getUserResponse.User;
+    //   message.success(`Welcome ${firstname} ${lastname}`, 5);
+    // }
+  }, []);
+
   const location = useLocation();
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
@@ -30,6 +73,7 @@ const Header = () => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <>
       <header>
@@ -42,7 +86,7 @@ const Header = () => {
                 <div class="container-fluid ">
                   <div className="row">
                     <div className="col-md-3 col-12">
-                    <button
+                      <button
                         className="btn navbar  navbar-toggler border-0 "
                         data-bs-toggle="offcanvas"
                         href="#offcanvasExample"
@@ -53,12 +97,14 @@ const Header = () => {
                       </button>
                     </div>
                     <div className="col-md-9 d-none d-md-block mt-2">
-                    <Link className="ps-1 fs-6 fw-bold text-main text-decoration-none " to="/shop" >
+                      <Link
+                        className="ps-1 fs-6 fw-bold text-main text-decoration-none "
+                        to="/shop"
+                      >
                         SHOP ALL
                       </Link>
                     </div>
                   </div>
-                  
                 </div>
 
                 <div
@@ -170,7 +216,7 @@ const Header = () => {
                           STORES
                         </Link>
                       </li>
-                      <li className="nav-item dropdown">
+                      {/* <li className="nav-item dropdown">
                         <a
                           className="nav-link pb-3 fs-5 dropdown-toggle"
                           href="#"
@@ -203,7 +249,7 @@ const Header = () => {
                             </a>
                           </li>
                         </ul>
-                      </li>
+                      </li> */}
 
                       <li className="mt-md-5 nav-item">
                         <Link
@@ -251,7 +297,7 @@ const Header = () => {
               <div className="col-md-5 d-md-block d-none  text-start mt-md-0">
                 <div className="row d-flex justify-content-between">
                   <div className="col-md-4">
-                    <form 
+                    <form
                       className="row-cols-lg-auto  align-items-center form"
                       role="search"
                     >
@@ -262,167 +308,61 @@ const Header = () => {
                         placeholder="Search"
                       />
                     </form>
-                    
                   </div>
                   <div className="col-md-8 mt-1">
                     <div className="text-end">
                       <div>
-                        <div className="me-3 my-2">
-                          <a href="/login" className="text-decoration-none">
-                            Login
-                          </a>{" "}
-                          |{" "}
-                          <a href="#" className="text-decoration-none">
-                            Register
-                          </a>
-                          <a href="#" className="text-decoration-none">
-                            <i className="fa-solid fa-bag-shopping" />
-                          </a>
+                        <div className=" my-2">
+                          {getUserResponse && getUserResponse.User ? (
+                            <>
+                              <a>{getUserResponse.User.firstname}</a> <a></a>
+                              <a
+                                href="/cart"
+                                className="text-decoration-none"
+                              >
+                                <i className="fa-solid fa-bag-shopping" />
+                              </a>
+                            </>
+                          ) : (
+                            <>
+                              <a
+                                style={{ cursor: "pointer" }}
+                                onClick={handleOpenLogin}
+                                className="text-decoration-none"
+                              >
+                                Login
+                              </a>{" "}
+                              |{" "}
+                              <a
+                                style={{ cursor: "pointer" }}
+                                onClick={handleOpenModal}
+                                className="text-decoration-none"
+                              >
+                                Register
+                              </a>
+                              <a
+                                href="/cart"
+                                className="text-decoration-none"
+                              >
+                                <i className="fa-solid fa-bag-shopping" />
+                              </a>
+                            </>
+                          )}
                         </div>
-                        <div></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>
         </div>
-        {/* Main Header 
-        <div className="main-header d-none" id="mainHeader">
-          <nav className={`navbar navbar-expand-md bg-theme ${navbarBg} `}>
-            <div className="container-fluid">
-              <a className="navbar-brand" href="#">
-                <img src="..." alt="" />
-              </a>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="navbar-toggler-icon" />
-              </button>
-              <div
-                className="collapse navbar-collapse"
-                id="navbarSupportedContent"
-              >
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        location.pathname === "/" ? "active" : ""
-                      }`}
-                      to="/"
-                    >
-                      HOME
-                    </Link>
-                  </li>
-                  <li className="nav-item dropdown">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      SHOP ALL
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          ACTION
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          ANOTHER ACTION
-                        </a>
-                      </li>
-                      <li>
-                        <hr className="dropdown-divider" />
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          SOMETHING ELSE HERE
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        location.pathname === "/" ? "active" : ""
-                      }`}
-                      to="/about"
-                    >
-                      ABOUT
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        location.pathname === "/" ? "active" : ""
-                      }`}
-                      to="/faqs"
-                    >
-                      FAQs
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        location.pathname === "/" ? "active" : ""
-                      }`}
-                      to="/events"
-                    >
-                      EVENT
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        location.pathname === "/" ? "active" : ""
-                      }`}
-                      to="/stores"
-                    >
-                      STORES
-                    </Link>
-                  </li>
-                </ul>
-                <div className="search-and-icons">
-                  <form className="d-flex" role="search">
-                    <input
-                      className="form-control me-2"
-                      type="search"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                  </form>
-                  <div className="user-icons d-flex">
-                    <div className="account">
-                      <i className="bi bi-person" />
-                    </div>
-                    <div className="wishlist">
-                      <i className="bi bi-heart" />
-                    </div>
-                    <div className="cart">
-                      <i className="bi bi-cart3" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-        */}
       </header>
+      <>
+        <LoginModal visible={loginVisible} onClose={handleCloseLogin} />
+
+        <RegisterModal visible={modalVisible} onClose={handleCloseModal} />
+      </>
     </>
   );
 };
