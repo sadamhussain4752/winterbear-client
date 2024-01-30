@@ -9,8 +9,7 @@ import HomeSlider from "../components/HomeSlider";
 import BrandSlider from "../components/BrandSlider";
 import { fetchBannerData, fetchProductData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 import constant from "../constant/constant";
 const Home = () => {
@@ -23,7 +22,6 @@ const Home = () => {
     loading: bannerLoading,
     error: bannerError,
   } = useSelector((state) => state.data);
-  
 
   const {
     productlist,
@@ -34,8 +32,6 @@ const Home = () => {
 
   document.title = "Winter Bear";
   document.getElementsByTagName("META")[2].content = "Winter Bear";
-
-
 
   const handleNavigation = (productId) => {
     // Navigate to the specified product id
@@ -88,7 +84,7 @@ const Home = () => {
                   if (!item || !item.products || item.products.length === 0)
                     return null;
                   return (
-                    <div className="sticky-body">
+                    <div className="row ">
                       <div
                         className="col-md-10 bg-theme tile-1"
                         id={`sticky1${index}`}
@@ -101,7 +97,7 @@ const Home = () => {
                           >
                             <li className="nav-item" role="presentation">
                               <button
-                                className="nav-link  fw-semibold  position-relative rounded-pill  "
+                                className="nav-link  fw-semibold  position-relative rounded-pill active "
                                 id="pills-koya-tab"
                                 data-bs-toggle="pill"
                                 data-bs-target="#pills-koya"
@@ -198,18 +194,53 @@ const Home = () => {
                                 COOKY
                               </button>
                             </li>
+
                           </ul>
                           <div
                             className="tab-content text-white px-3"
                             id="pills-tabContent"
                           >
                             <div
-                              className="tab-pane fade  "
+                              className="tab-pane fade active show "
                               id="pills-koya"
                               role="tabpanel"
                               aria-labelledby="pills-koya-tab"
                             >
-                              <p className="text-white">hello</p>
+                              <div className="row">
+                                
+                                  {item &&
+                                    item.products &&
+                                    item.products
+                                      .slice(0, 6)
+                                      .map((prod, ind) => (
+                                        <div className="item koya mb-3 col-md-3">
+                                          {" "}
+                                          {/* Add appropriate classes for filtering */}
+                                          <img
+                                            src={
+                                              prod.images[0] !== null &&
+                                              prod.images[0] !== "image_url1"
+                                                ? `${constant.baseUrl}${prod.images[0]}`
+                                                : "assets/images/Rectangle 22.png"
+                                            }
+                                            alt="Web Project 1"
+                                          />
+                                          <span className="text-white">
+                                            {prod.name} ₹{prod.amount}
+                                          </span>
+                                          <div
+                                            className="add-to-cart"
+                                            onClick={() =>
+                                              handleNavigation(prod._id)
+                                            }
+                                          >
+                                            <i className="fas fa-cart-plus" />{" "}
+                                            Add to Cart
+                                          </div>
+                                        </div>
+                                      ))}
+                               
+                              </div>
                             </div>
 
                             <div
@@ -268,20 +299,18 @@ const Home = () => {
                           </div>
                         </div>
 
-                        <div className="portfolio">
+                     {/*}   <div className="portfolio">
                           {item &&
                             item.products &&
                             item.products.slice(0, 6).map((prod, ind) => (
-                              <div className="item koya">
+                              <div className="item koya mb-3">
                                 {" "}
-                                {/* Add appropriate classes for filtering */}
+                               
                                 <img
-                                
                                   src={
-                                    
                                     prod.images[0] !== null &&
                                     prod.images[0] !== "image_url1"
-                                      ?`${constant.baseUrl}${prod.images[0]}`  
+                                      ? `${constant.baseUrl}${prod.images[0]}`
                                       : "assets/images/Rectangle 22.png"
                                   }
                                   alt="Web Project 1"
@@ -289,22 +318,31 @@ const Home = () => {
                                 <span className="text-white">
                                   {prod.name} ₹{prod.amount}
                                 </span>
-                                <div className="add-to-cart" onClick={() => handleNavigation(prod._id)}>
+                                <div
+                                  className="add-to-cart"
+                                  onClick={() => handleNavigation(prod._id)}
+                                >
                                   <i className="fas fa-cart-plus" /> Add to Cart
                                 </div>
                               </div>
                             ))}
-                        </div>
+                        </div> */}
                       </div>
                       <div className="col-md-2 g-0 bg-white sticky">
                         <div className="sticky-logo-1">
-                          <img
+                          <div className="row">
+                            <div className="col-12">
+                            <img
                             src="assets/images/client-logo.png"
-                            className="w-75 d-block mx-auto"
+                            className="w-75 d-block mx-auto my-3"
                           />
                           <p className="sticky-logo-text mt-3">
                             View the collection
                           </p>
+                            </div>
+                          </div>
+                         
+                          
                         </div>
                       </div>
                     </div>

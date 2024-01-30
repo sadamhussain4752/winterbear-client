@@ -32,7 +32,7 @@ const ShopAll = () => {
     <>
       <Header />
 
-      <section className="py-5 shop">
+      <section className="section shop mt-120">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-12">

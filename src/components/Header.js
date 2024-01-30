@@ -80,9 +80,9 @@ const Header = () => {
         {/* Top Header */}
         <div className="top-header fixed-top shadow-sm bg-white">
           <div className="container-fluid px-5">
-            <div className="row align-items-center p-2">
+            <div className="row align-items-center">
               {/* Language Selection */}
-              <div className="col-md-4 col-6 ps-md-5 ps-1 order-first text-left  border-0 shadow-none">
+              <div className="col-md-4 col-6 ps-md-5 ps-1  text-left  border-0 shadow-none">
                 <div class="container-fluid ">
                   <div className="row">
                     <div className="col-md-3 col-12">
@@ -286,7 +286,7 @@ const Header = () => {
                 </div>
               </div>
               {/* Logo */}
-              <div className="col-md-3">
+              <div className="col-md-4 col-6">
                 <img
                   src="../assets/images/winterbear-logo.png"
                   className="d-block mx-auto img-fluid"
@@ -294,31 +294,73 @@ const Header = () => {
                 />
               </div>
               {/* Login/Register and Cart Icons */}
-              <div className="col-md-5 d-md-block d-none  text-start mt-md-0">
-                <div className="row d-flex justify-content-between">
-                  <div className="col-md-4">
+              <div className="col-md-4 d-md-block d-none  text-start mt-4 mt-md-0">
+                <div className="row">
+                  <div className="col-md-4 offset-md-1">
                     <form
-                      className="row-cols-lg-auto  align-items-center form"
+                   className="row-cols-lg-auto  align-items-center form"
                       role="search"
                     >
                       <i className="fa fa-search"></i>
                       <input
                         type="text"
-                        className="form-control form-input bg-white"
+                        className="form-control form-input input border-0 px-3"
                         placeholder="Search"
                       />
                     </form>
                   </div>
-                  <div className="col-md-8 mt-1">
-                    <div className="text-end">
+                  <div className="col-md-7">
+                  <div className="dropdown text-end d-none">
+                      <a
+                        href="#"
+                        className="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <img
+                          src="https://github.com/mdo.png"
+                          alt="mdo"
+                          width={32}
+                          height={32}
+                          className="rounded-circle"
+                        />{" "}
+                        <strong className="px-3">Mitash</strong>
+                      </a>
+                      <ul className="dropdown-menu text-small">
+                        <li>
+                          <a className="dropdown-item" href="#">
+                            New project...
+                          </a>
+                        </li>
+                        <li>
+                          <a className="dropdown-item" href="#">
+                            Settings
+                          </a>
+                        </li>
+                        <li>
+                          <Link className={`dropdown-item`} to="/Profile">
+                            Profile
+                          </Link>
+                        </li>
+                        <li>
+                          <hr className="dropdown-divider" />
+                        </li>
+                        <li>
+                          <a className="dropdown-item" href="#">
+                            Sign out
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="text-center pe-1  ">
                       <div>
-                        <div className=" my-2">
+                        <div className="me-1 my-2">
                           {getUserResponse && getUserResponse.User ? (
                             <>
                               <a>{getUserResponse.User.firstname}</a> <a></a>
                               <a
                                 href="/cart"
-                                className="text-decoration-none"
+                                className="text-decoration-none px-1"
                               >
                                 <i className="fa-solid fa-bag-shopping" />
                               </a>
@@ -328,7 +370,7 @@ const Header = () => {
                               <a
                                 style={{ cursor: "pointer" }}
                                 onClick={handleOpenLogin}
-                                className="text-decoration-none"
+                                className="text-decoration-none px-1"
                               >
                                 Login
                               </a>{" "}
@@ -336,13 +378,13 @@ const Header = () => {
                               <a
                                 style={{ cursor: "pointer" }}
                                 onClick={handleOpenModal}
-                                className="text-decoration-none"
+                                className="text-decoration-none px-1"
                               >
                                 Register
                               </a>
                               <a
                                 href="/cart"
-                                className="text-decoration-none"
+                                className="text-decoration-none ps-3"
                               >
                                 <i className="fa-solid fa-bag-shopping" />
                               </a>

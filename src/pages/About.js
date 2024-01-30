@@ -16,7 +16,7 @@ const About = () => {
         className="breadcum mt-80"
         style={backgroundImageStyle}
       >
-        <div className="about-breadcum-content d-md-block d-none">
+        <div className="about-breadcum-content d-md-block d-none " >
           <div className="row justify-content-center">
             <div className="col-md-12">
               <h3>Step into the K-pop Style Realm</h3>
@@ -28,7 +28,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <section className="py-5">
+      <section className="section ">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12">
@@ -73,7 +73,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="py-5">
+      <section className="section">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12">
