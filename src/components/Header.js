@@ -296,9 +296,9 @@ const Header = () => {
               {/* Login/Register and Cart Icons */}
               <div className="col-md-4 d-md-block d-none  text-start mt-4 mt-md-0">
                 <div className="row">
-                  <div className="col-md-4 offset-md-1">
+                  <div className="col-md-4">
                     <form
-                   className="row-cols-lg-auto  align-items-center form"
+                      className="row-cols-lg-auto  align-items-center form"
                       role="search"
                     >
                       <i className="fa fa-search"></i>
@@ -309,55 +309,55 @@ const Header = () => {
                       />
                     </form>
                   </div>
-                  <div className="col-md-7">
-                  <div className="dropdown text-end d-none">
-                      <a
-                        href="#"
-                        className="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <img
-                          src="https://github.com/mdo.png"
-                          alt="mdo"
-                          width={32}
-                          height={32}
-                          className="rounded-circle"
-                        />{" "}
-                        <strong className="px-3">Mitash</strong>
-                      </a>
-                      <ul className="dropdown-menu text-small">
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            New project...
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Settings
-                          </a>
-                        </li>
-                        <li>
-                          <Link className={`dropdown-item`} to="/Profile">
-                            Profile
-                          </Link>
-                        </li>
-                        <li>
-                          <hr className="dropdown-divider" />
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Sign out
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                  <div className="col-md-8">
+                   
                     <div className="text-center pe-1  ">
                       <div>
                         <div className="me-1 my-2">
                           {getUserResponse && getUserResponse.User ? (
                             <>
-                              <a>{getUserResponse.User.firstname}</a> <a></a>
+                              <a
+                                href="#"
+                                className="link-body-emphasis text-decoration-none dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+                                <img
+                                  src="https://github.com/mdo.png"
+                                  alt="mdo"
+                                  width={32}
+                                  height={32}
+                                  className="rounded-circle"
+                                />{" "}
+                                <strong className="px-1">
+                                  {getUserResponse.User.firstname}
+                                </strong>
+                              </a>
+
+                              <ul className="mt-3 dropdown-menu text-small">
+                               
+                                <li>
+                                  <a className="dropdown-item" href="#">
+                                    Settings
+                                  </a>
+                                </li>
+                                <li>
+                                  <Link
+                                    className={`dropdown-item`}
+                                    to="/Profile"
+                                  >
+                                    Profile
+                                  </Link>
+                                </li>
+                                <li>
+                                  <hr className="dropdown-divider" />
+                                </li>
+                                <li>
+                                  <a className="dropdown-item" href="#">
+                                    Sign out
+                                  </a>
+                                </li>
+                              </ul>
                               <a
                                 href="/cart"
                                 className="text-decoration-none px-1"
