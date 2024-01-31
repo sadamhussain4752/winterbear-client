@@ -11,7 +11,7 @@ import Order from "../components/Order";
 const Account = () => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
-  const [activeTab, setActiveTab] = useState("order");
+  const [activeTab, setActiveTab] = useState("profile");
 
   const [loginData, setLoginData] = useState({
     firstName: "",
@@ -70,16 +70,19 @@ const Account = () => {
       case "order":
         return <Order />;
       case "logout":
-        return logoutfuntion();
+        return logoutFunction();
       default:
         return null; // Return null or any default component for unknown cases
     }
   };
   
- const logoutfuntion = () =>{
-    localStorage.removeItem('userId')
-    window.reload()
-  }
+  const logoutFunction = () => {
+    localStorage.removeItem('userId');
+    window.location.reload();
+    window.location.href = "/";
+
+
+  };
   
 
 

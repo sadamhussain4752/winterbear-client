@@ -34,6 +34,8 @@ const LoginModal = ({ visible, onClose }) => {
       console.log(loginUserResponse);
       localStorage.setItem('userId', loginUserResponse.userId);
       onClose();
+      window.location.reload();
+      window.location.href = "/";
     }
     if (loginUserError) {
       message.error(loginUserError, 5); // Display error message for 5 seconds
