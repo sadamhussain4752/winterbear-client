@@ -100,13 +100,13 @@ const Home = () => {
                                 className="nav-link  fw-semibold  position-relative rounded-pill active "
                                 id="pills-koya-tab"
                                 data-bs-toggle="pill"
-                                data-bs-target="#pills-koya"
+                                data-bs-target={`#pills-${item.brand.name}-koya`}
                                 type="button"
                                 role="tab"
                                 aria-controls="pills-koya"
                                 aria-selected="true"
                               >
-                                KOYA
+                                KOYA  {/*item.brand.name */}
                               </button>
                             </li>
                             <li className="nav-item" role="presentation">
@@ -202,7 +202,7 @@ const Home = () => {
                           >
                             <div
                               className="tab-pane fade active show "
-                              id="pills-koya"
+                              id={`pills-${item.brand.name}-koya`}
                               role="tabpanel"
                               aria-labelledby="pills-koya-tab"
                             >
@@ -335,6 +335,7 @@ const Home = () => {
                             <img
                             src="assets/images/client-logo.png"
                             className="w-75 d-block mx-auto my-3"
+                            alt={`${item.brand.name}`}
                           />
                           <p className="sticky-logo-text mt-3">
                             View the collection
