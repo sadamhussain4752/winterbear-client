@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
     <Newsletter />
-    <footer className="">
+    <footer className="footercard">
       <div className="container">
         <div className="row">
           <div className="col-md-4">

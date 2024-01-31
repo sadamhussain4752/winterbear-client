@@ -12,6 +12,27 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Nav, Tab } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
+import MultiCarousel from "../components/MultiCarousel";
+const options = {
+  // loop: true,
+  // center: true,
+  items: 2,
+  margin: 0,
+  autoplay: false,
+  dots: false,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 3,
+    },
+    1000: {
+      items: 3,
+    },
+  },
+};
 
 
 const Product = () => {
@@ -62,17 +83,40 @@ const Product = () => {
     const product = GetProductIdResponse?.Products || {};
 
     return (
-      <OwlCarousel className="owl-theme" loop margin={10} items={1}>
-        {product.images &&
-          product.images.map((image, index) => (
-            <div key={index} className="item">
-              <img
-                src={`${constant.baseUrl}${image}`}
-                alt={`Product Image ${index}`}
-              />
-            </div>
-          ))}
-      </OwlCarousel>
+      <>
+      <OwlCarousel className="owl-theme" loop margin={10} items={1} dots={false} nav={false}>
+      {product.images &&
+        product.images.map((image, index) => (
+          <div key={index} className="item">
+            <img
+              src={`${constant.baseUrl}${image}`}
+              alt={`Product Image ${index}`}
+            />
+          </div>
+        ))}
+    </OwlCarousel>
+    <div className="d-flex justify-content-center">
+    {product && product?.images &&  <MultiCarousel images={product?.images}/>}
+
+    </div>
+   
+   {/* <OwlCarousel className="owl-theme" loop margin={10} items={4} dots={false} nav={product.images && product.images.length > 4}>
+  {product.images &&
+    product.images.map((image, index) => (
+      <div key={index} className="item">
+        <img
+          src={`${constant.baseUrl}${image}`}
+          alt={`Product Image ${index}`}
+        />
+      </div>
+    ))}
+</OwlCarousel> */}
+
+
+
+      
+      </>
+      
     );
   };
 
@@ -101,8 +145,8 @@ const Product = () => {
 
     return (
       <div className="row mt-5" key={product.id}>
-        <div className="col-md-7">{renderProductImages()}</div>
-        <div className="col-md-5">
+        <div className="col-md-5">{renderProductImages()}</div>
+        <div className="col-md-7">
           <h3>{product.name}</h3>
           <p>Amount: ${product.amount}</p>
           <p>{product.description}</p>
@@ -206,6 +250,25 @@ const Product = () => {
       </OwlCarousel>
     );
   };
+
+  const renderImageProducts = () => {
+    const product = GetProductIdResponse?.Products || {};
+
+    return (
+      <OwlCarousel className="owl-theme"  loop margin={10} items={1}>
+        {product.images &&
+          product.images.map((image, index) => (
+            <div key={index} className="item">
+              <img
+                src={`${constant.baseUrl}${image}`}
+                alt={`Product Image ${index}`}
+              />
+            </div>
+          ))}
+      </OwlCarousel>
+    );
+  };
+
 
   return (
     <>
