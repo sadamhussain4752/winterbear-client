@@ -1226,6 +1226,92 @@ width: 77%;
     background-image: url(../../../src/constant/images/card.jpeg);
   }
     /* You may want to add more specific styling based on your design */
+
+    
+.myaccount {
+  padding-top: 10%;
+}
+
+.bgg {
+  background-color: #F5F5F5;
+  padding: 4%;
+}
+
+.cmfont{
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+}
+
+.co3seg{
+  border-right: 1px solid #C2C2C2;
+}
+
+.card {
+  padding: 30px 40px;
+  margin-top: 10px;
+  margin-bottom: 60px;
+  border: none !important;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: #4e3c98 !important;
+  color: white !important;
+}
+
+.accBtn{
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000 !important;
+}
+
+.form-control-label{
+  font-size: 18px;
+  text-align: left;
+  text-transform: capitalize;
+  padding-bottom: 15px;
+  color: #000 ;
+}
+
+.form-card input{
+  margin-bottom: 20px;
+  background-color: #F5F5F5 !important;
+  border-radius: 10px;
+  border: none;
+  height: 40px;
+  padding-left: 20px;
+}
+
+.btnn{
+  border-radius: 40px;
+  background-color: #F5F5F5;
+  border: none;
+  margin-right: 30px;
+  font-size: 16px;
+  padding: 15px 20px;
+}
+
+.btnn1{
+  border-radius: 40px;
+  background-color:#221A42;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 1% 5%;
+}
+/* wokr by thilak */
+.section {padding:40px 0}
+.body-bg {background: #E1E6F2 !important;}
+.faqs .accordion-button:not(.collapsed) {background: none;}
+.bg-pink {background: #FFE5E5; border: none !important;}
+.margin-bottom-120 {margin-bottom: 120px;}
+.margin-top--180 {margin-top: -180px;}
+.bg-light-green{background: #BEE5DE;}
+
+
+
     .section {padding:40px 0}
     .body-bg {background: #E1E6F2 !important;}
     .faqs .accordion-button:not(.collapsed) {background: none;}

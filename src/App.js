@@ -12,6 +12,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import EventsSection from "./pages/Events";
 import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
+import Wishlist from "./pages/Wishlist";
+import Address from "./pages/Address";
+
 import Payment from "./pages/Payment";
 
 const App = () => {
@@ -30,6 +33,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/account" element={<Account />} />
           <Route path="/cart" element={<Checkout />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/address" element={<Address />} />
           <Route path="/checkout" element={<Payment />} />
           <Route path="/product/:id" element={<Product />} />
         </Routes>
