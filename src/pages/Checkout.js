@@ -42,9 +42,7 @@ const Checkout = () => {
     }
   }, [DeleteAddcardUserRes, dispatch, userId]);
 
-  const handleUpdateQuantity = () =>{
-
-  }
+  const handleUpdateQuantity = () => {};
 
   const getTotalPrice = () => {
     return (
@@ -87,11 +85,112 @@ const Checkout = () => {
   // Dummy content for cart list
   const renderCartList = () => {
     return (
-      <div className="cart-list col-md-8 h-25">
-        <table className="mt-5">
+      <div className="section  cart-list col-md-8 col-12  ">
+        <div className="px-3 py-3 bg-white">
+          <div className="row pb-1 border-bottom  border-2">
+            <div className="col-md-4 col-3 text-left">
+              {" "}
+              <strong>Product</strong>{" "}
+            </div>
+            <div className="col-md-2  col-3  text-center">
+              <strong>Price</strong>
+            </div>
+            <div className="col-md-2 col-3  text-center">
+              <strong>Quantity</strong>
+            </div>
+            <div className="col-md-2 col-3  text-center">
+              <strong>Price</strong>
+            </div>
+            <div className="col-md-2 col-3  text-center">
+              <strong>Action</strong>
+            </div>
+          </div>
+
+          {GetAddcardUserRes?.AddCarts &&
+            GetAddcardUserRes.AddCarts.map((item) => (
+              <div
+                className="row my-3 pb-1 border-bottom  border-2"
+                key={item.id}
+              >
+                <div className="col-md-4">
+                  {" "}
+                  <strong>
+                    {" "}
+                    <div className="row text-left">
+                      <div className="col-12 col-md-5 my-1">
+                        <img
+                          className="d-block mx-auto img-fluid img-thumbnail "
+                          src={`${constant.baseUrl}${item?.product?.images[0]}`}
+                          alt={`Product Image ${item.product.name}`}
+                          style={
+                            {
+                              /* width: "80px", height: "80px" */
+                            }
+                          }
+                        />
+                      </div>
+                      <div className="col-12  col-md-7">
+                        {item.product.name}
+                      </div>
+                    </div>
+                  </strong>{" "}
+                </div>
+                <div className="col-md-2 text-center my-1 d-flex justify-content-center align-items-center">
+                  <strong>${item.product.amount}</strong>
+                </div>
+                <div className="col-md-2 text-center bg-light my-1  d-flex justify-content-center align-items-center">
+                  <strong>
+                    {" "}
+                    <div className="quantity-col border text-center ">
+                      <button
+                        className="quantity-btn   px-1 "
+                        onClick={() =>
+                          handleUpdateQuantity(
+                            item.product.id,
+                            item.quantity - 1
+                          )
+                        }
+                        disabled={item.quantity <= 1}
+                      >
+                        -
+                      </button>
+                      <span className="quantity   px-2 ">{item.quantity}</span>
+                      <button
+                        className="quantity-btn  px-1 "
+                        onClick={() =>
+                          handleUpdateQuantity(
+                            item.product.id,
+                            item.quantity + 1
+                          )
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
+                  </strong>
+                </div>
+                <div className="col-md-2 text-center d-flex justify-content-center align-items-center my-1">
+                  <strong>${item.quantity * item.product.amount}</strong>
+                </div>
+                <div className="col-md-2 my-3 text-center">
+                  <strong>
+                    {" "}
+                    <button
+                      className="delete-button btn button d-flex justify-content-center align-items-center my-1"
+                      onClick={() => handleRemoveItem(item._id)}
+                    >
+                      Delete
+                    </button>
+                  </strong>
+                </div>
+              </div>
+            ))}
+        </div>
+
+      {/*  <table className=" table  mt-2 px-3 px-md-5">
           <thead>
             <tr className="border-bottom">
-              <th >Products</th>
+              <th>Products</th>
               <th className="product-amount text-center">Price</th>
               <th className="product-amount text-center">Quantity</th>
               <th className="product-amount text-center">Price</th>
@@ -103,22 +202,27 @@ const Checkout = () => {
               GetAddcardUserRes.AddCarts.map((item) => (
                 <tr key={item.id}>
                   <td>
-                    <div className="product-item mt-4">
-                      <div className="product-image w-75">
-                        <img
-                          src={`${constant.baseUrl}${item?.product?.images[0]}`}
-                          alt={`Product Image ${item.product.name}`}
-                          style={{ width: "80px", height: "80px" }}
-                        />
-                      </div>
-                      <div className="product-details ">
-                        <span className="product-name">
-                          {item.product.name}
-                        </span>
+                    <div className="product-item ">
+                      <div className="row">
+                        <div className="col-6">
+                          <img
+                            className="d-block mx-auto img-fluid"
+                            src={`${constant.baseUrl}${item?.product?.images[0]}`}
+                            alt={`Product Image ${item.product.name}`}
+                            style={
+                              {
+                                 width: "80px", height: "80px" 
+                              }
+                            }
+                          />
+                        </div>
+                        <div className="col-6">{item.product.name}</div>
                       </div>
                     </div>
                   </td>
-                  <td className="product-amount text-center">${item.product.amount}</td>
+                  <td className="product-amount text-center">
+                    ${item.product.amount}
+                  </td>
                   <td className="product-amount text-center">
                     <div className="quantity-col text-center w-75">
                       <button
@@ -147,7 +251,9 @@ const Checkout = () => {
                       </button>
                     </div>
                   </td>
-                  <td className="product-amount text-center">${item.quantity * item.product.amount}</td>
+                  <td className="product-amount text-center">
+                    ${item.quantity * item.product.amount}
+                  </td>
                   <td>
                     <button
                       className="delete-button btn button"
@@ -160,6 +266,7 @@ const Checkout = () => {
               ))}
           </tbody>
         </table>
+        /*}
         {/* <div className="total-price">Total: ${getTotalPrice()}</div> */}
       </div>
     );
@@ -167,38 +274,37 @@ const Checkout = () => {
 
   const renderCardtotals = () => {
     return (
-        <div className="col-md-4">
- <div className="cart-totals mx-2">
-        <h6 className="mt-4 mb-3">Price Details</h6>
-        <div className="cart-totals-item border-top mt-3 pt-3">
-          <span>Subtotal :</span>
-          <span>₹{getSubtotal()}</span>
-        </div>
-        <div className="cart-totals-item">
-          <span>Shipping :</span>
-          <span>Free shipping</span>
-        </div>
-        <div className="cart-totals-item">
-          <span>Flat rate :</span>
-          <span>₹150.00</span>
-        </div>
-        <div className="cart-totals-item">
-          <span>Tax :</span>
-          <span>₹15.00</span>
-        </div>
-        <div className="cart-totals-item total border-top mt-4 pt-3">
-          <span>Total :</span>
-          <span>₹{getTotal()}</span>
-        </div>
-        {/* Proceed to Checkout button */}
-        <div className="cart-totals-item-btn mt-4 mb-4">
-          <button className="btn button " onClick={handleCheckout}>
-            Proceed to Checkout
-          </button>
+      <div className="col-md-4">
+        <div className="cart-totals mx-2">
+          <h6 className="mt-4 mb-3">Price Details</h6>
+          <div className="cart-totals-item border-top mt-3 pt-3">
+            <span>Subtotal :</span>
+            <span>₹{getSubtotal()}</span>
+          </div>
+          <div className="cart-totals-item">
+            <span>Shipping :</span>
+            <span>Free shipping</span>
+          </div>
+          <div className="cart-totals-item">
+            <span>Flat rate :</span>
+            <span>₹150.00</span>
+          </div>
+          <div className="cart-totals-item">
+            <span>Tax :</span>
+            <span>₹15.00</span>
+          </div>
+          <div className="cart-totals-item total border-top mt-4 pt-3">
+            <span>Total :</span>
+            <span>₹{getTotal()}</span>
+          </div>
+          {/* Proceed to Checkout button */}
+          <div className="cart-totals-item-btn mt-4 mb-4">
+            <button className="btn button " onClick={handleCheckout}>
+              Proceed to Checkout
+            </button>
+          </div>
         </div>
       </div>
-        </div>
-       
     );
   };
 
@@ -237,11 +343,10 @@ const Checkout = () => {
                 ]}
               />
               <div className="col-md-12 row mt-5">
-              {renderCartList()}
-              {renderCardtotals()}
-              <Relatedproducts/>
+                {renderCartList()}
+                {renderCardtotals()}
+                <Relatedproducts />
               </div>
-             
             </div>
           </div>
         </div>

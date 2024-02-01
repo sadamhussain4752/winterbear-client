@@ -243,17 +243,20 @@ const Payment = () => {
       GetAddcardUserRes?.AddCarts &&
       GetAddcardUserRes.AddCarts.map((item) => (
         <div className="cart-totals-item">
-          <span>
-            <img
+          <div className="row">
+            <div className="col-4">
+            <img className="d-block mx-auto img-fluid"
               src={`${constant.baseUrl}${item?.product?.images[0]}`}
               alt={`Product Image ${item.product.name}`}
-              style={{ width: "80px", height: "80px" }}
+              style={{/* width: "80px", height: "80px" */}}
             />
-          </span>
-          <span className="p-2">
+            </div>
+            <div className="col-8">
             {item?.product?.name} <br />
             {item?.quantity} x ₹{item?.product?.amount}
-          </span>
+            </div>
+          </div>
+         
         </div>
       ))
     );
@@ -315,7 +318,7 @@ const Payment = () => {
             <Form.Item
               name="firstName"
               label="First Name"
-              className="col-md-4"
+              className="col-md-4 "
               labelCol={{ span: 24 }}
               rules={[validateRules.required]}
             >
@@ -409,6 +412,7 @@ const Payment = () => {
                 value={selectedState}
                 onChange={handleStateChange}
                 placeholder="Select a state"
+                className=""
               >
                 {IndianStates.map((state) => (
                   <Option key={state} value={state}>
