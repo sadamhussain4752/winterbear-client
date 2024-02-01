@@ -7,7 +7,7 @@ import Stores from "./pages/Stores";
 import Faqs from "./pages/Faqs";
 import ShopAll from "./pages/Shopall";
 import Login from "./pages/Login";
-import Account from "./pages/Account";
+import MyAccount from "./pages/MyAccount";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import EventsSection from "./pages/Events";
 import Product from "./pages/Product";
@@ -32,7 +32,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/account" element={<Account />} />
+          <Route path="/account" element={<MyAccount />} />
           <Route path="/cart" element={<Checkout />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/orders" element={<MyOrder />} />
