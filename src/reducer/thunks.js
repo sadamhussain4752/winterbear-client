@@ -49,6 +49,7 @@ const UserProductid = `${constant.baseUrl}api/product/Product`;
 const AddCardProductid = `${constant.baseUrl}api/addcart/createCartItem`;
 const GetAddCardProductcard = `${constant.baseUrl}api/addcart/addcartUser`;
 const DelAddCardProductcard = `${constant.baseUrl}api/addcart/deleteCartItem`;
+const AddOrderProductid = `${constant.baseUrl}api/order/createOrder`;
 
 export const fetchBannerData = () => async (dispatch) => {
   dispatch(fetchHeaderRequest());
@@ -177,5 +178,18 @@ export const DeleteAddCardProductById = (body) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch(DeleteAddCardIdFailure(error.response.data.message));
+  }
+};
+
+export const AddOrderProductById = (body) => async (dispatch) => {
+  dispatch(AddCardIdRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.post(AddOrderProductid,body);
+    dispatch(AddCardIdSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(AddCardIdFailure(error.response.data.message));
   }
 };

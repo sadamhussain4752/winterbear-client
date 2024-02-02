@@ -74,6 +74,14 @@ const Header = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const logoutFunction = () => {
+    localStorage.removeItem('userId');
+    window.location.reload();
+    window.location.href = "/";
+
+
+  };
+
   return (
     <>
       <header>
@@ -312,13 +320,53 @@ const Header = () => {
                   <div className="col-md-8 mt-1">
                     <div className="text-end">
                       <div>
-                        <div className=" my-2">
-                          {getUserResponse && getUserResponse.User ? (
+                      {getUserResponse && getUserResponse.User ? (
                             <>
-                              <a>{getUserResponse.User.firstname}</a> <a></a>
+                              <a
+                                href="#"
+                                className="link-body-emphasis text-decoration-none dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+                                <img
+                                  src="https://github.com/mdo.png"
+                                  alt="mdo"
+                                  width={32}
+                                  height={32}
+                                  className="rounded-circle"
+                                />{" "}
+                                <strong className="px-1">
+                                  {getUserResponse.User.firstname}
+                                </strong>
+                              </a>
+
+                              <ul className="mt-3 dropdown-menu text-small">
+                               
+                                <li>
+                                  <a className="dropdown-item" href="#">
+                                    Settings
+                                  </a>
+                                </li>
+                                <li>
+                                  <Link
+                                    className={`dropdown-item`}
+                                    to="/account"
+                                  >
+                                    Account
+                                  </Link>
+                                </li>
+                                <li>
+                                  <hr className="dropdown-divider" />
+                                </li>
+                                <li>
+                                  <a className="dropdown-item" onClick={logoutFunction} href="#">
+                                    Sign out
+                                  </a>
+                                </li>
+                              </ul>
                               <a
                                 href="/cart"
-                                className="text-decoration-none"
+                                className="text-decoration-none px-1"
                               >
                                 <i className="fa-solid fa-bag-shopping" />
                               </a>
@@ -328,7 +376,7 @@ const Header = () => {
                               <a
                                 style={{ cursor: "pointer" }}
                                 onClick={handleOpenLogin}
-                                className="text-decoration-none"
+                                className="text-decoration-none px-1"
                               >
                                 Login
                               </a>{" "}
@@ -336,19 +384,18 @@ const Header = () => {
                               <a
                                 style={{ cursor: "pointer" }}
                                 onClick={handleOpenModal}
-                                className="text-decoration-none"
+                                className="text-decoration-none px-1"
                               >
                                 Register
                               </a>
                               <a
                                 href="/cart"
-                                className="text-decoration-none"
+                                className="text-decoration-none ps-3"
                               >
                                 <i className="fa-solid fa-bag-shopping" />
                               </a>
                             </>
                           )}
-                        </div>
                       </div>
                     </div>
                   </div>

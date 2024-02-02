@@ -33,6 +33,9 @@ export const GET_ADDCARD_IB_BY_FAILURE = 'GET_ADDCARD_IB_BY_FAILURE';
 export const DELETE_ADDCARD_IB_BY_REQUEST = 'DELETE_ADDCARD_IB_BY_REQUEST';
 export const DELETE_ADDCARD_IB_BY_SUCCESS = 'DELETE_ADDCARD_IB_BY_SUCCESS';
 export const DELETE_ADDCARD_IB_BY_FAILURE = 'DELETE_ADDCARD_IB_BY_FAILURE';
+export const ADD_ORDER_IB_BY_REQUEST = 'ADD_ORDER_IB_BY_REQUEST';
+export const ADD_ORDER_IB_BY_SUCCESS = 'ADD_ORDER_IB_BY_SUCCESS';
+export const ADD_ORDER_IB_BY_FAILURE = 'ADD_ORDER_IB_BY_FAILURE';
 
 export const fetchHeaderRequest = () => ({
   type: FETCH_DATA_REQUEST,
@@ -179,5 +182,19 @@ export const DeleteAddCardIdSuccess = (data) => ({
 
 export const DeleteAddCardIdFailure = (error) => ({
   type: DELETE_ADDCARD_IB_BY_FAILURE,
+  payload: error,
+});
+
+export const AddOrderIdRequest = () => ({
+  type: ADD_ORDER_IB_BY_REQUEST,
+});
+
+export const AddOrderIdSuccess = (data) => ({
+  type: ADD_ORDER_IB_BY_SUCCESS,
+  payload: data,
+});
+
+export const AddOrderIdFailure = (error) => ({
+  type: ADD_ORDER_IB_BY_FAILURE,
   payload: error,
 });
