@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate } from "react-router-dom";
 import { fetchProductData } from "../reducer/thunks";
+import Gallery from "../components/Gallery";
 const ProductCategory = () => {
   const dispatch = useDispatch();
 
@@ -165,7 +166,7 @@ const ProductCategory = () => {
                 return (
                   <div className="row">
                     <div
-                      className="col-md-12 bg-theme tile-1"
+                      className="col-md-12 bg-white tile-1"
                       id={`sticky1${index}`}
                     >
                     
@@ -185,8 +186,9 @@ const ProductCategory = () => {
                                     : "assets/images/Rectangle 22.png"
                                 }
                                 alt="Web Project 1"
+                                className="border border-md-0 img-fluid  border-light  border-opacity-100 my-1"
                               />
-                              <span className="text-white">
+                              <span className="text-dark fw-semibold fs-6">
                                 {prod.name} ₹{prod.amount}
                               </span>
                               <div
@@ -258,6 +260,7 @@ const ProductCategory = () => {
           </div>
         </div>
       </section>
+      <Gallery />
             <Footer />
     </>
     );
