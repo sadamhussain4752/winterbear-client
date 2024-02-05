@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate } from "react-router-dom";
@@ -24,12 +24,12 @@ const ProductCategory = () => {
     // Navigate to the specified product id
     navigate(`/product/${productId}`);
   };
-    document.title = "Winter Bear";
-    document.getElementsByTagName("META")[2].content = "Winter Bear";
-    return (
-        <>
-        <Header />
-        <section className="section myaccount mt-120">
+  document.title = "Winter Bear";
+  document.getElementsByTagName("META")[2].content = "Winter Bear";
+  return (
+    <>
+      <Header />
+      <section className="section myaccount mt-120">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12">
@@ -43,6 +43,88 @@ const ProductCategory = () => {
         <div className="container faqs border border-secondry">
           <div className="row ">
             <div className="col-md-12 bg-white py-3 border-0">
+             {/* <div className="container-fluid">
+              
+                <div className="row" id="search">
+                  <form
+                    id="search-form"
+                    action=""
+                    method="POST"
+                    encType="multipart/form-data"
+                  >
+                    <div className="row">
+                      <div className="form-group  col-md-10 col-8">
+                        <input
+                          className="form-control"
+                          type="text"
+                          placeholder="Search"
+                        />
+                      </div>
+                      <div className="form-group bg-white col-md-2 col-4 text-center">
+                        <button
+                          type="submit"
+                          className="btn btn-block btn-primary"
+                        >
+                          Search
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div className="row" id="filter">
+                  <form>
+                    <div className="row">
+                      <div className="form-group col-sm-3 col-xs-6">
+                        <select
+                          data-filter="make"
+                          className="filter-make filter form-control"
+                        >
+                          <option value="">Select Make</option>
+                          <option value="">Show All</option>
+                        </select>
+                      </div>
+                      <div className="form-group col-sm-3 col-xs-6">
+                        <select
+                          data-filter="model"
+                          className="filter-model filter form-control"
+                        >
+                          <option value="">Select Model</option>
+                          <option value="">Show All</option>
+                        </select>
+                      </div>
+                      <div className="form-group col-sm-3 col-xs-6">
+                        <select
+                          data-filter="type"
+                          className="filter-type filter form-control input"
+                        >
+                          <option value="">Select Type</option>
+                          <option value="">Show All</option>
+                        </select>
+                      </div>
+                      <div className="form-group col-sm-3 col-xs-6">
+                        <select
+                          data-filter="price"
+                          className="filter-price filter form-control"
+                        >
+                          <option value="">Select Price Range</option>
+                          <option value="">Show All</option>
+                        </select>
+                        <input
+                          type="range"
+                          className="form-range border-0 bg-white"
+                          min="0"
+                          max="5"
+                          step="0.5"
+                          id="customRange3"
+                        />
+                        <small>Price Range</small>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div className="row" id="products"></div>
+              </div> */}
+             
               <div className="container-fluid ">
                 <ul
                   className="nav nav-pills nav-fill py-1 mb-3  list-inline border-bottom"
@@ -63,7 +145,7 @@ const ProductCategory = () => {
                       aria-controls="pills-koya"
                       aria-selected="true"
                     >
-                   Consumer Electronics
+                      Consumer Electronics
                     </button>
                   </li>
                   <li
@@ -97,7 +179,7 @@ const ProductCategory = () => {
                       aria-controls="pills-shooky"
                       aria-selected="false"
                     >
-                     Stationery
+                      Stationery
                     </button>
                   </li>
 
@@ -159,52 +241,56 @@ const ProductCategory = () => {
                     aria-labelledby="pills-koya-tab"
                   >
                     {productlist &&
-              productlist.productList &&
-              productlist.productList.map((item, index) => {
-                if (!item || !item.products || item.products.length === 0)
-                  return null;
-                return (
-                  <div className="row">
-                    <div
-                      className="col-md-12 bg-white tile-1"
-                      id={`sticky1${index}`}
-                    >
-                    
-
-                      <div className="row px-3">
-                        {item &&
-                          item.products &&
-                          item.products.slice(0, 6).map((prod, ind) => (
-                            <div className="item koya mb-3 col-md-3">
-                              {" "}
-                              {/* Add appropriate classes for filtering */}
-                              <img
-                                src={
-                                  prod.images[0] !== null &&
-                                  prod.images[0] !== "image_url1"
-                                    ? `${constant.baseUrl}${prod.images[0]}`
-                                    : "assets/images/Rectangle 22.png"
-                                }
-                                alt="Web Project 1"
-                                className="border border-md-0 img-fluid  border-light  border-opacity-100 my-1"
-                              />
-                              <span className="text-dark fw-semibold fs-6">
-                                {prod.name} ₹{prod.amount}
-                              </span>
-                              <div
-                                className="add-to-cart"
-                                onClick={() => handleNavigation(prod._id)}
-                              >
-                                <i className="fas fa-cart-plus" /> Add to Cart
+                      productlist.productList &&
+                      productlist.productList.map((item, index) => {
+                        if (
+                          !item ||
+                          !item.products ||
+                          item.products.length === 0
+                        )
+                          return null;
+                        return (
+                          <div className="row">
+                            <div
+                              className="col-md-12 bg-white tile-1"
+                              id={`sticky1${index}`}
+                            >
+                              <div className="row px-3">
+                                {item &&
+                                  item.products &&
+                                  item.products.slice(0, 6).map((prod, ind) => (
+                                    <div className="item koya mb-3 col-md-3">
+                                      {" "}
+                                      {/* Add appropriate classes for filtering */}
+                                      <img
+                                        src={
+                                          prod.images[0] !== null &&
+                                          prod.images[0] !== "image_url1"
+                                            ? `${constant.baseUrl}${prod.images[0]}`
+                                            : "assets/images/Rectangle 22.png"
+                                        }
+                                        alt="Web Project 1"
+                                        className="border border-md-0 img-fluid  border-light  border-opacity-100 my-1"
+                                      />
+                                      <span className="text-dark fw-semibold fs-6">
+                                        {prod.name} ₹{prod.amount}
+                                      </span>
+                                      <div
+                                        className="add-to-cart"
+                                        onClick={() =>
+                                          handleNavigation(prod._id)
+                                        }
+                                      >
+                                        <i className="fas fa-cart-plus" /> Add
+                                        to Cart
+                                      </div>
+                                    </div>
+                                  ))}
                               </div>
                             </div>
-                          ))}
-                      </div>
-                    </div>
-                   
-                  </div>
-                );
-              })}
+                          </div>
+                        );
+                      })}
                   </div>
 
                   <div
@@ -222,38 +308,28 @@ const ProductCategory = () => {
                     id="pills-shooky"
                     role="tabpanel"
                     aria-labelledby="pills-shooky-tab"
-                  >
-                   
-                  </div>
+                  ></div>
 
                   <div
                     className="tab-pane fade"
                     id="pills-mang"
                     role="tabpanel"
                     aria-labelledby="pills-mang-tab"
-                  >
-                   
-                  </div>
+                  ></div>
 
                   <div
                     className="tab-pane fade"
                     id="pills-chimmy"
                     role="tabpanel"
                     aria-labelledby="pills-chimmy-tab"
-                  >
-                   
-
-                  </div>
+                  ></div>
 
                   <div
                     className="tab-pane fade"
                     id="pills-living"
                     role="tabpanel"
                     aria-labelledby="pills-living-tab"
-                  >
-                   
-
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>
@@ -261,9 +337,9 @@ const ProductCategory = () => {
         </div>
       </section>
       <Gallery />
-            <Footer />
+      <Footer />
     </>
-    );
+  );
 };
 
 export default ProductCategory;
