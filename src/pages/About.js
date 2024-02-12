@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 const About = () => {
   const backgroundImageStyle = {
     background: 'url("assets/images/about-bg.png")',
-    backgroundSize: 'cover',
+    backgroundSize: "cover",
   };
   document.title = "about";
   document.getElementsByTagName("META")[2].content = "about";
+  const [hovered, setHovered] = useState(false);
+  const [hovered1, setHovered1] = useState(false);
+  const [hovered2, setHovered2] = useState(false);
+  const [hovered3, setHovered3] = useState(false);
+  const [hovered4, setHovered4] = useState(false);
+  const [hovered5, setHovered5] = useState(false);
   return (
     <>
       <Header />
-      <div
-        className="breadcum mt-80"
-        style={backgroundImageStyle}
-      >
-        <div className="about-breadcum-content d-md-block d-none " >
+      <div className="breadcum mt-80" style={backgroundImageStyle}>
+        <div className="about-breadcum-content d-md-block d-none ">
           <div className="row justify-content-center">
             <div className="col-md-12">
               <h3>Step into the K-pop Style Realm</h3>
@@ -84,83 +87,83 @@ const About = () => {
           </div>
           <div className="row align-items-center">
             <div className="col-md-4 mb-4">
-              <div className="image-container">
-                <img
-                  src="assets/images/about1-1.png"
-                  class="img-fluid d-block mx-auto p-3"
-                  alt="Your Image"
-                />
-                <div className="overlay">
-                  <p className="fs-1 fw-bold">Excellence</p>
-                </div>
-              </div>
+              <img
+                src={
+                  hovered
+                    ? "assets/images/Excellence.png"
+                    : "assets/images/Excellence_illustraction.png"
+                }
+                alt="Image"
+                onMouseOver={() => setHovered(true)}
+                onMouseOut={() => setHovered(false)}
+                className="img-fluid d-block mx-auto p-3"
+              />
             </div>
             <div className="col-md-4 mb-4">
-              <div className="image-container">
-                <img
-                  src="assets/images/about2-2.png"
-                  class="img-fluid d-block mx-auto p-3"
-                  alt="Your Image"
-                />
-                <div className="overlay">
-                  <p className="fs-1 fw-bold">Innovation</p>
-                </div>
-              </div>
+              <img
+                src={
+                  hovered1
+                    ? "assets/images/Innovation.png"
+                    : "assets/images/Innovation_illustration.png"
+                }
+                alt="Image"
+                onMouseOver={() => setHovered1(true)}
+                onMouseOut={() => setHovered1(false)}
+                className="img-fluid d-block mx-auto p-3"
+              />
             </div>
             <div className="col-md-4 mb-4">
-              <div className="image-container">
-                <img
-                  src="assets/images/about3.png"
-                  class="img-fluid d-block mx-auto p-3"
-                  alt="Your Image"
-                />
-                <div className="overlay">
-                  <p className="fs-1 fw-bold">Integrity</p>
-                </div>
-              </div>
+              <img
+                src={
+                  hovered2
+                    ? "assets/images/Integrity.png"
+                    : "assets/images/Integrity_Illustration.png"
+                }
+                alt="Image"
+                onMouseOver={() => setHovered2(true)}
+                onMouseOut={() => setHovered2(false)}
+                className="img-fluid d-block mx-auto p-3"
+              />
             </div>
             <div className="col-md-4 mb-4">
-              <div className="image-container">
-                <img
-                  src="assets/images/about4.png"
-                  class="img-fluid d-block mx-auto p-3"
-                  alt="Your Image"
-                />
-                <div className="overlay">
-                  <p className="fs-1 fw-bold">Collaboration</p>
-                </div>
-              </div>
+              <img
+                src={
+                  hovered3
+                    ? "assets/images/Collaboration.png"
+                    : "assets/images/Collaboration_illustration.png"
+                }
+                alt="Image"
+                onMouseOver={() => setHovered3(true)}
+                onMouseOut={() => setHovered3(false)}
+                className="img-fluid d-block mx-auto p-3"
+              />
             </div>
             <div className="col-md-4 mb-4">
-              <div className="image-container">
-                <img
-                  src="assets/images/about5.png"
-                  class="img-fluid d-block mx-auto p-3"
-                  alt="Your Image"
-                />
-                <div className="overlay">
-                  <p className="fs-1 fw-bold"> Customer value</p>
-                </div>
-              </div>
+              <img
+                src={
+                  hovered4
+                    ? "assets/images/Customer value.png"
+                    : "assets/images/Customer Value_Illustration.png"
+                }
+                alt="Image"
+                onMouseOver={() => setHovered4(true)}
+                onMouseOut={() => setHovered4(false)}
+                className="img-fluid d-block mx-auto p-3"
+              />
             </div>
             <div className="col-md-4 mb-4">
-              <div className="image-container">
-                <img
-                  src="assets/images/about6.png"
-                  class="img-fluid d-block mx-auto p-3"
-                  alt="Your Image"
-                />
-                <div className="overlay">
-                  <p className="fs-1 fw-bold"> Care And Share</p>
-                </div>
-              </div>
+              <img
+                src={
+                  hovered5
+                    ? "assets/images/Care And Share.png"
+                    : "assets/images/Care and share_Illustration.png"
+                }
+                alt="Image"
+                onMouseOver={() => setHovered5(true)}
+                onMouseOut={() => setHovered5(false)}
+                className="img-fluid d-block mx-auto p-3"
+              />
             </div>
-
-
-           
-           
-           
-          
            
           </div>
         </div>
