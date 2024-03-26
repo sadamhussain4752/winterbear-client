@@ -59,13 +59,13 @@ const HomeSlider = () => {
           ))}
       </OwlCarousel>
 
-      <div className="carousel-content d-md-block d-none width-dynimc">
+      {/* <div className="carousel-content d-md-block d-none width-dynimc">
         <h3>Step into the K-pop Style Realm</h3>
         <h5>Your Ultimate Destination for Trendsetting Fashion</h5>
         <a href="#" className="button">
           Shop now
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };

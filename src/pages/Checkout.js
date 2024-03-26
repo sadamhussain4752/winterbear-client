@@ -218,7 +218,7 @@ const Checkout = () => {
 
           <div className="">
             <div className="col-md-12">
-              <Steps
+              {/* <Steps
                 current={1}
                 items={[
                   {
@@ -235,7 +235,7 @@ const Checkout = () => {
                     description,
                   },
                 ]}
-              />
+              /> */}
               <div className="col-md-12 row mt-5">
               {renderCartList()}
               {renderCardtotals()}

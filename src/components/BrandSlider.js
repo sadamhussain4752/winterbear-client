@@ -43,9 +43,9 @@ const HomeSlider = () => {
                   width={"100px"}
                   height={"60px"}
                 />
-                <div className="text-center mt-2">
+                {/* <div className="text-center mt-2">
                   <h5 className="font-weight-bold">{brand.name || "Brand"}</h5>
-                </div>
+                </div> */}
               </div>
             ))}
         </OwlCarousel>

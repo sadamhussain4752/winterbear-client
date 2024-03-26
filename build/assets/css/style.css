@@ -501,7 +501,7 @@ footer ul a {
 }
 
 .tile-1 .item {
-    width: 280px;
+    width: 246px;
     margin: 5px;
     position: relative;
     overflow: hidden;
@@ -650,7 +650,7 @@ width: 77%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 80vh;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -659,7 +659,7 @@ width: 77%;
     left: 50%;
     top: 55%;
     text-align: center;
-    background: #221A42DE;
+    /* background: #221A42DE; */
     border-radius: 20px;
     padding: 40px;z-index: 9999;
     transform: translateX(-50%);

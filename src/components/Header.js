@@ -305,7 +305,7 @@ const Header = () => {
               <div className="col-md-5 d-md-block d-none  text-start mt-md-0">
                 <div className="row d-flex justify-content-between">
                   <div className="col-md-4">
-                    <form
+                    {/* <form
                       className="row-cols-lg-auto  align-items-center form"
                       role="search"
                     >
@@ -315,7 +315,7 @@ const Header = () => {
                         className="form-control form-input bg-white"
                         placeholder="Search"
                       />
-                    </form>
+                    </form> */}
                   </div>
                   <div className="col-md-8 mt-1">
                     <div className="text-end">

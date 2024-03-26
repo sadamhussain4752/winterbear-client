@@ -116,11 +116,11 @@ const Home = () => {
                       >
                       
 
-                        <div className="portfolio">
+                        <div className="portfolio col-md-12">
                           {item &&
                             item.products &&
-                            item.products.slice(0, 6).map((prod, ind) => (
-                              <div className="item koya">
+                            item.products.slice(0, 8).map((prod, ind) => (
+                              <div className="item col-md-3 p-3 ">
                                 {" "}
                                 {/* Add appropriate classes for filtering */}
                                 <img
@@ -147,7 +147,7 @@ const Home = () => {
                       <div className={`col-md-2 sticky-logo-flex-${index+1} g-0 bg-transparent sticky`}>
                         <div className="sticky-logo-1">
                           <img
-                            src="assets/images/client-logo.png"
+                            src={`${constant.baseUrl}${item.brand.imageUrl}`}
                             className="w-75 d-block mx-auto"
                           />
                           <p className="sticky-logo-text mt-3">

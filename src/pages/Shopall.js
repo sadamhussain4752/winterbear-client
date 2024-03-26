@@ -49,9 +49,9 @@ const ShopAll = () => {
                   if (!item || !item.products || item.products.length === 0)
                     return null;
                   return (
-                    <div className="sticky-body">
+                    <div className="">
                       <div
-                        className="col-md-10 bg-theme tile-1"
+                        className="col-md-12 bg-theme tile-1"
                         id={`sticky1${index}`}
                       >
                         <div className="container-fluid ">
@@ -232,8 +232,8 @@ const ShopAll = () => {
                         <div className="portfolio">
                           {item &&
                             item.products &&
-                            item.products.slice(0, 6).map((prod, ind) => (
-                              <div className="item koya">
+                            item.products.slice(0, 10).map((prod, ind) => (
+                              <div className="item p-3">
                                 {" "}
                                 {/* Add appropriate classes for filtering */}
                                 <img
