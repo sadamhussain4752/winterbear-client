@@ -723,4 +723,11 @@ width: 77%;
     width: 50% !important;
     background-color: 'red' !important;
   }
-  
+
+  .image-size {
+    width: 120px !important;
+    height: 45px !important;
+  }
+
+
+ 

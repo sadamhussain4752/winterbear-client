@@ -16,7 +16,8 @@ const GallerySection = () => {
           margin={10}
           autoplay
           dots={false}
-          autoplayTimeout={800}
+          autoplayTimeout={1800}
+          smartSpeed={3000} 
           responsive={{
             0: {
               items: 1,

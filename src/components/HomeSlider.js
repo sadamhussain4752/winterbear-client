@@ -17,6 +17,8 @@ const HomeSlider = () => {
         className="owl-theme"
         loop
         margin={10}
+        autoplayTimeout={7000}
+        smartSpeed={3000}
         nav={false}
         dots={false}
         autoplay

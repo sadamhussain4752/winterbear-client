@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
+import Eventlist from "../components/Event-list";
 
 const EventsSection = () => {
   const [activeTab, setActiveTab] = useState("div1");
@@ -28,66 +29,53 @@ const EventsSection = () => {
       <Header />
 
       <section className="py-5 mt-80">
-        <div className="container">
+        <div className="">
           <div className="row justify-content-center">
             <div className="col-md-12">
               <div className="section-heading">
-                <h3 className="theme-bg-text">Events</h3>
+                <h3 className="theme-bg-text">Event Details</h3>
               </div>
             </div>
           </div>
 
           <div className="row justify-content-center text-center ">
-            <div className="col-12 bg-theme py-3">
-              <ul
-                className="nav nav-pills mb-3 py-3 nav-fill px-5"
-                id="pills-tab"
-                role="tablist"
-              >
-                <li className="nav-item" role="presentation">
-                  <button
-                    className="nav-link fs-5 fw-semibold  position-relative rounded-pill active "
-                    id="pills-all-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-all"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-all"
-                    aria-selected="true"
-                  >
-                    Upcoming Sale
-                  </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                  <button
-                    className="nav-link fs-5 fw-semibold  position-relative rounded-pill  "
-                    id="pills-koya-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-koya"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-koya"
-                    aria-selected="true"
-                  >
+            <div className="position-relative">
+              <img
+                src={require("../constant/images/event-back-ground.jpeg")}
+                alt="Upcoming Sale"
+                className="img-fluid"
+              />
+              <div className="col-md-12 row d-flex justify-content-center position-absolute top-0">
+                <div className=" col-md-9 row d-flex justify-content-center event-tap">
+                  <p className="col-md-3 event-text-color">
                     Upcoming Events
-                  </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                  <button
-                    className="nav-link fs-5 text-light fw-semibold position-relative rounded-pill"
-                    id="pills-rj-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-rj"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-rj"
-                    aria-selected="false"
-                  >
-                    New Launches
-                  </button>
-                </li>
-              </ul>
-              <div className="row">
+                  </p>
+                  <p className="col-md-3 event-item">
+                    40% di sconto dal 20 aprile al 5 maggio!
+                  </p>
+                  <p className="col-md-3 event-text-color">
+                    India
+                  </p>
+                </div>
+
+                <div className="about-breadcum-content d-md-block d-none mt-80">
+                  <div className="row justify-content-center">
+                    <div className="col-md-12">
+                      <h3 className="text-main-color">Sound of Christmas 2024</h3>
+                      {/* <h5>Your Ultimate Destination for Trendsetting Fashion</h5> */}
+                      <a href="/event-details" className="button">
+                        More Details
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="position-absolute bottom-0">
+                <Eventlist />
+
+              </div>
+              {/* <div className="row">
               <div className="col-12">
               <div
                 className="tab-content  text-white px-3"
@@ -135,8 +123,8 @@ const EventsSection = () => {
 
               </div>
 
-              </div>
-             
+              </div> */}
+
             </div>
           </div>
         </div>

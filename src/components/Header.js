@@ -12,14 +12,51 @@ import { ProfileUserData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { message } from "antd/es";
 import { IoIosLogIn } from "react-icons/io";
+import NewsPaper from "./NewsPaper";
+import {
+  ShoppingCartOutlined,
+  WalletOutlined
+} from "@ant-design/icons";
+import { Carousel, Select } from 'antd';
+import Language from "../constant/Language";
+import SearchList from "./SearchList";
+const { Option } = Select;
 
 const Header = () => {
+  const contentStyle = {
+    height: '30px',
+    color: '#000',
+    lineHeight: '30px',
+    textAlign: 'center',
+    background: '#FFE5E5',
+    borderRadius: "60px 0px 60px 0px", // Corrected the typo from "borderradios" to "borderRadius"
+    marginRight:"35%",
+    marginLeft:"35%"
+
+  };
   const dispatch = useDispatch();
+  const latestOffers = [
+    { id: 1, title: 'Offer 1: 20% off on all products', link: '/offer1' },
+    { id: 2, title: 'Offer 2: Buy one, get one free', link: '/offer2' },
+    { id: 3, title: 'Offer 3: Free shipping on orders over $50', link: '/offer3' }
+  ];
+  const IndianStates = [
+    { key: "En", value: "en" },
+    { key: "JP", value: 'jp' },
+    { key: "KR", value: "kr" },
+    { key: "AR", value: "au" },
+
+  ];
 
   let userId = localStorage.getItem("userId");
+  let NewsPaperId = localStorage.getItem("NewsPaperID");
+
   const [navbarBg, setNavbarBg] = useState("bg-white");
   const [modalVisible, setModalVisible] = useState(false);
   const [loginVisible, setLoginVisible] = useState(false);
+  const [newsVisible, setNewsVisible] = useState(false);
+  const [selectedState, setSelectedState] = useState(null);
+
   const {
     loading: getprofileUserLoading,
     loginerror: getprofileUserError,
@@ -31,6 +68,9 @@ const Header = () => {
 
   const handleCloseLogin = () => {
     setLoginVisible(false);
+  };
+  const handleCloseNews = () => {
+    setNewsVisible(false);
   };
 
   const handleOpenModal = () => {
@@ -45,10 +85,17 @@ const Header = () => {
     if (userId !== undefined || userId !== null) {
       dispatch(ProfileUserData(userId));
     }
+    if (NewsPaperId === null) {
+      setNewsVisible(true)
+      localStorage.setItem("NewsPaperID", true)
+    }
+    // localStorage.removeItem("NewsPaperID")
+
     // if (getUserResponse) {
     //   const { firstname, lastname } = getUserResponse.User;
     //   message.success(`Welcome ${firstname} ${lastname}`, 5);
     // }
+
   }, []);
 
   const location = useLocation();
@@ -82,18 +129,39 @@ const Header = () => {
 
   };
 
+  const handleStateChange = (value) => {
+    setSelectedState(value);
+    console.log(value);
+    Language.setLanguage(value)
+  };
+
+  // Define the renderItem function
+  const renderItem = (item) => {
+    return (
+      <p style={contentStyle}>{item.title}</p>
+    );
+  };
   return (
     <>
       <header>
         {/* Top Header */}
         <div className="top-header fixed-top shadow-sm bg-white">
-          <div className="container-fluid px-5">
-            <div className="row align-items-center p-2">
+          <div className="container-fluid">
+            <Carousel autoplay className="col-md-12" dots={true}>
+              {latestOffers.map((item, index) => (
+                <div className="col-md-4" key={index}>
+                  {renderItem(item)}
+                </div>
+              ))}
+            </Carousel>
+
+
+            <div className="row align-items-center justify-content-between ">
               {/* Language Selection */}
-              <div className="col-md-4 col-6 ps-md-5 ps-1 order-first text-left  border-0 shadow-none">
+              <div className="col-md-5 col-6  ps-1 order-first text-left  border-0 shadow-none">
                 <div class="container-fluid ">
                   <div className="row">
-                    <div className="col-md-3 col-12">
+                    <div className="col-md-2">
                       <button
                         className="btn navbar  navbar-toggler border-0 "
                         data-bs-toggle="offcanvas"
@@ -104,12 +172,33 @@ const Header = () => {
                         <span class="navbar-toggler-icon"></span>
                       </button>
                     </div>
-                    <div className="col-md-9 d-none d-md-block mt-2">
+                    <div className="col-md-10 d-md-block mt-2">
                       <Link
                         className="ps-1 fs-6 fw-bold text-main text-decoration-none "
                         to="/shop"
                       >
-                        SHOP ALL
+                        {Language.shop_all}
+                      </Link>
+                      <Link
+                        className="ps-1 fs-6 fw-bold text-main text-decoration-none "
+                        to="/faqs"
+                      >
+                        {Language.faqs}
+
+                      </Link>
+                      <Link
+                        className="ps-1 fs-6 fw-bold text-main text-decoration-none "
+                        to="/stores"
+                      >
+                        {Language.find}
+
+                      </Link>
+                      <Link
+                        className="ps-1 fs-6 fw-bold text-main text-decoration-none "
+                        to="/blogs"
+                      >
+                        {Language.blogs}
+
                       </Link>
                     </div>
                   </div>
@@ -128,7 +217,7 @@ const Header = () => {
                     >
                       <img
                         src="../assets/images/winterbear-logo.png"
-                        className="d-block ps-md-5 img-fluid my-5 "
+                        className="d-block ps-md-2 img-fluid my-5 "
                         alt="Logo"
                       />
                     </div>
@@ -140,16 +229,15 @@ const Header = () => {
                     ></button>
                   </div>
                   <div className="offcanvas-body">
-                    <ul className="navbar-nav justify-content-end flex-grow-1 ps-md-5 ps-3">
+                    <ul className="navbar-nav justify-content-end flex-grow-1 ps-md-3 ps-3">
                       <li className="nav-item pb-3">
-                        <Link
-                          className={`nav-link fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
-                          to="/"
+                        <a
+                          className={`nav-link fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="/"
                         >
                           HOME
-                        </Link>
+                        </a>
                       </li>
                       <li className="nav-item dropdown">
                         <a
@@ -161,7 +249,7 @@ const Header = () => {
                         >
                           SHOP ALL
                         </a>
-                        <ul className="dropdown-menu">
+                        {/* <ul className="dropdown-menu">
                           <li>
                             <a className="dropdown-item pb-3 fs-5" href="#">
                               ACTION
@@ -180,49 +268,45 @@ const Header = () => {
                               SOMETHING ELSE HERE
                             </a>
                           </li>
-                        </ul>
+                        </ul> */}
                       </li>
                       <li className="nav-item">
-                        <Link
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
-                          to="/about"
+                        <a
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="/about"
                         >
                           ABOUT
-                        </Link>
+                        </a>
                       </li>
 
                       <li className="nav-item">
-                        <Link
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
-                          to="/faqs"
+                        <a
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="/faqs"
                         >
                           FAQs
-                        </Link>
+                        </a>
                       </li>
                       <li className="nav-item">
-                        <Link
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
-                          to="/events"
+                        <a
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="/events"
                         >
                           EVENT
-                        </Link>
+                        </a>
                       </li>
 
                       <li className="nav-item">
-                        <Link
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
-                          to="/stores"
+                        <a
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="/stores"
                         >
                           STORES
-                        </Link>
+                        </a>
                       </li>
                       {/* <li className="nav-item dropdown">
                         <a
@@ -260,26 +344,25 @@ const Header = () => {
                       </li> */}
 
                       <li className="mt-md-5 nav-item">
-                        <Link
-                          className={`nav-link pb-3 fs-6 fw-normal ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
-                          to="#"
+                        <a
+                          className={`nav-link pb-3 fs-6 fw-normal ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="tel:9035576906"
                         >
                           <i className="fa-solid fa-phone-volume" />{" "}
                           +91-9035576906
-                        </Link>
+                        </a>
                       </li>
                       <li className=" nav-item">
-                        <Link
-                          className={`nav-link pb-3 fs-6 fw-normal ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
-                          to="#"
+                        <a
+                          className={`nav-link pb-3 fs-6 fw-normal ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="mailto:hello@winterbear.in"
+
                         >
                           <i className="fa-regular fa-envelope" />{" "}
                           hello@winterbear.in
-                        </Link>
+                        </a>
                       </li>
                       <li className="mt-2 nav-item d-block ">
                         <span className="mt-4 text-dark social">
@@ -294,7 +377,7 @@ const Header = () => {
                 </div>
               </div>
               {/* Logo */}
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <img
                   src="../assets/images/winterbear-logo.png"
                   className="d-block mx-auto img-fluid"
@@ -304,7 +387,7 @@ const Header = () => {
               {/* Login/Register and Cart Icons */}
               <div className="col-md-5 d-md-block d-none  text-start mt-md-0">
                 <div className="row d-flex justify-content-between">
-                  <div className="col-md-4">
+                  <div className="col-md-5">
                     {/* <form
                       className="row-cols-lg-auto  align-items-center form"
                       role="search"
@@ -316,86 +399,107 @@ const Header = () => {
                         placeholder="Search"
                       />
                     </form> */}
+                    <SearchList />
                   </div>
-                  <div className="col-md-8 mt-1">
+                  <div className="col-md-7 mt-1">
                     <div className="text-end">
                       <div>
-                      {getUserResponse && getUserResponse.User ? (
-                            <>
-                              <a
-                                href="#"
-                                className="link-body-emphasis text-decoration-none dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                              >
-                                <img
-                                  src="https://github.com/mdo.png"
-                                  alt="mdo"
-                                  width={32}
-                                  height={32}
-                                  className="rounded-circle"
-                                />{" "}
-                                <strong className="px-1">
-                                  {getUserResponse.User.firstname}
-                                </strong>
-                              </a>
+                        {getUserResponse && getUserResponse.User ? (
+                          <>
+                            <a
+                              href="#"
+                              className="link-body-emphasis text-decoration-none dropdown-toggle"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
 
-                              <ul className="mt-3 dropdown-menu text-small">
-                               
-                                <li>
-                                  <a className="dropdown-item" href="#">
-                                    Settings
-                                  </a>
-                                </li>
-                                <li>
-                                  <Link
-                                    className={`dropdown-item`}
-                                    to="/account"
-                                  >
-                                    Account
-                                  </Link>
-                                </li>
-                                <li>
-                                  <hr className="dropdown-divider" />
-                                </li>
-                                <li>
-                                  <a className="dropdown-item" onClick={logoutFunction} href="#">
-                                    Sign out
-                                  </a>
-                                </li>
-                              </ul>
-                              <a
-                                href="/cart"
-                                className="text-decoration-none px-1"
+
+                              <img
+                                src={getUserResponse?.User?.profile_img}
+                                alt="mdo"
+                                width={32}
+                                height={32}
+                                className="rounded-circle"
+                              />{" "}
+                              {/* <strong className="px-1">
+                                {getUserResponse.User.firstname}
+                              </strong> */}
+
+                            </a>
+                            <a>
+                              <WalletOutlined style={{ fontSize: '16px', color: '#9E2717', marginRight: '5px' }} />
+                              {getUserResponse.User.loyalty_point}
+
+                            </a>
+
+                            <ul className="mt-3 dropdown-menu text-small">
+
+
+                              <li>
+                                <Link
+                                  className={`dropdown-item`}
+                                  to="/account"
+                                >
+                                  Account
+                                </Link>
+                              </li>
+                              <li>
+                                <hr className="dropdown-divider" />
+                              </li>
+                              <li>
+                                <a className="dropdown-item" onClick={logoutFunction} href="#">
+                                  Sign out
+                                </a>
+                              </li>
+                            </ul>
+                            <a
+                              href="/cart"
+                              className="text-decoration-none px-1"
+                            >                              <ShoppingCartOutlined />
+
+                              {/* <i className="fa-solid fa-bag-shopping" /> */}
+                            </a>
+                            <a>
+                              <Select
+                                value={selectedState || IndianStates[0].value} // Set the default value to the value of the first item in the array
+                                onChange={handleStateChange}
+                                placeholder=""
+
                               >
-                                <i className="fa-solid fa-bag-shopping" />
-                              </a>
-                            </>
-                          ) : (
-                            <>
-                              <a
-                                style={{ cursor: "pointer" }}
-                                onClick={handleOpenLogin}
-                                className="text-decoration-none px-1"
-                              >
-                                Login
-                              </a>{" "}
-                              |{" "}
-                              <a
-                                style={{ cursor: "pointer" }}
-                                onClick={handleOpenModal}
-                                className="text-decoration-none px-1"
-                              >
-                                Register
-                              </a>
-                              <a
-                                href="/cart"
-                                className="text-decoration-none ps-3"
-                              >
-                                <i className="fa-solid fa-bag-shopping" />
-                              </a>
-                            </>
-                          )}
+                                {IndianStates.map((state) => (
+                                  <Option key={state.key} value={state.value}>
+                                    {state.key}
+                                  </Option>
+                                ))}
+                              </Select>
+                            </a>
+                          </>
+                        ) : (
+                          <>
+                            <a
+                              style={{ cursor: "pointer" }}
+                              onClick={handleOpenLogin}
+                              className="text-decoration-none px-1"
+                            >
+                              Login
+                            </a>{" "}
+                            |{" "}
+                            <a
+                              style={{ cursor: "pointer" }}
+                              onClick={handleOpenModal}
+                              className="text-decoration-none px-1"
+                            >
+                              Register
+                            </a>
+                            <a
+                              href="/cart"
+                              className="text-decoration-none ps-3"
+                            >
+                              <ShoppingCartOutlined />
+                              {/* <i className="fa-solid fa-bag-shopping" /> */}
+                            </a>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -409,6 +513,7 @@ const Header = () => {
         <LoginModal visible={loginVisible} onClose={handleCloseLogin} />
 
         <RegisterModal visible={modalVisible} onClose={handleCloseModal} />
+        <NewsPaper visible={newsVisible} onClose={handleCloseNews} />
       </>
     </>
   );

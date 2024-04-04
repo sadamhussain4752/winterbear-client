@@ -11,8 +11,16 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Nav, Tab } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { message } from "antd";
+import { message, Rate } from "antd";
 import MultiCarousel from "../components/MultiCarousel";
+import {
+  HeartOutlined,
+  ShareAltOutlined
+} from "@ant-design/icons";
+import Copyimage from "../constant/images/Copy.svg";
+import Facebookimage from "../constant/images/Facebook.svg";
+import Pinterestimage from "../constant/images/Pinterest.svg";
+import Twitterimage from "../constant/images/Twitter.svg";
 const options = {
   // loop: true,
   // center: true,
@@ -53,7 +61,7 @@ const Product = () => {
   } = useSelector((state) => state.productlist);
 
   const {
-    GetAddcardRes ,
+    GetAddcardRes,
     addcardIdloading: addcardIdloading,
   } = useSelector((state) => state.GetAddcardRes);
   const [productId, setProductId] = useState(id);
@@ -72,6 +80,29 @@ const Product = () => {
     dispatch(ProductUserById(productI));
   };
 
+  const handleCopyUrl = () => {
+    const currentUrl = window.location.href; // Get the current URL
+
+    if (!navigator.clipboard) {
+      // Clipboard API not supported
+      console.error('Clipboard API not supported.');
+      // You can provide a fallback mechanism or message to the user here
+      return;
+    }
+
+    navigator.clipboard.writeText(currentUrl)
+      .then(() => {
+        console.log('URL copied successfully:', currentUrl);
+        message.success('URL copied to clipboard');
+        // You can show a success message or perform other actions here
+      })
+      .catch((error) => {
+        console.error('Error copying URL:', error);
+        message.error('Failed to copy URL');
+        // Handle the error, such as showing an error message to the user
+      });
+  };
+
   const handleNavigation = (newProductId) => {
     // Update the productId state when navigation occurs
     setProductId(newProductId);
@@ -84,23 +115,23 @@ const Product = () => {
 
     return (
       <>
-      <OwlCarousel className="owl-theme" loop margin={10} items={1} dots={false} nav={false}>
-      {product.images &&
-        product.images.map((image, index) => (
-          <div key={index} className="item">
-            <img
-              src={`${constant.baseUrl}${image}`}
-              alt={`Product Image ${index}`}
-            />
-          </div>
-        ))}
-    </OwlCarousel>
-    <div className="d-flex justify-content-center">
-    {product && product?.images &&  <MultiCarousel images={product?.images}/>}
+        <OwlCarousel className="owl-theme" loop margin={10} items={1} dots={false} nav={false}>
+          {product.images &&
+            product.images.map((image, index) => (
+              <div key={index} className="item">
+                <img
+                  src={`${constant.baseUrl}${image}`}
+                  alt={`Product Image ${index}`}
+                />
+              </div>
+            ))}
+        </OwlCarousel>
+        <div className="d-flex justify-content-center">
+          {product && product?.images && <MultiCarousel images={product?.images} />}
 
-    </div>
-   
-   {/* <OwlCarousel className="owl-theme" loop margin={10} items={4} dots={false} nav={product.images && product.images.length > 4}>
+        </div>
+
+        {/* <OwlCarousel className="owl-theme" loop margin={10} items={4} dots={false} nav={product.images && product.images.length > 4}>
   {product.images &&
     product.images.map((image, index) => (
       <div key={index} className="item">
@@ -114,9 +145,9 @@ const Product = () => {
 
 
 
-      
+
       </>
-      
+
     );
   };
 
@@ -135,8 +166,8 @@ const Product = () => {
       productId: id,
       quantity: "1",
     };
-   await dispatch(AddCardProductById(addcarditem))
-   navigate('/cart')
+    await dispatch(AddCardProductById(addcarditem))
+    navigate('/cart')
   };
 
 
@@ -144,63 +175,160 @@ const Product = () => {
     const product = GetProductIdResponse?.Products || {};
 
     return (
-      <div className="row mt-5" key={product.id}>
+      <div className="row mt-5 product-des" key={product.id}>
         <div className="col-md-5">{renderProductImages()}</div>
         <div className="col-md-7">
+          <div className="row col-md-12">
+            <Rate disabled defaultValue={5} className="col-md-4" />
+            <p className="col-md-4">4.7 Star Rating</p>
+            <p className="col-md-4">(0 User feedback)</p>
+          </div>
           <h3>{product.name}</h3>
-          <p>Amount: ${product.amount}</p>
-          <p>{product.description}</p>
-          <div className="text-start">
-            <p className="d-flex justify-content-start align-items-center">
-              <button className="btn btn-primary me-2 bg-cl-tr">+</button>
-              <span>1</span>
-              <button className="btn btn-primary me-2 bg-cl-tr">-</button>
-            </p>
-            <button
-              className="btn button mx-3"
-              onClick={() => addcard(product._id)}
-            >
-              Add to Cart
-            </button>
-            <button className="btn button" onClick={() => buyproduct(product._id)}>Buy Now</button>
-            <p className="mt-3">SKU: {product.sku}</p>
+          <div className="col-md-12 row sku-tag mt-3">
+            <p className="col-md-6">SKU: {product.sku}</p>
+            <p className="col-md-6">Availability: <span className="text-success"> {product.availability}</span></p>
+          </div>
+          <div className="sku-tag">
             <p>CATEGORIES: FILES, STATIONERY</p>
-            <p>AVAILABILITY: {product.availability}</p>
+
+          </div>
+          <div className="col-md-12 sku-tag row mt-3">
+            <p className="price-amount col-md-2">₹{product.amount}</p>
+            <p className="col-md-2 text-decoration-line-through">₹ {product.offeramount}</p>
+            <p className="col-md-2 offer-per">{parseFloat(product.offeramount / product.amount).toFixed(0)}% OFF</p>
+
+
+          </div>
+          <div className="text-start col-md-12 row mt-3">
+            <div className="col-md-3 ">
+              <p className="d-flex justify-content-center align-items-center border qty-button">
+                <button className="btn btn-primary me-2 bg-cl-tr">+</button>
+                <span>1</span>
+                <button className="btn btn-primary me-2 bg-cl-tr ">-</button>
+              </p>
+            </div>
+            <div className="col-md-3">
+              <button className="btn button buy-now-tag" onClick={() => buyproduct(product._id)}>Buy Now</button>
+
+            </div>
+            <div className="col-md-4">
+              <button
+                className="btn button buy-now-tag text-black bg-transparent border border-secondary"
+                onClick={() => addcard(product._id)}
+              >
+                Add to Cart
+              </button>
+            </div>
+
+
+          </div>
+          <div className="d-flex justify-content-between mt-5 sku-tag">
+            <p className="w-50 d-flex">
+              <HeartOutlined />
+
+              Add to Wishlist
+            </p>
+            <p className="w-50 d-flex">
+              Share product:{<div className="mx-1" alt={`Product Image`} style={{ cursor: "pointer" }} onClick={handleCopyUrl}>
+                <ShareAltOutlined />
+              </div>}
+              {<img src={Facebookimage} className="mx-1" alt={`Product Image`} />}{" "}
+              {<img src={Twitterimage} className="mx-1" alt={`Product Image`} />}{" "}
+              {<img src={Pinterestimage} className="mx-1" alt={`Product Image`} />}
+            </p>
           </div>
         </div>
-        <div className="col-md-12 text-center mt-4">
+        <div className="col-md-12 text-center mt-80 border">
           {/* Product Tabs */}
           <Tab.Container defaultActiveKey="description">
-            <Nav variant="tabs" className="justify-content-center">
+            <Nav variant="tabs" className="justify-content-center border-0 border tab-border-color">
               <Nav.Item>
-                <Nav.Link eventKey="description">Description</Nav.Link>
+                <Nav.Link className="tab-text" eventKey="description">Description</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="reviews">Reviews (0)</Nav.Link>
+                <Nav.Link className="tab-text" eventKey="additional">Additional information</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link className="tab-text" eventKey="specification">Specification</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link className="tab-text" eventKey="reviews">Reviews</Nav.Link>
               </Nav.Item>
             </Nav>
             <Tab.Content>
               <Tab.Pane eventKey="description">
                 {/* Description Tab Content */}
-                <p>{product.description}</p>
+                <div className="text-start col-md-12 row mt-5">
+                  <div className="col-md-6 sku-tag feature-item ">
+                    <h4>Description</h4>
+                    <p>{product.description}</p>
+                    <p>The most powerful MacBook Pro ever is here. With the blazing-fast M1 Pro or M1 Max chip — the first Apple silicon designed for pros — you get groundbreaking performance and amazing battery life. Add to that a stunning Liquid Retina XDR display, the best camera and audio ever in a Mac notebook, and all the ports you need. The first notebook of its kind, this MacBook Pro is a beast. M1 Pro takes the exceptional performance of the M1 architecture to a whole new level for pro users.</p>
+                  </div>
+                  <div className="col-md-3 sku-tag feature-item ">
+                    <h4>Feature</h4>
+                    <p>Free 1 Year Warranty</p>
+                    <p>Free Shipping & Fasted Delivery</p>
+                    <p>100% Money-back guarantee</p>
+                    <p>24/7 Customer support</p>
+                    <p>Secure payment method</p>
+
+                  </div>
+                  <div className="col-md-3 sku-tag feature-item ">
+                    <h4>Shipping Information</h4>
+                    <p><strong>Courier:</strong>  2 - 4 days, free shipping</p>
+                    <p><strong>Local Shipping:</strong>  up to one week, $19.00</p>
+                    <p><strong>UPS Ground Shipping:</strong>  4 - 6 days, $29.00</p>
+                    <p><strong>Unishop Global Export:</strong> 3 - 4 days, $39.00</p>
+                    <p>Secure payment method</p>
+                  </div>
+
+                </div>
+
+
+              </Tab.Pane>
+              <Tab.Pane eventKey="additional">
+                {/* Reviews Tab Content */}
+                <div className="col-md-12 text-start mt-4">
+                  <div className="text-start">
+                    <p className="mt-3">Reviews</p>
+                    <p>There are no reviews yet.</p>
+                    <p>
+                      Only logged in customers who have purchased this product may leave
+                      a review.
+                    </p>
+                  </div>
+                </div>
+              </Tab.Pane>
+              <Tab.Pane eventKey="specification">
+                {/* Reviews Tab Content */}
+                <div className="col-md-12 text-start mt-4">
+                  <div className="text-start">
+                    <p className="mt-3">Reviews</p>
+                    <p>There are no reviews yet.</p>
+                    <p>
+                      Only logged in customers who have purchased this product may leave
+                      a review.
+                    </p>
+                  </div>
+                </div>
               </Tab.Pane>
               <Tab.Pane eventKey="reviews">
                 {/* Reviews Tab Content */}
-                <p>No Reviews</p>
+                <div className="col-md-12 text-start mt-4">
+                  <div className="text-start">
+                    <p className="mt-3">Reviews</p>
+                    <p>There are no reviews yet.</p>
+                    <p>
+                      Only logged in customers who have purchased this product may leave
+                      a review.
+                    </p>
+                  </div>
+                </div>
               </Tab.Pane>
             </Tab.Content>
           </Tab.Container>
         </div>
-        <div className="col-md-12 text-start mt-4">
-          <div className="text-start">
-            <p className="mt-3">Reviews</p>
-            <p>There are no reviews yet.</p>
-            <p>
-              Only logged in customers who have purchased this product may leave
-              a review.
-            </p>
-          </div>
-        </div>
+
       </div>
     );
   };
@@ -224,9 +352,9 @@ const Product = () => {
           },
         }}
       >
-        {productlist?.productList[0].products?.slice(0, 6).map((prod, ind) => (
-          <div key={prod.categoryId} className="portfolio">
-            <div key={ind} className="item">
+        {productlist?.productList[0].products?.slice(0, 10).map((prod, ind) => (
+          <div key={prod.categoryId} className="portfolio ">
+            <div key={ind} className="body-card-product">
               <img
                 src={
                   prod.images[0] !== null && prod.images[0] !== "image_url1"
@@ -235,16 +363,17 @@ const Product = () => {
                 }
                 alt={`Web Project ${ind + 1}`}
               />
-              <span className="text-white">
+              <span className="text-black ">
                 {prod.name} ₹{prod.amount}
               </span>
-              <div
-                className="add-to-cart"
+            
+            </div>
+            <div
+                className="btn button buy-now-tag text-black bg-transparent border border-secondary"
                 onClick={() => fetchProductbyId(prod._id)}
               >
                 <i className="fas fa-cart-plus" /> Add to Cart
               </div>
-            </div>
           </div>
         ))}
       </OwlCarousel>
@@ -255,7 +384,7 @@ const Product = () => {
     const product = GetProductIdResponse?.Products || {};
 
     return (
-      <OwlCarousel className="owl-theme"  loop margin={10} items={1}>
+      <OwlCarousel className="owl-theme" loop margin={10} items={1}>
         {product.images &&
           product.images.map((image, index) => (
             <div key={index} className="item">
@@ -276,9 +405,9 @@ const Product = () => {
       <section className="py-5 mt-80">
         <div className="container">
           {renderProductDetails()}
-          <section className="py-5">
+          <section className="bg-theme-color mt-5 p-3">
             <div className="container-fluid">
-              <div className="text-center">
+              <div className="text-center mt-5 mb-5">
                 <h3 className="fw-bolder">Related Products</h3>
               </div>
               {renderRelatedProducts()}

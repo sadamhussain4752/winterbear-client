@@ -33,7 +33,10 @@ import {
   GET_ADDCARD_IB_BY_FAILURE,
   DELETE_ADDCARD_IB_BY_REQUEST,
   DELETE_ADDCARD_IB_BY_SUCCESS,
-  DELETE_ADDCARD_IB_BY_FAILURE
+  DELETE_ADDCARD_IB_BY_FAILURE,
+  FETCH_ADDRESS_LIST_REQUEST,
+  FETCH_ADDRESS_LIST_SUCCESS,
+  FETCH_ADDRESS_LIST_FAILURE
 } from "./actions";
 
 const initialState = {
@@ -275,6 +278,23 @@ const dataReducer = (state = initialState, action) => {
         Deleteloading: false,
         DeleteAddcardUserRes: action.payload,
       };
+      case FETCH_ADDRESS_LIST_REQUEST:
+        return {
+          ...state,
+          error: null,
+        };
+      case FETCH_ADDRESS_LIST_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          addresslist: action.payload,
+        };
+      case FETCH_ADDRESS_LIST_FAILURE:
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+        };
 
     default:
       return state;

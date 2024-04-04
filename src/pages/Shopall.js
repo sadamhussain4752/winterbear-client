@@ -1,282 +1,209 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate } from 'react-router-dom';
-import { fetchProductData } from "../reducer/thunks";
+import { fetchProductData, fetchBannerData } from "../reducer/thunks";
+import HomeSlider from "../components/BrandSlider";
+import { Dropdown, Menu, Empty } from 'antd';
+
 
 
 
 const ShopAll = () => {
   const dispatch = useDispatch();
+  document.title = "Winter Bear";
+  document.getElementsByTagName("META")[2].content = "Winter Bear";
+  // States to store product list and selected category
+  const [productList, setProductList] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const {
     productlist,
     loading: productListLoading,
     error: productListError,
   } = useSelector((state) => state.productlist);
+  const {
+    data,
+    loading: bannerLoading,
+    error: bannerError,
+  } = useSelector((state) => state.data);
   const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchProductData());
+    dispatch(fetchBannerData());
+    setProductList(productlist?.productList)
+
   }, []);
+  useEffect(() => {
+    if (productlist && productlist.productList) {
+      console.log(productlist, "productList");
+      // Update productList with all products from Redux state
+      setProductList(productlist.productList);
+    }
+  }, [productlist]);
+
+  // useEffect(() => {
+  //   if (productList.length > 0) {
+  //     console.log(productList,"productList");
+  //     // Update productList with all products from Redux state
+  //     setProductList(productList);
+  //   }
+  // }, [productlist]);
+  // Define the menu
+  const menu = (
+    <Menu>
+      <Menu.Item>
+        Alphabetical: A to Z
+      </Menu.Item>
+      <Menu.Item>
+        Alphabetical: Z to A
+      </Menu.Item>
+
+    </Menu>
+  );
+
+  const pricemenu = (
+    <Menu>
+      <Menu.Item>
+        Lower to Higher
+      </Menu.Item>
+      <Menu.Item>
+        Higher to Lower
+      </Menu.Item>
+
+    </Menu>
+  );
 
 
   const handleNavigation = (productId) => {
     // Navigate to the specified product id
     navigate(`/product/${productId}`);
   };
+
+  // Handle category click
+  // Handle category click
+  const handleCategoryClick = (categoryId) => {
+    setSelectedCategory(categoryId);
+    // Filter products based on the clicked category
+    const filteredProducts = productlist.productList.filter((item) => {
+      return item.brand.category_id === categoryId._id;
+    });
+    setProductList(filteredProducts);
+  };
+
+
   return (
     <>
       <Header />
 
       <section className="py-5 shop">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="section-heading">
-                  <h3 className="theme-bg-text ">Shop by</h3>
-                </div>
-              </div>
-            </div>
-
-            <div className="row justify-content-center">
-              {productlist &&
-                productlist.productList &&
-                productlist.productList.map((item, index) => {
-                  if (!item || !item.products || item.products.length === 0)
-                    return null;
-                  return (
-                    <div className="">
-                      <div
-                        className="col-md-12 bg-theme tile-1"
-                        id={`sticky1${index}`}
-                      >
-                        <div className="container-fluid ">
-                          <ul
-                            className="nav nav-pills mb-3  nav-fill"
-                            id="pills-tab"
-                            role="tablist"
-                          >
-                            <li className="nav-item" role="presentation">
-                              <button
-                                className="nav-link  fw-semibold  position-relative rounded-pill  "
-                                id="pills-koya-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-koya"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-koya"
-                                aria-selected="true"
-                              >
-                                KOYA
-                              </button>
-                            </li>
-                            <li className="nav-item" role="presentation">
-                              <button
-                                className="nav-link text-light fw-semibold position-relative rounded-pill"
-                                id="pills-rj-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-rj"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-rj"
-                                aria-selected="false"
-                              >
-                                RJ
-                              </button>
-                            </li>
-                            <li className="nav-item" role="presentation">
-                              <button
-                                className="nav-link text-light fw-semibold position-relative rounded-pill"
-                                id="pills-shooky-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-shooky"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-shooky"
-                                aria-selected="false"
-                              >
-                                SHOOKY
-                              </button>
-                            </li>
-
-                            <li className="nav-item" role="presentation">
-                              <button
-                                className="nav-link text-light fw-semibold position-relative rounded-pill"
-                                id="pills-mang-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-mang"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-mang"
-                                aria-selected="false"
-                              >
-                                MANG
-                              </button>
-                            </li>
-                            <li className="nav-item" role="presentation">
-                              <button
-                                className="nav-link text-light fw-semibold position-relative rounded-pill"
-                                id="pills-chimmy-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-chimmy"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-chimmy"
-                                aria-selected="false"
-                              >
-                                CHIMMY
-                              </button>
-                            </li>
-                            <li className="nav-item" role="presentation">
-                              <button
-                                className="nav-link text-light fw-semibold position-relative rounded-pill"
-                                id="pills-tata-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-tata"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-tata"
-                                aria-selected="false"
-                              >
-                                TATA
-                              </button>
-                            </li>
-                            <li className="nav-item" role="presentation">
-                              <button
-                                className="nav-link text-light fw-semibold position-relative rounded-pill"
-                                id="pills-cooky-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-cooky"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-cooky"
-                                aria-selected="false"
-                              >
-                                COOKY
-                              </button>
-                            </li>
-                          </ul>
-                          <div
-                            className="tab-content text-white px-3"
-                            id="pills-tabContent"
-                          >
-                            <div
-                              className="tab-pane fade  "
-                              id="pills-koya"
-                              role="tabpanel"
-                              aria-labelledby="pills-koya-tab"
-                            >
-                              <p className="text-white">hello</p>
-                            </div>
-
-                            <div
-                              className="tab-pane fade  text-white"
-                              id="pills-rj"
-                              role="tabpanel"
-                              aria-labelledby="pills-rj-tab"
-                            >
-                              RJ
-                            </div>
-
-                            <div
-                              className="tab-pane fade"
-                              id="pills-shooky"
-                              role="tabpanel"
-                              aria-labelledby="pills-shooky-tab"
-                            >
-                              shooky
-                            </div>
-
-                            <div
-                              className="tab-pane fade"
-                              id="pills-mang"
-                              role="tabpanel"
-                              aria-labelledby="pills-mang-tab"
-                            >
-                              mang
-                            </div>
-
-                            <div
-                              className="tab-pane fade"
-                              id="pills-chimmy"
-                              role="tabpanel"
-                              aria-labelledby="pills-chimmy-tab"
-                            >
-                              chimmy
-                            </div>
-
-                            <div
-                              className="tab-pane fade"
-                              id="pills-tata"
-                              role="tabpanel"
-                              aria-labelledby="pills-tata-tab"
-                            >
-                              tata
-                            </div>
-
-                            <div
-                              className="tab-pane fade"
-                              id="pills-cooky"
-                              role="tabpanel"
-                              aria-labelledby="pills-cooky-tab"
-                            >
-                              cooky
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="portfolio">
-                          {item &&
-                            item.products &&
-                            item.products.slice(0, 10).map((prod, ind) => (
-                              <div className="item p-3">
-                                {" "}
-                                {/* Add appropriate classes for filtering */}
-                                <img
-                                
-                                  src={
-                                    
-                                    prod.images[0] !== null &&
-                                    prod.images[0] !== "image_url1"
-                                      ?`${constant.baseUrl}${prod.images[0]}`  
-                                      : "assets/images/Rectangle 22.png"
-                                  }
-                                  alt="Web Project 1"
-                                />
-                                <span className="text-white">
-                                  {prod.name} ₹{prod.amount}
-                                </span>
-                                <div className="add-to-cart" onClick={() => handleNavigation(prod._id)}>
-                                  <i className="fas fa-cart-plus" /> Add to Cart
-                                </div>
-                              </div>
-                            ))}
-                        </div>
-                      </div>
-                      <div className="col-md-2 g-0 bg-white sticky">
-                        <div className="sticky-logo-1">
-                          <img
-                            src="assets/images/client-logo.png"
-                            className="w-75 d-block mx-auto"
-                          />
-                          <p className="sticky-logo-text mt-3">
-                            View the collection
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              <div className="sticky-body container-fluid bg-white">
-                <Gallery />
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12 mt-80">
+              <div className="section-heading">
+                <h3 className="theme-bg-text ">Shop by</h3>
               </div>
             </div>
           </div>
-        </section>
+
+          <HomeSlider />
+
+          <div className="col-md-12 ">
+            <div className="section-heading">
+              <h3 className="theme-bg-text ">{selectedCategory ? selectedCategory?.name : "Trending Products"}</h3>
+            </div>
+          </div>
+
+          <div className="col-md-12">
+            <div className="text-end d-flex justify-content-end filter-item">
+              {/* <div>
+                Sort by:
+              </div> */}
+              <Dropdown overlay={menu} trigger={['hover']} placement="bottomCenter">
+                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                  Sort by:
+                </div>
+              </Dropdown>
+              <Dropdown overlay={pricemenu} trigger={['hover']} placement="bottomCenter">
+                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                  Price
+                </div>
+              </Dropdown>
+              <div>
+                Popular
+              </div>
+              <div>
+                Newest
+              </div>
+              <div>
+                Best Selling
+              </div>
+            </div>
+          </div>
+
+
+          <div className="row justify-content-end">
+            <div className="col-md-1">
+              <div className="p-0 border text-center rounded ">
+                {data &&
+                  data.Categorys &&
+                  data.Categorys.map((item) => (
+                    <div className={`${item._id === selectedCategory?._id ? "bg-theme-color" : ""}`} key={item._id} onClick={() => handleCategoryClick(item)}>
+                      <div className="align-items-center shop-all-card">
+                        <img src={`${constant.baseUrl}${item.imageUrl}`} />
+                        <p>{item.name}</p>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+
+            </div>
+
+            <div className="col-md-11">
+              {productList &&
+                productList.map((item, index) => {
+                  if (!item || !item.products || item.products.length === 0)
+                    return null;
+                  return (
+                    <div className="row col-md-12 body-card-product" >
+                      {item &&
+                        item.products &&
+                        item.products.map((prod, ind) => (
+                          <div className="col-md-3 rounded-border" onClick={() => handleNavigation(prod._id)}>
+                            <img
+
+                              src={
+
+                                prod.images[0] !== null &&
+                                  prod.images[0] !== "image_url1"
+                                  ? `${constant.baseUrl}${prod.images[0]}`
+                                  : "assets/images/Rectangle 22.png"
+                              }
+                              alt="Web Project 1"
+                            />
+                            <div className="text-center price-card">
+                              <p className="pt-2">
+                                ${prod.amount}
+                              </p>
+                              <p className="font-z">
+                                {prod.name}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+
+                    </div>
+                  );
+                })}
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       <Gallery />
       <Footer />

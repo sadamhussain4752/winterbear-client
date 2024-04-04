@@ -28,6 +28,9 @@ const Footer = () => {
                     <li>
                       <a href="#">faq</a>
                     </li>
+                    <li>
+                      <a href="/blogs">Blogs</a>
+                    </li>
                   </ul>
                 </div>
                 <div className="col-md-6 col-6">
@@ -114,7 +117,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-    <div className="copy-rights-img">
+    <div className="copy-rights-img mt-5">
       <div className="container">
         <div className="text-center">
           <img src="assets/images/footer-img.png" className="" />

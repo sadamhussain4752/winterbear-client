@@ -36,6 +36,17 @@ export const DELETE_ADDCARD_IB_BY_FAILURE = 'DELETE_ADDCARD_IB_BY_FAILURE';
 export const ADD_ORDER_IB_BY_REQUEST = 'ADD_ORDER_IB_BY_REQUEST';
 export const ADD_ORDER_IB_BY_SUCCESS = 'ADD_ORDER_IB_BY_SUCCESS';
 export const ADD_ORDER_IB_BY_FAILURE = 'ADD_ORDER_IB_BY_FAILURE';
+export const ADD_ADDRESS_IB_BY_REQUEST = 'ADD_ADDRESS_IB_BY_REQUEST';
+export const ADD_ADDRESS_IB_BY_SUCCESS = 'ADD_ADDRESS_IB_BY_SUCCESS';
+export const ADD_ADDRESS_IB_BY_FAILURE = 'ADD_ADDRESS_IB_BY_FAILURE';
+export const COUPON_IB_BY_REQUEST = 'COUPON_IB_BY_REQUEST';
+export const COUPON_IB_BY_SUCCESS = 'COUPON_IB_BY_SUCCESS';
+export const COUPON_IB_BY_FAILURE = 'COUPON_IB_BY_FAILURE';
+
+export const FETCH_ADDRESS_LIST_REQUEST = 'FETCH_ADDRESS_LIST_REQUEST';
+export const FETCH_ADDRESS_LIST_SUCCESS = 'FETCH_ADDRESS_LIST_SUCCESS';
+export const FETCH_ADDRESS_LIST_FAILURE = 'FETCH_ADDRESS_LIST_FAILURE';
+
 
 export const fetchHeaderRequest = () => ({
   type: FETCH_DATA_REQUEST,
@@ -196,5 +207,49 @@ export const AddOrderIdSuccess = (data) => ({
 
 export const AddOrderIdFailure = (error) => ({
   type: ADD_ORDER_IB_BY_FAILURE,
+  payload: error,
+});
+
+
+export const AddressRequest = () => ({
+  type: ADD_ADDRESS_IB_BY_REQUEST,
+});
+
+export const AddressSuccess = (data) => ({
+  type: ADD_ADDRESS_IB_BY_SUCCESS,
+  payload: data,
+});
+
+export const AddressFailure = (error) => ({
+  type: ADD_ADDRESS_IB_BY_FAILURE,
+  payload: error,
+});
+
+export const CouponRequest = () => ({
+  type: COUPON_IB_BY_REQUEST,
+});
+
+export const CouponSuccess = (data) => ({
+  type: COUPON_IB_BY_SUCCESS,
+  payload: data,
+});
+
+export const CouponFailure = (error) => ({
+  type: COUPON_IB_BY_FAILURE,
+  payload: error,
+});
+
+
+export const fetchAddressRequest = () => ({
+  type: FETCH_ADDRESS_LIST_REQUEST,
+});
+
+export const fetchAddressSuccess = (data) => ({
+  type: FETCH_ADDRESS_LIST_SUCCESS,
+  payload: data,
+});
+
+export const fetchAddressFailure = (error) => ({
+  type: FETCH_ADDRESS_LIST_FAILURE,
   payload: error,
 });

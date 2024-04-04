@@ -4,6 +4,9 @@ import Footer from "../components/Footer";
 import { fetchStoreData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
+import { Input, Button, Checkbox } from 'antd'; // Import Ant Design components
+
+import { Form } from "antd";
 const Days = [
   "Monday",
   "Tuesday",
@@ -45,146 +48,78 @@ const Store = () => {
               </div>
             </div>
           </div>
+          <div className="row ">
+            <div className="col-md-8 text-end mt-md-5  ">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916296526!2d77.6309395!3d12.9539974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1705490836330!5m2!1sen!2sin"
+                // width="1266"
+                height="450"
+                style={{ border: "0" }}
+                allowfullscreen=""
+                className="col-md-12 text-end mt-md-5 "
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div className="col-md-4 text-start mt-md-5 find-store ">
+              <h4>Find Your Preferred Store</h4>
+              <p>Find your preferred store to learn about its opening hours, stock availability, and relevant offers.</p>
+              <div className="input-group mt-4">
+                <p>Enter a PIN code</p>
+                <Input placeholder="Enter PIN code" className="form-control text-input w-100" /> {/* Ant Design Input component */}
+              </div>
+              <div className="input-group row d-flex justify-content-start align-items-start col-md-12 mt-3">
+                <Checkbox className="col-md-1" />
+                <label className="checkbox-label col-md-11">Remember my postal code for delivery, availability, and stock information.</label>
+              </div>
+              <p className="mt-3">Use your current location</p>
+
+              <Button className="btn button rounded w-100" type="primary">Find a preferred store</Button> {/* Ant Design Button component */}
+            </div>
+          </div>
         </div>
       </section>
-      {storelist &&
-        storelist.admins &&
-        storelist.admins.map((item, index) => {
-          if (index % 2 == 0) {
-            return (
-              <section className="py-2 mb-3 ">
-                <div className="container-fluid">
-                  <div className="row ">
-                    <div className="col-md-12 d-block mx-auto half-width-bg-left">
-                      <div className="section-heading ">
-                        <h3 className="fs-1 my-4 fw-bold text-main ">
-                          {item.storename}
-                        </h3>
-                      </div>
-                    </div>
-                    <div className="col-md-6 text-end mt-md-5 ">
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916296526!2d77.6309395!3d12.9539974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1705490836330!5m2!1sen!2sin"
-                        width="400"
-                        height="450"
-                        style={{ border: "0" }}
-                        allowfullscreen=""
-                        loading="lazy"
-                        className="left-20"
-                        referrerpolicy="no-referrer-when-downgrade"
-                      ></iframe>
-                    </div>
-                    <div className="col-md-6 py-5 position-relative light-yeloo">
-                      <div className="row ">
-                        <div className="offset-md-2 col-md-3 ">
-                          <img
-                            src="assets/images/store.png"
-                            className="w-100 d-block mx-auto"
-                            alt="bg"
-                          />
-                        </div>
-                        <div className="col-md-3">
-                          <img
-                            src="assets/images/store1.png"
-                            className="w-100  d-block mx-auto"
-                            alt="bg"
-                          />
-                        </div>
-                        <div className="col-md-3">
-                          <img
-                            src="assets/images/store2.png"
-                            className="w-100 d-block mx-auto"
-                            alt="bg"
-                          />
-                        </div>
+      <section className=" mt-120">
 
-                        <div className="offset-md-2 col-md-8">
-                          {item.storeaddress}
-                        </div>
-                        <div className="offset-md-2 col-md-5 mt-3 mb-5">
-                          {item &&
-                            item.storetimming &&
-                            Object.values(item.storetimming).map((value, i) => (
-                              <div key={i} className="d-flex justify-content-between">
-                                <strong>{Days[i]}</strong>
-                                <strong>{value}</strong>
-                              </div>
-                            ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            );
-          } else {
+        {storelist &&
+          storelist.admins &&
+          storelist.admins.map((item, index) => {
             return (
-              <section className="mt-md-5 py-5 mb-5">
-                <div className="container-fluid">
-                  <div className="row my-5">
-                    <div className="col-md-12 d-block mx-auto half-width-bg-right">
-                      <div className="section-heading ">
-                        <h3 className="fs-1 my-4 fw-bold text-main ">
-                          {item.storename}
-                        </h3>
-                      </div>
-                    </div>
-                    <div className="col-md-6  position-relative light-yeloo">
-                      <div className="row ">
-                        <div className="offset-md-2 col-md-3 ">
-                          <img
-                            src="assets/images/store.png"
-                            className="w-100 d-block mx-auto"
-                            alt="bg"
-                          />
-                        </div>
-                        <div className="col-md-3">
-                          <img
-                            src="assets/images/store1.png"
-                            className="w-100  d-block mx-auto"
-                            alt="bg"
-                          />
-                        </div>
-                        <div className="col-md-3">
-                          <img
-                            src="assets/images/store2.png"
-                            className="w-100 d-block mx-auto"
-                            alt="bg"
-                          />
-                        </div>
-                        <div className="offset-md-2 col-md-8">
-                          {item.storeaddress}
-                        </div>
-                        <div className="offset-md-2 col-md-5 mt-3 mb-5">
-                          {item &&
-                            item.storetimming &&
-                            Object.values(item.storetimming).map((value, i) => (
-                              <div key={i} className="d-flex justify-content-between">
-                                <strong>{Days[i]}</strong>
-                                <strong>{value}</strong>
-                              </div>
-                            ))}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6 text-end ">
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916296526!2d77.6309395!3d12.9539974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1705490836330!5m2!1sen!2sin"
-                        width="400"
-                        height="450"
-                        style={{ border: "0" }}
-                        allowfullscreen=""
-                        loading="lazy"
-                        className="left--20"
-                        referrerpolicy="no-referrer-when-downgrade"
-                      ></iframe>
-                    </div>
+
+              <div className="col-md-12 d-flex justify-content-center">
+
+                <div className="box-card-over position-relative">
+                  <div className="col-md-12">
+                    <img src="assets/images/store.png" className="img-fluid col-md-4" />
+                    <img src="assets/images/store1.png" className="img-fluid col-md-4" />
+                    <img src="assets/images/store2.png" className="img-fluid col-md-4" />
+
+                  </div>
+                  <div className="position-absolute top-0 start-0 light-background">
+                  <h4>
+                    Bangalore
+                    </h4>
+                  </div>
+                  <div className="text-box-store p-4">
+                    <h4>
+                      Visit Winterbear store at VR {item.storename}
+                    </h4>
+                    <p>
+                      Shop No. {item.storeaddress}.
+                    </p>
+                    <p>
+                      Monday-Sunday: 10:30am-10:00pm
+                    </p>
                   </div>
                 </div>
-              </section>
+              </div>
+
             );
-          }
-        })}
+          })}
+
+
+      </section>
+
 
       <Footer />
     </>

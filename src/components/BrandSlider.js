@@ -16,7 +16,8 @@ const HomeSlider = () => {
           loop
           autoplay
           dots={false}
-          autoplayTimeout={800}
+          autoplayTimeout={1800}
+          smartSpeed={3000}
           responsive={{
             0: {
               items: 1,
@@ -35,12 +36,12 @@ const HomeSlider = () => {
           {data &&
             data.Brands &&
             data.Brands.map((brand, index) => (
-              <div key={index} className="item">
+              <div key={index} className="item ">
                 <img
                   src={constant.baseUrl+brand.imageUrl || "assets/images/placeholder.png"}
                   alt={brand.name || "Brand Name"}
-                  className="w-auto d-block mx-auto"
-                  width={"100px"}
+                  className="w-auto d-block mx-auto "
+                  width={"60px"}
                   height={"60px"}
                 />
                 {/* <div className="text-center mt-2">

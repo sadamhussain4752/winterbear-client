@@ -34,7 +34,16 @@ import {
   GetAddCardIdFailure,
   DeleteAddCardIdRequest,
   DeleteAddCardIdSuccess,
-  DeleteAddCardIdFailure
+  DeleteAddCardIdFailure,
+  AddressRequest,
+  AddressSuccess,
+  AddressFailure,
+  CouponRequest,
+  CouponSuccess,
+  CouponFailure,
+  fetchAddressRequest,
+  fetchAddressSuccess,
+  fetchAddressFailure
 } from './actions';
 import constant from '../constant/constant';
 
@@ -50,6 +59,10 @@ const AddCardProductid = `${constant.baseUrl}api/addcart/createCartItem`;
 const GetAddCardProductcard = `${constant.baseUrl}api/addcart/addcartUser`;
 const DelAddCardProductcard = `${constant.baseUrl}api/addcart/deleteCartItem`;
 const AddOrderProductid = `${constant.baseUrl}api/order/createOrder`;
+const AddAddressAPI = `${constant.baseUrl}api/address/createAddress`;
+const ApplyCouponAPI = `${constant.baseUrl}api/coupon/applyCoupon`;
+const GetAddressList = `${constant.baseUrl}api/address/getByIdAddress`;
+
 
 export const fetchBannerData = () => async (dispatch) => {
   dispatch(fetchHeaderRequest());
@@ -80,6 +93,17 @@ export const fetchStoreData = () => async (dispatch) => {
     dispatch(fetchStoreSuccess(response.data));
   } catch (error) {
     dispatch(fetchStoreFailure(error.message));
+  }
+};
+
+export const fetchAddressList = (id) => async (dispatch) => {
+  dispatch(fetchAddressRequest());
+
+  try {
+    const response = await axios.get(`${GetAddressList}/${id}`);
+    dispatch(fetchAddressSuccess(response.data));
+  } catch (error) {
+    dispatch(fetchAddressFailure(error.message));
   }
 };
 
@@ -191,5 +215,32 @@ export const AddOrderProductById = (body) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch(AddCardIdFailure(error.response.data.message));
+  }
+};
+
+
+export const AddAddressFetch = (body,userId) => async (dispatch) => {
+  dispatch(AddressRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.post(`${AddAddressAPI}`,body);
+    dispatch(AddressSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(AddressFailure(error.response.data.message));
+  }
+};
+
+export const ApplyCouponFetch = (body,userId) => async (dispatch) => {
+  dispatch(CouponRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.post(`${ApplyCouponAPI}`,body);
+    dispatch(CouponSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(CouponFailure(error.response.data.message));
   }
 };

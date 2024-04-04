@@ -5,7 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: url('./constant/images/aries.png'), auto;
+
 }
+/* body:hover {
+  cursor: url('./constant/images/aries-hover.png'), auto;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -106,7 +111,7 @@ code {
   padding: 0px 0px 0px 0px;
   border-radius: 4px;
   color: #221A42;
-  font-size: 15px;
+  /* font-size: 15px; */
   font-weight: bold; /* You can adjust the styling as needed */
   transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
   /* Add any additional styles for the hover effect */
@@ -152,7 +157,8 @@ code {
   .product-item {
     /* background-color: red !important; */
     display: flex !important;
-    flex-direction: row !important;    
+    flex-direction: row !important;  
+  
 
   }
   .product-amount {

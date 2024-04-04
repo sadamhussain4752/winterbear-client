@@ -78,7 +78,7 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container">
                 <img
-                  src="assets/images/about1-1.png"
+                  src={require("../constant/images/about-1.png")}
                   class="img-fluid d-block mx-auto p-3"
                   alt="Your Image"
                 />
@@ -90,7 +90,7 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container">
                 <img
-                  src="assets/images/about2-2.png"
+                  src={require("../constant/images/about-2.png")}
                   class="img-fluid d-block mx-auto p-3"
                   alt="Your Image"
                 />
@@ -102,7 +102,7 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container">
                 <img
-                  src="assets/images/about3.png"
+                  src={require("../constant/images/about-3.png")}
                   class="img-fluid d-block mx-auto p-3"
                   alt="Your Image"
                 />
@@ -114,7 +114,7 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container">
                 <img
-                  src="assets/images/about4.png"
+                  src={require("../constant/images/about-4.png")}
                   class="img-fluid d-block mx-auto p-3"
                   alt="Your Image"
                 />
@@ -126,7 +126,7 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container">
                 <img
-                  src="assets/images/about5.png"
+                  src={require("../constant/images/about-5.png")}
                   class="img-fluid d-block mx-auto p-3"
                   alt="Your Image"
                 />
@@ -138,7 +138,7 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container">
                 <img
-                  src="assets/images/about6.png"
+                  src={require("../constant/images/about-6.png")}
                   class="img-fluid d-block mx-auto p-3"
                   alt="Your Image"
                 />

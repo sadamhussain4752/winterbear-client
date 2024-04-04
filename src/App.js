@@ -13,11 +13,14 @@ import EventsSection from "./pages/Events";
 import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
 import Payment from "./pages/Payment";
+import EventDetails from "./pages/EventDetails";
+import Blogs from "./pages/Blogs";
 
 const App = () => {
   return (
     <div>
-      <Router>
+     
+      <Router> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -32,8 +35,12 @@ const App = () => {
           <Route path="/cart" element={<Checkout />} />
           <Route path="/checkout" element={<Payment />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/event-details" element={<EventDetails/>}/>
+          <Route path="/blogs" element={<Blogs/>}/>
+
         </Routes>
       </Router>
+      
     </div>
   );
 };

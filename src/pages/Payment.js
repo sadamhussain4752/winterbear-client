@@ -490,7 +490,7 @@ const Payment = () => {
           </div>
 
           <div className="">
-            <div className="col-md-12">
+            {/* <div className="col-md-12">
               <Steps
                 current={2}
                 items={[
@@ -509,7 +509,7 @@ const Payment = () => {
                   },
                 ]}
               />
-            </div>
+            </div> */}
             <div className="col-md-12 row mt-5">
               {renderShippingAddressForm()}
               {renderCardtotals()}

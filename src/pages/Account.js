@@ -64,7 +64,7 @@ const Account = () => {
       case "profile":
         return <EditProfile />;
       case "payment":
-        return <PaymentOption />;
+        // return <PaymentOption />;
       case "address":
         return <Address />;
       case "order":
@@ -115,12 +115,12 @@ const Account = () => {
                     >
                       My Profile
                     </p>
-                    <p
+                    {/* <p
                       className={`p-text ft-16 ${activeTab === "payment" ? "active" : ""}`}
                       onClick={() => handleTabClick("payment")}
                     >
                       Payment Option
-                    </p>
+                    </p> */}
                     <p
                       className={`p-text ft-16 ${activeTab === "address" ? "active" : ""}`}
                       onClick={() => handleTabClick("address")}
