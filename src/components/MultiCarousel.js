@@ -119,7 +119,7 @@ const MultiCarousel = ({ deviceType,images }) => {
           key={index} // Add the key prop here
           draggable={false}
           style={{ width: "100%", height: "100%", }}
-          src={`${constant.baseUrl}${image}`}
+          src={`${image}`}
         />
       ))}
     </Carousel>

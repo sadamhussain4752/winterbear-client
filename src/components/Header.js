@@ -85,11 +85,11 @@ const Header = () => {
     if (userId !== undefined || userId !== null) {
       dispatch(ProfileUserData(userId));
     }
-    if (NewsPaperId === null) {
-      setNewsVisible(true)
-      localStorage.setItem("NewsPaperID", true)
-    }
-    // localStorage.removeItem("NewsPaperID")
+    // if (NewsPaperId === null) {
+    //   setNewsVisible(true)
+    //   localStorage.setItem("NewsPaperID", true)
+    // }
+    localStorage.removeItem("NewsPaperID")
 
     // if (getUserResponse) {
     //   const { firstname, lastname } = getUserResponse.User;

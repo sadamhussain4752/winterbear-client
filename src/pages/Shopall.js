@@ -35,14 +35,14 @@ const ShopAll = () => {
   useEffect(() => {
     dispatch(fetchProductData());
     dispatch(fetchBannerData());
-    setProductList(productlist?.productList)
+    setProductList(productlist?.products);
 
   }, []);
   useEffect(() => {
-    if (productlist && productlist.productList) {
+    if (productlist && productlist?.products) {
       console.log(productlist, "productList");
       // Update productList with all products from Redux state
-      setProductList(productlist.productList);
+      setProductList(productlist?.products);
     }
   }, [productlist]);
 
@@ -164,41 +164,34 @@ const ShopAll = () => {
             </div>
 
             <div className="col-md-11">
-              {productList &&
-                productList.map((item, index) => {
-                  if (!item || !item.products || item.products.length === 0)
-                    return null;
-                  return (
-                    <div className="row col-md-12 body-card-product" >
-                      {item &&
-                        item.products &&
-                        item.products.map((prod, ind) => (
-                          <div className="col-md-3 rounded-border" onClick={() => handleNavigation(prod._id)}>
-                            <img
+              {<div className="row col-md-12 body-card-product" >
+                  {productList &&
+                    productList &&
+                    productList.map((prod, ind) => (
+                      <div className="col-md-3 rounded-border" onClick={() => handleNavigation(prod._id)}>
+                        <img
 
-                              src={
+                          src={
 
-                                prod.images[0] !== null &&
-                                  prod.images[0] !== "image_url1"
-                                  ? `${constant.baseUrl}${prod.images[0]}`
-                                  : "assets/images/Rectangle 22.png"
-                              }
-                              alt="Web Project 1"
-                            />
-                            <div className="text-center price-card">
-                              <p className="pt-2">
-                                ${prod.amount}
-                              </p>
-                              <p className="font-z">
-                                {prod.name}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
+                            prod.images[0] !== null &&
+                              prod.images[0] !== "image_url1"
+                              ? `${prod.images[0]}`
+                              : "assets/images/Rectangle 22.png"
+                          }
+                          alt="Web Project 1"
+                        />
+                        <div className="text-center price-card">
+                          <p className="pt-2">
+                            ${prod.amount}
+                          </p>
+                          <p className="font-z">
+                            {prod.name}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
 
-                    </div>
-                  );
-                })}
+                </div>}
             </div>
 
           </div>

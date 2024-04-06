@@ -120,7 +120,7 @@ const Product = () => {
             product.images.map((image, index) => (
               <div key={index} className="item">
                 <img
-                  src={`${constant.baseUrl}${image}`}
+                  src={`${image}`}
                   alt={`Product Image ${index}`}
                 />
               </div>
@@ -352,13 +352,13 @@ const Product = () => {
           },
         }}
       >
-        {productlist?.productList[0].products?.slice(0, 10).map((prod, ind) => (
+        {productlist?.products?.slice(0, 10).map((prod, ind) => (
           <div key={prod.categoryId} className="portfolio ">
             <div key={ind} className="body-card-product">
               <img
                 src={
                   prod.images[0] !== null && prod.images[0] !== "image_url1"
-                    ? `${constant.baseUrl}${prod.images[0]}`
+                    ? `${prod.images[0]}`
                     : "assets/images/Rectangle 22.png"
                 }
                 alt={`Web Project ${ind + 1}`}
@@ -389,7 +389,7 @@ const Product = () => {
           product.images.map((image, index) => (
             <div key={index} className="item">
               <img
-                src={`${constant.baseUrl}${image}`}
+                src={`${image}`}
                 alt={`Product Image ${index}`}
               />
             </div>
