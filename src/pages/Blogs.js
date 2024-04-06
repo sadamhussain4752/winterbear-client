@@ -50,101 +50,112 @@ const Blogs = () => {
                         </div>
                     </div>
 
-                    <div className="row blog-title">
-                        <div className="col-md-8 text-end mt-md-5 px-5">
-                            <h4 className="col-md-8 text-start mb-5">
-                                Featured Post
-                            </h4>
-                            <div className="border p-4 rounded">
-                                <img src={require("../constant/images/blogs-banner.png")} className="img-fluid col-md-12" />
-                                <div className="col-md-12">
-                                    <div className="text-box-store">
-                                        <p className="m-2 text-start">
-                                            By John Doe   l   May 23, 2022
-                                        </p>
-                                        <h4 className="m-2 text-start">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                                        </h4>
-                                        <p className="m-2 text-start">
-                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-                                        </p>
-                                        <p className="m-2 text-start">
-                                            <Button className="btn button rounded text-start" type="primary">Read More</Button>
+                    <div className="container">
 
-                                        </p>
+                        <div className="row blog-title">
+                            <div className="col-md-9 text-end mt-md-5 px-5">
+                                <h4 className="col-md-8 text-start mb-5">
+                                    Featured Post
+                                </h4>
+                                <div className="border p-4 rounded">
+                                    <img src={require("../constant/images/blogs-banner.png")} className="img-fluid col-md-12" />
+                                    <div className="col-md-12">
+                                        <div className="text-box-store">
+                                            <p className="m-2 text-start">
+                                                By John Doe   l   May 23, 2022
+                                            </p>
+                                            <h4 className="m-2 text-start">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                                            </h4>
+                                            <p className="m-2 text-start">
+                                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                                            </p>
+                                            <p className="m-2 text-start">
+                                                <Button className="btn button rounded text-start" type="primary">Read More</Button>
+
+                                            </p>
 
 
+
+                                        </div>
 
                                     </div>
 
                                 </div>
 
                             </div>
-
-                        </div>
-                        <div className="col-md-4 text-start mt-md-5 blog-store ">
-                            <h4 className="col-md-4 text-start mt-4 mb-5">
-                                Categories
+                            <div className="col-md-3 text-start mt-md-5 blog-store ">
+                                <h4 className="col-md-4 text-start mb-5">
+                                    Categories
 
 
-                            </h4>
-                            <div className="col-md-12">
-                                <div className="col-md-6 blog-card rounded p-2 d-flex justify-content-start align-items-center mt-4">
-                                    <img src={require("../constant/images/blog-c-1.png")} />
-                                    <p className="m-2">
-                                        Startup
-                                    </p>
+                                </h4>
+                                <div className="col-md-12">
+                                    <div className="col-md-12 blog-card rounded p-2 d-flex justify-content-start align-items-center mt-4">
+                                        <img src={require("../constant/images/blog-c-1.png")} />
+                                        <p className="m-2">
+                                            Startup
+                                        </p>
+
+                                    </div>
+                                    <div className="col-md-12 blog-card rounded p-2 d-flex justify-content-start align-items-center mt-4">
+                                        <img src={require("../constant/images/blog-c-2.png")} />
+
+                                        <p className="m-2">
+                                            Business
+                                        </p>
+
+                                    </div>
+                                    <div className="col-md-12 blog-card rounded p-2 d-flex justify-content-start align-items-center mt-4">
+                                        <img src={require("../constant/images/blog-c-3.png")} />
+
+                                        <p className="m-2">
+                                            Economy
+                                        </p>
+
+                                    </div>
+                                    <div className="col-md-12 blog-card rounded p-2 d-flex justify-content-start align-items-center mt-4">
+                                        <img src={require("../constant/images/blog-c-4.png")} />
+
+                                        <p className="m-2">
+                                            Technology
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <h4 className="col-md-8 text-start mt-5 ">
+                                    All Tags
+                                </h4>
+                                <div className="col-md-12 px-3">
+                                    <div className="d-flex justify-content-between">
+                                        <p className="btn button buy-now-tag text-black bg-transparent border border-secondary my-2">
+                                            Business
+                                        </p>
+                                        <p className="btn button buy-now-tag text-black bg-transparent border border-secondary my-2">
+                                            Experience
+                                        </p>
+                                    </div>
+
+                                    <div className="d-flex justify-content-between">
+                                        <p className="btn button buy-now-tag text-black bg-transparent border border-secondary my-2">
+                                            Screen
+                                        </p>
+                                        <p className="btn button buy-now-tag text-black bg-transparent border border-secondary my-2">
+                                            Technology
+                                        </p>
+                                    </div>
+                                    <div className="d-flex justify-content-between">
+                                        <p className="btn button buy-now-tag text-black bg-transparent border border-secondary my-2">
+                                            Marketing
+                                        </p>
+                                        <p className="btn button buy-now-tag text-black bg-transparent border border-secondary my-2">
+                                            Life
+                                        </p>
+                                    </div>
 
                                 </div>
-                                <div className="col-md-6 blog-card rounded p-2 d-flex justify-content-start align-items-center mt-4">
-                                    <img src={require("../constant/images/blog-c-2.png")} />
 
-                                    <p className="m-2">
-                                        Business
-                                    </p>
-
-                                </div>
-                                <div className="col-md-6 blog-card rounded p-2 d-flex justify-content-start align-items-center mt-4">
-                                    <img src={require("../constant/images/blog-c-3.png")} />
-
-                                    <p className="m-2">
-                                        Economy
-                                    </p>
-
-                                </div>
-                                <div className="col-md-6 blog-card rounded p-2 d-flex justify-content-start align-items-center mt-4">
-                                    <img src={require("../constant/images/blog-c-4.png")} />
-
-                                    <p className="m-2">
-                                        Technology
-                                    </p>
-
-                                </div>
                             </div>
-                            <h4 className="col-md-8 text-start mt-5 ">
-                                All Tags
-                            </h4>
-                            <div className="col-md-12">
-                                <p className="btn button buy-now-tag text-black bg-transparent border border-secondary m-2">
-                                    Business
-                                </p>
-                                <p className="btn button buy-now-tag text-black bg-transparent border border-secondary m-2">
-                                    Experience
-                                </p>
-                                <p className="btn button buy-now-tag text-black bg-transparent border border-secondary m-2">
-                                    Screen
-                                </p>
-                                <p className="btn button buy-now-tag text-black bg-transparent border border-secondary m-2">
-                                    Technology
-                                </p>
-                                <p className="btn button buy-now-tag text-black bg-transparent border border-secondary m-2">
-                                    Marketing
-                                </p>
-                                <p className="btn button buy-now-tag text-black bg-transparent border border-secondary m-2">
-                                    Life
-                                </p>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -158,15 +169,15 @@ const Blogs = () => {
                 <div style={{ display: 'flex', justifyContent: 'center', overflowX: 'auto' }} className="m-5">
 
                     <div className="reels-container">
-                       <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                       <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                       <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                       <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                       <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                       <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                       <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                       <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                       
+                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+
                     </div>
                 </div>
             </section>
@@ -191,7 +202,6 @@ const Blogs = () => {
                 </div>
             </section>
 
-            
 
             <Footer />
         </>

@@ -1,0 +1,104 @@
+ .tile-1 .item img {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: transform 0.3s;
+} 
+
+
+.product-img-main{
+    height: 350px;
+    object-fit: cover;
+    border: 1px solid grey;
+    padding: 2%;
+}
+
+
+.react-multi-carousel-list{
+    border: 1px solid black;
+    width: 100%;
+    margin:0px;
+    margin-top: 2%;
+    padding: 3% 1%;
+    background-color: lightgray;
+}
+
+.react-multiple-carousel__arrow {
+    background-color:  #221A42 !important;
+}
+
+.react-multi-carousel-track{
+    width: 100%;
+}
+
+.react-multi-carousel-track li {
+    display: block;
+    margin: auto;
+}
+
+.prod-bot-tab{
+    border: 1px solid #E4E7E9;
+}
+
+.nav-tabs{
+    border-bottom: 1px solid #E4E7E9 !important;
+}
+
+.nav-item {
+    padding: 2% 0%;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border: none !important;
+    border-bottom: 2px solid blue !important;
+}
+
+.tab-discription{
+    padding: 4%;
+}
+
+.product-card{
+    border: 1px solid black;
+    margin-bottom:50px;
+    border-radius: 20px;
+
+}
+
+.price-card {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.price-card .font-z{
+
+    margin-bottom: 0% !important;
+    border-radius: 20px;
+
+}
+
+
+.box-card-over{
+
+    width: 85%;
+
+}
+
+
+.about-breadcum-content{
+    z-index: 300;
+}
+
+
+/* cart style */
+
+.product-name{
+    font-size: 14px;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: white !important;
+    background: #4e3c98;
+}

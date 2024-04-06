@@ -33,7 +33,11 @@ const Checkout = () => {
     if (userId !== undefined || userId !== null) {
       dispatch(GetAddCardProductById(userId));
     }
-  }, [userId, DeleteAddcardUserRes]); // Add DeleteAddcardUserRes as a dependency
+  }, [userId, DeleteAddcardUserRes]); 
+// Add DeleteAddcardUserRes as a dependency
+
+
+
 
   useEffect(() => {
     if (DeleteAddcardUserRes) {
@@ -112,9 +116,9 @@ const Checkout = () => {
                         />
                       </div>
                       <div className="product-details ">
-                        <span className="product-name">
+                        <p className="product-name">
                           {item.product.name}
-                        </span>
+                        </p>
                       </div>
                     </div>
                   </td>
@@ -153,7 +157,7 @@ const Checkout = () => {
                       className="delete-button btn button"
                       onClick={() => handleRemoveItem(item._id)}
                     >
-                      Delete
+                      <i class="fa-solid fa-trash"></i>
                     </button>
                   </td>
                 </tr>

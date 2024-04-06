@@ -5,7 +5,8 @@ import Gallery from "../components/Gallery";
 const About = () => {
   const backgroundImageStyle = {
     background: 'url("assets/images/about-bg.png")',
-    backgroundSize: 'cover',
+    backgroundSize: '100% 100%',
+
   };
   document.title = "about";
   document.getElementsByTagName("META")[2].content = "about";
@@ -148,11 +149,6 @@ const About = () => {
               </div>
             </div>
 
-
-           
-           
-           
-          
            
           </div>
         </div>

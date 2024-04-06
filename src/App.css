@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+.product-index {
+  border: 1px solid #C7C7C7 !important;
+}
+
+
+.ant-btn{
+  background-color: #343054 !important;
+}

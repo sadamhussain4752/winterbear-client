@@ -26,7 +26,7 @@ const HomeSlider = () => {
               items: 2,
             },
             1000: {
-              items: 4,
+              items: 5,
             },
             1600: {
               items: 7,

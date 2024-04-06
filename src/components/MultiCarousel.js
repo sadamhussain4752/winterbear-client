@@ -105,7 +105,7 @@ const responsive = {
 
 
 
-const MultiCarousel = ({ deviceType,images }) => {
+const MultiCarousel = ({ deviceType, images }) => {
   return (
     <Carousel
       ssr

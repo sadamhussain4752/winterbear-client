@@ -52,9 +52,9 @@ const Store = () => {
     <>
       <Header />
       <section className=" mt-120">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12">
+        <div className="container">
+          <div className="row ">
+            <div className="col-md-12 ">
               <div className="section-heading">
                 <h6 className="theme-bg-text small">Our Stores</h6>
               </div>
@@ -92,25 +92,53 @@ const Store = () => {
       <section className="mt-120">
         {storelist &&
           storelist.admins &&
-          storelist.admins.map((item, index) => (
-            <div className="col-md-12 d-flex justify-content-center" key={index}>
-              <div className="box-card-over position-relative">
-                <div className="col-md-12">
-                  <img src="assets/images/store.png" className="img-fluid col-md-4" />
-                  <img src="assets/images/store1.png" className="img-fluid col-md-4" />
-                  <img src="assets/images/store2.png" className="img-fluid col-md-4" />
-                </div>
-                <div className="position-absolute top-0 start-0 light-background">
-                  <h4>Bangalore</h4>
-                </div>
-                <div className="text-box-store p-4">
-                  <h4>Visit Winterbear store at VR {item.storename}</h4>
-                  <p>Shop No. {item.storeaddress}.</p>
-                  <p>Monday-Sunday: 10:30am-10:00pm</p>
+          storelist.admins.map((item, index) => {
+
+            console.log(index + "hi");
+
+            let align = "";
+
+            if (index % 2 === 0) {
+              align = "start";
+            } else {
+              align = "end"; 
+            }
+
+
+            return (
+              <div className="container">
+                <div className="col-md-12" style={{ display: "flex", justifyContent: align }}>
+
+                  <div className="box-card-over position-relative">
+                    <div className="col-md-12">
+                      <img src="assets/images/store.png" className="img-fluid col-md-4" />
+                      <img src="assets/images/store1.png" className="img-fluid col-md-4" />
+                      <img src="assets/images/store2.png" className="img-fluid col-md-4" />
+
+                    </div>
+                    <div className="position-absolute top-0 start-0 light-background">
+                      <h4>
+                        Bangalore
+                      </h4>
+                    </div>
+                    <div className="text-box-store p-4">
+                      <h4>
+                        Visit Winterbear store at VR {item.storename}
+                      </h4>
+                      <p>
+                        Shop No. {item.storeaddress}.
+                      </p>
+                      <p>
+                        Monday-Sunday: 10:30am-10:00pm
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
+
+
       </section>
       <Footer />
     </>

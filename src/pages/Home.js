@@ -12,6 +12,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 
 
+// new style
+
+import './innerstyle.css';
+
+
 import constant from "../constant/constant";
 const Home = () => {
   const dispatch = useDispatch();
@@ -116,11 +121,11 @@ const Home = () => {
                       >
                         <div className="container-fluid ">
                           <ul
-                            className="nav nav-pills mb-3  nav-fill"
+                            className="nav nav-pills  nav-fill"
                             id="pills-tab"
                             role="tablist"
                           >
-                            <li className="nav-item" role="presentation">
+                            <li className="nav-item py-1" role="presentation">
                               <button
                                 className="nav-link  fw-semibold  position-relative rounded-pill  active"
                                 id="pills-koya-tab"
@@ -134,7 +139,7 @@ const Home = () => {
                                 KOYA
                               </button>
                             </li>
-                            <li className="nav-item" role="presentation">
+                            <li className="nav-item py-1" role="presentation">
                               <button
                                 className="nav-link text-light fw-semibold position-relative rounded-pill"
                                 id="pills-rj-tab"
@@ -148,7 +153,7 @@ const Home = () => {
                                 RJ
                               </button>
                             </li>
-                            <li className="nav-item" role="presentation">
+                            <li className="nav-item py-1" role="presentation">
                               <button
                                 className="nav-link text-light fw-semibold position-relative rounded-pill"
                                 id="pills-shooky-tab"
@@ -163,7 +168,7 @@ const Home = () => {
                               </button>
                             </li>
 
-                            <li className="nav-item" role="presentation">
+                            <li className="nav-item py-1" role="presentation">
                               <button
                                 className="nav-link text-light fw-semibold position-relative rounded-pill"
                                 id="pills-mang-tab"
@@ -177,7 +182,7 @@ const Home = () => {
                                 MANG
                               </button>
                             </li>
-                            <li className="nav-item" role="presentation">
+                            <li className="nav-item py-1" role="presentation">
                               <button
                                 className="nav-link text-light fw-semibold position-relative rounded-pill"
                                 id="pills-chimmy-tab"
@@ -191,7 +196,7 @@ const Home = () => {
                                 CHIMMY
                               </button>
                             </li>
-                            <li className="nav-item" role="presentation">
+                            <li className="nav-item py-1" role="presentation">
                               <button
                                 className="nav-link text-light fw-semibold position-relative rounded-pill"
                                 id="pills-tata-tab"
@@ -205,7 +210,7 @@ const Home = () => {
                                 TATA
                               </button>
                             </li>
-                            <li className="nav-item" role="presentation">
+                            <li className="nav-item py-1" role="presentation">
                               <button
                                 className="nav-link text-light fw-semibold position-relative rounded-pill"
                                 id="pills-cooky-tab"
@@ -289,7 +294,7 @@ const Home = () => {
                           </div>
                         </div>
 
-                        <div className="portfolio col-md-12">
+                        <div className="portfolio row">
                           {item &&
                             item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
