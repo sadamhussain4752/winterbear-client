@@ -10,11 +10,11 @@ import BrandSlider from "../components/BrandSlider";
 import { fetchBannerData, fetchProductData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
+import './innerstyle.css';
 
 
 // new style
 
-import './innerstyle.css';
 
 
 import constant from "../constant/constant";
