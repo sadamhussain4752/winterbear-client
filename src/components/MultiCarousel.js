@@ -105,7 +105,7 @@ const responsive = {
 
 
 
-const MultiCarousel = ({ deviceType,images }) => {
+const MultiCarousel = ({ deviceType, images }) => {
   return (
     <Carousel
       ssr
@@ -118,8 +118,9 @@ const MultiCarousel = ({ deviceType,images }) => {
         <img
           key={index} // Add the key prop here
           draggable={false}
-          style={{ width: "100%", height: "100%", }}
+          style={{ width: "100px", height: "100px", objectFit: "cover" }}
           src={`${constant.baseUrl}${image}`}
+          className="d-block mx-auto"
         />
       ))}
     </Carousel>

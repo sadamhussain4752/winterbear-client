@@ -122,6 +122,7 @@ const Product = () => {
                 <img
                   src={`${constant.baseUrl}${image}`}
                   alt={`Product Image ${index}`}
+                  className="product-img-main"
                 />
               </div>
             ))}
@@ -199,6 +200,9 @@ const Product = () => {
 
 
           </div>
+
+<hr />
+
           <div className="text-start col-md-12 row mt-3">
             <div className="col-md-3 ">
               <p className="d-flex justify-content-center align-items-center border qty-button">
@@ -238,9 +242,9 @@ const Product = () => {
             </p>
           </div>
         </div>
-        <div className="col-md-12 text-center mt-80 border">
+        <div className="col-md-12 text-center mt-80 prod-bot-tab">
           {/* Product Tabs */}
-          <Tab.Container defaultActiveKey="description">
+          <Tab.Container defaultActiveKey="description" className="tab-discription">
             <Nav variant="tabs" className="justify-content-center border-0 border tab-border-color">
               <Nav.Item>
                 <Nav.Link className="tab-text" eventKey="description">Description</Nav.Link>
@@ -255,7 +259,7 @@ const Product = () => {
                 <Nav.Link className="tab-text" eventKey="reviews">Reviews</Nav.Link>
               </Nav.Item>
             </Nav>
-            <Tab.Content>
+            <Tab.Content className="p-4">
               <Tab.Pane eventKey="description">
                 {/* Description Tab Content */}
                 <div className="text-start col-md-12 row mt-5">
@@ -284,11 +288,11 @@ const Product = () => {
 
                 </div>
 
-
               </Tab.Pane>
               <Tab.Pane eventKey="additional">
+                
                 {/* Reviews Tab Content */}
-                <div className="col-md-12 text-start mt-4">
+                <div className="col-md-12 text-start ">
                   <div className="text-start">
                     <p className="mt-3">Reviews</p>
                     <p>There are no reviews yet.</p>
@@ -301,7 +305,7 @@ const Product = () => {
               </Tab.Pane>
               <Tab.Pane eventKey="specification">
                 {/* Reviews Tab Content */}
-                <div className="col-md-12 text-start mt-4">
+                <div className="col-md-12 text-start ">
                   <div className="text-start">
                     <p className="mt-3">Reviews</p>
                     <p>There are no reviews yet.</p>
@@ -314,7 +318,7 @@ const Product = () => {
               </Tab.Pane>
               <Tab.Pane eventKey="reviews">
                 {/* Reviews Tab Content */}
-                <div className="col-md-12 text-start mt-4">
+                <div className="col-md-12 text-start ">
                   <div className="text-start">
                     <p className="mt-3">Reviews</p>
                     <p>There are no reviews yet.</p>

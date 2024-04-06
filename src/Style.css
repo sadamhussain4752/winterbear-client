@@ -196,7 +196,7 @@ input {
 
 .heading::after {
     content: '';
-   /* background-image: url('../images/Winterbear-Purple-Logo.png');*/
+    /* background-image: url('../images/Winterbear-Purple-Logo.png');*/
     background-size: contain;
     position: absolute;
     top: -20%;
@@ -488,9 +488,13 @@ footer ul a {
 
 .tile-1 .item img {
     width: 100%;
-    height: auto;
+    /* height: auto; */
+    height: 20vh;
+    object-fit: cover;
+
     transition: transform 0.3s;
 }
+
 
 /*.tile-1 .item:hover img {
 transform: scale(1.1);
@@ -618,7 +622,7 @@ width: 77%;
     border: none;
 }
 
-.sub-heading{
+.sub-heading {
     color: #3C465F;
     text-align: center;
     font-family: Poppins;
@@ -628,24 +632,24 @@ width: 77%;
     line-height: 30px;
 }
 
-.about1 img{
+.about1 img {
     width: 250px;
 }
 
-.about2 img{
+.about2 img {
     width: 225px;
 }
 
-.about1{
+.about1 {
     z-index: 9;
     top: 23%;
 }
 
-.about2{
+.about2 {
     left: 30%;
 }
 
-.pri-text{
+.pri-text {
     color: #FFF;
     font-family: Poppins;
     font-size: 32px;
@@ -656,25 +660,26 @@ width: 77%;
 
 /************************ Event Page **************************/
 
-.content{
+.content {
     margin-top: 50px;
 }
 
-.event{
+.event {
     border-radius: 10px;
 }
 
-.event button{
+.event button {
     border-radius: 22px;
     border: 1px solid #F2E9D4;
-    color: #F2E9D4; 
-    background: transparent;    
+    color: #F2E9D4;
+    background: transparent;
     font-family: Poppins;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 100%; /* 16px */
-    text-transform: uppercase; 
+    line-height: 100%;
+    /* 16px */
+    text-transform: uppercase;
     padding: 12px;
     width: 190px;
     margin-right: 30px;
@@ -687,12 +692,12 @@ width: 77%;
 
 /********************* Our Stores Page ****************************/
 
-.store-bg-right{
+.store-bg-right {
     background: #F2E9D4;
     position: absolute;
 }
 
-.store-sub-heading{
+.store-sub-heading {
     color: #000;
     font-family: Poppins;
     font-size: 40px;
@@ -702,11 +707,11 @@ width: 77%;
     margin-bottom: 40px;
 }
 
-.store-box img{
+.store-box img {
     width: 175px;
 }
 
-.form-control{
+.form-control {
     color: #000;
     font-family: Poppins;
     font-size: 14px;
@@ -714,20 +719,32 @@ width: 77%;
     font-weight: 500;
 }
 
-.bg-input{
+.bg-input {
     background-color: "#F5F5F5" !important;
-  }
-  .product-item {
+}
+
+.product-item {
     display: flex;
     flex-direction: row;
     width: 50% !important;
     background-color: 'red' !important;
-  }
+}
 
-  .image-size {
+.image-size {
     width: 120px !important;
     height: 45px !important;
-  }
+}
+
+/* thilak changes */
 
 
- 
+.product-index {
+    border: 1px solid black !important;
+}
+
+
+.ant-btn {
+    background-color: #343054 !important;
+}
+
+

@@ -30,8 +30,8 @@ const Header = () => {
     textAlign: 'center',
     background: '#FFE5E5',
     borderRadius: "60px 0px 60px 0px", // Corrected the typo from "borderradios" to "borderRadius"
-    marginRight:"35%",
-    marginLeft:"35%"
+    marginRight: "35%",
+    marginLeft: "35%"
 
   };
   const dispatch = useDispatch();
@@ -147,7 +147,7 @@ const Header = () => {
         {/* Top Header */}
         <div className="top-header fixed-top shadow-sm bg-white">
           <div className="container-fluid">
-            <Carousel autoplay className="col-md-12" dots={true}>
+            <Carousel autoplay className="col-md-10 d-block mx-auto" dots={true}>
               {latestOffers.map((item, index) => (
                 <div className="col-md-4" key={index}>
                   {renderItem(item)}
@@ -427,7 +427,8 @@ const Header = () => {
 
                             </a>
                             <a>
-                              <WalletOutlined style={{ fontSize: '16px', color: '#9E2717', marginRight: '5px' }} />
+                              {/* <WalletOutlined style={{ fontSize: '16px', color: '#9E2717', marginRight: '5px' }} /> */}
+                              <i class="fa-solid fa-star" style={{color:"#ffdc64"}}></i>
                               {getUserResponse.User.loyalty_point}
 
                             </a>

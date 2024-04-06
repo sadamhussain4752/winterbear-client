@@ -169,29 +169,31 @@ const ShopAll = () => {
                   if (!item || !item.products || item.products.length === 0)
                     return null;
                   return (
-                    <div className="row col-md-12 body-card-product" >
+                    <div className="row body-card-product" >
                       {item &&
                         item.products &&
                         item.products.map((prod, ind) => (
-                          <div className="col-md-3 rounded-border" onClick={() => handleNavigation(prod._id)}>
-                            <img
+                          <div className="col-md-3 product-index" onClick={() => handleNavigation(prod._id)}>
+                            <div className="product-card">
+                              <img
 
-                              src={
+                                src={
 
-                                prod.images[0] !== null &&
-                                  prod.images[0] !== "image_url1"
-                                  ? `${constant.baseUrl}${prod.images[0]}`
-                                  : "assets/images/Rectangle 22.png"
-                              }
-                              alt="Web Project 1"
-                            />
-                            <div className="text-center price-card">
-                              <p className="pt-2">
-                                ${prod.amount}
-                              </p>
-                              <p className="font-z">
-                                {prod.name}
-                              </p>
+                                  prod.images[0] !== null &&
+                                    prod.images[0] !== "image_url1"
+                                    ? `${constant.baseUrl}${prod.images[0]}`
+                                    : "assets/images/Rectangle 22.png"
+                                }
+                                alt="Web Project 1"
+                              />
+                              <div className="text-center price-card py-2">
+                                <p className=" mb-0">
+                                  ${prod.amount}
+                                </p>
+                                <p className="font-z">
+                                  {prod.name}
+                                </p>
+                              </div>
                             </div>
                           </div>
                         ))}

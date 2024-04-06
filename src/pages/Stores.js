@@ -40,7 +40,7 @@ const Store = () => {
       <Header />
 
       <section className=" mt-120">
-        <div className="container-fluid">
+        <div className="container">
           <div className="row ">
             <div className="col-md-12 ">
               <div className="section-heading">
@@ -61,7 +61,7 @@ const Store = () => {
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-            <div className="col-md-4 text-start mt-md-5 find-store ">
+            <div className="col-md-4 text-start mt-md-5 find-store">
               <h4>Find Your Preferred Store</h4>
               <p>Find your preferred store to learn about its opening hours, stock availability, and relevant offers.</p>
               <div className="input-group mt-4">
@@ -74,7 +74,7 @@ const Store = () => {
               </div>
               <p className="mt-3">Use your current location</p>
 
-              <Button className="btn button rounded w-100" type="primary">Find a preferred store</Button> {/* Ant Design Button component */}
+              <Button className="btn button rounded w-100 pb-2" type="primary" style={{backgroundColor:"#221A42"}}>Find a preferred store</Button> {/* Ant Design Button component */}
             </div>
           </div>
         </div>
@@ -84,36 +84,48 @@ const Store = () => {
         {storelist &&
           storelist.admins &&
           storelist.admins.map((item, index) => {
+
+            console.log(index + "hi");
+
+            let align = "";
+
+            if (index % 2 === 0) {
+              align = "start";
+            } else {
+              align = "end"; 
+            }
+
+
             return (
+              <div className="container">
+                <div className="col-md-12" style={{ display: "flex", justifyContent: align }}>
 
-              <div className="col-md-12 d-flex justify-content-center">
+                  <div className="box-card-over position-relative">
+                    <div className="col-md-12">
+                      <img src="assets/images/store.png" className="img-fluid col-md-4" />
+                      <img src="assets/images/store1.png" className="img-fluid col-md-4" />
+                      <img src="assets/images/store2.png" className="img-fluid col-md-4" />
 
-                <div className="box-card-over position-relative">
-                  <div className="col-md-12">
-                    <img src="assets/images/store.png" className="img-fluid col-md-4" />
-                    <img src="assets/images/store1.png" className="img-fluid col-md-4" />
-                    <img src="assets/images/store2.png" className="img-fluid col-md-4" />
-
-                  </div>
-                  <div className="position-absolute top-0 start-0 light-background">
-                  <h4>
-                    Bangalore
-                    </h4>
-                  </div>
-                  <div className="text-box-store p-4">
-                    <h4>
-                      Visit Winterbear store at VR {item.storename}
-                    </h4>
-                    <p>
-                      Shop No. {item.storeaddress}.
-                    </p>
-                    <p>
-                      Monday-Sunday: 10:30am-10:00pm
-                    </p>
+                    </div>
+                    <div className="position-absolute top-0 start-0 light-background">
+                      <h4>
+                        Bangalore
+                      </h4>
+                    </div>
+                    <div className="text-box-store p-4">
+                      <h4>
+                        Visit Winterbear store at VR {item.storename}
+                      </h4>
+                      <p>
+                        Shop No. {item.storeaddress}.
+                      </p>
+                      <p>
+                        Monday-Sunday: 10:30am-10:00pm
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-
             );
           })}
 
