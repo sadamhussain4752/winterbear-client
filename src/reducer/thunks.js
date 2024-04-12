@@ -48,7 +48,7 @@ import {
 import constant from '../constant/constant';
 
 const HeadBanner = `${constant.baseUrl}api/header/allbanner?lang=1`;
-const ProductList = `${constant.baseUrl}api/product/allProduct?lang=1`;
+const ProductList = `${constant.baseUrl}api/header/allbrandproduct?lang=1`;
 const storeList = `${constant.baseUrl}api/user/admins`;
 const UserCreate = `${constant.baseUrl}api/user/register`;
 const Userlogin = `${constant.baseUrl}api/user/login`;

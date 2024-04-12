@@ -84,7 +84,7 @@ const Store = () => {
                 <label className="checkbox-label col-md-11">Remember my postal code for delivery, availability, and stock information.</label>
               </div>
               <p className="mt-3">Use your current location</p>
-              <Button onClick={handleMap} className="btn button rounded w-100" type="primary">Find a preferred store</Button>
+              <Button onClick={handleMap} className="btn button rounded w-100 ht-10" type="primary">Find a preferred store</Button>
             </div>
           </div>
         </div>
