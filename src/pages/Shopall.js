@@ -165,10 +165,11 @@ const ShopAll = () => {
 
             <div className="col-md-11">
               {<div className="row col-md-12 body-card-product" >
-                  {productList &&
-                    productList &&
-                    productList.map((prod, ind) => (
-                      <div className="col-md-3 rounded-border mt-3" onClick={() => handleNavigation(prod._id)}>
+                {productList &&
+                  productList &&
+                  productList.map((prod, ind) => (
+                    <div className="col-md-3 rounded-border mt-3" onClick={() => handleNavigation(prod._id)}>
+                      <div class="product-card">
                         <img
 
                           src={
@@ -181,8 +182,8 @@ const ShopAll = () => {
                           className="rounded border"
                           alt="Web Project 1"
                         />
-                        <div className="text-center price-card">
-                          <p className="pt-2">
+                        <div className="text-center price-card py-2">
+                          <p className=" mb-0">
                             ${prod.amount}
                           </p>
                           <p className="font-z">
@@ -190,9 +191,10 @@ const ShopAll = () => {
                           </p>
                         </div>
                       </div>
-                    ))}
+                    </div>
+                  ))}
 
-                </div>}
+              </div>}
             </div>
 
           </div>

@@ -8,6 +8,12 @@ import { Input, Button, Checkbox } from 'antd'; // Import Ant Design components
 import { InstagramEmbed, YouTubeEmbed } from 'react-social-media-embed';
 
 import { Form } from "antd";
+
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+
+
 const Days = [
     "Monday",
     "Tuesday",
@@ -166,41 +172,83 @@ const Blogs = () => {
                     Instagram Post
                 </h4>
 
-                <div style={{ display: 'flex', justifyContent: 'center', overflowX: 'auto' }} className="m-5">
+                <div style={{ display: 'flex', justifyContent: 'center', overflowX: 'auto' }} className="m-5 insta">
 
                     <div className="reels-container">
-                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="320" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        {/* <div className="insta-cont">
+                            <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        </div> */}
+                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
 
                     </div>
                 </div>
             </section>
+
+
+
+
+            <div className="container">
+                <OwlCarousel className='owl-theme' loop margin={10} nav>
+                    <div class='item'>
+                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ardtvdR28SQ" width={'100%'} height={220} />
+                    </div>
+                    <div class='item'>
+                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ardtvdR28SQ" width={'100%'} className="" height={220} />
+                    </div>
+                    <div class='item'>
+                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ardtvdR28SQ" width={'100%'} className="" height={220} />
+                    </div>
+                    <div class='item'>
+                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ZgLlabyz7oY" width={'100%'} className="" height={220} />
+                    </div>
+                    <div class='item'>
+                        <YouTubeEmbed url="https://www.youtube.com/watch?v=POe9SOEKotk&list=RDPOe9SOEKotk&start_radio=1&rv=ZgLlabyz7oY" width={'100%'} className="" height={220} />
+                    </div>
+                    <div class='item'>
+                        <YouTubeEmbed url="https://www.youtube.com/watch?v=bwmSjveL3Lc" width={'100%'} className="" height={220} />
+                    </div>
+                    <div class='item'>
+                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ldYPuD72W_A" width={'100%'} className="" height={220} />
+                    </div>
+                    <div class='item'>
+
+                        <YouTubeEmbed url="https://www.youtube.com/watch?v=4XZz3WXRw0A" width={'100%'} className="" height={220} />
+                    </div>
+                </OwlCarousel>
+            </div>
+
+
+            {/* 
             <section className="mt-120 blog-store">
                 <h4 className="col-md-8 text-start mb-5 mx-5">
                     Youtube Post
                 </h4>
 
+
+
                 <div style={{ display: 'flex', justifyContent: 'center', overflowX: 'auto' }} className="m-5">
 
                     <div className="reels-container">
-                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ardtvdR28SQ" width={325} height={220} />
-                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ardtvdR28SQ" width={325} height={220} />
-                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ardtvdR28SQ" width={325} height={220} />
-                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ZgLlabyz7oY" width={325} height={220} />
-                        <YouTubeEmbed url="https://www.youtube.com/watch?v=POe9SOEKotk&list=RDPOe9SOEKotk&start_radio=1&rv=ZgLlabyz7oY" width={325} height={220} />
-                        <YouTubeEmbed url="https://www.youtube.com/watch?v=bwmSjveL3Lc" width={325} height={220} />
-                        <YouTubeEmbed url="https://www.youtube.com/watch?v=ldYPuD72W_A" width={325} height={220} />
-                        <YouTubeEmbed url="https://www.youtube.com/watch?v=4XZz3WXRw0A" width={325} height={220} />
+
+
+
+
+
+
+
+
+
+
 
                     </div>
                 </div>
-            </section>
+            </section> */}
 
 
             <Footer />
