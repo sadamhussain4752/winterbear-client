@@ -79,6 +79,7 @@ const Payment = () => {
   const dispatch = useDispatch();
   const [Razorpay] = useRazorpay();
   const [form] = Form.useForm();
+  const [couponNumber, SetCoupon] = useState("");
 
   const [selectedState, setSelectedState] = useState(null);
 
@@ -86,6 +87,14 @@ const Payment = () => {
     setSelectedState(value);
   };
 
+
+  const handleCoupon = () => {
+    let bodypass = {
+      couponCode: couponNumber,
+      userId: userId
+    }
+    // dispatch(ApplyCouponFetch(bodypass))
+  }
   const createOrder = async (params) => {
     // Implement your logic to create an order on the backend
     // and return the order details including an 'id'
@@ -279,6 +288,26 @@ const Payment = () => {
           <div className="cart-totals-item border-top mt-3 pt-3">
             <span>Sub-total</span>
             <span>{getTotal()}</span>
+          </div>
+          <div className="cart-totals-item border-top mt-3 pt-3 align-self-center">
+            <span className="m-2">Coupon</span>
+            <Form.Item
+              name="firstName"
+              className="col-md-6"
+              labelCol={{ span: 24 }}
+              rules={[validateRules.required]}
+            >
+              <Input
+                value={shippingAddress.firstName}
+                className="form-control text-input-address"
+                onChange={(e) =>
+                  SetCoupon(e.target.value)
+                }
+              />
+            </Form.Item>
+            <button className="btn bg-theme text-white text-center h-25" onClick={handleCoupon}>
+              Apply
+            </button>
           </div>
           <div className="cart-totals-item">
             <span>Shipping</span>

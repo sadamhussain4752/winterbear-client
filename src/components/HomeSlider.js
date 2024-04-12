@@ -34,8 +34,8 @@ const HomeSlider = () => {
           },
         }}
       >
-        {data && data.banners &&  // Check if data is not null or undefined
-          data.banners.map((item, index) => (
+        {data && data?.banners &&  // Check if data is not null or undefined
+          data?.banners.map((item, index) => (
             <div key={index} className="item">
               <picture>
                 <source

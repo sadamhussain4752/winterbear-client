@@ -77,8 +77,9 @@ const Home = () => {
     <>
       <Header />
       <>
-        <HomeSlider />
-        <BrandSlider />
+       {data && data?.banners && <HomeSlider />} 
+        {data && data?.Brands && <BrandSlider />}
+
 
         <section className="py-5">
           <div className="container">
