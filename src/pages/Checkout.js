@@ -66,6 +66,8 @@ const Checkout = () => {
     navigate(`/checkout`);
   };
 
+  
+
   // Define the getSubtotal function
   function getSubtotal() {
     return (
@@ -243,7 +245,8 @@ const Checkout = () => {
               <div className="col-md-12 row mt-5">
               {renderCartList()}
               {renderCardtotals()}
-              <Relatedproducts/>
+              
+              {/* <Relatedproducts/> */}
               </div>
              
             </div>

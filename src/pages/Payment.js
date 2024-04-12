@@ -246,7 +246,7 @@ const Payment = () => {
         <div className="cart-totals-item">
           <span>
             <img
-              src={`${constant.baseUrl}${item?.product?.images[0]}`}
+              src={`${item?.product?.images[0]}`}
               alt={`Product Image ${item.product.name}`}
               style={{ width: "80px", height: "80px" }}
             />

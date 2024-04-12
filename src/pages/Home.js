@@ -7,7 +7,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Gallery from "../components/Gallery";
 import HomeSlider from "../components/HomeSlider";
 import BrandSlider from "../components/BrandSlider";
-import { fetchBannerData, fetchProductData } from "../reducer/thunks";
+import { fetchBannerData, fetchProductDataOld } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import './innerstyle.css';
@@ -48,7 +48,7 @@ const Home = () => {
   };
   useEffect(() => {
     dispatch(fetchBannerData());
-    dispatch(fetchProductData());
+    dispatch(fetchProductDataOld());
   }, []);
 
   useEffect(() => {
