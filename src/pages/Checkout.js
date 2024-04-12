@@ -110,7 +110,7 @@ const Checkout = () => {
                     <div className="product-item mt-4">
                       <div className="product-image w-75">
                         <img
-                          src={`${constant.baseUrl}${item?.product?.images[0]}`}
+                          src={`${item?.product?.images[0]}`}
                           alt={`Product Image ${item.product.name}`}
                           style={{ width: "80px", height: "80px" }}
                         />

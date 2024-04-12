@@ -111,14 +111,14 @@ const MultiCarousel = ({ deviceType, images }) => {
       ssr
       partialVisible  // Fix the typo here
       deviceType={deviceType}
-      itemClass="image-item"
+      // itemClass="image-item"
       responsive={responsive}
     >
       {images.slice(0, 5).map((image, index) => (
         <img
           key={index} // Add the key prop here
           draggable={false}
-          style={{ width: "100%", height: "100%", }}
+          style={{ width: "25%", height: "25%", }}
           src={`${image}`}
         />
       ))}

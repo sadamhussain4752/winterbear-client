@@ -168,7 +168,7 @@ const ShopAll = () => {
                   {productList &&
                     productList &&
                     productList.map((prod, ind) => (
-                      <div className="col-md-3 rounded-border" onClick={() => handleNavigation(prod._id)}>
+                      <div className="col-md-3 rounded-border mt-3" onClick={() => handleNavigation(prod._id)}>
                         <img
 
                           src={
@@ -178,6 +178,7 @@ const ShopAll = () => {
                               ? `${prod.images[0]}`
                               : "assets/images/Rectangle 22.png"
                           }
+                          className="rounded border"
                           alt="Web Project 1"
                         />
                         <div className="text-center price-card">

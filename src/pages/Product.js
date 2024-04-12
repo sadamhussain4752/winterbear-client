@@ -122,7 +122,7 @@ const Product = () => {
                 <img
                   src={`${image}`}
                   alt={`Product Image ${index}`}
-                  className="product-img-main"
+                  className="product-img-main rounded"
                 />
               </div>
             ))}
