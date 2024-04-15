@@ -263,18 +263,26 @@ const Product = () => {
               <Tab.Pane eventKey="description">
                 {/* Description Tab Content */}
                 <div className="text-start col-md-12 row mt-5">
-                  <div className="col-md-6 sku-tag feature-item ">
+                  <div className="col-md-5 sku-tag feature-item ">
                     <h4>Description</h4>
                     <p>{product.description}</p>
                     <p>The most powerful MacBook Pro ever is here. With the blazing-fast M1 Pro or M1 Max chip — the first Apple silicon designed for pros — you get groundbreaking performance and amazing battery life. Add to that a stunning Liquid Retina XDR display, the best camera and audio ever in a Mac notebook, and all the ports you need. The first notebook of its kind, this MacBook Pro is a beast. M1 Pro takes the exceptional performance of the M1 architecture to a whole new level for pro users.</p>
                   </div>
-                  <div className="col-md-3 sku-tag feature-item ">
+                  <div className="col-md-4 sku-tag feature-item ">
                     <h4>Feature</h4>
-                    <p>Free 1 Year Warranty</p>
-                    <p>Free Shipping & Fasted Delivery</p>
-                    <p>100% Money-back guarantee</p>
-                    <p>24/7 Customer support</p>
-                    <p>Secure payment method</p>
+                    <p className="pt-3"><img  src={require("../constant/images/Medal.png")} className="pe-3" /> Free 1 Year Warranty</p>
+                    <p className="pt-3">
+                    <img  src={require("../constant/images/Truck.png")} className="pe-3" /> 
+                      Free Shipping & Fasted Delivery</p>
+                    <p className="pt-3">
+                    <img  src={require("../constant/images/Handshake.png")} className="pe-3" /> 
+                      100% Money-back guarantee</p>
+                    <p className="pt-3">
+                    <img  src={require("../constant/images/customer-support.png")} className="pe-3" /> 
+                      24/7 Customer support</p>
+                    <p className="pt-3">
+                    <img  src={require("../constant/images/CreditCard.png")} className="pe-3" /> 
+                      Secure payment method</p>
 
                   </div>
                   <div className="col-md-3 sku-tag feature-item ">

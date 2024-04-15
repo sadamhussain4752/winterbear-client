@@ -41,12 +41,12 @@ const EventsSection = () => {
           <div className="row justify-content-center text-center ">
             <div className="position-relative">
               <img
-                src={require("../constant/images/event-back-ground.jpeg")}
+                src={require("../constant/images/event-back-ground.png")}
                 alt="Upcoming Sale"
                 className="img-fluid"
               />
-              <div className="col-md-12 row d-flex justify-content-center position-absolute top-0">
-                <div className=" col-md-9 row d-flex justify-content-center event-tap">
+              <div className="col-md-12 row d-flex justify-content-center position-absolute top-0 ">
+                <div className=" col-md-9 row d-flex justify-content-center event-tap ">
                   <p className="col-md-3 event-text-color">
                     Upcoming Events
                   </p>
@@ -58,7 +58,7 @@ const EventsSection = () => {
                   </p>
                 </div>
 
-                <div className="about-breadcum-content d-md-block d-none mt-80">
+                <div className="about-breadcum-content d-md-block  mt-80">
                   <div className="row justify-content-center">
                     <div className="col-md-12">
                       <h3 className="text-main-color">Sound of Christmas 2024</h3>
@@ -71,10 +71,44 @@ const EventsSection = () => {
                 </div>
               </div>
 
-              <div className="position-absolute bottom-0">
-                <Eventlist />
+              <div className="waveContainer">
+                <div className="wave">
+                  <img src={require("../constant/images/property.png")} className="wave-img" />
+                </div>
+                <div className="wave">
+                  <img src={require("../constant/images/teddy-bear.png")} className="wave-img" />
+                </div>
+                <div className="wave">
+                  <img src={require("../constant/images/property.png")} className="wave-img" />
+                </div>
+                <div className="wave">
+                  <img src={require("../constant/images/teddy-bear.png")} className="wave-img" />
+                </div>
+                <div className="wave">
+                  <img src={require("../constant/images/property.png")} className="wave-img" />
+                </div>
+
+
+                {/* <div className="wave">
+                  <img src={require("../constant/images/property.png")} className="wave-img" />
+                </div>
+
+
+                <div className="wave">
+                  <img src={require("../constant/images/property.png")} className="wave-img" />
+                </div>
+
+                <div className="wave">
+                  <img src={require("../constant/images/property.png")} className="wave-img" />
+                </div>
+
+                <div className="wave">
+                  <img src={require("../constant/images/property.png")} className="wave-img" />
+                </div> */}
+
 
               </div>
+
               {/* <div className="row">
               <div className="col-12">
               <div
@@ -129,6 +163,8 @@ const EventsSection = () => {
           </div>
         </div>
       </section>
+
+
 
       <Gallery />
       <Footer />
