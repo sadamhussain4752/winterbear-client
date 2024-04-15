@@ -1967,7 +1967,7 @@ input {
 
   color: red;
   border-radius: 50%;
-  animation: waveMove 10s linear infinite;
+  animation: waveMove 20s linear infinite;
 }
 
 
@@ -2078,27 +2078,27 @@ input {
 }
 
 .wave:nth-child(2) {
-  animation-delay: 2.6s;
+  animation-delay: 4.6s;
 }
 
 .wave:nth-child(3) {
-  animation-delay: 4.4s;
+  animation-delay: 8.4s;
 }
 
 .wave:nth-child(4) {
-  animation-delay: 6.2s;
+  animation-delay: 12.2s;
 }
 
 .wave:nth-child(5) {
-  animation-delay: 8s;
+  animation-delay: 16s;
 }
 
 .wave:nth-child(6) {
-  animation-delay: 10.8s;
+  animation-delay: 20.8s;
 }
 
 .wave:nth-child(7) {
-  animation-delay: 12.6s;
+  animation-delay: 24.6s;
 }
 
 
