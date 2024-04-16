@@ -384,18 +384,20 @@ const Product = () => {
       >
         {productlist?.products?.slice(0, 10).map((prod, ind) => (
           <div key={prod.categoryId} className="portfolio ">
-            <div key={ind} className="body-card-product">
+            <div key={ind} className="body-card-product1">
               <img
+              className="rel-prod-img border"
                 src={
                   prod.images[0] !== null && prod.images[0] !== "image_url1"
                     ? `${prod.images[0]}`
                     : "assets/images/Rectangle 22.png"
                 }
                 alt={`Web Project ${ind + 1}`}
+                
               />
-              <span className="text-black ">
+              <p className="text-black text-center mb-0 py-3">
                 {prod.name} ₹{prod.amount}
-              </span>
+              </p>
 
             </div>
             <div

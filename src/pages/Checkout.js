@@ -107,26 +107,26 @@ const Checkout = () => {
           <tbody>
             {GetAddcardUserRes?.AddCarts &&
               GetAddcardUserRes.AddCarts.map((item) => (
-                <tr className="text-center" key={item.id}>
-                  <td>
-                    <div className="product-item mt-4">
+                <tr className="text-center py-4" key={item.id}>
+                  <td className="">
+                    <div className="product-item">
                       <div className="product-image w-75">
                         <img
                           src={`${item?.product?.images[0]}`}
                           alt={`Product Image ${item.product.name}`}
-                          style={{ width: "80px", height: "80px" }}
+                          style={{ width: "80px", height: "80px", paddingTop:"10%"}}
                         />
                       </div>
-                      <div className="product-details ">
-                        <p className="product-name">
+                      <div className="product-details d-flex align-items-center">
+                        <p className="product-name mb-0">
                           {item.product.name}
                         </p>
                       </div>
                     </div>
                   </td>
-                  <td className="product-amount text-center">${item.product.amount}</td>
-                  <td className="product-amount text-center">
-                    <div className="quantity-col text-center w-75">
+                  <td className="product-amount text-center ">${item.product.amount}</td>
+                  <td className="product-amount text-center ">
+                    <div className="quantity-col text-center  w-75">
                       <button
                         className="quantity-btn"
                         onClick={() =>
@@ -154,7 +154,7 @@ const Checkout = () => {
                     </div>
                   </td>
                   <td className="product-amount text-center">${item.quantity * item.product.amount}</td>
-                  <td>
+                  <td className="">
                     <div
                       className="delete-button"
                       onClick={() => handleRemoveItem(item._id)}
