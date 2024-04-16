@@ -52,7 +52,7 @@ async function fetchUserList(username) {
       body.products.map((user) => ({
         label: (
           <div className='col-md-12' style={{ display: 'flex', alignItems: 'center' ,height:"60px"}}>
-            <Avatar className='col-md-4' src={constant.baseUrl+ user?.images[0]} style={{ marginRight: 8, width:"30px", height:"30px" }} /> {/* Use Avatar component to display image */}
+            <Avatar className='col-md-4' src={user?.images[0]} style={{ marginRight: 8, width:"30px", height:"30px" }} /> {/* Use Avatar component to display image */}
             <span className='col-md-8'>{`${user.name}`}</span> 
           </div>
         ),

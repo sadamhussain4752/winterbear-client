@@ -47,7 +47,7 @@ const Order = () => {
         <Row key={product._id} gutter={[16, 16]}>
           <Col span={4}>
             <img
-              src={`${constant.baseUrl}${product.images[0]}`}
+              src={`${product.images[0]}`}
               alt={product.title}
               style={{ maxWidth: "100%", maxHeight: "100%" }}
             />

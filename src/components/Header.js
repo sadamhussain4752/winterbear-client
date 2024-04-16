@@ -8,7 +8,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Google from "../constant/images/google.svg";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
-import { ProfileUserData } from "../reducer/thunks";
+import { ProfileUserData,CouponUserById } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { message } from "antd/es";
 import { IoIosLogIn } from "react-icons/io";
@@ -62,6 +62,9 @@ const Header = () => {
     loginerror: getprofileUserError,
     getprofile: getUserResponse,
   } = useSelector((state) => state.getprofile);
+  const {
+    CouponListsRes: getCouponResponse,
+  } = useSelector((state) => state.CouponListsRes);
   const handleOpenLogin = () => {
     setLoginVisible(true);
   };
@@ -84,6 +87,7 @@ const Header = () => {
     console.log(userId, "userId");
     if (userId !== undefined || userId !== null) {
       dispatch(ProfileUserData(userId));
+      dispatch(CouponUserById())
     }
     // if (NewsPaperId === null) {
     //   setNewsVisible(true)
@@ -138,7 +142,7 @@ const Header = () => {
   // Define the renderItem function
   const renderItem = (item) => {
     return (
-      <p style={contentStyle}>{item.title}</p>
+      <p style={contentStyle}>{item.description}:{item.code} </p>
     );
   };
   return (
@@ -148,7 +152,7 @@ const Header = () => {
         <div className="top-header fixed-top shadow-sm bg-white">
           <div className="container-fluid">
             <Carousel autoplay className="col-md-10 d-block mx-auto" dots={true}>
-              {latestOffers.map((item, index) => (
+              {getCouponResponse?.coupons?.map((item, index) => item.isShow_display && (
                 <div className="col-md-4" key={index}>
                   {renderItem(item)}
                 </div>

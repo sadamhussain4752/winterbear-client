@@ -583,13 +583,13 @@ width: 77%;
 .sticky-logo-flex-1 {
    max-height: 0%;
    background-color: "transparent" !important;
-   margin-top: 3%;
+   margin-top: 5%;
 }
 
 .sticky-logo-flex-2 {
     max-height: 9%;
     background-color: "transparent" !important;
-    margin-top: 10%;
+    margin-top: 12%;
  }
  .sticky-logo-flex-3 {
     max-height: 9%;
@@ -599,7 +599,7 @@ width: 77%;
  .sticky-logo-flex-4 {
     max-height: 9%;
     background-color: "transparent" !important;
-    margin-top: 26%;
+    margin-top: 24%;
  }
  .sticky-logo-flex-5 {
     max-height: 9%;
@@ -610,7 +610,7 @@ width: 77%;
  .sticky-logo-flex-6 {
      max-height: 9%;
      background-color: "transparent" !important;
-     margin-top: 43%;
+     margin-top: 40%;
   }
   .sticky-logo-flex-7 {
     max-height: 9%;
@@ -1174,6 +1174,8 @@ width: 77%;
     margin-bottom: 15px;
     font-size: 1.5em;
     color: #333;
+    font-family: Poppins;
+
   }
   
   .cart-totals-item {
@@ -1189,10 +1191,16 @@ width: 77%;
   
   .cart-totals-item.total {
     font-weight: bold;
+    font-family: Poppins;
+
   }
   
   .cart-totals-item span {
-    color: #555;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Poppins;
+
   }
   
   .cart-totals-item span:last-child {

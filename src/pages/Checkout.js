@@ -94,9 +94,9 @@ const Checkout = () => {
   const renderCartList = () => {
     return (
       <div className="cart-list col-md-8 h-25">
-        <table className="mt-5">
+        <table className="mt-5 w-100">
           <thead>
-            <tr className="border-bottom">
+            <tr className="border-bottom text-start">
               <th >Products</th>
               <th className="product-amount text-center">Price</th>
               <th className="product-amount text-center">Quantity</th>
@@ -107,7 +107,7 @@ const Checkout = () => {
           <tbody>
             {GetAddcardUserRes?.AddCarts &&
               GetAddcardUserRes.AddCarts.map((item) => (
-                <tr key={item.id}>
+                <tr className="text-center" key={item.id}>
                   <td>
                     <div className="product-item mt-4">
                       <div className="product-image w-75">
@@ -155,12 +155,12 @@ const Checkout = () => {
                   </td>
                   <td className="product-amount text-center">${item.quantity * item.product.amount}</td>
                   <td>
-                    <button
-                      className="delete-button btn button"
+                    <div
+                      className="delete-button"
                       onClick={() => handleRemoveItem(item._id)}
                     >
                       <i class="fa-solid fa-trash"></i>
-                    </button>
+                    </div>
                   </td>
                 </tr>
               ))}

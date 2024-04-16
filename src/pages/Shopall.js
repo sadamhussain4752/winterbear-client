@@ -89,8 +89,8 @@ const ShopAll = () => {
   const handleCategoryClick = (categoryId) => {
     setSelectedCategory(categoryId);
     // Filter products based on the clicked category
-    const filteredProducts = productlist.productList.filter((item) => {
-      return item.brand.category_id === categoryId._id;
+    const filteredProducts = productlist.products.filter((item) => {
+      return item.category_id === categoryId._id;
     });
     setProductList(filteredProducts);
   };

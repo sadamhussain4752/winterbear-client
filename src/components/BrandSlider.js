@@ -38,7 +38,7 @@ const HomeSlider = () => {
             data?.Brands.map((brand, index) => (
               <div key={index} className="item ">
                 <img
-                  src={constant.baseUrl+brand.imageUrl || "assets/images/placeholder.png"}
+                  src={brand.imageUrl || "assets/images/placeholder.png"}
                   alt={brand.name || "Brand Name"}
                   className="w-auto d-block mx-auto "
                   width={"60px"}

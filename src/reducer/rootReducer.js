@@ -15,7 +15,10 @@ const rootReducer = combineReducers({
   GetAddcardRes: dataReducer,
   GetAddcardUserRes: dataReducer,
   DeleteAddcardUserRes: dataReducer,
-  addresslist:dataReducer
+  addresslist:dataReducer,
+  CouponRes: dataReducer,
+  RatingProductRes : dataReducer,
+  CouponListsRes: dataReducer
 });
 
 export default rootReducer;

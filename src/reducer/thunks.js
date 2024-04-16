@@ -43,7 +43,13 @@ import {
   CouponFailure,
   fetchAddressRequest,
   fetchAddressSuccess,
-  fetchAddressFailure
+  fetchAddressFailure,
+  RatingProductIdRequest,
+  RatingProductIdSuccess,
+  RatingProductIdFailure,
+  CouponListRequest,
+  CouponListSuccess,
+  CouponListFailure
 } from './actions';
 import constant from '../constant/constant';
 
@@ -64,6 +70,9 @@ const AddOrderProductid = `${constant.baseUrl}api/order/createOrder`;
 const AddAddressAPI = `${constant.baseUrl}api/address/createAddress`;
 const ApplyCouponAPI = `${constant.baseUrl}api/coupon/applyCoupon`;
 const GetAddressList = `${constant.baseUrl}api/address/getByIdAddress`;
+const RatingProductid = `${constant.baseUrl}api/review/GetProductByID`;
+const CouponProductid = `${constant.baseUrl}api/coupon/GetCoupon`;
+
 
 
 export const fetchBannerData = () => async (dispatch) => {
@@ -257,5 +266,31 @@ export const ApplyCouponFetch = (body,userId) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch(CouponFailure(error.response.data.message));
+  }
+};
+
+export const RatingProductUserById = (body) => async (dispatch) => {
+  dispatch(RatingProductIdRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.get(`${RatingProductid}/${body}`);
+    dispatch(RatingProductIdSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(RatingProductIdFailure(error.response.data.message));
+  }
+};
+
+export const CouponUserById = (body) => async (dispatch) => {
+  dispatch(CouponListRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.get(`${CouponProductid}`);
+    dispatch(CouponListSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(CouponListFailure(error.response.data.message));
   }
 };

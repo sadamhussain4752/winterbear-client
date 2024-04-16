@@ -2,13 +2,17 @@ import React, { useState, useEffect, useCallback } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { GetAddCardProductById } from "../reducer/thunks";
+import { GetAddCardProductById, AddOrderProductById, fetchAddressList, ApplyCouponFetch, ProfileUserData } from "../reducer/thunks";
 import constant from "../constant/constant";
-import { Steps, Input, Form, message, Button, Select } from "antd";
+import { Steps, Input, Form, message, Button, Select, Modal, Result, Typography } from "antd";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
 import Cards from "react-credit-cards-2";
 import useRazorpay from "react-razorpay";
+import { useNavigate } from "react-router-dom";
+import { CloseCircleOutlined } from '@ant-design/icons';
+
 const { Option } = Select;
+const { Paragraph, Text } = Typography;
 
 const IndianStates = [
   "Andhra Pradesh",
@@ -77,10 +81,14 @@ const CitiesByState = {
 
 const Payment = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [Razorpay] = useRazorpay();
   const [form] = Form.useForm();
   const [couponNumber, SetCoupon] = useState("");
-
+  const [couponValue, SetCouponValue] = useState(0)
+  const [couponType, SetCouponType] = useState(null)
+  const [orderType, SetOrderType] = useState(false)
+  const [orderfail, SetOrderfail] = useState(false)
   const [selectedState, setSelectedState] = useState(null);
 
   const handleStateChange = (value) => {
@@ -93,7 +101,7 @@ const Payment = () => {
       couponCode: couponNumber,
       userId: userId
     }
-    // dispatch(ApplyCouponFetch(bodypass))
+    dispatch(ApplyCouponFetch(bodypass))
   }
   const createOrder = async (params) => {
     // Implement your logic to create an order on the backend
@@ -130,8 +138,24 @@ const Payment = () => {
       description: "Test Transaction",
       image: "https://example.com/your_logo",
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of createOrder().
-      handler: function (response) {
+      handler: async function (response) {
         console.log(response);
+
+        let bodyresponce = {
+          userId: localStorage.getItem("userId"), // Replace with a valid user ID
+          addressId: form.getFieldValue().addressId, // Replace with a valid address ID
+          productIds: GetAddcardUserRes.AddCarts.map((item) => item.productId), // Replace with valid product IDs in an array
+          totalAmount: getTotal(), // Replace with the total amount for the order
+          delivery: "Card",
+          paymentStatus: "Confirmed",
+          razorpay_payment_id: response.razorpay_payment_id,
+          exta_add_item: "",
+          exta_message: '',
+          applycoupon: couponNumber
+        };
+
+        await dispatch(AddOrderProductById(bodyresponce));
+        SetOrderType(true)
         // alert(response.razorpay_payment_id);
         // alert(response.razorpay_order_id);
         // alert(response.razorpay_signature);
@@ -152,13 +176,14 @@ const Payment = () => {
     const rzp1 = new Razorpay(options);
 
     rzp1.on("payment.failed", function (response) {
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
+      // alert(response.error.code);
+      // alert(response.error.description);
+      // alert(response.error.source);
+      // alert(response.error.step);
+      // alert(response.error.reason);
+      // alert(response.error.metadata.order_id);
+      // alert(response.error.metadata.payment_id);
+      SetOrderfail(true)
     });
 
     rzp1.open();
@@ -175,6 +200,19 @@ const Payment = () => {
     addloading: addloadingLoading,
     error: productListError,
   } = useSelector((state) => state.GetAddcardUserRes);
+  const {
+    CouponRes: CouponResponse,
+    addloading,
+    error,
+  } = useSelector((state) => state.CouponRes);
+  console.log(CouponResponse, "CouponResponse");
+
+  const {
+    loading: getgetOrderUserLoading,
+    Ordererror: getgetOrderUserError,
+    addresslist: getOrderResponse,
+  } = useSelector((state) => state.addresslist);
+  console.log(getOrderResponse);
 
   const [shippingAddress, setShippingAddress] = useState({
     firstName: "",
@@ -217,8 +255,35 @@ const Payment = () => {
   useEffect(() => {
     if (userId !== undefined || userId !== null) {
       dispatch(GetAddCardProductById(userId));
+      dispatch(fetchAddressList(userId));
+
     }
   }, []);
+
+  useEffect(() => {
+    console.log(CouponResponse, "CouponResponse");
+
+    if (CouponResponse?.success) {
+      message.success("Coupon applied successfully");
+
+      const { bodysend } = CouponResponse;
+
+      if (bodysend) {
+        const { coupon_type, discount } = bodysend;
+
+        SetCouponValue(discount);
+        SetCouponType(coupon_type);
+      } else {
+        // Handle case where bodysend is undefined or null
+        console.error("Invalid coupon response: bodysend is missing");
+      }
+    } else if (typeof CouponResponse === 'string') {
+      message.error(CouponResponse);
+    } else {
+      // Handle other types of CouponResponse that are not valid
+      console.error("Invalid CouponResponse:", CouponResponse);
+    }
+  }, [CouponResponse]);
 
   const handlePaymentDetailsChange = (details) => {
     setPaymentDetails(details);
@@ -234,6 +299,31 @@ const Payment = () => {
     );
   };
 
+  const handleStateSelect = (value) => {
+    // Handle the selected state, e.g., update the state in the component
+    console.log("Selected State:", value);
+
+    // Use filter to find the selected address
+    const filterAddress = getOrderResponse.Addresslist.find((state) => state._id === value);
+
+    // Log the filtered address
+    console.log("Filtered Address:", filterAddress);
+
+    // Use setFieldsValue to update the form values
+    form.setFieldsValue({
+      addressId: filterAddress._id,
+      firstName: filterAddress.fullName,
+      lastName: filterAddress.lastName,
+      phonenumber: filterAddress.phone,
+      address: filterAddress.typeAddress,
+      email: filterAddress.email,
+      pinCode: filterAddress.pinCode
+
+
+
+      // Add other fields as needed
+    });
+  };
   const placeOrder = () => {
     // Call your backend API to place the order with the cart items, shipping address, and payment details
     // Note: This is a simplified example and does not include actual API calls or error handling
@@ -342,6 +432,26 @@ const Payment = () => {
         <h3>Billing Information</h3>
         <Form form={form} name="shippingAddressForm" onFinish={onFinish}>
           <div className="col-md-12 row">
+          <div className="col-md-12">
+              {getOrderResponse && <Form.Item
+                name="addressId"
+                label="Select an Address"
+                labelCol={{ span: 24 }}
+                className="col-md-6"
+                rules={[validateRules.required]}
+              >
+                <Select
+                  placeholder="Select an Address"
+                  onChange={(selectedState) => handleStateSelect(selectedState)}
+                >
+                  {getOrderResponse && getOrderResponse?.Addresslist && getOrderResponse?.Addresslist.map((state) => (
+                    <Option key={state._id} value={state._id}>
+                      {state.typeAddress}
+                    </Option>
+                  ))}
+                </Select>
+              </Form.Item>}
+            </div>
             <Form.Item
               name="firstName"
               label="First Name"
@@ -548,6 +658,88 @@ const Payment = () => {
       </section>
 
       <Footer />
+      <Modal
+        visible={orderType}
+        onCancel={() => {
+          SetOrderType(false);
+        }}
+        width="770px"
+        height="300px"
+        style={{ marginTop: "2%" }}
+        footer={null}
+      >
+        <Result
+          status="success"
+          title="Order Confirmed"
+          subTitle="Your order has been successfully confirmed! Order number: 2017182818828182881. We're preparing your items for shipment. Please wait patiently for your order to be processed."
+          extra={[
+            <Button onClick={() => {
+              SetOrderType(false)
+
+              navigate(`/account`);
+
+            }} type="primary" key="track">
+              Track Order
+            </Button>,
+            <Button key="newOrder" onClick={() => {
+              SetOrderType(false)
+              navigate(`/shop`);
+
+            }}>
+              Place New Order
+            </Button>,
+          ]}
+        />
+
+      </Modal>
+      <Modal
+        visible={orderfail}
+        onCancel={() => {
+          SetOrderfail(false);
+        }}
+        width="770px"
+        height="300px"
+        style={{ marginTop: "2%" }}
+        footer={null}
+      >
+        <Result
+          status="error"
+          title="Order Failed"
+          subTitle="We're sorry, but there was an issue processing your order. Please review the following information and try again."
+          extra={[
+            <Button onClick={() => {
+              SetOrderfail(false);
+
+            }} type="primary" key="retry">
+              Retry Order
+            </Button>,
+            <Button onClick={() => {
+              SetOrderfail(false);
+            }} type key="contact">
+              Contact Support
+            </Button>,
+          ]}
+        >
+          <div className="desc">
+            <Paragraph>
+              <Text
+                strong
+                style={{
+                  fontSize: 16,
+                }}
+              >
+                Unfortunately, your order could not be processed due to the following reasons:
+              </Text>
+            </Paragraph>
+            <Paragraph>
+              <CloseCircleOutlined className="site-result-demo-error-icon" /> Your payment method was declined. Please check your payment details and try again.
+            </Paragraph>
+
+          </div>
+        </Result>
+
+
+      </Modal>
     </>
   );
 };

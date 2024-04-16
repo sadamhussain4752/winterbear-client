@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import { useParams } from "react-router-dom";
-import { ProductUserById, AddCardProductById } from "../../src/reducer/thunks";
+import { ProductUserById, AddCardProductById, RatingProductUserById } from "../../src/reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import OwlCarousel from "react-owl-carousel";
@@ -61,6 +61,12 @@ const Product = () => {
   } = useSelector((state) => state.productlist);
 
   const {
+    RatingProductRes: RatingResponce,
+    loading: productLoading,
+    error: productError,
+  } = useSelector((state) => state.RatingProductRes);
+
+  const {
     GetAddcardRes,
     addcardIdloading: addcardIdloading,
   } = useSelector((state) => state.GetAddcardRes);
@@ -78,6 +84,8 @@ const Product = () => {
 
   const fetchProductbyId = (productI) => {
     dispatch(ProductUserById(productI));
+    dispatch(RatingProductUserById(productId));
+
   };
 
   const handleCopyUrl = () => {
@@ -201,7 +209,7 @@ const Product = () => {
 
           </div>
 
-<hr />
+          <hr />
 
           <div className="text-start col-md-12 row mt-3">
             <div className="col-md-3 ">
@@ -290,7 +298,7 @@ const Product = () => {
 
               </Tab.Pane>
               <Tab.Pane eventKey="additional">
-                
+
                 {/* Reviews Tab Content */}
                 <div className="col-md-12 text-start ">
                   <div className="text-start">
@@ -321,7 +329,17 @@ const Product = () => {
                 <div className="col-md-12 text-start ">
                   <div className="text-start">
                     <p className="mt-3">Reviews</p>
-                    <p>There are no reviews yet.</p>
+
+                    {RatingResponce && RatingResponce?.ratings && RatingResponce.ratings.map((item) => (
+                      <div key={item.id}>
+                        <Rate value={item.rating} style={{
+                          color: "Green"
+                        }} />
+                        <p>{item.comment}</p>
+                        {/* Add other properties you want to display here */}
+                      </div>
+                    ))}
+
                     <p>
                       Only logged in customers who have purchased this product may leave
                       a review.
@@ -370,14 +388,14 @@ const Product = () => {
               <span className="text-black ">
                 {prod.name} ₹{prod.amount}
               </span>
-            
+
             </div>
             <div
-                className="btn button buy-now-tag text-black bg-transparent border border-secondary"
-                onClick={() => fetchProductbyId(prod._id)}
-              >
-                <i className="fas fa-cart-plus" /> Add to Cart
-              </div>
+              className="btn button buy-now-tag text-black bg-transparent border border-secondary"
+              onClick={() => fetchProductbyId(prod._id)}
+            >
+              <i className="fas fa-cart-plus" /> Add to Cart
+            </div>
           </div>
         ))}
       </OwlCarousel>

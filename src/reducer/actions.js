@@ -47,6 +47,14 @@ export const FETCH_ADDRESS_LIST_REQUEST = 'FETCH_ADDRESS_LIST_REQUEST';
 export const FETCH_ADDRESS_LIST_SUCCESS = 'FETCH_ADDRESS_LIST_SUCCESS';
 export const FETCH_ADDRESS_LIST_FAILURE = 'FETCH_ADDRESS_LIST_FAILURE';
 
+export const RATING_PRODUCT_IB_BY_REQUEST = 'RATING_PRODUCT_IB_BY_REQUEST';
+export const RATING_PRODUCT_IB_BY_SUCCESS = 'RATING_PRODUCT_IB_BY_SUCCESS';
+export const RATING_PRODUCT_IB_BY_FAILURE = 'RATING_PRODUCT_IB_BY_FAILURE';
+
+export const COUPON_LIST_IB_BY_REQUEST = 'COUPON_LIST_IB_BY_REQUEST';
+export const COUPON_LIST_IB_BY_SUCCESS = 'COUPON_LIST_IB_BY_SUCCESS';
+export const COUPON_LIST_IB_BY_FAILURE = 'COUPON_LIST_IB_BY_FAILURE';
+
 
 export const fetchHeaderRequest = () => ({
   type: FETCH_DATA_REQUEST,
@@ -251,5 +259,33 @@ export const fetchAddressSuccess = (data) => ({
 
 export const fetchAddressFailure = (error) => ({
   type: FETCH_ADDRESS_LIST_FAILURE,
+  payload: error,
+});
+
+export const RatingProductIdRequest = () => ({
+  type: RATING_PRODUCT_IB_BY_REQUEST,
+});
+
+export const RatingProductIdSuccess = (data) => ({
+  type: RATING_PRODUCT_IB_BY_SUCCESS,
+  payload: data,
+});
+
+export const RatingProductIdFailure = (error) => ({
+  type: RATING_PRODUCT_IB_BY_FAILURE,
+  payload: error,
+});
+
+export const CouponListRequest = () => ({
+  type: COUPON_LIST_IB_BY_REQUEST,
+});
+
+export const CouponListSuccess = (data) => ({
+  type: COUPON_LIST_IB_BY_SUCCESS,
+  payload: data,
+});
+
+export const CouponListFailure = (error) => ({
+  type: COUPON_LIST_IB_BY_FAILURE,
   payload: error,
 });
