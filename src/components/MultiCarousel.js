@@ -117,8 +117,8 @@ const MultiCarousel = ({ deviceType, images }) => {
       {images.slice(0, 5).map((image, index) => (
         <img
           key={index} // Add the key prop here
-          draggable={false}
-          style={{ width: "25%", height: "25%", }}
+          draggable={false} className="cor-minimg"
+          style={{ width: "90%", height: "100%", }}
           src={`${image}`}
         />
       ))}
