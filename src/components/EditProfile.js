@@ -116,7 +116,7 @@ const EditProfile = () => {
             initialValues={loginData}
           >
             <div className="col-md-12 row">
-              <div className="col-md-12">
+              <div className="col-md-12 mb-4">
                 <div className="text-center">
 
                   {getUserResponse?.User?.profile_img !== "" ? (

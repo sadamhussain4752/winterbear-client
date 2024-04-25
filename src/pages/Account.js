@@ -107,8 +107,8 @@ const Account = () => {
             <div className="row d-flex justify-content-center">
               <div className="col-md-10">
                 <div className="card-body row rounded">
-                <div className="col-md-3 p-5 p-5">
-                    <p className="p-header">Manage My Account</p>
+                <div className="col-md-3 p-5 p-5 acc-dashbord">
+                    <p className="p-header w-100">Manage My Account</p>
                     <p
                       className={`p-text ft-16 ${activeTab === "profile" ? "active" : ""}`}
                       onClick={() => handleTabClick("profile")}

@@ -8,11 +8,14 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Google from "../constant/images/google.svg";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
-import { ProfileUserData,CouponUserById } from "../reducer/thunks";
+import { ProfileUserData, CouponUserById } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { message } from "antd/es";
 import { IoIosLogIn } from "react-icons/io";
 import NewsPaper from "./NewsPaper";
+
+// import CorTop from "./corosilTop";
+
 import {
   ShoppingCartOutlined,
   WalletOutlined
@@ -150,14 +153,16 @@ const Header = () => {
       <header>
         {/* Top Header */}
         <div className="top-header fixed-top shadow-sm bg-white">
-          <div className="container-fluid">
+          <div className="container-fluid pe-0">
             <Carousel autoplay className="col-md-10 d-block mx-auto" dots={true}>
               {getCouponResponse?.coupons?.map((item, index) => item.isShow_display && (
-                <div className="col-md-4" key={index}>
+                <div className="col-md-6" key={index}>
                   {renderItem(item)}
                 </div>
               ))}
             </Carousel>
+            
+
 
 
             <div className="row align-items-center justify-content-between ">
@@ -165,7 +170,7 @@ const Header = () => {
               <div className="col-md-5 col-6  ps-1 order-first text-left  border-0 shadow-none">
                 <div class="container-fluid ">
                   <div className="row">
-                    <div className="col-md-2">
+                    <div className="col-md-2 col-4">
                       <button
                         className="btn navbar  navbar-toggler border-0 "
                         data-bs-toggle="offcanvas"
@@ -176,7 +181,7 @@ const Header = () => {
                         <span class="navbar-toggler-icon"></span>
                       </button>
                     </div>
-                    <div className="col-md-10 d-md-block mt-2">
+                    <div className="col-md-10  d-md-block d-none mt-2">
                       <Link
                         className="ps-1 fs-6 fw-bold text-main text-decoration-none "
                         to="/shop"
@@ -381,7 +386,7 @@ const Header = () => {
                 </div>
               </div>
               {/* Logo */}
-              <div className="col-md-2">
+              <div className="col-md-2 col-6">
                 <img
                   src="../assets/images/winterbear-logo.png"
                   className="d-block mx-auto img-fluid"
@@ -432,7 +437,7 @@ const Header = () => {
                             </a>
                             <a>
                               {/* <WalletOutlined style={{ fontSize: '16px', color: '#9E2717', marginRight: '5px' }} /> */}
-                              <i class="fa-solid fa-star" style={{color:"#ffdc64"}}></i>
+                              <i class="fa-solid fa-star" style={{ color: "#ffdc64" }}></i>
                               {getUserResponse.User.loyalty_point}
 
                             </a>
@@ -514,12 +519,16 @@ const Header = () => {
           </div>
         </div>
       </header>
+
+      
+
       <>
         <LoginModal visible={loginVisible} onClose={handleCloseLogin} />
 
         <RegisterModal visible={modalVisible} onClose={handleCloseModal} />
         <NewsPaper visible={newsVisible} onClose={handleCloseNews} />
       </>
+
     </>
   );
 };
