@@ -5,9 +5,16 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import "owl.carousel/dist/assets/owl.theme.green.css";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
+import { useNavigate } from "react-router-dom";
 
 const HomeSlider = () => {
   const { data, loading, error } = useSelector((state) => state.data);
+  const navigate = useNavigate();
+
+  const handleNavigation = (productId) => {
+    // Navigate to the specified product id
+    navigate(`/brand/${productId}`);
+  };
   return (
     <section className="py-5">
       <div className="container-fluid px-3">
@@ -36,7 +43,9 @@ const HomeSlider = () => {
           {data &&
             data?.Brands &&
             data?.Brands.map((brand, index) => (
-              <div key={index} className="item ">
+              <div key={index} className="item" onClick={()=>{
+                handleNavigation(brand._id)
+              }}>
                 <img
                   src={brand.imageUrl || "assets/images/placeholder.png"}
                   alt={brand.name || "Brand Name"}

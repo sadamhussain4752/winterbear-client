@@ -18,7 +18,9 @@ const rootReducer = combineReducers({
   addresslist:dataReducer,
   CouponRes: dataReducer,
   RatingProductRes : dataReducer,
-  CouponListsRes: dataReducer
+  CouponListsRes: dataReducer,
+  qtyAddcardRes: dataReducer,
+  eventlist: dataReducer
 });
 
 export default rootReducer;

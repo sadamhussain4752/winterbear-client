@@ -46,7 +46,11 @@ import {
   COUPON_LIST_IB_BY_REQUEST,
   COUPON_LIST_IB_BY_SUCCESS,
   COUPON_LIST_IB_BY_FAILURE,
-  
+  QTY_CARD_IB_BY_REQUEST,
+  QTY_CARD_IB_BY_SUCCESS,
+  QTY_CARD_IB_BY_FAILURE,
+  FETCH_EVENT_LIST_REQUEST,
+  FETCH_EVENT_LIST_SUCCESS,
 } from "./actions";
 
 const initialState = {
@@ -256,7 +260,7 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         addloading: true,
-        GetAddcardUserRes: null,
+        // GetAddcardUserRes: null,
       };
     case GET_ADDCARD_IB_BY_SUCCESS:
       return {
@@ -288,69 +292,105 @@ const dataReducer = (state = initialState, action) => {
         Deleteloading: false,
         DeleteAddcardUserRes: action.payload,
       };
-      case FETCH_ADDRESS_LIST_REQUEST:
-        return {
-          ...state,
-          error: null,
-        };
-      case FETCH_ADDRESS_LIST_SUCCESS:
-        return {
-          ...state,
-          loading: false,
-          addresslist: action.payload,
+    case FETCH_ADDRESS_LIST_REQUEST:
+      return {
+        ...state,
+        error: null,
+      };
+    case FETCH_ADDRESS_LIST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        addresslist: action.payload,
+      };
+    case FETCH_ADDRESS_LIST_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case COUPON_IB_BY_REQUEST:
+      return {
+        ...state,
+        CouponRes: null,
+      };
+    case COUPON_IB_BY_SUCCESS:
+      return {
+        ...state,
+        CouponRes: action.payload, // Update userData with the response data
+      };
+    case COUPON_IB_BY_FAILURE:
+      return {
+        ...state,
+        CouponRes: action.payload,
+      };
+    case RATING_PRODUCT_IB_BY_REQUEST:
+      return {
+        ...state,
+        RatingProductRes: null,
+      };
+    case RATING_PRODUCT_IB_BY_SUCCESS:
+      return {
+        ...state,
+        RatingProductRes: action.payload, // Update userData with the response data
+      };
+    case RATING_PRODUCT_IB_BY_FAILURE:
+      return {
+        ...state,
+        RatingProductRes: action.payload,
+      };
+    case COUPON_LIST_IB_BY_REQUEST:
+      return {
+        ...state,
+        CouponListsRes: null,
+      };
+    case COUPON_LIST_IB_BY_SUCCESS:
+      return {
+        ...state,
+        CouponListsRes: action.payload, // Update userData with the response data
+      };
+    case COUPON_LIST_IB_BY_FAILURE:
+      return {
+        ...state,
+        CouponListsRes: action.payload,
+      };
 
-        };
-      case FETCH_ADDRESS_LIST_FAILURE:
-        return {
-          ...state,
-          loading: false,
-          error: action.payload,
-        };
-        case COUPON_IB_BY_REQUEST:
-          return {
-            ...state,
-            CouponRes: null,
-          };
-        case COUPON_IB_BY_SUCCESS:
-          return {
-            ...state,
-            CouponRes: action.payload, // Update userData with the response data
-          };
-        case COUPON_IB_BY_FAILURE:
-          return {
-            ...state,
-            CouponRes: action.payload,
-          };
-          case RATING_PRODUCT_IB_BY_REQUEST:
-          return {
-            ...state,
-            RatingProductRes: null,
-          };
-        case RATING_PRODUCT_IB_BY_SUCCESS:
-          return {
-            ...state,
-            RatingProductRes: action.payload, // Update userData with the response data
-          };
-        case RATING_PRODUCT_IB_BY_FAILURE:
-          return {
-            ...state,
-            RatingProductRes: action.payload,
-          };
-          case COUPON_LIST_IB_BY_REQUEST:
-            return {
-              ...state,
-              CouponListsRes: null,
-            };
-          case COUPON_LIST_IB_BY_SUCCESS:
-            return {
-              ...state,
-              CouponListsRes: action.payload, // Update userData with the response data
-            };
-          case COUPON_LIST_IB_BY_FAILURE:
-            return {
-              ...state,
-              CouponListsRes: action.payload,
-            };
+    case QTY_CARD_IB_BY_REQUEST:
+      return {
+        ...state,
+        qtycardIdloading: true,
+        qtyAddcardRes: null,
+      };
+    case QTY_CARD_IB_BY_SUCCESS:
+      return {
+        ...state,
+        qtycardIdloading: false,
+        qtyAddcardRes: action.payload, // Update userData with the response data
+      };
+    case QTY_CARD_IB_BY_FAILURE:
+      return {
+        ...state,
+        qtycardIdloading: false,
+        qtyAddcardRes: action.payload,
+      };
+    case FETCH_EVENT_LIST_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FETCH_EVENT_LIST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        eventlist: action.payload,
+      };
+    case FETCH_STORE_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        eventlist: action.payload,
+      };
+
     default:
       return state;
   }

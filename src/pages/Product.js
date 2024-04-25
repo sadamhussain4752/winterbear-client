@@ -123,9 +123,9 @@ const Product = () => {
 
     return (
       <>
-        <OwlCarousel className="owl-theme" loop margin={10} items={1} dots={false} nav={false}>
-          {product.images &&
-            product.images.map((image, index) => (
+        <OwlCarousel className="owl-theme"  loop margin={10} items={1} dots={false} nav={false}>
+          {product?.images &&
+            product?.images.map((image, index) => (
               <div key={index} className="item">
                 <img
                   src={`${image}`}

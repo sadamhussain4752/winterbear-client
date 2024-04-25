@@ -15,6 +15,7 @@ import Checkout from "./pages/Checkout";
 import Payment from "./pages/Payment";
 import EventDetails from "./pages/EventDetails";
 import Blogs from "./pages/Blogs";
+import Brandlist from "./pages/Brandlist";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/cart" element={<Checkout />} />
           <Route path="/checkout" element={<Payment />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/brand/:id" element={<Brandlist />} />
           <Route path="/event-details" element={<EventDetails/>}/>
           <Route path="/blogs" element={<Blogs/>}/>
 

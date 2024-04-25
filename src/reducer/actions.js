@@ -56,6 +56,15 @@ export const COUPON_LIST_IB_BY_SUCCESS = 'COUPON_LIST_IB_BY_SUCCESS';
 export const COUPON_LIST_IB_BY_FAILURE = 'COUPON_LIST_IB_BY_FAILURE';
 
 
+export const QTY_CARD_IB_BY_REQUEST = 'QTY_CARD_IB_BY_REQUEST';
+export const QTY_CARD_IB_BY_SUCCESS = 'QTY_CARD_IB_BY_SUCCESS';
+export const QTY_CARD_IB_BY_FAILURE = 'QTY_CARD_IB_BY_FAILURE';
+
+
+export const FETCH_EVENT_LIST_REQUEST = 'FETCH_EVENT_LIST_REQUEST';
+export const FETCH_EVENT_LIST_SUCCESS = 'FETCH_EVENT_LIST_SUCCESS';
+export const FETCH_EVENT_LIST_FAILURE = 'FETCH_EVENT_LIST_FAILURE';
+
 export const fetchHeaderRequest = () => ({
   type: FETCH_DATA_REQUEST,
 });
@@ -287,5 +296,33 @@ export const CouponListSuccess = (data) => ({
 
 export const CouponListFailure = (error) => ({
   type: COUPON_LIST_IB_BY_FAILURE,
+  payload: error,
+});
+
+export const QtyCardIdRequest = () => ({
+  type: QTY_CARD_IB_BY_REQUEST,
+});
+
+export const QtyCardIdSuccess = (data) => ({
+  type: QTY_CARD_IB_BY_SUCCESS,
+  payload: data,
+});
+
+export const QtyCardIdFailure = (error) => ({
+  type: QTY_CARD_IB_BY_FAILURE,
+  payload: error,
+});
+
+export const fetchEventlistRequest = () => ({
+  type: FETCH_EVENT_LIST_REQUEST,
+});
+
+export const fetchEventlistSuccess = (data) => ({
+  type: FETCH_EVENT_LIST_SUCCESS,
+  payload: data,
+});
+
+export const fetchEventlistFailure = (error) => ({
+  type: FETCH_EVENT_LIST_FAILURE,
   payload: error,
 });

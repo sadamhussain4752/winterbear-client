@@ -36,6 +36,27 @@ const NewsPaper = ({ visible, onClose }) => {
             className="news-paper-modal"
         >
             <div className="news-paper-modal-div">
+                <div className="text-center ">
+                    <p className="text-white font-news">
+                        Welcome To WINTERBEAR !
+                    </p>
+                    <p className="text-white fs-5 fw-bold ">
+                        GET 21% OFF
+                    </p>
+                    <p className="text-white font-news-text">
+                        Escape the noise, It’s time to hear the magic with Xiaomi Earbuds.
+                    </p>
+                    <div className="d-flex justify-content-center align-items-center align-self-center font-news-text">
+                        <p className="text-white ">
+                            Starting price:
+                        </p>
+                        <button className="btn bg-white font-news-btn">
+                            $99 USD
+                        </button>
+                    </div>
+
+                </div>
+
                 <Form initialValues={notificationData}>
                     <Form.Item
                         name="email"
@@ -74,7 +95,7 @@ const NewsPaper = ({ visible, onClose }) => {
                     </Form.Item>
 
                     <Form.Item>
-                        <Checkbox onChange={handleWhatsAppChange}>Receive important information and updates on WhatsApp</Checkbox>
+                        <Checkbox className="text-white" onChange={handleWhatsAppChange}>Receive important information and updates on WhatsApp</Checkbox>
                     </Form.Item>
 
                     <div className="d-flex justify-content-center pt-2 mb-5">

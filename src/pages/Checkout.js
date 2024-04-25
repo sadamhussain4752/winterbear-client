@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   GetAddCardProductById,
   DeleteAddCardProductById,
+  QtyOrderProductById
 } from "../reducer/thunks";
 import constant from "../constant/constant";
 import { useNavigate } from "react-router-dom";
@@ -28,12 +29,16 @@ const Checkout = () => {
     Deleteloading: DeleteloadingLoading,
     error: DeleteloadingError,
   } = useSelector((state) => state.DeleteAddcardUserRes);
-
+  const {
+    qtyAddcardRes,
+    qtycardIdloading: qtyloader,
+    error: qtycardIdListError,
+  } = useSelector((state) => state.qtyAddcardRes);
   useEffect(() => {
-    if (userId !== undefined || userId !== null) {
+    if (userId !== undefined && userId !== null || qtyAddcardRes) {
       dispatch(GetAddCardProductById(userId));
     }
-  }, [userId, DeleteAddcardUserRes]); 
+  }, [userId, qtyAddcardRes, DeleteAddcardUserRes]); // Add qtyAddcardRes and DeleteAddcardUserRes as dependencies
 // Add DeleteAddcardUserRes as a dependency
 
 
@@ -46,9 +51,14 @@ const Checkout = () => {
     }
   }, [DeleteAddcardUserRes, dispatch, userId]);
 
-  const handleUpdateQuantity = () =>{
-
-  }
+  const handleUpdateQuantity = (prod_id, qtynumber) => {
+    console.log(prod_id, qtynumber, "qtynumber");
+    let prod_qty = {
+      quantity: String(qtynumber),
+      savelater: false,
+    };
+    dispatch(QtyOrderProductById(prod_qty, prod_id));
+  };
 
   const getTotalPrice = () => {
     return (
@@ -100,7 +110,7 @@ const Checkout = () => {
               <th >Products</th>
               <th className="product-amount text-center">Price</th>
               <th className="product-amount text-center">Quantity</th>
-              <th className="product-amount text-center">Price</th>
+              <th className="product-amount text-center">Total Price</th>
               <th className="product-amount text-center">Action</th>
             </tr>
           </thead>
@@ -124,14 +134,14 @@ const Checkout = () => {
                       </div>
                     </div>
                   </td>
-                  <td className="product-amount text-center">${item.product.amount}</td>
+                  <td className="product-amount text-center">₹{item.product.amount}</td>
                   <td className="product-amount text-center">
                     <div className="quantity-col text-center w-75">
                       <button
                         className="quantity-btn"
                         onClick={() =>
                           handleUpdateQuantity(
-                            item.product.id,
+                            item._id,
                             item.quantity - 1
                           )
                         }
@@ -144,7 +154,7 @@ const Checkout = () => {
                         className="quantity-btn"
                         onClick={() =>
                           handleUpdateQuantity(
-                            item.product.id,
+                            item._id,
                             item.quantity + 1
                           )
                         }
@@ -153,7 +163,7 @@ const Checkout = () => {
                       </button>
                     </div>
                   </td>
-                  <td className="product-amount text-center">${item.quantity * item.product.amount}</td>
+                  <td className="product-amount text-center">₹{item.quantity * item.product.amount}</td>
                   <td>
                     <div
                       className="delete-button"
