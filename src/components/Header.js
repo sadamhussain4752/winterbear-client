@@ -243,7 +243,7 @@ const Header = () => {
                           HOME
                         </a>
                       </li>
-                      <li className="nav-item dropdown">
+                      {/* <li className="nav-item dropdown">
                         <a
                           className="nav-link pb-3 fs-5 dropdown-toggle"
                           href="#"
@@ -253,7 +253,7 @@ const Header = () => {
                         >
                           SHOP ALL
                         </a>
-                        {/* <ul className="dropdown-menu">
+                        <ul className="dropdown-menu">
                           <li>
                             <a className="dropdown-item pb-3 fs-5" href="#">
                               ACTION
@@ -272,8 +272,8 @@ const Header = () => {
                               SOMETHING ELSE HERE
                             </a>
                           </li>
-                        </ul> */}
-                      </li>
+                        </ul>
+                      </li> */}
                       <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
@@ -382,11 +382,17 @@ const Header = () => {
               </div>
               {/* Logo */}
               <div className="col-md-2">
-                <img
+              <a
+                          
+                          href="/"
+                        >
+                          <img
                   src="../assets/images/winterbear-logo.png"
                   className="d-block mx-auto img-fluid"
                   alt="Logo"
                 />
+                        </a>
+                
               </div>
               {/* Login/Register and Cart Icons */}
               <div className="col-md-5 d-md-block d-none  text-start mt-md-0">

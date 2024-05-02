@@ -1851,9 +1851,6 @@ input {
   height: 42%;
 }
 
-.offcanvas {
-  --bs-offcanvas-width: 30%;
-}
 
 /* .ant-select-selector {
   border : none !important

@@ -46,7 +46,7 @@ const handleNavigation = (productId) => {
 
 async function fetchUserList(username) {
   console.log('fetching user', username);
-  return fetch('http://localhost:5000/api/product/allProduct?lang=1')
+  return fetch(`${constant.baseUrl}api/product/allProduct?lang=1`)
     .then((response) => response.json())
     .then((body) =>
       body.products.map((user) => ({

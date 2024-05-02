@@ -89,8 +89,11 @@ const Home = () => {
                 data.Categorys &&
                 data.Categorys.map((item) => (
                   <div className="col-md-3 mb-4">
-                    <div className="collection-box">
-                      <img src={`${constant.baseUrl}${item.imageUrl}`} />
+                    <div className="collection-box" onClick={()=>{
+                          navigate(`/shop`);
+
+                    }}>
+                      <img src={`${item.imageUrl}`} />
                       <h4>{item.name}</h4>
                     </div>
                   </div>

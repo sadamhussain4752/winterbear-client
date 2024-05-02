@@ -154,7 +154,7 @@ const ShopAll = () => {
                   data.Categorys.map((item) => (
                     <div className={`${item._id === selectedCategory?._id ? "bg-theme-color" : ""}`} key={item._id} onClick={() => handleCategoryClick(item)}>
                       <div className="align-items-center shop-all-card">
-                        <img src={`${constant.baseUrl}${item.imageUrl}`} />
+                        <img src={`${item.imageUrl}`} />
                         <p>{item.name}</p>
                       </div>
                     </div>

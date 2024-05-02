@@ -40,18 +40,18 @@ const HomeSlider = () => {
               <picture>
                 <source
                   media="(min-width:768px)"
-                  src={`${constant.baseUrl}${item.imageUrl}`} 
+                  src={`${item.imageUrl}`} 
                   className="w-100 vh-75"
                 />
                 <source
                   media="(max-width:768px)"
                   className="w-100"
-                  src={`${constant.baseUrl}${item.imageUrl}`} 
+                  src={`${item.imageUrl}`} 
                   height={486}
                   width={320}
                 />
                 <img
-                 src={`${constant.baseUrl}${item.imageUrl}`} 
+                 src={`${item.imageUrl}`} 
                   className="vh-75 w-100"
                   alt=""
                   title=""
