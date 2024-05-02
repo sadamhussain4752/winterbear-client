@@ -380,9 +380,6 @@ footer ul a {
 
 .copy-rights-img img {
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
 
 }
 
@@ -591,52 +588,59 @@ width: 77%;
 }
 
 .sticky-logo-flex-1 {
-   max-height: 0%;
-   background-color: "transparent" !important;
-   margin-top: 5%;
+  max-height: 0%;
+  background-color: "transparent" !important;
+  margin-top: 5%;
 }
 
 .sticky-logo-flex-2 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 12%;
- }
- .sticky-logo-flex-3 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 18%;
- }
- .sticky-logo-flex-4 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 24%;
- }
- .sticky-logo-flex-5 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 32%;
- }
- 
- .sticky-logo-flex-6 {
-     max-height: 9%;
-     background-color: "transparent" !important;
-     margin-top: 40%;
-  }
-  .sticky-logo-flex-7 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 52%;
- }
-  .sticky-logo-flex-8 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-     margin-top: 62%;
-  }
-  .sticky-logo-flex-9 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-     margin-top: 72%;
-  }
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 12%;
+}
+
+.sticky-logo-flex-3 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 18%;
+}
+
+.sticky-logo-flex-4 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 24%;
+}
+
+.sticky-logo-flex-5 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 32%;
+}
+
+.sticky-logo-flex-6 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 40%;
+}
+
+.sticky-logo-flex-7 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 52%;
+}
+
+.sticky-logo-flex-8 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 62%;
+}
+
+.sticky-logo-flex-9 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 72%;
+}
+
 .footercard {
   background-image: url('../images/Footer.png');
   background-size: cover;
@@ -1945,6 +1949,7 @@ input {
   background-size: 100%;
   padding: 15% 0%;
 }
+
 .wave {
   position: absolute;
   top: 0;
@@ -1960,7 +1965,7 @@ input {
 }
 
 
-.wave-img{
+.wave-img {
   background-color: #FFE5E5;
   width: 50px;
   height: 50px;
@@ -1998,10 +2003,11 @@ input {
     top: 28%;
     transform: translateY(-50%);
   }
+
   30% {
     top: 38%;
   }
-  
+
   35% {
     top: 36%;
     transform: translateY(-50%);
@@ -2097,12 +2103,12 @@ input {
 }
 
 
-.waveContainer:hover .wave{
+.waveContainer:hover .wave {
   animation-play-state: paused;
 }
 
 
-.wave-img:hover{
+.wave-img:hover {
   background-color: #33295D;
 }
 
@@ -2118,7 +2124,7 @@ input {
   font-size: 14px !important;
   font-weight: 500 !important;
   margin-top: 10px;
-  
+
 }
 
 .font-news-text button {
@@ -2127,6 +2133,69 @@ input {
   border-radius: 4px !important;
   font-size: 14px !important;
   font-weight: 600 !important;
-  margin: 10px 10px ;
+  margin: 10px 10px;
 }
 
+.gal-img {
+  width: 100%;
+}
+
+@media only screen and (max-width:760px) {
+
+  .theme-bg-text {
+    font-size: 65px !important;
+  }
+
+  .heading {
+    font-size: 45px;
+    margin-bottom: 50px;
+  }
+
+  .heading::after {
+    top: -95%;
+  }
+
+  .event-item {
+    width: 100%;
+  }
+
+  .event-zixe {
+    font-size: 10px !important;
+  }
+
+  .gal-img {
+    width: 75% !important;
+  }
+
+  .dis-sec {
+    left: 0px;
+    right: 0px;
+  }
+
+
+  .about-breadcum-content h3 {
+    font-size: 35px;
+    letter-spacing: .5px;
+  }
+
+  .about-breadcum-content {
+    top: 260%;
+  }
+
+  .pading-top-bg {
+    padding-top: 20%;
+  }
+
+  .waveContainer {
+    bottom: -50%;
+  }
+
+  .wave-img {
+    width: 40px;
+    height: 40px;
+  }
+
+
+
+
+}

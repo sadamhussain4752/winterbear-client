@@ -65,6 +65,7 @@ const Store = () => {
               <iframe
                 src={switchmap}
                 height="450"
+                width="100%"
                 style={{ border: "0" }}
                 allowFullScreen=""
                 className="col-md-12 text-end mt-md-5"
@@ -111,9 +112,9 @@ const Store = () => {
 
                   <div className="box-card-over position-relative">
                     <div className="col-md-12">
-                      <img src="assets/images/store.png" className="img-fluid col-md-4" />
-                      <img src="assets/images/store1.png" className="img-fluid col-md-4" />
-                      <img src="assets/images/store2.png" className="img-fluid col-md-4" />
+                      <img src="assets/images/store.png" className="img-fluid col-4" />
+                      <img src="assets/images/store1.png" className="img-fluid col-4" />
+                      <img src="assets/images/store2.png" className="img-fluid col-4" />
 
                     </div>
                     <div className="position-absolute top-0 start-0 light-background">

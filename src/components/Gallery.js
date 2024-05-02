@@ -33,56 +33,56 @@ const GallerySection = () => {
           <div className="item">
             <img
               src="assets/images/gallery.png"
-              className="w-100 d-block mx-auto"
+              className="gal-img d-block mx-auto"
               alt="Gallery Item"
             />
           </div>
           <div className="item">
             <img
               src="assets/images/gallery1.png"
-              className="w-100 d-block mx-auto"
+              className="gal-img d-block mx-auto"
               alt="Gallery Item"
             />
           </div>
           <div className="item">
             <img
               src="assets/images/gallery2.png"
-              className="w-100 d-block mx-auto"
+              className="gal-img d-block mx-auto"
               alt="Gallery Item"
             />
           </div>
           <div className="item">
             <img
               src="assets/images/gallery3.png"
-              className="w-100 d-block mx-auto"
+              className="gal-img d-block mx-auto"
               alt="Gallery Item"
             />
           </div>
           <div className="item">
             <img
               src="assets/images/gallery.png"
-              className="w-100 d-block mx-auto"
+              className="gal-img d-block mx-auto"
               alt="Gallery Item"
             />
           </div>
           <div className="item">
             <img
               src="assets/images/gallery1.png"
-              className="w-100 d-block mx-auto"
+              className="gal-img d-block mx-auto"
               alt="Gallery Item"
             />
           </div>
           <div className="item">
             <img
               src="assets/images/gallery2.png"
-              className="w-100 d-block mx-auto"
+              className="gal-img d-block mx-auto"
               alt="Gallery Item"
             />
           </div>
           <div className="item">
             <img
               src="assets/images/gallery3.png"
-              className="w-100 d-block mx-auto"
+              className="gal-img d-block mx-auto"
               alt="Gallery Item"
             />
           </div>

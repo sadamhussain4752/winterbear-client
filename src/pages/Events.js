@@ -72,17 +72,17 @@ const dispatch = useDispatch()
               <img
                 src={require("../constant/images/event-back-grounds.jpeg")}
                 alt="Upcoming Sale"
-                className="img-fluid pt-5"
+                className="img-fluid pt-lg-5 pading-top-bg"
               />
-              <div className="col-md-12 row d-flex justify-content-center position-absolute top-0 ">
-                <div className=" col-md-9 row d-flex justify-content-center event-tap ">
-                  <p className="col-md-3 event-text-color">
+              <div className="col-md-12 row d-flex justify-content-center position-absolute top-0 dis-sec">
+                <div className=" col-md-9 col-12 row d-flex justify-content-center event-tap ">
+                  <p className="col-3 event-zixe event-text-color">
                     Upcoming Events
                   </p>
-                  <p className="col-md-3 event-item">
+                  <p className="col-md-3 col-6 event-zixe event-item">
                     40% di sconto dal 20 aprile al 5 maggio!
                   </p>
-                  <p className="col-md-3 event-text-color">
+                  <p className="col-3 event-zixe event-text-color">
                     India
                   </p>
                 </div>

@@ -151,9 +151,9 @@ const Header = () => {
         {/* Top Header */}
         <div className="top-header fixed-top shadow-sm bg-white">
           <div className="container-fluid">
-            <Carousel autoplay className="col-md-10 d-block mx-auto" dots={true}>
+            <Carousel autoplay className="col-md-10 d-block mx-auto" dots={false}>
               {getCouponResponse?.coupons?.map((item, index) => item.isShow_display && (
-                <div className="col-md-4" key={index}>
+                <div className="col-md-4 pb-2" key={index}>
                   {renderItem(item)}
                 </div>
               ))}
@@ -165,7 +165,7 @@ const Header = () => {
               <div className="col-md-5 col-6  ps-1 order-first text-left  border-0 shadow-none">
                 <div class="container-fluid ">
                   <div className="row">
-                    <div className="col-md-2">
+                    <div className="col-md-2 col-4">
                       <button
                         className="btn navbar  navbar-toggler border-0 "
                         data-bs-toggle="offcanvas"
@@ -176,7 +176,7 @@ const Header = () => {
                         <span class="navbar-toggler-icon"></span>
                       </button>
                     </div>
-                    <div className="col-md-10 d-md-block mt-2">
+                    <div className="col-md-10 d-md-block d-none mt-2">
                       <Link
                         className="ps-1 fs-6 fw-bold text-main text-decoration-none "
                         to="/shop"
@@ -381,7 +381,7 @@ const Header = () => {
                 </div>
               </div>
               {/* Logo */}
-              <div className="col-md-2">
+              <div className="col-md-2 col-6">
               <a
                           
                           href="/"

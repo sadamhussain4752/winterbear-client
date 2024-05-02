@@ -120,7 +120,7 @@ const Footer = () => {
     <div className="copy-rights-img mt-5">
       <div className="container">
         <div className="text-center">
-          <img src="assets/images/footer-img.png" className="" />
+          <img src="assets/images/footer-img.png" className="d-block mx-auto" />
         </div>
       </div>
     </div>
