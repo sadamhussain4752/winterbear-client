@@ -65,6 +65,10 @@ export const FETCH_EVENT_LIST_REQUEST = 'FETCH_EVENT_LIST_REQUEST';
 export const FETCH_EVENT_LIST_SUCCESS = 'FETCH_EVENT_LIST_SUCCESS';
 export const FETCH_EVENT_LIST_FAILURE = 'FETCH_EVENT_LIST_FAILURE';
 
+export const FETCH_PRODUCT_OLD_REQUEST = 'FETCH_PRODUCT_OLD_REQUEST';
+export const FETCH_PRODUCT_OLD_SUCCESS = 'FETCH_PRODUCT_OLD_SUCCESS';
+export const FETCH_PRODUCT_OLD_FAILURE = 'FETCH_PRODUCT_OLD_FAILURE';
+
 export const fetchHeaderRequest = () => ({
   type: FETCH_DATA_REQUEST,
 });
@@ -89,6 +93,20 @@ export const fetchProductSuccess = (data) => ({
 
 export const fetchProductFailure = (error) => ({
   type: FETCH_PRODUCT_FAILURE,
+  payload: error,
+});
+
+export const fetchProductOldRequest = () => ({
+  type: FETCH_PRODUCT_OLD_REQUEST,
+});
+
+export const fetchProductOldSuccess = (data) => ({
+  type: FETCH_PRODUCT_OLD_SUCCESS,
+  payload: data,
+});
+
+export const fetchProductOldFailure = (error) => ({
+  type: FETCH_PRODUCT_OLD_FAILURE,
   payload: error,
 });
 

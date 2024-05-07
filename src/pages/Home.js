@@ -31,11 +31,11 @@ const Home = () => {
 
 
   const {
-    productlist,
+    productOldlist,
     loading: productListLoading,
     error: productListError,
-  } = useSelector((state) => state.productlist);
-  console.log(data && data.productList && data.productList, "product");
+  } = useSelector((state) => state.productOldlist);
+  console.log(productOldlist, "product");
 
   document.title = "Winter Bear";
   document.getElementsByTagName("META")[2].content = "Winter Bear";
@@ -88,7 +88,7 @@ const Home = () => {
               {data &&
                 data.Categorys &&
                 data.Categorys.map((item) => (
-                  <div className="col-md-3 mb-4">
+                  <div className="col-md-3 mb-4 mt-5">
                     <div className="collection-box" onClick={() => navigate(`/shop`)}>
                       <div className="image-container">
                         <img src={`${item.imageUrl}`} />
@@ -111,9 +111,9 @@ const Home = () => {
             </div>
 
             <div className="row justify-content-center ">
-              {productlist &&
-                productlist.productList &&
-                productlist.productList.map((item, index) => {
+              {productOldlist &&
+                productOldlist.productList &&
+                productOldlist.productList.map((item, index) => {
                   if (!item || !item.products || item.products.length === 0)
                     return null;
                   return (
@@ -167,7 +167,7 @@ const Home = () => {
                                   alt="Web Project 1"
                                 />
                                 <span className="text-white">
-                                  {prod.name} ₹{prod.amount}
+                                {item.brand.name} @ {prod.name} ₹{prod.amount}
                                 </span>
                                 <div className="add-to-cart" onClick={() => handleNavigation(prod._id)}>
                                   <i className="fas fa-cart-plus" /> Add to Cart
@@ -183,7 +183,7 @@ const Home = () => {
                             className="w-75 d-block mx-auto"
                           />
                           <p className="sticky-logo-text mt-3">
-                            View the collection
+                            View the {item.brand.name}
                           </p>
                         </div>
                       </div>

@@ -242,7 +242,7 @@ input {
   text-align: center;
   transition: background 0.3s ease, border-radius 0.3s ease, color 0.3s ease;
   height: 300px;
-  /* Add transition for a smooth effect */
+    /* Add transition for a smooth effect */
 }
 
 .collection-box h4 {
@@ -1513,8 +1513,6 @@ input {
 
 .body-card-product {
   /* background-color: #221A42 !important; */
-  border-radius: 10px !important;
-  border-color: #000 !important;
   /* padding: 20px !important; */
 }
 
@@ -1879,8 +1877,8 @@ input {
 
 
 .product-card img {
-  border-top-left-radius: 20px !important;
-  border-top-right-radius: 20px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
 }
 
 
@@ -2133,11 +2131,12 @@ input {
 
 .image-container {
   position: relative;
+  margin-top: 20px;
 }
 
 .image-container img {
   width: 100%;
-  height: auto;
+  height: 350px;
 }
 
 .image-container h4 {
@@ -2151,4 +2150,72 @@ input {
   font-size: 17px;
   font-family: Poppins;
   width: 80%; /* Adjust the width as needed */
+}
+
+
+.shop-all-card-item {
+  width: auto;
+  height: auto;
+  align-items: start;
+  text-align: start;
+  line-height: 20px !important;
+
+
+}
+
+.rounded-border {
+  border-radius: 10px !important;
+}
+
+.shop-all-card-item img {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border-radius: 50%;
+
+  /* margin-top: 50px; */
+}
+
+.shop-all-card-item p {
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  width: 100%;
+}
+
+
+.shop-all-cards {
+  width: auto;
+  height: 50px;
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 20px;
+
+
+}
+
+
+
+.shop-all-cards img {
+  width: auto;
+  height: 40px;
+  text-align: center;
+
+  /* margin-top: 50px; */
+}
+
+.shop-all-cards p {
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.full-banner img {
+  width: 60% !important;
+  height: 150px !important;
+  text-align: center;
+
 }

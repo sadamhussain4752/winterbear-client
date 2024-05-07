@@ -54,7 +54,10 @@ import {
   QtyCardIdSuccess,
   QtyCardIdFailure,
   fetchEventlistRequest,
-  fetchEventlistSuccess
+  fetchEventlistSuccess,
+  fetchProductOldRequest,
+  fetchProductOldSuccess,
+  fetchProductOldFailure
 } from './actions';
 import constant from '../constant/constant';
 
@@ -105,13 +108,13 @@ export const fetchProductData = () => async (dispatch) => {
 };
 
 export const fetchProductDataOld = () => async (dispatch) => {
-  dispatch(fetchProductRequest());
+  dispatch(fetchProductOldRequest());
 
   try {
     const response = await axios.get(ProductListNew);
-    dispatch(fetchProductSuccess(response.data));
+    dispatch(fetchProductOldSuccess(response.data));
   } catch (error) {
-    dispatch(fetchProductFailure(error.message));
+    dispatch(fetchProductOldFailure(error.message));
   }
 };
 

@@ -5,7 +5,7 @@ import Gallery from "../components/Gallery";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate } from 'react-router-dom';
-import { fetchProductData, fetchBannerData } from "../reducer/thunks";
+import { fetchProductData, fetchBannerData, fetchProductDataOld } from "../reducer/thunks";
 import HomeSlider from "../components/BrandSlider";
 import { Dropdown, Menu, Empty } from 'antd';
 
@@ -25,6 +25,16 @@ const ShopAll = () => {
     loading: productListLoading,
     error: productListError,
   } = useSelector((state) => state.productlist);
+
+
+  const {
+    productOldlist,
+    loading: productListLoadings,
+    error: productListErrors,
+  } = useSelector((state) => state.productOldlist);
+  console.log(productOldlist, "productlist");
+
+
   const {
     data,
     loading: bannerLoading,
@@ -35,6 +45,7 @@ const ShopAll = () => {
   useEffect(() => {
     dispatch(fetchProductData());
     dispatch(fetchBannerData());
+    dispatch(fetchProductDataOld());
     setProductList(productlist?.products);
 
   }, []);
@@ -78,6 +89,11 @@ const ShopAll = () => {
     </Menu>
   );
 
+  const handleNavigationbrand = (productId) => {
+    // Navigate to the specified product id
+    navigate(`/brand/${productId}`);
+  };
+
 
   const handleNavigation = (productId) => {
     // Navigate to the specified product id
@@ -91,6 +107,15 @@ const ShopAll = () => {
     // Filter products based on the clicked category
     const filteredProducts = productlist.products.filter((item) => {
       return item.category_id === categoryId._id;
+    });
+    setProductList(filteredProducts);
+  };
+
+  const handleSubbrandClick = (categoryId) => {
+    setSelectedCategory(categoryId);
+    // Filter products based on the clicked category
+    const filteredProducts = productlist.products.filter((item) => {
+      return item.sub_brand_id === categoryId._id;
     });
     setProductList(filteredProducts);
   };
@@ -110,13 +135,7 @@ const ShopAll = () => {
             </div>
           </div>
 
-          <HomeSlider />
-
-          <div className="col-md-12 ">
-            <div className="section-heading">
-              <h3 className="theme-bg-text ">{selectedCategory ? selectedCategory?.name : "Trending Products"}</h3>
-            </div>
-          </div>
+    
 
           <div className="col-md-12">
             <div className="text-end d-flex justify-content-end filter-item">
@@ -147,28 +166,51 @@ const ShopAll = () => {
 
 
           <div className="row justify-content-end">
-            <div className="col-md-1">
-              <div className="p-0 border text-center rounded ">
+            <div className="col-md-3">
+              <div className="p-0 text-center rounded mx-5">
+              <h3 className=" fs-2 fw-bolder text-start mb-4">Category</h3>
+
                 {data &&
                   data.Categorys &&
                   data.Categorys.map((item) => (
-                    <div className={`${item._id === selectedCategory?._id ? "bg-theme-color" : ""}`} key={item._id} onClick={() => handleCategoryClick(item)}>
-                      <div className="align-items-center shop-all-card">
-                        <img src={`${item.imageUrl}`} />
+                    <div className={`${item._id === selectedCategory?._id ? "" : "col-md-12 d-flex justify-content-start "}`} key={item._id} onClick={() => handleCategoryClick(item)}>
+                      <div className="align-items-start shop-all-card-item ">
                         <p>{item.name}</p>
                       </div>
                     </div>
                   ))}
               </div>
-
+              <div className="p-0  text-center rounded">
+                {productOldlist && productOldlist.productList && productOldlist.productList.map((item) => (
+                  <div key={item.brand.id}>
+                    <div className="align-items-center shop-all-cards" onClick={()=>{
+                      handleNavigationbrand(item.brand._id)
+                    }}>
+                      <img src={item.brand.imageUrl} alt={item.brand.name} />
+                      {/* <p>{item.brand.name}</p> */}
+                    </div>
+                    <div>
+                      {item.subbrand.map((subItem) => (
+                        <div key={subItem.id} className="align-items-center shop-all-cards" onClick={()=>{
+                          handleSubbrandClick(subItem)
+                        }}>
+                          <img src={subItem.imageUrl} alt={subItem.name} />
+                          <p>{subItem.name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="col-md-11">
-              {<div className="row col-md-12 body-card-product" >
+
+            <div className="col-md-9">
+              <div className="row col-md-12 body-card-product" >
                 {productList &&
                   productList &&
                   productList.map((prod, ind) => (
-                    <div className="col-md-3 rounded-border mt-3" onClick={() => handleNavigation(prod._id)}>
+                    <div className="col-md-4 mt-3" onClick={() => handleNavigation(prod._id)}>
                       <div class="product-card">
                         <img
 
@@ -179,7 +221,7 @@ const ShopAll = () => {
                               ? `${prod.images[0]}`
                               : "assets/images/Rectangle 22.png"
                           }
-                          className="rounded border"
+                          className=" border"
                           alt="Web Project 1"
                         />
                         <div className="text-center price-card py-2">
@@ -194,7 +236,7 @@ const ShopAll = () => {
                     </div>
                   ))}
 
-              </div>}
+              </div>
             </div>
 
           </div>

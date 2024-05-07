@@ -51,6 +51,9 @@ import {
   QTY_CARD_IB_BY_FAILURE,
   FETCH_EVENT_LIST_REQUEST,
   FETCH_EVENT_LIST_SUCCESS,
+  FETCH_PRODUCT_OLD_REQUEST,
+  FETCH_PRODUCT_OLD_SUCCESS,
+  FETCH_PRODUCT_OLD_FAILURE,
 } from "./actions";
 
 const initialState = {
@@ -115,7 +118,26 @@ const dataReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
-    case FETCH_STORE_REQUEST:
+      case FETCH_PRODUCT_REQUEST:
+        return {
+          ...state,
+          loading: true,
+          error: null,
+        };
+      case FETCH_PRODUCT_OLD_REQUEST:
+        return {
+          ...state,
+          loading: false,
+        };
+      case FETCH_PRODUCT_OLD_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+          productOldlist: action.payload,
+
+        };
+    case FETCH_PRODUCT_OLD_FAILURE:
       return {
         ...state,
         loading: true,

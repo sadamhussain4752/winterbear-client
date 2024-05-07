@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
-import { useNavigate,useParams } from 'react-router-dom';
-import { fetchProductData, fetchBannerData } from "../reducer/thunks";
+import { useNavigate, useParams } from 'react-router-dom';
+import { fetchProductData, fetchBannerData, fetchProductDataOld } from "../reducer/thunks";
 import HomeSlider from "../components/BrandSlider";
 import { Dropdown, Menu, Empty } from 'antd';
 
@@ -21,12 +21,21 @@ const Brandlist = () => {
   // States to store product list and selected category
   const [productList, setProductList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [subBrandlist, setSubbrand] = useState([])
 
   const {
     productlist,
     loading: productListLoading,
     error: productListError,
   } = useSelector((state) => state.productlist);
+
+  const {
+    productOldlist,
+    loading: productListLoadings,
+    error: productListErrors,
+  } = useSelector((state) => state.productOldlist);
+  console.log(productOldlist, "productlist");
+
   const {
     data,
     loading: bannerLoading,
@@ -37,17 +46,37 @@ const Brandlist = () => {
   useEffect(() => {
     dispatch(fetchProductData());
     dispatch(fetchBannerData());
+    dispatch(fetchProductDataOld());
     setProductList(productlist?.products);
+
 
   }, []);
   useEffect(() => {
+    if (productOldlist && productOldlist?.productList) {
+
+      let Sub_Brand_List = productOldlist?.productList.filter((item) => {
+        return item.brand._id === id
+      })
+      setSubbrand(Sub_Brand_List)
+      console.log(Sub_Brand_List, "Sub_Brand_List");
+      // Update productList with all products from Redux state
+    }
+  }, [productOldlist]);
+
+  useEffect(() => {
     if (productlist && productlist?.products) {
-    //   console.log(productlist.((item)), "productList");
+      let Sub_Brand_List = productlist?.products.filter((item) => {
+        return item.brand_id === id
+      })
+      console.log(Sub_Brand_List, "productlist");
+
 
       // Update productList with all products from Redux state
-      setProductList(productlist?.products);
+      setProductList(Sub_Brand_List);
     }
   }, [productlist]);
+
+
 
   // useEffect(() => {
   //   if (productList.length > 0) {
@@ -93,7 +122,7 @@ const Brandlist = () => {
     setSelectedCategory(categoryId);
     // Filter products based on the clicked category
     const filteredProducts = productlist.products.filter((item) => {
-      return item.category_id === categoryId._id;
+      return item.sub_brand_id === categoryId._id;
     });
     setProductList(filteredProducts);
   };
@@ -108,18 +137,48 @@ const Brandlist = () => {
           <div className="row">
             <div className="col-md-12 mt-80">
               <div className="section-heading">
-                <h3 className="theme-bg-text ">Shop by</h3>
+                {productOldlist && subBrandlist.length > 0 && (
+                  
+                  <div className="align-items-center full-banner">
+                  <h3 className="theme-bg-text">{subBrandlist[0].brand.name}</h3>
+
+                  <img src={subBrandlist[0].brand.imageUrl} alt={subBrandlist[0].brand.name} />
+                  {/* <p>{item.brand.name}</p> */}
+                </div>
+                )}
               </div>
             </div>
           </div>
 
-          <HomeSlider />
 
           <div className="col-md-12 ">
             <div className="section-heading">
-              <h3 className="theme-bg-text ">{selectedCategory ? selectedCategory?.name : "Trending Products"}</h3>
+              <h3 className="theme-bg-text ">{selectedCategory ? selectedCategory?.name : ""}</h3>
             </div>
           </div>
+          <div className="col-md-12 ">
+              <div className="p-0  text-center rounded row">
+                {productOldlist && subBrandlist && subBrandlist.map((item) => (
+                  <div key={item.brand.id}>
+                    <div className="align-items-center shop-all-cards">
+                      <img src={item.brand.imageUrl} alt={item.brand.name} />
+                      {/* <p>{item.brand.name}</p> */}
+                    </div>
+                    <div>
+                      {item.subbrand.map((subItem) => (
+                        <div key={subItem.id} className="align-items-center shop-all-cards" onClick={()=>{
+                          handleCategoryClick(subItem)
+                        }}>
+                          <img src={subItem.imageUrl} alt={subItem.name} />
+                          <p>{subItem.name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
 
           <div className="col-md-12">
             <div className="text-end d-flex justify-content-end filter-item">
@@ -150,28 +209,36 @@ const Brandlist = () => {
 
 
           <div className="row justify-content-end">
-            {/* <div className="col-md-1">
-              <div className="p-0 border text-center rounded ">
-                {data &&
-                  data.Categorys &&
-                  data.Categorys.map((item) => (
-                    <div className={`${item._id === selectedCategory?._id ? "bg-theme-color" : ""}`} key={item._id} onClick={() => handleCategoryClick(item)}>
-                      <div className="align-items-center shop-all-card">
-                        <img src={`${constant.baseUrl}${item.imageUrl}`} />
-                        <p>{item.name}</p>
-                      </div>
+            <div className="col-md-3">
+              <div className="p-0  text-center rounded">
+                {productOldlist && subBrandlist && subBrandlist.map((item) => (
+                  <div key={item.brand.id}>
+                    <div className="align-items-center shop-all-cards">
+                      <img src={item.brand.imageUrl} alt={item.brand.name} />
+                      {/* <p>{item.brand.name}</p> */}
                     </div>
-                  ))}
+                    <div>
+                      {item.subbrand.map((subItem) => (
+                        <div key={subItem.id} className="align-items-center shop-all-cards" onClick={()=>{
+                          handleCategoryClick(subItem)
+                        }}>
+                          <img src={subItem.imageUrl} alt={subItem.name} />
+                          <p>{subItem.name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
 
-            </div> */}
+            </div>
 
-            <div className="col-md-12">
+            <div className="col-md-9">
               {<div className="row col-md-12 body-card-product" >
                 {productList &&
                   productList &&
                   productList.map((prod, ind) => (
-                    <div className="col-md-3 rounded-border mt-3" onClick={() => handleNavigation(prod._id)}>
+                    <div className="col-md-4 rounded-border mt-3" onClick={() => handleNavigation(prod._id)}>
                       <div class="product-card">
                         <img
 

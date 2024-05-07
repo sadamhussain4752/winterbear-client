@@ -216,6 +216,7 @@ input {
     transition: background 0.3s ease, border-radius 0.3s ease, color 0.3s ease;
     min-height: 200px;
     /* Add transition for a smooth effect */
+    
 }
 
 .collection-box h4 {
