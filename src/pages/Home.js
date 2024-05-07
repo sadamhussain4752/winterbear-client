@@ -28,7 +28,7 @@ const Home = () => {
     loading: bannerLoading,
     error: bannerError,
   } = useSelector((state) => state.data);
-  
+
 
   const {
     productlist,
@@ -77,7 +77,7 @@ const Home = () => {
     <>
       <Header />
       <>
-       {data && data?.banners && <HomeSlider />} 
+        {data && data?.banners && <HomeSlider />}
         {data && data?.Brands && <BrandSlider />}
 
 
@@ -89,12 +89,11 @@ const Home = () => {
                 data.Categorys &&
                 data.Categorys.map((item) => (
                   <div className="col-md-3 mb-4">
-                    <div className="collection-box" onClick={()=>{
-                          navigate(`/shop`);
-
-                    }}>
-                      <img src={`${item.imageUrl}`} />
-                      <h4>{item.name}</h4>
+                    <div className="collection-box" onClick={() => navigate(`/shop`)}>
+                      <div className="image-container">
+                        <img src={`${item.imageUrl}`} />
+                        <h4>{item.name}</h4>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -129,25 +128,25 @@ const Home = () => {
                             id="pills-tab"
                             role="tablist"
                           >
-                            {item?.subbrand.map((itemname)=>(
+                            {item?.subbrand.map((itemname) => (
                               <li className="nav-item py-1" role="presentation">
-                              <button
-                                className="nav-link  fw-semibold  position-relative rounded-pill"
-                                id="pills-koya-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-koya"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-koya"
-                                aria-selected="true"
-                              >
-                                {itemname.name}
-                              </button>
-                            </li>
+                                <button
+                                  className="nav-link  fw-semibold  position-relative rounded-pill"
+                                  id="pills-koya-tab"
+                                  data-bs-toggle="pill"
+                                  data-bs-target="#pills-koya"
+                                  type="button"
+                                  role="tab"
+                                  aria-controls="pills-koya"
+                                  aria-selected="true"
+                                >
+                                  {itemname.name}
+                                </button>
+                              </li>
                             ))}
-                          
+
                           </ul>
-                      
+
                         </div>
 
                         <div className="portfolio row">
@@ -155,14 +154,14 @@ const Home = () => {
                             item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
                               <div className="item col-md-3 p-3 ">
-                             
+
                                 <img
-                                
+
                                   src={
-                                    
+
                                     prod.images[0] !== null &&
-                                    prod.images[0] !== "image_url1"
-                                      ?`${prod.images[0]}`  
+                                      prod.images[0] !== "image_url1"
+                                      ? `${prod.images[0]}`
                                       : "assets/images/Rectangle 22.png"
                                   }
                                   alt="Web Project 1"
@@ -177,7 +176,7 @@ const Home = () => {
                             ))}
                         </div>
                       </div>
-                      <div className={`col-md-2 sticky-logo-flex-${index+1} g-0 bg-transparent sticky`}>
+                      <div className={`col-md-2 sticky-logo-flex-${index + 1} g-0 bg-transparent sticky`}>
                         <div className="sticky-logo-1">
                           <img
                             src={`${item.brand.imageUrl}`}

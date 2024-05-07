@@ -239,11 +239,9 @@ input {
   background: #FCFCFC;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: #221A42;
-  padding: 20px 20px;
   text-align: center;
   transition: background 0.3s ease, border-radius 0.3s ease, color 0.3s ease;
-  min-height: 200px;
-
+  height: 300px;
   /* Add transition for a smooth effect */
 }
 
@@ -264,7 +262,9 @@ input {
 .collection-box img {
   transition: filter 0.3s ease, transform 0.3s ease;
   margin-bottom: 20px;
-  height: 80px;
+  transform: scale(1.2);
+
+  
   /* Add transition for a smooth effect */
 }
 
@@ -276,12 +276,12 @@ input {
 
 .collection-box:hover h4 {
   color: #fff;
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
 }
 
 .collection-box:hover img {
-  filter: brightness(0) invert(1);
-  transform: scale(1.2);
+  /* filter: brightness(0) invert(1); */
+  transform: scale(1.4);
 }
 
 .news-latter-bg {
@@ -2130,3 +2130,25 @@ input {
   margin: 10px 10px ;
 }
 
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.image-container h4 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  text-align: center;
+  color: #FFF;
+  font-size: 17px;
+  font-family: Poppins;
+  width: 80%; /* Adjust the width as needed */
+}
