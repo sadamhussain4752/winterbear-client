@@ -2,6 +2,8 @@ import React from "react";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Awards from "./pages/Awards";
+import Allbrand from "./pages/Allbrand";
 import Contact from "./pages/Contact";
 import Stores from "./pages/Stores";
 import Faqs from "./pages/Faqs";
@@ -17,6 +19,7 @@ import EventDetails from "./pages/EventDetails";
 import Blogs from "./pages/Blogs";
 import Brandlist from "./pages/Brandlist";
 
+
 const App = () => {
   return (
     <div>
@@ -25,6 +28,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/awards" element={<Awards />} />
+          <Route path="/Allbrand" element={<Allbrand />} />
           <Route path="/stores" element={<Stores />} />
           <Route path="/shop" element={<ShopAll />} />
           <Route path="/faqs" element={<Faqs />} />
