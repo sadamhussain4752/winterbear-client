@@ -2154,12 +2154,11 @@ input {
 
 
 .shop-all-card-item {
-  width: 180px;
-  height: 150px;
-  align-items: center;
-  text-align: center;
-  padding-top: 20px;
-  margin-top: 20px;
+  width: auto;
+  height: auto;
+  align-items: start;
+  text-align: start;
+  line-height: 20px !important;
 
 
 }
@@ -2182,12 +2181,13 @@ input {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
+  width: 100%;
 }
 
 
 .shop-all-cards {
   width: auto;
-  height: 100px;
+  height: 50px;
   align-items: center;
   text-align: center;
   padding-top: 20px;
@@ -2200,7 +2200,7 @@ input {
 
 .shop-all-cards img {
   width: auto;
-  height: 80px;
+  height: 40px;
   text-align: center;
 
   /* margin-top: 50px; */
@@ -2208,7 +2208,7 @@ input {
 
 .shop-all-cards p {
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
 }

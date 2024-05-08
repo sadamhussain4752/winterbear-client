@@ -157,16 +157,13 @@ const Brandlist = () => {
             </div>
           </div>
           <div className="col-md-12 ">
-              <div className="p-0  text-center rounded row">
+              <div className="p-0  text-center rounded mb-5">
                 {productOldlist && subBrandlist && subBrandlist.map((item) => (
-                  <div key={item.brand.id}>
-                    <div className="align-items-center shop-all-cards">
-                      <img src={item.brand.imageUrl} alt={item.brand.name} />
-                      {/* <p>{item.brand.name}</p> */}
-                    </div>
-                    <div>
+                  <div key={item.brand.id} className="col-md-12 ">
+                    
+                    <div className="d-flex justify-content-center">
                       {item.subbrand.map((subItem) => (
-                        <div key={subItem.id} className="align-items-center shop-all-cards" onClick={()=>{
+                        <div key={subItem.id} className="align-items-center shop-all-cards mx-5" onClick={()=>{
                           handleCategoryClick(subItem)
                         }}>
                           <img src={subItem.imageUrl} alt={subItem.name} />
@@ -210,27 +207,19 @@ const Brandlist = () => {
 
           <div className="row justify-content-end">
             <div className="col-md-3">
-              <div className="p-0  text-center rounded">
-                {productOldlist && subBrandlist && subBrandlist.map((item) => (
-                  <div key={item.brand.id}>
-                    <div className="align-items-center shop-all-cards">
-                      <img src={item.brand.imageUrl} alt={item.brand.name} />
-                      {/* <p>{item.brand.name}</p> */}
-                    </div>
-                    <div>
-                      {item.subbrand.map((subItem) => (
-                        <div key={subItem.id} className="align-items-center shop-all-cards" onClick={()=>{
-                          handleCategoryClick(subItem)
-                        }}>
-                          <img src={subItem.imageUrl} alt={subItem.name} />
-                          <p>{subItem.name}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="p-0 text-center rounded mx-5">
+              <h3 className=" fs-2 fw-bolder text-start mb-4">Category</h3>
 
+                {data &&
+                  data.Categorys &&
+                  data.Categorys.map((item) => (
+                    <div className={`${item._id === selectedCategory?._id ? "" : "col-md-12 d-flex justify-content-start "}`} key={item._id} onClick={() => handleCategoryClick(item)}>
+                      <div className="align-items-start shop-all-card-item ">
+                        <p>{item.name}</p>
+                      </div>
+                    </div>
+                  ))}
+              </div>
             </div>
 
             <div className="col-md-9">

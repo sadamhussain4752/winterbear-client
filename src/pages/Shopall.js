@@ -194,8 +194,11 @@ const ShopAll = () => {
                         <div key={subItem.id} className="align-items-center shop-all-cards" onClick={()=>{
                           handleSubbrandClick(subItem)
                         }}>
+                          <div className="d-flex justify-content-start align-items-center text-center mx-5"> 
                           <img src={subItem.imageUrl} alt={subItem.name} />
-                          <p>{subItem.name}</p>
+                          <p className="mt-3 mx-2">{subItem.name}</p>
+                          </div>
+                         
                         </div>
                       ))}
                     </div>
