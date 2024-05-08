@@ -17,7 +17,7 @@ const Store = () => {
     loading: bannerLoading,
     error: bannerError,
   } = useSelector((state) => state.storelist);
-  
+
   useEffect(() => {
     dispatch(fetchStoreData());
   }, [dispatch]);
@@ -51,7 +51,9 @@ const Store = () => {
   return (
     <>
       <Header />
-      <section className=" mt-120">
+      <section className=" mt-120">oft
+
+        Statione
         <div className="container">
           <div className="row ">
             <div className="col-md-12 ">
@@ -101,39 +103,42 @@ const Store = () => {
             if (index % 2 === 0) {
               align = "start";
             } else {
-              align = "end"; 
+              align = "end";
             }
 
 
             return (
-              <div className="container">
-                <div className="col-md-12" style={{ display: "flex", justifyContent: align }}>
+              <div className="container col-md-12">
+                <div className="d-flex flex-wrap">
+                  <div className="col-md-4" style={{ display: "flex", }}>
 
-                  <div className="box-card-over position-relative">
-                    <div className="col-md-12">
-                      <img src="assets/images/store.png" className="img-fluid col-md-4" />
-                      <img src="assets/images/store1.png" className="img-fluid col-md-4" />
-                      <img src="assets/images/store2.png" className="img-fluid col-md-4" />
+                    <div className="box-card-over position-relative">
+                      <div className="col-md-12">
+                        <img src="assets/images/store.png" className="img-fluid col-md-4" />
+                        <img src="assets/images/store1.png" className="img-fluid col-md-4" />
+                        <img src="assets/images/store2.png" className="img-fluid col-md-4" />
 
-                    </div>
-                    <div className="position-absolute top-0 start-0 light-background">
-                      <h4>
-                        Bangalore
-                      </h4>
-                    </div>
-                    <div className="text-box-store p-4">
-                      <h4>
-                        Visit Winterbear store at VR {item.storename}
-                      </h4>
-                      <p>
-                        Shop No. {item.storeaddress}.
-                      </p>
-                      <p>
-                        Monday-Sunday: 10:30am-10:00pm
-                      </p>
+                      </div>
+                      <div className="position-absolute top-0 start-0 light-background">
+                        <h4>
+                          Bangalorea
+                        </h4>
+                      </div>
+                      <div className="text-box-store p-4">
+                        <h4>
+                          Visit Winterbear store at VR {item.storename}
+                        </h4>
+                        <p>
+                          Shop No. {item.storeaddress}.
+                        </p>
+                        <p>
+                          Monday-Sunday: 10:30am-10:00pm
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
+
               </div>
             );
           })}
