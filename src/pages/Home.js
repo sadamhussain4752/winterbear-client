@@ -113,7 +113,7 @@ const Home = () => {
             <div className="row justify-content-center ">
               {productOldlist &&
                 productOldlist.productList &&
-                productOldlist.productList.map((item, index) => {
+                productOldlist.productList?.slice(0, 7).map((item, index) => {
                   if (!item || !item.products || item.products.length === 0)
                     return null;
                   return (
@@ -167,7 +167,7 @@ const Home = () => {
                                   alt="Web Project 1"
                                 />
                                 <span className="text-white">
-                                {item.brand.name} @ {prod.name} ₹{prod.amount}
+                                <p className="text-center">{item.brand.name} @ {prod.name} <br/> <p className="text-center">₹{prod.amount}</p> </p> 
                                 </span>
                                 <div className="add-to-cart" onClick={() => handleNavigation(prod._id)}>
                                   <i className="fas fa-cart-plus" /> Add to Cart

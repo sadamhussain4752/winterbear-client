@@ -18,6 +18,8 @@ import Payment from "./pages/Payment";
 import EventDetails from "./pages/EventDetails";
 import Blogs from "./pages/Blogs";
 import Brandlist from "./pages/Brandlist";
+import Privacypolicy from "./pages/Privacypolicy";
+import Terms from "./pages/Terms";
 
 const App = () => {
   return (
@@ -43,6 +45,10 @@ const App = () => {
           <Route path="/brand/:id" element={<Brandlist />} />
           <Route path="/event-details" element={<EventDetails/>}/>
           <Route path="/blogs" element={<Blogs/>}/>
+          <Route path="/privacy" element={<Privacypolicy/>}/>
+          <Route path="/term" element={<Terms/>}/>
+
+
 
         </Routes>
       </Router>

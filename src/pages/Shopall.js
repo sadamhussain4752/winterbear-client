@@ -179,7 +179,7 @@ const ShopAll = () => {
                         alt="Web Project 1"
                       />
                       <div className="text-center price-card py-2">
-                        <p className=" mb-0">${prod.amount}</p>
+                        <p className=" mb-0">₹{prod.amount}</p>
                         <p className="font-z">{prod.name}</p>
                       </div>
                     </div>
