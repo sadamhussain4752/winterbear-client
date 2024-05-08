@@ -83,12 +83,12 @@ const Home = () => {
 
         <section className="py-5">
           <div className="container">
-            <div className="heading  "> Our Collection </div>
+            <div className="heading  "> Category </div>
             <div className="row">
               {data &&
                 data.Categorys &&
                 data.Categorys.map((item) => (
-                  <div className="col-md-3 mb-4 mt-5">
+                  <div className="col-md-3 mb-4 mt-2">
                     <div className="collection-box" onClick={() => navigate(`/shop`)}>
                       <div className="image-container">
                         <img src={`${item.imageUrl}`} />
@@ -118,18 +118,32 @@ const Home = () => {
                     return null;
                   return (
                     <div key={`stickyBody${index}`} className="sticky-body row">
+
+                      <div className={`col-md-2 sticky-logo-flex-${index + 1} g-0 bg-transparent sticky`}>
+                        <div className="sticky-logo-1">
+                          <img
+                            src={`${item.brand.imageUrl}`}
+                            className="w-75 d-block mx-auto"
+                          />
+                          <p className="sticky-logo-text mt-3">
+                            View the {item.brand.name}
+                          </p>
+                        </div>
+                      </div>
+
                       <div
-                        className="col-md-10 bg-theme tile-1"
+                        className="col-md-10 shop-by tile-1"
                         id={`sticky1${index}`}
                       >
                         <div className="container-fluid ">
                           <ul
-                            className="nav nav-pills  nav-fill"
+                            className="nav nav-pills  nav-fill shop-by-tab"
                             id="pills-tab"
                             role="tablist"
                           >
                             {item?.subbrand.map((itemname) => (
                               <li className="nav-item py-1" role="presentation">
+                                 <img src={`${itemname.imageUrl}`} className="w-25" />
                                 <button
                                   className="nav-link  fw-semibold  position-relative rounded-pill"
                                   id="pills-koya-tab"
@@ -166,9 +180,9 @@ const Home = () => {
                                   }
                                   alt="Web Project 1"
                                 />
-                                <span className="text-white">
-                                {item.brand.name} @ {prod.name} ₹{prod.amount}
-                                </span>
+                                <p className="text-dark product-name">
+                                  {item.brand.name} @ {prod.name} ₹{prod.amount}
+                                </p>
                                 <div className="add-to-cart" onClick={() => handleNavigation(prod._id)}>
                                   <i className="fas fa-cart-plus" /> Add to Cart
                                 </div>
@@ -176,23 +190,13 @@ const Home = () => {
                             ))}
                         </div>
                       </div>
-                      <div className={`col-md-2 sticky-logo-flex-${index + 1} g-0 bg-transparent sticky`}>
-                        <div className="sticky-logo-1">
-                          <img
-                            src={`${item.brand.imageUrl}`}
-                            className="w-75 d-block mx-auto"
-                          />
-                          <p className="sticky-logo-text mt-3">
-                            View the {item.brand.name}
-                          </p>
-                        </div>
-                      </div>
+
                     </div>
                   );
                 })}
-              <div className="sticky-body container-fluid bg-white">
+              {/* <div className="sticky-body container-fluid bg-white">
                 <Gallery />
-              </div>
+              </div> */}
             </div>
           </div>
         </section>

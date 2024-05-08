@@ -16,9 +16,9 @@ body {
 .top-header a {
   color: #000;
   font-family: Inter;
-  font-size: 16px;
+  font-size: 15px !important;
   font-style: normal;
-  font-weight: 600;
+  /* font-weight: 600; */
   line-height: 100%;
   /* 16px */
 }
@@ -210,19 +210,19 @@ input {
 
 .heading {
   position: relative;
-  font-family: 'Satisfy', cursive;
+  font-family:"LINE Seed Sans", Sans-serif;
   color: #221A42;
   text-align: center;
-  font-size: 80px;
+  font-size: 62px;
   font-weight: 400;
   line-height: normal;
   margin-bottom: 20px;
   /* Add margin for spacing */
 }
 
-.heading::after {
+/* .heading::after {
   content: '';
-  /* background-image: url('../images/Winterbear-Purple-Logo.png'); */
+  background-image: url('../images/Winterbear-Purple-Logo.png');
   background-size: contain;
   position: absolute;
   top: -33%;
@@ -233,7 +233,7 @@ input {
   display: block;
   background-repeat: no-repeat;
   border-bottom: 5px solid #221A42;
-}
+} */
 
 .collection-box {
   background: #FCFCFC;
@@ -241,7 +241,7 @@ input {
   color: #221A42;
   text-align: center;
   transition: background 0.3s ease, border-radius 0.3s ease, color 0.3s ease;
-  height: 300px;
+  /* height: 300px; */
     /* Add transition for a smooth effect */
 }
 
@@ -308,13 +308,23 @@ input {
 .section-heading h3 {
   color: #FFF;
   text-align: center;
-  font-family: 'Satisfy', cursive;
-  font-size: 50px;
+  font-family: "LINE Seed Sans", Sans-serif;
+  font-size: 62px !important;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
   /* 60px */
   text-transform: capitalize;
+}
+
+.shop-by{
+  border: 2px solid #221A42;
+  background-color: white;
+}
+
+.shop-by-tab{
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .btn-subscribe {
@@ -506,6 +516,7 @@ footer ul a {
   /*height: 80vh;*/
   height: auto;
   padding-top: 50px;
+  border-radius: 20px;
   border-bottom: 1px solid #888;
   padding-bottom: 50px;
 }
@@ -818,7 +829,11 @@ width: 77%;
 }
 
 #pills-tab .nav-link {
-  color: #FFE5E5 !important
+  color: #4e3c98 !important
+}
+
+.product-name{
+  text-align-last: center;
 }
 
 #pills-tab .nav-link.active {
@@ -2136,7 +2151,8 @@ input {
 
 .image-container img {
   width: 100%;
-  height: 350px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .image-container h4 {
@@ -2148,6 +2164,7 @@ input {
   text-align: center;
   color: #FFF;
   font-size: 17px;
+  background-color: rgba(0, 0, 0, 0.5);
   font-family: Poppins;
   width: 80%; /* Adjust the width as needed */
 }

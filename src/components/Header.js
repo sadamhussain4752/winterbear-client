@@ -178,27 +178,27 @@ const Header = () => {
                     </div>
                     <div className="col-md-10 d-md-block mt-2">
                       <Link
-                        className="ps-1 fs-6 fw-bold text-main text-decoration-none "
+                        className="ps-1 fs-6 text-main text-decoration-none "
                         to="/shop"
                       >
                         {Language.shop_all}
                       </Link>
                       <Link
-                        className="ps-1 fs-6 fw-bold text-main text-decoration-none "
+                        className="ps-1 fs-6 text-main text-decoration-none "
                         to="/faqs"
                       >
                         {Language.faqs}
 
                       </Link>
                       <Link
-                        className="ps-1 fs-6 fw-bold text-main text-decoration-none "
+                        className="ps-1 fs-6 text-main text-decoration-none "
                         to="/stores"
                       >
                         {Language.find}
 
                       </Link>
                       <Link
-                        className="ps-1 fs-6 fw-bold text-main text-decoration-none "
+                        className="ps-1 fs-6 text-main text-decoration-none "
                         to="/blogs"
                       >
                         {Language.blogs}
