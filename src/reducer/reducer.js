@@ -54,6 +54,9 @@ import {
   FETCH_PRODUCT_OLD_REQUEST,
   FETCH_PRODUCT_OLD_SUCCESS,
   FETCH_PRODUCT_OLD_FAILURE,
+  USER_PROFILE_IB_BY_REQUEST,
+  USER_PROFILE_IB_BY_SUCCESS,
+  USER_PROFILE_IB_BY_FAILURE,
 } from "./actions";
 
 const initialState = {
@@ -412,6 +415,22 @@ const dataReducer = (state = initialState, action) => {
         loading: false,
         eventlist: action.payload,
       };
+
+      case USER_PROFILE_IB_BY_REQUEST:
+        return {
+          ...state,
+          UserUploadRes: null,
+        };
+      case USER_PROFILE_IB_BY_SUCCESS:
+        return {
+          ...state,
+          UserUploadRes: action.payload, // Update userData with the response data
+        };
+      case USER_PROFILE_IB_BY_FAILURE:
+        return {
+          ...state,
+          UserUploadRes: action.payload,
+        };
 
     default:
       return state;

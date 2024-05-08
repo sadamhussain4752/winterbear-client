@@ -69,6 +69,11 @@ export const FETCH_PRODUCT_OLD_REQUEST = 'FETCH_PRODUCT_OLD_REQUEST';
 export const FETCH_PRODUCT_OLD_SUCCESS = 'FETCH_PRODUCT_OLD_SUCCESS';
 export const FETCH_PRODUCT_OLD_FAILURE = 'FETCH_PRODUCT_OLD_FAILURE';
 
+
+export const USER_PROFILE_IB_BY_REQUEST = 'USER_PROFILE_IB_BY_REQUEST';
+export const USER_PROFILE_IB_BY_SUCCESS = 'USER_PROFILE_IB_BY_SUCCESS';
+export const USER_PROFILE_IB_BY_FAILURE = 'USER_PROFILE_IB_BY_FAILURE';
+
 export const fetchHeaderRequest = () => ({
   type: FETCH_DATA_REQUEST,
 });
@@ -342,5 +347,19 @@ export const fetchEventlistSuccess = (data) => ({
 
 export const fetchEventlistFailure = (error) => ({
   type: FETCH_EVENT_LIST_FAILURE,
+  payload: error,
+});
+
+export const UserUploadIdRequest = () => ({
+  type: QTY_CARD_IB_BY_REQUEST,
+});
+
+export const UserUploadIdSuccess = (data) => ({
+  type: QTY_CARD_IB_BY_SUCCESS,
+  payload: data,
+});
+
+export const UserUploadIdFailure = (error) => ({
+  type: QTY_CARD_IB_BY_FAILURE,
   payload: error,
 });

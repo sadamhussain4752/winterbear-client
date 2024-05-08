@@ -312,6 +312,15 @@ const Header = () => {
                           STORES
                         </a>
                       </li>
+                      <li className="nav-item">
+                        <a
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="/Allbrand"
+                        >
+                          SHOP ALL BRANDS
+                        </a>
+                      </li>
                       {/* <li className="nav-item dropdown">
                         <a
                           className="nav-link pb-3 fs-5 dropdown-toggle"
@@ -452,6 +461,17 @@ const Header = () => {
                                   to="/account"
                                 >
                                   Account
+                                </Link>
+                              </li>
+                              <li>
+                                <hr className="dropdown-divider" />
+                              </li>
+                              <li>
+                                <Link
+                                  className={`dropdown-item`}
+                                  to="/awards"
+                                >
+                                  Awards
                                 </Link>
                               </li>
                               

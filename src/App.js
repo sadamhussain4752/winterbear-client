@@ -8,6 +8,8 @@ import Faqs from "./pages/Faqs";
 import ShopAll from "./pages/Shopall";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
+import Awards from "./pages/Awards";
+import Allbrand from "./pages/Allbrand";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import EventsSection from "./pages/Events";
 import Product from "./pages/Product";
@@ -34,6 +36,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/account" element={<Account />} />
           <Route path="/cart" element={<Checkout />} />
+          <Route path="/awards" element={<Awards />} />
+          <Route path="/Allbrand" element={<Allbrand />} />
           <Route path="/checkout" element={<Payment />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/brand/:id" element={<Brandlist />} />

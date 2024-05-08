@@ -57,7 +57,10 @@ import {
   fetchEventlistSuccess,
   fetchProductOldRequest,
   fetchProductOldSuccess,
-  fetchProductOldFailure
+  fetchProductOldFailure,
+  UserUploadIdRequest,
+  UserUploadIdSuccess,
+  UserUploadIdFailure
 } from './actions';
 import constant from '../constant/constant';
 
@@ -82,6 +85,8 @@ const RatingProductid = `${constant.baseUrl}api/review/GetProductByID`;
 const CouponProductid = `${constant.baseUrl}api/coupon/GetCoupon`;
 const AddupdateCartItemId = `${constant.baseUrl}api/addcart/updateCartItem`;
 const EventList = `${constant.baseUrl}api/event/allevents`;
+const Uploadprofile = `${constant.baseUrl}api/user/User`;
+
 
 
 
@@ -326,5 +331,18 @@ export const fetchEventData = () => async (dispatch) => {
     dispatch(fetchEventlistSuccess(response.data));
   } catch (error) {
     dispatch(fetchAddressFailure(error.message));
+  }
+};
+
+export const UserUploadById = (body,userId) => async (dispatch) => {
+  dispatch(UserUploadIdRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.put(`${Uploadprofile}/${userId}`,body);
+    dispatch(UserUploadIdSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(UserUploadIdFailure(error.response.data.message));
   }
 };

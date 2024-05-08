@@ -1,10 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { fetchStoreData } from "../reducer/thunks";
+import { fetchStoreData, UserUploadById } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
-import { Form, Item, Input, message, Button, Avatar, Modal, Upload, Image } from "antd";
-import { PlusOutlined } from '@ant-design/icons';
+import {
+  Form,
+  Item,
+  Input,
+  message,
+  Button,
+  Avatar,
+  Modal,
+  Upload,
+  Image,
+} from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 
 const getBase64 = (file) =>
   new Promise((resolve, reject) => {
@@ -17,17 +27,20 @@ const EditProfile = () => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
   const [previewOpen, setPreviewOpen] = useState(false);
-  const [previewImage, setPreviewImage] = useState('');
-  const [previewTitle, setPreviewTitle] = useState('');
+  const [AvatarOpen, setAvatarOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState("");
+  const [previewTitle, setPreviewTitle] = useState("");
   const [fileList, setFileList] = useState([
     {
-      uid: '-1',
-      name: 'image.png',
-      status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      uid: "-1",
+      name: "image.png",
+      status: "done",
+      url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
     },
-
   ]);
+  const [AvatarIcons, setAvatarList] = useState([]);
+  const [selectImg, setSelectImg] = useState("");
+
   const handleCancel = () => setPreviewOpen(false);
   const handlePreview = async (file) => {
     if (!file.url && !file.preview) {
@@ -35,13 +48,15 @@ const EditProfile = () => {
     }
     setPreviewImage(file.url || file.preview);
     setPreviewOpen(true);
-    setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf('/') + 1));
+    setPreviewTitle(
+      file.name || file.url.substring(file.url.lastIndexOf("/") + 1)
+    );
   };
   const uploadButton = (
     <button
       style={{
         border: 0,
-        background: 'none',
+        background: "none",
       }}
       type="button"
     >
@@ -76,10 +91,11 @@ const EditProfile = () => {
     const formData = form.getFieldsValue();
     console.log("Form Data:", formData);
     // Add your logic for handling form data submission
+
+    // dispatch(UserUploadById(formData._id,formData))
   };
 
   const handleChanges = ({ fileList: newFileList }) => setFileList(newFileList);
-
 
   const {
     loading: getprofileUserLoading,
@@ -101,23 +117,27 @@ const EditProfile = () => {
     }
   }, [getUserResponse, form]);
 
+  useEffect(() => {
+    let AvatarIcons = Array(30)
+      .fill()
+      .map((_, index) => {
+        return `https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/Icons-${index + 1
+          }.png`;
+      });
 
-
+    setAvatarList(AvatarIcons);
+    // Now AvatarIcons contains an array of 30 URLs for avatar icons
+  }, []);
 
   return (
     <div className="col-md-9 p-4 ">
-
       <div className="col-md-12 bg-white p-3 rounded">
         <div className="mx-4 mt-3">
           <p className="p-header">Edit Your Profile</p>
-          <Form
-            form={form}
-            onFinish={handleLogin}
-            initialValues={loginData}
-          >
+          <Form form={form} onFinish={handleLogin} initialValues={loginData}>
             <div className="col-md-12 row">
               <div className="col-md-12">
-                <div className="text-center">
+                <div className="text-center mb-5">
 
                   {getUserResponse?.User?.profile_img !== "" ? (
                     <>
@@ -125,28 +145,36 @@ const EditProfile = () => {
                         className="rounded-circle"
                         width={120}
                         height={120}
-                        src={getUserResponse?.User?.profile_img}
+                        src={
+                          selectImg !== ""
+                            ? selectImg
+                            : getUserResponse?.User?.profile_img
+                        }
                       />
-
+                      <div
+                        onClick={() => {
+                          setAvatarOpen(true);
+                        }}
+                      >
+                        <img
+                          src="assets/images/editicons.png"
+                          width={32}
+                          height={22}
+                          className="rounded-circle"
+                        />
+                      </div>
                     </>
-                  )
-
-
-                    :
-                    (<Avatar
-                      size={70}
-                      style={{ backgroundColor: '#87d068' }}
-                    >
-                      {`${getUserResponse.User.firstname.charAt(0)}${getUserResponse.User.lastname.charAt(0)}`}
-                    </Avatar>)}
-
+                  ) : (
+                    <Avatar size={70} style={{ backgroundColor: "#87d068" }}>
+                      {`${getUserResponse.User.firstname.charAt(
+                        0
+                      )}${getUserResponse.User.lastname.charAt(0)}`}
+                    </Avatar>
+                  )}
                 </div>
               </div>
               <div className="col-md-6">
-
-                <p className="p-text p-textbody ft-16">
-                  First Name
-                </p>
+                <p className="p-text p-textbody ft-16">First Name</p>
                 <Form.Item
                   name="firstName"
                   rules={[
@@ -160,16 +188,12 @@ const EditProfile = () => {
                     className="form-control bg-input"
                     placeholder="Enter your first name"
                     value={loginData.firstName}
-                    onChange={(e) =>
-                      handleChange("firstName", e.target.value)
-                    }
+                    onChange={(e) => handleChange("firstName", e.target.value)}
                   />
                 </Form.Item>
               </div>
               <div className="col-md-6">
-                <p className="p-text p-textbody ft-16">
-                  Last Name
-                </p>
+                <p className="p-text p-textbody ft-16">Last Name</p>
                 <Form.Item
                   name="lastName"
                   rules={[
@@ -183,9 +207,7 @@ const EditProfile = () => {
                     className="form-control bg-input"
                     placeholder="Enter your last name"
                     value={loginData.lastName}
-                    onChange={(e) =>
-                      handleChange("lastName", e.target.value)
-                    }
+                    onChange={(e) => handleChange("lastName", e.target.value)}
                   />
                 </Form.Item>
               </div>
@@ -210,16 +232,12 @@ const EditProfile = () => {
                     className="form-control bg-input"
                     placeholder="Email"
                     value={loginData.email}
-                    onChange={(e) =>
-                      handleChange("email", e.target.value)
-                    }
+                    onChange={(e) => handleChange("email", e.target.value)}
                   />
                 </Form.Item>
               </div>
               <div className="col-md-6">
-                <p className="p-text p-textbody ft-16">
-                  Phone No
-                </p>
+                <p className="p-text p-textbody ft-16">Phone No</p>
                 <Form.Item
                   name="phoneNo"
                   rules={[
@@ -233,9 +251,7 @@ const EditProfile = () => {
                     className="form-control bg-input"
                     placeholder="Phone No"
                     value={loginData.phoneNo}
-                    onChange={(e) =>
-                      handleChange("phoneNo", e.target.value)
-                    }
+                    onChange={(e) => handleChange("phoneNo", e.target.value)}
                   />
                 </Form.Item>
               </div>
@@ -259,10 +275,8 @@ onChange={(e) => handleChange("address", e.target.value)}
 />
 </Form.Item>
 </div> */}
-            <div className="col-md-12">
-              <p className="p-text p-textbody ft-16">
-                Password Change
-              </p>
+            {/* <div className="col-md-12">
+              <p className="p-text p-textbody ft-16">Password Change</p>
               <Form.Item
                 name="currentPassword"
                 rules={[
@@ -277,10 +291,7 @@ onChange={(e) => handleChange("address", e.target.value)}
                   placeholder="Current Password"
                   value={loginData.currentPassword}
                   onChange={(e) =>
-                    handleChange(
-                      "currentPassword",
-                      e.target.value
-                    )
+                    handleChange("currentPassword", e.target.value)
                   }
                 />
               </Form.Item>
@@ -299,9 +310,7 @@ onChange={(e) => handleChange("address", e.target.value)}
                   className="form-control bg-input"
                   placeholder="New Password"
                   value={loginData.newPassword}
-                  onChange={(e) =>
-                    handleChange("newPassword", e.target.value)
-                  }
+                  onChange={(e) => handleChange("newPassword", e.target.value)}
                 />
               </Form.Item>
             </div>
@@ -320,20 +329,14 @@ onChange={(e) => handleChange("address", e.target.value)}
                   placeholder="Confirm New Password"
                   value={loginData.confirmNewPassword}
                   onChange={(e) =>
-                    handleChange(
-                      "confirmNewPassword",
-                      e.target.value
-                    )
+                    handleChange("confirmNewPassword", e.target.value)
                   }
                 />
               </Form.Item>
-            </div>
+            </div> */}
 
             <div className="d-flex justify-content-end pt-2">
-              <button
-                type="primary"
-                className="btn bg-cl-tr w-40 h-25"
-              >
+              <button type="primary" className="btn bg-cl-tr w-40 h-25">
                 Cancel
               </button>
               <Button
@@ -347,15 +350,48 @@ onChange={(e) => handleChange("address", e.target.value)}
           </Form>
         </div>
       </div>
-      <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
+      <Modal
+        open={previewOpen}
+        title={previewTitle}
+        footer={null}
+        onCancel={handleCancel}
+      >
         <img
           alt="example"
           style={{
-            width: '100%',
+            width: "100%",
           }}
           src={previewImage}
         />
       </Modal>
+      <Modal
+        open={AvatarOpen}
+        title={"Pick the Avatar"}
+        footer={null}
+        onCancel={() => {
+          setAvatarOpen(false);
+        }}
+      >
+        <div className="">
+          {AvatarIcons.map((avatarUrl, index) => (
+            <img
+              key={index} // Ensure each image has a unique key
+              alt={`Avatar ${index + 1}`}
+              style={{
+                width: "60px",
+                height: "60px",
+                margin: "10px", // Add some margin between images
+              }}
+              onClick={() => {
+                setSelectImg(avatarUrl);
+                setAvatarOpen(false);
+              }}
+              src={avatarUrl}
+            />
+          ))}
+        </div>
+      </Modal>
+
     </div>
   );
 };

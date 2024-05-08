@@ -113,7 +113,7 @@ const Store = () => {
                 <div className="col-md-4" style={{ display: "flex", }}>
 
                   <div className="box-card-over position-relative">
-                    <div className="col-md-12">
+                    <div className="col-md-12 ">
                       <img src="assets/images/store.png" className="img-fluid col-md-4" />
                       <img src="assets/images/store1.png" className="img-fluid col-md-4" />
                       <img src="assets/images/store2.png" className="img-fluid col-md-4" />

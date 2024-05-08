@@ -136,7 +136,7 @@ const Product = () => {
             ))}
         </OwlCarousel>
         <div className="d-flex justify-content-center">
-          {product && product?.images && <MultiCarousel images={product?.images} />}
+          {product && product?.images &&product?.images.length > 1 && <MultiCarousel images={product?.images} />}
 
         </div>
 
