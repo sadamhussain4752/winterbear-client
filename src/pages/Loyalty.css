@@ -1,0 +1,75 @@
+.earn:hover {background: #d1c7f0 !important;}
+.text-white {color:#fff !important}
+.t-purple {color:#4f3c97 !important}
+.earn:hover p{color: #000 !important;}
+.ribbon {
+ font-size: 16px !important;
+
+
+ width: 50%;
+    
+ position: relative;
+ background: #4f3c97;
+ color: #fff;
+ text-align: center;
+ padding: 1em 2em; 
+ margin: 2em auto 3em; 
+}
+.ribbon:before, .ribbon:after {
+ content: "";
+ position: absolute;
+ display: block;
+ bottom: -1em;
+ border: 1.5em solid #4f3c97;
+ z-index: -1;
+}
+.ribbon:before {
+ left: -2em;
+ border-right-width: 1.5em;
+ border-left-color: transparent;
+}
+.ribbon:after {
+ right: -2em;
+ border-left-width: 1.5em;
+ border-right-color: transparent;
+}
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #4f3c97 transparent transparent transparent;
+ bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
+.ribbon .ribbon-content:after {
+ right: 0;
+ border-width: 1em 1em 0 0;
+}
+.mybtn,.button {background: #4f3c97 !important;}
+.myrib {position: relative;}
+.point {transform: translate(-50%, -50%);position: absolute;
+ left: 50%;
+ top: 110px;}
+ .star {max-width: 100px;}
+ .t-yello {background: radial-gradient(circle at center center, #FFA751 5%, #cfc386 87%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;font-size: 36px !important;
+  font-weight: 900 !important;}
+  .t-pink {background: radial-gradient(circle at center center, #E679A2 0%, #b890a6 100%);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;font-size: 36px !important;
+   font-weight: 900 !important;}
+   .t-blue {background: radial-gradient(circle at center center, #1F296C 0%, #869DD3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;font-size: 36px !important;
+    font-weight: 900 !important;}
+    @media only screen and (max-width:768px) {
+     .loyalty-main {background: none !important;}
+     .point {top: 130px;}
+     .breadcum  {background-size: auto;}
+     .rewards .fs-5 {font-size: 1em !important;}
+    }
