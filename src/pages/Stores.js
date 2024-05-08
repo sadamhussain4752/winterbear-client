@@ -51,9 +51,8 @@ const Store = () => {
   return (
     <>
       <Header />
-      <section className=" mt-120">oft
+      <section className=" mt-120">
 
-        Statione
         <div className="container">
           <div className="row ">
             <div className="col-md-12 ">
@@ -86,7 +85,9 @@ const Store = () => {
                 <label className="checkbox-label col-md-11">Remember my postal code for delivery, availability, and stock information.</label>
               </div>
               <p className="mt-3">Use your current location</p>
-              <Button onClick={handleMap} className="btn button rounded w-100 ht-10" type="primary">Find a preferred store</Button>
+              <Button onClick={()=>{
+                window.open(switchmap)
+              }} className="btn button rounded w-100 ht-10" type="primary">Find a preferred store</Button>
             </div>
           </div>
         </div>
@@ -108,37 +109,34 @@ const Store = () => {
 
 
             return (
-              <div className="container col-md-12">
-                <div className="d-flex flex-wrap">
-                  <div className="col-md-4" style={{ display: "flex", }}>
+              <div className="container">
+                <div className="col-md-4" style={{ display: "flex", }}>
 
-                    <div className="box-card-over position-relative">
-                      <div className="col-md-12">
-                        <img src="assets/images/store.png" className="img-fluid col-md-4" />
-                        <img src="assets/images/store1.png" className="img-fluid col-md-4" />
-                        <img src="assets/images/store2.png" className="img-fluid col-md-4" />
+                  <div className="box-card-over position-relative">
+                    <div className="col-md-12">
+                      <img src="assets/images/store.png" className="img-fluid col-md-4" />
+                      <img src="assets/images/store1.png" className="img-fluid col-md-4" />
+                      <img src="assets/images/store2.png" className="img-fluid col-md-4" />
 
-                      </div>
-                      <div className="position-absolute top-0 start-0 light-background">
-                        <h4>
-                          Bangalorea
-                        </h4>
-                      </div>
-                      <div className="text-box-store p-4">
-                        <h4>
-                          Visit Winterbear store at VR {item.storename}
-                        </h4>
-                        <p>
-                          Shop No. {item.storeaddress}.
-                        </p>
-                        <p>
-                          Monday-Sunday: 10:30am-10:00pm
-                        </p>
-                      </div>
+                    </div>
+                    <div className="position-absolute top-0 start-0 light-background">
+                      <h4>
+                        bengaluru
+                      </h4>
+                    </div>
+                    <div className="text-box-store p-4">
+                      <h4>
+                        Visit Winterbear store at VR {item.storename}
+                      </h4>
+                      <p>
+                        Shop No. {item.storeaddress}.
+                      </p>
+                      <p>
+                        Monday-Sunday: 10:30am-10:00pm
+                      </p>
                     </div>
                   </div>
                 </div>
-
               </div>
             );
           })}
