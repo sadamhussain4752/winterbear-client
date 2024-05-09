@@ -6,7 +6,7 @@ import Testimonals from "../components/Testimonals";
 import "./Loyalty.css";
 const Loyalty = () => {
   const backgroundImageStyle = {
-    background: 'url("assets/images/loyality-home.png")',
+    background: '#9B91C4',
     backgroundSize: "100% 100%",
     postion: "relative",
   };
@@ -19,17 +19,18 @@ const Loyalty = () => {
         className="loyalty-main g-0 p-0"
         style={{
           background: 'url("assets/images/loyaltiy-bg.png")',
+        
           backgroundSize: "contain",
           backgroundRepeat: "repeat",
           height: "100%",
         }}
       >
         <div className="breadcum mt-80" style={backgroundImageStyle}>
-          <div className="award d-none">
+          <div className="award">
             <div className="row ">
               <div className="offset-md-2 my-md-5 awards">
                 <div>
-                  <h3 className="text-dark fs-1 fw-bold">
+                  <h3 className="text-white fs-1 fw-bold">
                     Join Our Community{" "}
                   </h3>
                   <h5 className="text-dark mb-3 lh-sm">
@@ -37,10 +38,10 @@ const Loyalty = () => {
                     time you shop.{" "}
                   </h5>
                   <p className="my-4">
-                    <a href="#" className="button btn btn-dark">
+                    <a href="#" className=" btn btn-light">
                       Join Now
                     </a>
-                    <a href="#" className="button btn btn-white mx-3">
+                    <a href="#" className=" btn btn-dark mx-3">
                       Login
                     </a>
                   </p>
