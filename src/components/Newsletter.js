@@ -11,8 +11,7 @@ const Newsletter = () => {
                 <h3>Subscribe to Our Newsletter</h3>
               </div>
               <p className="text-white px-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Be among the first to stay updated on our latest collections, exclusive offers, and other special perks by subscribing to our newsletter!
               </p>
               <form className="d-flex align-items-center justify-content-center">
                 <input

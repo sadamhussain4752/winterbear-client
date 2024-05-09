@@ -214,7 +214,7 @@ const Home = () => {
 
                                 <div className="text-center  border-secondary position-absolute addtocart-btn px-1 py-1 "
                                   onClick={() => handleNavigation(prod._id)}>
-                                  <i className="fas fa-cart-plus me-2" /> Add to Cart
+                                  <i className="fas fa-cart-plus" /> Add to Cart
                                 </div>
                               </div>
                             ))}

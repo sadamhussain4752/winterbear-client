@@ -318,7 +318,7 @@ const Header = () => {
                             }`}
                           href="/Allbrand"
                         >
-                          SHOP ALL BRANDS
+                          BRAND DIRECTORY
                         </a>
                       </li>
                       {/* <li className="nav-item dropdown">

@@ -91,10 +91,15 @@ const Store = () => {
             </div>
           </div>
         </div>
-      </section>
-      <div className="col-md-12" style={{ maxHeight: "1000px", overflowX: "auto" }}>
-   <section className="mt-120 row">
-    {storelist &&
+        <section className="mt-120 blog-store">
+                <h4 className="col-md-8 text-start mb-5 mx-5">
+                    Instagram Post
+                </h4>
+
+                <div style={{ display: 'flex', justifyContent: 'center', overflowX: 'auto' }} className="m-5 insta">
+
+                    <div className="reels-container">
+                    {storelist &&
       storelist.admins &&
       storelist.admins.map((item, index) => {
 
@@ -129,8 +134,14 @@ const Store = () => {
           </div>
         );
       })}
-  </section>
-</div>
+                        
+
+                    </div>
+                </div>
+            </section>
+      </section>
+      
+     
 
       <Footer />
     </>

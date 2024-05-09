@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-4">
               <div className="footer-heading">
-                <h4>Quick links</h4>
+                <h4 className='mx-5'>Quick links</h4>
                 <div className="row">
                   <div className="col-md-6 col-6">
                     <ul>

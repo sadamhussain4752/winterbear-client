@@ -20,9 +20,9 @@ const AllBrand = () => {
       <section className="shop  mt-80 px-5">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 mt-80">
               <div className="section-heading">
-                <h3 className="theme-bg-text">Shop All Brands</h3>
+                <h3 className="theme-bg-text">BRAND DIRECTORY</h3>
               </div>
             </div>
           </div>
