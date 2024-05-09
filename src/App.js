@@ -3,6 +3,8 @@ import React from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Loyalty from "./pages/Loyalty";
+import SNS from "./pages/Sns";
+import Allbrand from "./pages/Allbrand";
 import Contact from "./pages/Contact";
 import Stores from "./pages/Stores";
 import Faqs from "./pages/Faqs";
@@ -33,6 +35,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/awards" element={<Awards />} />
           <Route path="/loyalty" element={<Loyalty />} />
+          <Route path="/sns" element={<SNS />} />
           <Route path="/Allbrand" element={<Allbrand />} />
           <Route path="/stores" element={<Stores />} />
           <Route path="/shop" element={<ShopAll />} />
