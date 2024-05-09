@@ -2,6 +2,9 @@ import React from "react";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Awards from "./pages/Awards";
+import Loyalty from "./pages/Loyalty";
+import Allbrand from "./pages/Allbrand";
 import Contact from "./pages/Contact";
 import Stores from "./pages/Stores";
 import Faqs from "./pages/Faqs";
@@ -21,6 +24,7 @@ import Brandlist from "./pages/Brandlist";
 import Privacypolicy from "./pages/Privacypolicy";
 import Terms from "./pages/Terms";
 
+
 const App = () => {
   return (
     <div>
@@ -29,6 +33,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/awards" element={<Awards />} />
+          <Route path="/loyalty" element={<Loyalty />} />
+          <Route path="/Allbrand" element={<Allbrand />} />
           <Route path="/stores" element={<Stores />} />
           <Route path="/shop" element={<ShopAll />} />
           <Route path="/faqs" element={<Faqs />} />

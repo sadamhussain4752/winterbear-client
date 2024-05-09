@@ -1,20 +1,6 @@
-.awards {
-  position: absolute;
-  left: 0%;
-  top: 25%;
-  max-width: 420px;
-}
-.earn:hover {
-  background: #221a42;
-}
-.earn:hover p {
-  color: #fff;
-}
-@media only screen and (max-width: 768px) {
-  .awards {
-    position: absolute;
-    left: 5%;
-    top: 35%;
-    max-width: 100%;
-  }
+.awards {position: absolute;left:0%;top:25%;max-width: 420px;}
+.earn:hover {background: #221A42;}
+.earn:hover p  {color:#fff}
+@media only screen and (max-width:768px) {
+ .awards {position: absolute;left:5%;top:35%;max-width: 100%;}
 }
