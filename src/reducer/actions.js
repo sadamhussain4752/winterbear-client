@@ -351,15 +351,15 @@ export const fetchEventlistFailure = (error) => ({
 });
 
 export const UserUploadIdRequest = () => ({
-  type: QTY_CARD_IB_BY_REQUEST,
+  type: USER_PROFILE_IB_BY_REQUEST,
 });
 
 export const UserUploadIdSuccess = (data) => ({
-  type: QTY_CARD_IB_BY_SUCCESS,
+  type: USER_PROFILE_IB_BY_SUCCESS,
   payload: data,
 });
 
 export const UserUploadIdFailure = (error) => ({
-  type: QTY_CARD_IB_BY_FAILURE,
+  type: USER_PROFILE_IB_BY_FAILURE,
   payload: error,
 });

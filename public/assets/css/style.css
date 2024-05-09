@@ -2241,3 +2241,15 @@ input {
   width: auto !important;
   height: 200px !important;
 }
+
+.prize-size {
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.add-to-card-price {
+  background-color: #221A42 !important;
+
+}
