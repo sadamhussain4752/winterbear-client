@@ -85,64 +85,53 @@ const Store = () => {
                 <label className="checkbox-label col-md-11">Remember my postal code for delivery, availability, and stock information.</label>
               </div>
               <p className="mt-3">Use your current location</p>
-              <Button onClick={()=>{
+              <Button onClick={() => {
                 window.open(switchmap)
               }} className="btn button rounded w-100 ht-10" type="primary">Find a preferred store</Button>
             </div>
           </div>
         </div>
       </section>
-      <section className="mt-120">
-        {storelist &&
-          storelist.admins &&
-          storelist.admins.map((item, index) => {
+      <div className="col-md-12" style={{ maxHeight: "1000px", overflowX: "auto" }}>
+   <section className="mt-120 row">
+    {storelist &&
+      storelist.admins &&
+      storelist.admins.map((item, index) => {
 
-            console.log(index + "hi");
+        console.log(index + "hi");
 
-            let align = "";
+        let align = "";
 
-            if (index % 2 === 0) {
-              align = "start";
-            } else {
-              align = "end";
-            }
+        if (index % 2 === 0) {
+          align = "start";
+        } else {
+          align = "end";
+        }
 
-
-            return (
-              <div className="container">
-                <div className="col-md-4" style={{ display: "flex", }}>
-
-                  <div className="box-card-over position-relative">
-                    <div className="col-md-12 ">
-                      <img src="assets/images/store.png" className="img-fluid col-md-4" />
-                      <img src="assets/images/store1.png" className="img-fluid col-md-4" />
-                      <img src="assets/images/store2.png" className="img-fluid col-md-4" />
-
-                    </div>
-                    <div className="position-absolute top-0 start-0 light-background">
-                      <h4>
-                        bengaluru
-                      </h4>
-                    </div>
-                    <div className="text-box-store p-4">
-                      <h4>
-                        Visit Winterbear store at VR {item.storename}
-                      </h4>
-                      <p>
-                        Shop No. {item.storeaddress}.
-                      </p>
-                      <p>
-                        Monday-Sunday: 10:30am-10:00pm
-                      </p>
-                    </div>
-                  </div>
-                </div>
+        return (
+          <div className="col-md-4" style={{ display: "flex" }}>
+            <div className="box-card-over position-relative">
+              <div className="col-md-12" style={{ display: "flex", overflowX: "auto" }}>
+                <img src="assets/images/store.png" className="col-md-4" style={{ height: "220px" }} />
+                <img src="assets/images/store1.png" className="col-md-4" style={{ height: "220px" }} />
+                <img src="assets/images/store2.png" className="col-md-4" style={{ height: "220px" }} />
               </div>
-            );
-          })}
 
+              <div className="position-absolute top-0 start-0 light-background">
+                <h4>Bengaluru</h4>
+              </div>
+              <div className="text-box-store">
+                <h4>Visit Winterbear store at VR {item.storename}</h4>
+                <p>Shop No. {item.storeaddress}.</p>
+                <p>Monday-Sunday: 10:30am-10:00pm</p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+  </section>
+</div>
 
-      </section>
       <Footer />
     </>
   );

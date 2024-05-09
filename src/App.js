@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Loyalty from "./pages/Loyalty";
 import SNS from "./pages/Sns";
-import Allbrand from "./pages/Allbrand";
 import Contact from "./pages/Contact";
 import Stores from "./pages/Stores";
 import Faqs from "./pages/Faqs";
@@ -23,6 +22,7 @@ import Blogs from "./pages/Blogs";
 import Brandlist from "./pages/Brandlist";
 import Privacypolicy from "./pages/Privacypolicy";
 import Terms from "./pages/Terms";
+import Categorylist from "./pages/Categorylist";
 
 
 const App = () => {
@@ -36,7 +36,6 @@ const App = () => {
           <Route path="/awards" element={<Awards />} />
           <Route path="/loyalty" element={<Loyalty />} />
           <Route path="/sns" element={<SNS />} />
-          <Route path="/Allbrand" element={<Allbrand />} />
           <Route path="/stores" element={<Stores />} />
           <Route path="/shop" element={<ShopAll />} />
           <Route path="/faqs" element={<Faqs />} />
@@ -51,6 +50,7 @@ const App = () => {
           <Route path="/checkout" element={<Payment />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/brand/:id" element={<Brandlist />} />
+          <Route path="/category/:id" element={<Categorylist />} />
           <Route path="/event-details" element={<EventDetails/>}/>
           <Route path="/blogs" element={<Blogs/>}/>
           <Route path="/privacy" element={<Privacypolicy/>}/>

@@ -8,7 +8,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Google from "../constant/images/google.svg";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
-import { ProfileUserData,CouponUserById } from "../reducer/thunks";
+import { ProfileUserData, CouponUserById } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { message } from "antd/es";
 import { IoIosLogIn } from "react-icons/io";
@@ -390,108 +390,104 @@ const Header = () => {
                 </div>
               </div>
               {/* Logo */}
-              <div className="col-md-2">
-              <a
-                          
-                          href="/"
-                        >
-                          <img
-                  src="../assets/images/winterbear-logo.png"
-                  className="d-block mx-auto img-fluid"
-                  alt="Logo"
-                />
-                        </a>
-                
+              <div className="col-md-3">
+                <a
+
+                  href="/"
+                >
+                  <img
+                    src="../assets/images/winterbear-logo.png"
+                    className="d-block img-fluid w-75"
+                    alt="Logo"
+                    
+                  />
+                </a>
+
               </div>
               {/* Login/Register and Cart Icons */}
-              <div className="col-md-5 d-md-block d-none  text-start mt-md-0">
+              <div className="col-md-4 d-md-block d-none  text-start mt-md-0">
                 <div className="row d-flex justify-content-between">
-                  <div className="col-md-5">
-                    {/* <form
-                      className="row-cols-lg-auto  align-items-center form"
-                      role="search"
-                    >
-                      <i className="fa fa-search"></i>
-                      <input
-                        type="text"
-                        className="form-control form-input bg-white"
-                        placeholder="Search"
-                      />
-                    </form> */}
+                  <div className="col-md-7">
+                  
                     <SearchList />
                   </div>
-                  <div className="col-md-7 mt-1">
+                  <div className="col-md-5 mt-1">
                     <div className="text-end">
                       <div>
                         {getUserResponse && getUserResponse.User ? (
                           <>
-                            <a
-                              href="#"
-                              className="link-body-emphasis text-decoration-none dropdown-toggle"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
+
+                            <a href="/loyalty" className="link-body-emphasis text-decoration-none"
                             >
-
-
-                              <img
-                                src={getUserResponse?.User?.profile_img}
-                                alt="mdo"
-                                width={32}
-                                height={32}
-                                className="rounded-circle"
-                              />{" "}
-                              {/* <strong className="px-1">
-                                {getUserResponse.User.firstname}
-                              </strong> */}
-
-                            </a>
-                            <a>
                               {/* <WalletOutlined style={{ fontSize: '16px', color: '#9E2717', marginRight: '5px' }} /> */}
-                              <i class="fa-solid fa-star" style={{color:"#ffdc64"}}></i>
+                              <i class="fa-solid fa-star" style={{ color: "#ffdc64" }}></i>
                               {getUserResponse.User.loyalty_point}
 
                             </a>
 
-                            <ul className="mt-3 dropdown-menu text-small">
 
 
-                              <li>
-                                <Link
-                                  className={`dropdown-item`}
-                                  to="/account"
-                                >
-                                  Account
-                                </Link>
-                              </li>
-                              <li>
-                                <hr className="dropdown-divider" />
-                              </li>
-                              <li>
-                                <Link
-                                  className={`dropdown-item`}
-                                  to="/awards"
-                                >
-                                  Awards
-                                </Link>
-                              </li>
-                              
-                              <li>
-                                <hr className="dropdown-divider" />
-                              </li>
-                              <li>
-                                <a className="dropdown-item" onClick={logoutFunction} href="#">
-                                  Sign out
-                                </a>
-                              </li>
-                            </ul>
                             <a
                               href="/cart"
-                              className="text-decoration-none px-1"
-                            >                              <ShoppingCartOutlined />
+                              className="text-decoration-none mx-2"
+                            > <img src="../assets/images/icon_cart.svg" />
+                              <a
+                                href="#"
+                                className="link-body-emphasis text-decoration-none "
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+
+
+                                <img
+                                  // src={getUserResponse?.User?.profile_img}
+                                  src="../assets/images/icon-pofile.svg"
+                                  alt="mdo"
+                                  width={25}
+                                  height={20}
+                                  className="mx-2"
+                                />{" "}
+                                {/* <strong className="px-1">
+                                {getUserResponse.User.firstname}
+                              </strong> */}
+
+                              </a>
+                              <ul className="mt-3 dropdown-menu text-small">
+
+
+                                <li>
+                                  <Link
+                                    className={`dropdown-item`}
+                                    to="/account"
+                                  >
+                                    Account
+                                  </Link>
+                                </li>
+                                <li>
+                                  <hr className="dropdown-divider" />
+                                </li>
+                                <li>
+                                  <Link
+                                    className={`dropdown-item`}
+                                    to="/awards"
+                                  >
+                                    Awards
+                                  </Link>
+                                </li>
+
+                                <li>
+                                  <hr className="dropdown-divider" />
+                                </li>
+                                <li>
+                                  <a className="dropdown-item" onClick={logoutFunction} href="#">
+                                    Sign out
+                                  </a>
+                                </li>
+                              </ul>
 
                               {/* <i className="fa-solid fa-bag-shopping" /> */}
                             </a>
-                            <a>
+                            {/* <a>
                               <Select
                                 value={selectedState || IndianStates[0].value} // Set the default value to the value of the first item in the array
                                 onChange={handleStateChange}
@@ -504,7 +500,7 @@ const Header = () => {
                                   </Option>
                                 ))}
                               </Select>
-                            </a>
+                            </a> */}
                           </>
                         ) : (
                           <>
@@ -527,7 +523,7 @@ const Header = () => {
                               href="/cart"
                               className="text-decoration-none ps-3"
                             >
-                              <ShoppingCartOutlined />
+                              <img src="../assets/images/icon_cart.svg" />
                               {/* <i className="fa-solid fa-bag-shopping" /> */}
                             </a>
                           </>

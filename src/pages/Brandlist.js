@@ -110,10 +110,22 @@ const Brandlist = () => {
     </Menu>
   );
 
+    // Function to handle navigation to brand page
+    const handleNavigationbrand = (productId) => {
+      navigate(`/brand/${productId}`);
+      window.location.reload();
+
+    };
 
   const handleNavigation = (productId) => {
     // Navigate to the specified product id
     navigate(`/product/${productId}`);
+  };
+
+  const handleSubbrandClick = (categoryId) => {
+    setSelectedCategory(categoryId);
+    const filteredProducts = productlist.products.filter((item) => item.sub_brand_id === categoryId._id);
+    setProductList(filteredProducts);
   };
 
   // Handle category click
@@ -219,6 +231,26 @@ const Brandlist = () => {
                       </div>
                     </div>
                   ))}
+              </div>
+              <div className="p-0  text-center rounded">
+                {productOldlist && productOldlist.productList && productOldlist.productList.map((item) =>  (
+                  item.brand._id !== id &&
+                  <div key={item.brand._id}>
+                    <div className="align-items-center shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
+                      <img src={item.brand.imageUrl} alt={item.brand.name} />
+                    </div>
+                    <div>
+                      {item.subbrand.map((subItem) => (
+                        <div key={subItem.id} className="align-items-center shop-all-cards" onClick={() => handleSubbrandClick(subItem)}>
+                          <div className="d-flex justify-content-start align-items-center text-center mx-5">
+                            <img src={subItem.imageUrl} alt={subItem.name} />
+                            <p className="mt-3 mx-2">{subItem.name}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 

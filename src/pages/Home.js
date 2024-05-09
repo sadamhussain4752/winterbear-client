@@ -83,7 +83,7 @@ const Home = () => {
 
         <section className="py-5">
           <div className="container">
-            <div className="heading  "> Category </div>
+            <div className="heading fs-1 fw-bold"> Category </div>
             <div className="row">
               {data &&
                 data.Categorys &&
@@ -105,7 +105,7 @@ const Home = () => {
             <div className="row">
               <div className="col-md-12">
                 <div className="section-heading">
-                  <h3 className="theme-bg-text ">Shop by</h3>
+                  <h3 className="theme-bg-text ">Shop All</h3>
                 </div>
               </div>
             </div>
