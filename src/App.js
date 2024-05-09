@@ -2,9 +2,7 @@ import React from "react";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Awards from "./pages/Awards";
 import Loyalty from "./pages/Loyalty";
-import Allbrand from "./pages/Allbrand";
 import Contact from "./pages/Contact";
 import Stores from "./pages/Stores";
 import Faqs from "./pages/Faqs";

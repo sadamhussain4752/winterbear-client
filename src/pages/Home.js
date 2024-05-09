@@ -125,9 +125,7 @@ const Home = () => {
                             src={`${item.brand.imageUrl}`}
                             className="w-75 d-block mx-auto"
                           />
-                          <p className="sticky-logo-text mt-3">
-                            View the {item.brand.name}
-                          </p>
+                       
                         </div>
                       </div>
 

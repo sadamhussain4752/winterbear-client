@@ -70,9 +70,9 @@ const dispatch = useDispatch()
           <div className="row justify-content-center text-center ">
             <div className="position-relative">
               <img
-                src={require("../constant/images/event-back-grounds.jpeg")}
+                src={require("../constant/images/EventPageAnimation.gif")}
                 alt="Upcoming Sale"
-                className="img-fluid pt-5"
+                className="img-fluid pt-5 mt-5"
               />
               <div className="col-md-12 row d-flex justify-content-center position-absolute top-0 ">
                 <div className=" col-md-9 row d-flex justify-content-center event-tap ">
@@ -89,8 +89,8 @@ const dispatch = useDispatch()
 
                 <div className="about-breadcum-content d-md-block">
                   <div className="row justify-content-center">
-                    <div className="col-md-12">
-                      <h3 className="text-main-color">Sound of Christmas 2024</h3>
+                    <div className="col-md-12 mt-5">
+                      {/* <h3 className="text-main-color">Sound of Christmas 2024</h3> */}
                       {/* <h5>Your Ultimate Destination for Trendsetting Fashion</h5> */}
                       <a href="/event-details" className="button">
                         More Details
@@ -100,63 +100,25 @@ const dispatch = useDispatch()
                 </div>
               </div>
 
-              <div className="waveContainer" style={{
+              {/* <div className="waveContainer" style={{
                 backgroundImage : `url(${require("../../src/constant/images/Dots.png")})`
               }}>
                 {eventlist && eventlist.events.map((wave, index) => (
                   <Wave key={index} src={wave.imageUrl} title={wave.name} description={wave.description} />
                 ))}
-              </div>
-
-              {/* <div className="row">
-              <div className="col-12">
-              <div
-                className="tab-content  text-white px-3"
-                id="pills-tabContent"
-              >
-                <div
-                  className="tab-pane fade active show"
-                  id="pills-all"
-                  role="tabpanel"
-                  aria-labelledby="pills-all-tab"
-                >
-                  <img
-                    src="assets/images/Banner3.webp"
-                    alt="Upcoming Sale"
-                    className="img-fluid"
-                  />
-                </div>
-
-                <div
-                  className="tab-pane fade  "
-                  id="pills-koya"
-                  role="tabpanel"
-                  aria-labelledby="pills-koya-tab"
-                >
-                  <img
-                    src="assets/images/Banner2.webp"
-                    alt="Upcoming Events"
-                    className="img-fluid"
-                  />
-                </div>
-
-                <div
-                  className="tab-pane fade  text-white"
-                  id="pills-rj"
-                  role="tabpanel"
-                  aria-labelledby="pills-rj-tab"
-                >
-                  <img
-                    src="assets/images/Banner1.webp"
-                    alt="New Launches"
-                    className="img-fluid"
-                  />
-                </div>
-              </div>
-
-              </div>
-
               </div> */}
+
+              <div className="row">
+              <div className="col-12 mt-5">
+              <img
+                    src="assets/images/Category.png"
+                    alt="Upcoming Sale"
+                    className="img-fluid "
+                  />
+
+              </div>
+
+              </div>
 
             </div>
           </div>
