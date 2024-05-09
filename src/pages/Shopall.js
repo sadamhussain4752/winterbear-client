@@ -7,7 +7,7 @@ import constant from "../constant/constant";
 import { useNavigate } from 'react-router-dom';
 import { fetchProductData, fetchBannerData, fetchProductDataOld } from "../reducer/thunks";
 import HomeSlider from "../components/BrandSlider";
-import { Dropdown, Menu, Empty ,Pagination} from 'antd';
+import { Dropdown, Menu, Empty, Pagination } from 'antd';
 
 const ShopAll = () => {
   const dispatch = useDispatch();
@@ -115,7 +115,7 @@ const ShopAll = () => {
             <div className="text-end d-flex justify-content-end filter-item">
               <Dropdown overlay={menu} trigger={['hover']} placement="bottomCenter">
                 <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                  Sort by:
+                  Sort by
                 </div>
               </Dropdown>
               <Dropdown overlay={pricemenu} trigger={['hover']} placement="bottomCenter">
@@ -138,22 +138,27 @@ const ShopAll = () => {
           <div className="row justify-content-end">
             <div className="col-md-3">
               <div className="p-0 text-center rounded mx-5">
-                <h3 className=" fs-2 fw-bolder text-start mb-4">Category</h3>
+                <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase">Category</h3>
                 {data && data.Categorys && data.Categorys.map((item) => (
                   <div className={`${item._id === selectedCategory?._id ? "" : "col-md-12 d-flex justify-content-start "}`} key={item._id} onClick={() => handleCategoryClick(item)}>
                     <div className="align-items-start shop-all-card-item ">
-                      <p>{item.name}</p>
+                      <p className="">{item.name}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="p-0  text-center rounded">
+
+              <div className="p-0  text-center rounded mx-5">
+
+              <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase  mt-5">Brands</h3>
+
                 {productOldlist && productOldlist.productList && productOldlist.productList.map((item) => (
                   <div key={item.brand.id}>
-                    <div className="align-items-center shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
-                      <img src={item.brand.imageUrl} alt={item.brand.name} />
+                    
+                    <div className=" shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
+                      <img src={item.brand.imageUrl} alt={item.brand.name} className="img-pop" />
                     </div>
-                    <div>
+                    {/* <div>
                       {item.subbrand.map((subItem) => (
                         <div key={subItem.id} className="align-items-center shop-all-cards" onClick={() => handleSubbrandClick(subItem)}>
                           <div className="d-flex justify-content-start align-items-center text-center mx-5">
@@ -162,7 +167,7 @@ const ShopAll = () => {
                           </div>
                         </div>
                       ))}
-                    </div>
+                    </div> */}
                   </div>
                 ))}
               </div>
@@ -187,13 +192,13 @@ const ShopAll = () => {
                 ))}
               </div>
               <div className="text-center mt-4">
-                {productList.length > 0 &&  <Pagination
+                {productList.length > 0 && <Pagination
                   current={currentPage}
                   pageSize={itemsPerPage}
                   total={productList.length}
                   onChange={handlePaginationChange}
                 />}
-               
+
               </div>
             </div>
           </div>

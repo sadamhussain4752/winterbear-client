@@ -70,7 +70,7 @@ const Footer = () => {
             <div className="col-md-4">
               <div className="footer-heading">
                 <h4>Important links</h4>
-                <ul>
+                <ul className=''>
                   <li>
                     <a href="#">privacy policy</a>
                   </li>
