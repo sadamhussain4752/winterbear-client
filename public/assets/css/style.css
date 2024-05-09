@@ -1,5 +1,5 @@
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "LINE Seed Sans", Sans-serif;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -126,7 +126,7 @@ padding: 15px 0;*/
 
 .theme-bg-text {
   position: relative;
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   color: #221A42 !important;
   text-align: center;
   font-size: 80px !important;
@@ -172,7 +172,7 @@ input {
 .carousel-content h3 {
   color: #FFF;
   text-align: center;
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   font-size: 54px;
   font-style: normal;
   font-weight: 400;
@@ -182,7 +182,7 @@ input {
 
 .carousel-content h5 {
   color: #FFF;
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -210,14 +210,14 @@ input {
 
 .heading {
   position: relative;
-  font-family:"LINE Seed Sans", Sans-serif;
+  font-family: "LINE Seed Sans", Sans-serif;
   color: #221A42;
   text-align: center;
-  font-size: 62px;
+  font-size: 31px;
   font-weight: 400;
   line-height: normal;
   margin-bottom: 20px;
-  /* Add margin for spacing */
+  text-transform: uppercase;
 }
 
 /* .heading::after {
@@ -242,7 +242,7 @@ input {
   text-align: center;
   transition: background 0.3s ease, border-radius 0.3s ease, color 0.3s ease;
   /* height: 300px; */
-    /* Add transition for a smooth effect */
+  /* Add transition for a smooth effect */
 }
 
 .collection-box h4 {
@@ -264,7 +264,7 @@ input {
   margin-bottom: 20px;
   transform: scale(1.2);
 
-  
+
   /* Add transition for a smooth effect */
 }
 
@@ -305,24 +305,37 @@ input {
 }
 
 
+.heart-btn {
+  border: none;
+  background-color: transparent;
+  padding-right: 6%;
+}
+
+.heart-btn i {
+  background-color: white;
+  padding: 25%;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
 .section-heading h3 {
   color: #FFF;
   text-align: center;
   font-family: "LINE Seed Sans", Sans-serif;
-  font-size: 62px !important;
+  font-size: 31px !important;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
   /* 60px */
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
-.shop-by{
+.shop-by {
   border: 2px solid #221A42;
   background-color: white;
 }
 
-.shop-by-tab{
+.shop-by-tab {
   display: flex;
   flex-wrap: nowrap;
 }
@@ -355,16 +368,17 @@ footer {
 
 .footer-heading h4 {
   color: #FFF;
-  font-family: 'Satisfy', cursive;
-  font-size: 28px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  text-align: left;
+  padding-left: 15%;
   /* 33.6px */
   letter-spacing: 0.56px;
-  text-decoration-line: underline;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
+
 
 footer ul {
   list-style: none;
@@ -376,6 +390,11 @@ footer ul {
   font-weight: 400;
   line-height: 40px;
   text-transform: uppercase;
+}
+
+footer ul li {
+  text-align: left;
+  padding-left: 15%;
 }
 
 footer ul a {
@@ -515,7 +534,7 @@ footer ul a {
 .tile-1 {
   /*height: 80vh;*/
   height: auto;
-  padding-top: 50px;
+  padding-top: 20px;
   border-radius: 20px;
   border-bottom: 1px solid #888;
   padding-bottom: 50px;
@@ -551,6 +570,11 @@ cursor: pointer;
 width: 77%;
 }*/
 
+
+.shopby-top-icoimg {
+  width: 35px;
+  height: 35px;
+}
 
 .add-to-cart {
   position: absolute;
@@ -602,52 +626,59 @@ width: 77%;
 }
 
 .sticky-logo-flex-1 {
-   max-height: 0%;
-   background-color: "transparent" !important;
-   margin-top: 5%;
+  max-height: 0%;
+  background-color: "transparent" !important;
+  margin-top: 5%;
 }
 
 .sticky-logo-flex-2 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 12%;
- }
- .sticky-logo-flex-3 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 18%;
- }
- .sticky-logo-flex-4 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 24%;
- }
- .sticky-logo-flex-5 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 32%;
- }
- 
- .sticky-logo-flex-6 {
-     max-height: 9%;
-     background-color: "transparent" !important;
-     margin-top: 40%;
-  }
-  .sticky-logo-flex-7 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-    margin-top: 52%;
- }
-  .sticky-logo-flex-8 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-     margin-top: 62%;
-  }
-  .sticky-logo-flex-9 {
-    max-height: 9%;
-    background-color: "transparent" !important;
-     margin-top: 72%;
-  }
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 12%;
+}
+
+.sticky-logo-flex-3 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 18%;
+}
+
+.sticky-logo-flex-4 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 24%;
+}
+
+.sticky-logo-flex-5 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 32%;
+}
+
+.sticky-logo-flex-6 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 40%;
+}
+
+.sticky-logo-flex-7 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 52%;
+}
+
+.sticky-logo-flex-8 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 62%;
+}
+
+.sticky-logo-flex-9 {
+  max-height: 9%;
+  background-color: "transparent" !important;
+  margin-top: 72%;
+}
+
 .footercard {
   background-image: url('../images/Footer.png');
   background-size: cover;
@@ -667,7 +698,7 @@ width: 77%;
 
 .sticky-body {
   position: sticky;
-  top: 60px;
+  top: 100px;
 }
 
 /************************* About Page *************************/
@@ -696,7 +727,7 @@ width: 77%;
 .about-breadcum-content h3 {
   color: #FFF;
   text-align: center;
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   font-size: 54px;
   font-style: normal;
   font-weight: 400;
@@ -706,7 +737,7 @@ width: 77%;
 
 .about-breadcum-content h5 {
   color: #FFF;
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -832,7 +863,7 @@ width: 77%;
   color: #4e3c98 !important
 }
 
-.product-name{
+.product-name {
   text-align-last: center;
 }
 
@@ -849,6 +880,17 @@ width: 77%;
 .shop-container {
   position: relative;
   overflow: hidden;
+}
+
+.addtocart-btn {
+  bottom: 30%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 100%;
+  background-color: #221A42 !important;
+  color: white !important;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .shop-overlay {
@@ -1365,7 +1407,7 @@ input {
   border-radius: 0px 0px 50px 50px;
   border: 1px solid #F2E9D4;
   color: #fff;
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   font-size: 16px;
   /* font-style: ; */
   font-weight: 400;
@@ -1384,7 +1426,7 @@ input {
 }
 
 .event-tap p {
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   color: #ffffff;
   font-size: 18px;
   /* font-style: ; */
@@ -1483,10 +1525,20 @@ input {
   text-transform: uppercase;
   padding: 10px 20px;
   margin-right: 30px;
-  color: #221A42;
+  /* color: #221A42; */
   /* border: 1px solid #221A42; */
 
-  background-color: #ffffff !important;
+  color: #ffffff;
+  background-color: #221A42 !important;
+}
+
+
+/* .filter-item div:first-child {
+ 
+} */
+
+.img-pop:hover {
+  box-shadow: 2px 2px 13px lightgrey;
 }
 
 .filter-item div:hover {
@@ -1701,7 +1753,6 @@ input {
 }
 
 .fw-bolder {
-  font-family: 'Satisfy', cursive !important;
   color: #000000;
   font-size: 38px;
   /* font-style: ; */
@@ -1958,6 +2009,7 @@ input {
   background-size: 100%;
   padding: 15% 0%;
 }
+
 .wave {
   position: absolute;
   top: 0;
@@ -1973,7 +2025,7 @@ input {
 }
 
 
-.wave-img{
+.wave-img {
   background-color: #FFE5E5;
   width: 50px;
   height: 50px;
@@ -2011,10 +2063,11 @@ input {
     top: 28%;
     transform: translateY(-50%);
   }
+
   30% {
     top: 38%;
   }
-  
+
   35% {
     top: 36%;
     transform: translateY(-50%);
@@ -2110,12 +2163,12 @@ input {
 }
 
 
-.waveContainer:hover .wave{
+.waveContainer:hover .wave {
   animation-play-state: paused;
 }
 
 
-.wave-img:hover{
+.wave-img:hover {
   background-color: #33295D;
 }
 
@@ -2123,7 +2176,7 @@ input {
 .font-news {
   font-size: 28px !important;
   font-weight: 500 !important;
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
 
 }
 
@@ -2131,7 +2184,7 @@ input {
   font-size: 14px !important;
   font-weight: 500 !important;
   margin-top: 10px;
-  
+
 }
 
 .font-news-text button {
@@ -2140,7 +2193,7 @@ input {
   border-radius: 4px !important;
   font-size: 14px !important;
   font-weight: 600 !important;
-  margin: 10px 10px ;
+  margin: 10px 10px;
 }
 
 
@@ -2166,7 +2219,8 @@ input {
   font-size: 17px;
   background-color: rgba(0, 0, 0, 0.5);
   font-family: Poppins;
-  width: 80%; /* Adjust the width as needed */
+  width: 80%;
+  /* Adjust the width as needed */
 }
 
 
@@ -2205,8 +2259,7 @@ input {
 .shop-all-cards {
   width: auto;
   height: 50px;
-  align-items: center;
-  text-align: center;
+  text-align: left !important;
   padding-top: 20px;
   margin-top: 20px;
 
@@ -2244,7 +2297,7 @@ input {
 
 .prize-size {
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
 }
@@ -2252,4 +2305,19 @@ input {
 .add-to-card-price {
   background-color: #221A42 !important;
 
+}
+
+.news-latter-bg h3 {
+  font-size: 30px !important;
+}
+
+.addtocart-btn {
+  bottom: 28%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+ 
+  background-color: rgba(34, 26, 66, 0.7) !important;
+  color: white !important;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
