@@ -111,8 +111,27 @@ const ShopAll = () => {
             </div>
           </div>
 
+
           <div className="col-md-12">
             <div className="text-end d-flex justify-content-end filter-item">
+
+              <div className="p-0">
+                <button class="btn p-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                  <i class="fa-solid fa-filter mt-2"></i>
+                </button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Filter BY Brands</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    ...
+                  </div>
+                </div>
+              </div>
+
+
               <Dropdown overlay={menu} trigger={['hover']} placement="bottomCenter">
                 <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                   Sort by
@@ -132,6 +151,7 @@ const ShopAll = () => {
               <div>
                 Best Selling
               </div>
+
             </div>
           </div>
 
@@ -150,11 +170,11 @@ const ShopAll = () => {
 
               <div className="p-0  text-center rounded mx-5">
 
-              <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase  mt-5">Brands</h3>
+                <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase  mt-5">Brands</h3>
 
                 {productOldlist && productOldlist.productList && productOldlist.productList.map((item) => (
                   <div key={item.brand.id}>
-                    
+
                     <div className=" shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
                       <img src={item.brand.imageUrl} alt={item.brand.name} className="img-pop" />
                     </div>
@@ -178,11 +198,18 @@ const ShopAll = () => {
                 {currentItems.map((prod, ind) => (
                   <div className="col-md-4 mt-3" key={ind} onClick={() => handleNavigation(prod._id)}>
                     <div class="product-card">
+                      <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                        <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">0%</p>
+                        <button class="heart-btn" id="hertbtn">
+                          <i class="fa-regular fa-heart"></i>
+                        </button>
+                      </div>
                       <img
                         src={prod.images[0] !== null && prod.images[0] !== "image_url1" ? `${prod.images[0]}` : "assets/images/Rectangle 22.png"}
                         className=" border"
                         alt="Web Project 1"
                       />
+                      <div class="text-center  border-secondary position-absolute addtocart-btn px-1 py-1 "><i class="fas fa-cart-plus me-2"></i> Add to Cart</div>
                       <div className="text-center price-card py-2">
                         <p className=" mb-0">₹{prod.amount}</p>
                         <p className="font-z">{prod.name}</p>

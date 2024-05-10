@@ -40,6 +40,10 @@ const Home = () => {
   document.title = "Winter Bear";
   document.getElementsByTagName("META")[2].content = "Winter Bear";
 
+  // btn click
+
+  //  let heartselect =   document.getElementById('hertbtn');
+  //  heartselect.style.backgroundColor ="red"
 
 
   const handleNavigation = (productId) => {
@@ -85,7 +89,7 @@ const Home = () => {
 
         <section className="py-5">
           <div className="container">
-            <div className="heading  "> Category </div>
+            <div className="heading"> Category </div>
             <div className="row">
               {data &&
                 data.Categorys &&
@@ -112,6 +116,7 @@ const Home = () => {
               </div>
             </div>
 
+
             <div className="row justify-content-center ">
               {productOldlist &&
                 productOldlist.productList &&
@@ -119,9 +124,10 @@ const Home = () => {
                   if (!item || !item.products || item.products.length === 0)
                     return null;
                   return (
-                    <div key={`stickyBody${index}`} className="sticky-body row">
-
-                      <div className={`col-md-2 sticky-logo-flex-${index + 1} g-0 bg-transparent sticky`}>
+                    // <div key={`stickyBody${index}`} className="sticky-body row">
+                    <div key={`stickyBody${index}`} className="row">
+                      {/* <div className={`col-md-2 sticky-logo-flex-${index + 1} g-0 bg-transparent sticky`}> */}
+                      <div className={`col-md-2  g-0 bg-transparent sticky d-none`}>
                         <div className="sticky-logo-1">
                           <img
                             src={`${item.brand.imageUrl}`}
@@ -133,13 +139,24 @@ const Home = () => {
                         </div>
                       </div>
 
+                      <div className="sticky-logo-1">
+                        <img
+                          src={`${item.brand.imageUrl}`}
+                          className="d-block mx-auto"
+                        />
+                        {/* <p className="sticky-logo-text mt-3">
+                            View the {item.brand.name}
+                          </p> */}
+                      </div>
+
                       <div
-                        className="col-md-10 shop-by tile-1"
+                        className="col-md-12 shop-by tile-1"
                         id={`sticky1${index}`}
                       >
+
                         <div className="container-fluid ">
                           <ul
-                            className="nav nav-pills  nav-fill shop-by-tab"
+                            className="nav nav-pills  nav-fill shop-by-tab py-3" 
                             id="pills-tab"
                             role="tablist"
                           >
@@ -169,7 +186,7 @@ const Home = () => {
                           {item &&
                             item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
-                              <div className="item col-md-3 px-3 pl-3 pt-3 border border-secondary rounded position-relative">
+                              <div className="item col-md-3 px-3 pl-3 pt-3 border border-secondary rounded position-relative mb-3">
 
                                 <img
 
@@ -200,7 +217,7 @@ const Home = () => {
 
                                   </div>
 
-                                  <div className="d-flex justify-content-between align-items-end mt-1 col-md-12">
+                                  <div className="d-flex justify-content-between align-items-end mt-4 col-md-12">
                                     <p className="text-start prize-size col-md-8 mb-0"> {item.brand.name} @{prod.name}
                                     </p>
                                     <p className="text-end fw-bold col-md-4 mb-0">₹{prod.amount}</p>
