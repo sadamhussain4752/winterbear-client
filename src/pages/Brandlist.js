@@ -138,13 +138,13 @@ const Brandlist = () => {
             <div className="col-md-12 mt-80">
               <div className="section-heading">
                 {productOldlist && subBrandlist.length > 0 && (
-                  
-                  <div className="align-items-center full-banner">
-                  <h3 className="theme-bg-text">{subBrandlist[0].brand.name}</h3>
 
-                  <img src={subBrandlist[0].brand.imageUrl} alt={subBrandlist[0].brand.name} />
-                  {/* <p>{item.brand.name}</p> */}
-                </div>
+                  <div className="align-items-center full-banner">
+                    <h3 className="theme-bg-text">{subBrandlist[0].brand.name}</h3>
+
+                    <img src={subBrandlist[0].brand.imageUrl} alt={subBrandlist[0].brand.name} />
+                    {/* <p>{item.brand.name}</p> */}
+                  </div>
                 )}
               </div>
             </div>
@@ -157,25 +157,25 @@ const Brandlist = () => {
             </div>
           </div>
           <div className="col-md-12 ">
-              <div className="p-0  text-center rounded mb-5">
-                {productOldlist && subBrandlist && subBrandlist.map((item) => (
-                  <div key={item.brand.id} className="col-md-12 ">
-                    
-                    <div className="d-flex justify-content-center">
-                      {item.subbrand.map((subItem) => (
-                        <div key={subItem.id} className="align-items-center shop-all-cards mx-5" onClick={()=>{
-                          handleCategoryClick(subItem)
-                        }}>
-                          <img src={subItem.imageUrl} alt={subItem.name} />
-                          <p>{subItem.name}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="p-0  text-center rounded mb-5">
+              {productOldlist && subBrandlist && subBrandlist.map((item) => (
+                <div key={item.brand.id} className="col-md-12 ">
 
+                  <div className="d-flex justify-content-center">
+                    {item.subbrand.map((subItem) => (
+                      <div key={subItem.id} className="align-items-center shop-all-cards mx-5" onClick={() => {
+                        handleCategoryClick(subItem)
+                      }}>
+                        <img src={subItem.imageUrl} alt={subItem.name} />
+                        <p>{subItem.name}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
+
+          </div>
 
           <div className="col-md-12">
             <div className="text-end d-flex justify-content-end filter-item">
@@ -207,8 +207,8 @@ const Brandlist = () => {
 
           <div className="row justify-content-end">
             <div className="col-md-3">
-            <div className="p-0 text-center rounded mx-5">
-              <h3 className=" fs-2 fw-bolder text-start mb-4">Category</h3>
+              <div className="p-0 text-center rounded mx-5">
+                <h3 className=" fs-2 fw-bolder text-start mb-4">Category</h3>
 
                 {data &&
                   data.Categorys &&
@@ -227,8 +227,8 @@ const Brandlist = () => {
                 {productList &&
                   productList &&
                   productList.map((prod, ind) => (
-                    <div className="col-md-4 rounded-border mt-3" onClick={() => handleNavigation(prod._id)}>
-                      <div class="product-card">
+                    <div className="col-md-4 rounded-border mt-3 " onClick={() => handleNavigation(prod._id)}>
+                      <div class="product-card pb-4 px-3">
                         <img
 
                           src={
@@ -238,7 +238,7 @@ const Brandlist = () => {
                               ? `${prod.images[0]}`
                               : "assets/images/Rectangle 22.png"
                           }
-                          className="rounded border"
+                          className="rounded"
                           alt="Web Project 1"
                         />
                         <div className="text-center price-card py-2">
@@ -248,6 +248,9 @@ const Brandlist = () => {
                           <p className="font-z">
                             {prod.name}
                           </p>
+                        </div>
+                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 ">
+                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>
                     </div>

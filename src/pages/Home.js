@@ -107,7 +107,7 @@ const Home = () => {
           </div>
         </section>
         <section className="py-5 shop">
-          <div className="container-fluid">
+          <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <div className="section-heading">
@@ -139,7 +139,7 @@ const Home = () => {
                         </div>
                       </div>
 
-                      <div className="sticky-logo-1">
+                      <div className="sticky-logo-1 mb-3">
                         <img
                           src={`${item.brand.imageUrl}`}
                           className="d-block mx-auto"
@@ -150,13 +150,13 @@ const Home = () => {
                       </div>
 
                       <div
-                        className="col-md-12 shop-by tile-1"
+                        className="col-md-12 shop-by tile-1 px-4"
                         id={`sticky1${index}`}
                       >
 
                         <div className="container-fluid ">
                           <ul
-                            className="nav nav-pills  nav-fill shop-by-tab py-3" 
+                            className="nav nav-pills  nav-fill shop-by-tab py-3"
                             id="pills-tab"
                             role="tablist"
                           >
@@ -186,7 +186,7 @@ const Home = () => {
                           {item &&
                             item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
-                              <div className="item col-md-3 px-3 pl-3 pt-3 border border-secondary rounded position-relative mb-3">
+                              <div className="item col-md-3 px-3 pl-3 pt-3 border border-secondary rounded position-relative mb-3 py-4">
 
                                 <img
 
@@ -197,9 +197,10 @@ const Home = () => {
                                       ? `${prod.images[0]}`
                                       : "assets/images/Rectangle 22.png"
                                   }
-                                  className=""
+                                  className="product-shopby"
                                   alt="Web Project 1"
                                 />
+
                                 <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
                                   <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
 
@@ -217,22 +218,22 @@ const Home = () => {
 
                                   </div>
 
-                                  <div className="d-flex justify-content-between align-items-end mt-4 col-md-12">
+                                  <div className="d-flex justify-content-between align-items-start mt-4 col-md-12 price-prodname">
                                     <p className="text-start prize-size col-md-8 mb-0"> {item.brand.name} @{prod.name}
                                     </p>
                                     <p className="text-end fw-bold col-md-4 mb-0">₹{prod.amount}</p>
 
-
+                                   
                                   </div>
 
                                 </div>
+                                <div className="text-center  border-secondary addtocart-btn px-1 py-1 "
+                                      onClick={() => handleNavigation(prod._id)}>
+                                      <i className="fas fa-cart-plus me-2" /> Add to Cart
+                                    </div>
 
 
 
-                                <div className="text-center  border-secondary position-absolute addtocart-btn px-1 py-1 "
-                                  onClick={() => handleNavigation(prod._id)}>
-                                  <i className="fas fa-cart-plus me-2" /> Add to Cart
-                                </div>
                               </div>
                             ))}
                         </div>

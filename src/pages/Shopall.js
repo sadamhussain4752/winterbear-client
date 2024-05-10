@@ -206,14 +206,22 @@ const ShopAll = () => {
                       </div>
                       <img
                         src={prod.images[0] !== null && prod.images[0] !== "image_url1" ? `${prod.images[0]}` : "assets/images/Rectangle 22.png"}
-                        className=" border"
+                        className=""
                         alt="Web Project 1"
                       />
-                      <div class="text-center  border-secondary position-absolute addtocart-btn px-1 py-1 "><i class="fas fa-cart-plus me-2"></i> Add to Cart</div>
                       <div className="text-center price-card py-2">
                         <p className=" mb-0">₹{prod.amount}</p>
                         <p className="font-z">{prod.name}</p>
+
+                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 ">
+                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                        </div>
+
                       </div>
+
+
+
+
                     </div>
                   </div>
                 ))}
