@@ -115,7 +115,7 @@ const Home = () => {
             <div className="row justify-content-center ">
               {productOldlist &&
                 productOldlist.productList &&
-                productOldlist.productList?.slice(0, 7).map((item, index) => {
+                productOldlist.productList?.map((item, index) => {
                   if (!item || !item.products || item.products.length === 0)
                     return null;
                   return (

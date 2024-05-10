@@ -239,7 +239,7 @@ const Brandlist = () => {
                     <div className="align-items-center shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
                       <img src={item.brand.imageUrl} alt={item.brand.name} />
                     </div>
-                    <div>
+                    {/* <div>
                       {item.subbrand.map((subItem) => (
                         <div key={subItem.id} className="align-items-center shop-all-cards" onClick={() => handleSubbrandClick(subItem)}>
                           <div className="d-flex justify-content-start align-items-center text-center mx-5">
@@ -248,7 +248,7 @@ const Brandlist = () => {
                           </div>
                         </div>
                       ))}
-                    </div>
+                    </div> */}
                   </div>
                 ))}
               </div>

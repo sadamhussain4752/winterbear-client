@@ -54,7 +54,7 @@ const Categorylist = () => {
   useEffect(() => {
     if (productOldlist && productOldlist?.productList) {
 
-      let Sub_Brand_List = productOldlist?.productList.filter((item) => {
+      let Sub_Brand_List =  data.Categorys.filter((item) => {
         return item.brand._id === id
       })
       setSubbrand(Sub_Brand_List)
