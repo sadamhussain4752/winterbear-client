@@ -120,12 +120,12 @@ const ShopAll = () => {
                   <i class="fa-solid fa-filter mt-2"></i>
                 </button>
 
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas offcanvas-end filter-ofcanvas" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                   <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasRightLabel">Filter BY Brands</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                   </div>
-                  <div class="offcanvas-body">
+                  <div class="offcanvas-body" id="offcanvas-body">
                     ...
                   </div>
                 </div>

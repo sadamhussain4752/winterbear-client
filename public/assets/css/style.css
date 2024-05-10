@@ -304,6 +304,18 @@ input {
   }
 }
 
+#offcanvasRight{
+  background-color: lightgray !important;
+}
+
+#offcanvas-body{
+  background-color: lightgray !important;
+}
+
+.filter-ofcanvas{
+  background-color: lightgray !important;
+}
+
 
 .heart-btn {
   border: none;
