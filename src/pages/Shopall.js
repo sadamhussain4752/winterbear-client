@@ -24,7 +24,7 @@ const ShopAll = () => {
   // States to store product list, selected category, and current page
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 16; // Number of items per page
+  const itemsPerPage = 15; // Number of items per page
 
   const { productlist, loading: productListLoading } = useSelector(
     (state) => state.productlist
@@ -115,17 +115,29 @@ const ShopAll = () => {
             </div>
           </div>
 
+
           <div className="col-md-12">
             <div className="text-end d-flex justify-content-end filter-item">
-              <Dropdown
-                overlay={menu}
-                trigger={["hover"]}
-                placement="bottomCenter"
-              >
-                <div
-                  className="ant-dropdown-link"
-                  onClick={(e) => e.preventDefault()}
-                >
+
+              <div className="p-0">
+                <button class="btn p-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                  <i class="fa-solid fa-filter mt-2"></i>
+                </button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Filter BY Brands</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    ...
+                  </div>
+                </div>
+              </div>
+
+
+              <Dropdown overlay={menu} trigger={['hover']} placement="bottomCenter">
+                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                   Sort by
                 </div>
               </Dropdown>
@@ -141,9 +153,16 @@ const ShopAll = () => {
                   Price
                 </div>
               </Dropdown>
-              <div>Popular</div>
-              <div>Newest</div>
-              <div>Best Selling</div>
+              <div>
+                Popular
+              </div>
+              <div>
+                Newest
+              </div>
+              <div>
+                Best Selling
+              </div>
+
             </div>
           </div>
 
@@ -176,21 +195,14 @@ const ShopAll = () => {
                   Brands
                 </h3>
 
-                {productOldlist &&
-                  productOldlist.productList &&
-                  productOldlist.productList.map((item) => (
-                    <div key={item.brand.id}>
-                      <div
-                        className=" shop-all-cards"
-                        onClick={() => handleNavigationbrand(item.brand._id)}
-                      >
-                        <img
-                          src={item.brand.imageUrl}
-                          alt={item.brand.name}
-                          className="img-pop"
-                        />
-                      </div>
-                      {/* <div>
+
+                {productOldlist && productOldlist.productList && productOldlist.productList.map((item) => (
+                  <div key={item.brand.id}>
+
+                    <div className=" shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
+                      <img src={item.brand.imageUrl} alt={item.brand.name} className="img-pop" />
+                    </div>
+                    {/* <div>
                       {item.subbrand.map((subItem) => (
                         <div key={subItem.id} className="align-items-center shop-all-cards" onClick={() => handleSubbrandClick(subItem)}>
                           <div className="d-flex justify-content-start align-items-center text-center mx-5">
@@ -208,48 +220,32 @@ const ShopAll = () => {
             <div className="col-md-9">
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
-                  <div className="col-md-3 mb-4">
-                    <div className="item  px-3 pl-3 pt-3 border border-secondary rounded position-relative">
+                  <div className="col-md-4 mt-3" key={ind} onClick={() => handleNavigation(prod._id)}>
+                    <div class="product-card">
+                      <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                        <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">0%</p>
+                        <button class="heart-btn" id="hertbtn">
+                          <i class="fa-regular fa-heart"></i>
+                        </button>
+                      </div>
                       <img
-                        src={
-                          prod.images[0] !== null &&
-                            prod.images[0] !== "image_url1"
-                            ? `${prod.images[0]}`
-                            : "assets/images/Rectangle 22.png"
-                        }
+                        src={prod.images[0] !== null && prod.images[0] !== "image_url1" ? `${prod.images[0]}` : "assets/images/Rectangle 22.png"}
                         className=""
                         alt="Web Project 1"
                       />
-                      <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
-                        <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-                          <p className="text-white text-center   bg-theme w-25 mt-2 rounded-end">
-                            <span className="text-white text-decoration-line-through">
-                              {parseFloat(prod.offeramount / 100).toFixed(0)}%
-                            </span>
-                          </p>
+                      <div className="text-center price-card py-2">
+                        <p className=" mb-0">₹{prod.amount}</p>
+                        <p className="font-z">{prod.name}</p>
 
-                          <button className="heart-btn" id="hertbtn">
-                            <i class="fa-regular fa-heart"></i>
-                          </button>
+                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 ">
+                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
 
-                        <div className="d-flex justify-content-between align-items-end mt-1 col-md-12">
-                          <p className="text-start prize-size col-md-8 mb-0">
-                            {" "}
-                            {prod.name}
-                          </p>
-                          <p className="text-end fw-bold col-md-4 mb-0">
-                            ₹{prod.amount}
-                          </p>
-                        </div>
                       </div>
 
-                      <div
-                        className="text-center  border-secondary position-absolute addtocart-btn px-1 py-1 "
-                        onClick={() => handleNavigation(prod._id)}
-                      >
-                        <i className="fas fa-cart-plus" /> Add to Cart
-                      </div>
+
+
+
                     </div>
                   </div>
 

@@ -41,7 +41,7 @@ const HomeSlider = () => {
                 <source
                   media="(min-width:768px)"
                   src={`${item.imageUrl}`} 
-                  className="w-100 vh-75"
+                  className="w-100 "
                 />
                 <source
                   media="(max-width:768px)"
@@ -52,7 +52,7 @@ const HomeSlider = () => {
                 />
                 <img
                  src={`${item.imageUrl}`} 
-                  className="vh-75 w-100"
+                  className=" w-100"
                   alt=""
                   title=""
                 />
