@@ -98,7 +98,7 @@ const Home = () => {
                     <div className="collection-box" onClick={() => navigate(`/shop`)}>
                       <div className="image-container">
                         <img src={`${item.imageUrl}`} className="mb-0" />
-                        <h4>{item.name}</h4>
+                        <h4>{item.name} </h4>
                       </div>
                     </div>
                   </div>
@@ -219,7 +219,7 @@ const Home = () => {
                                   </div>
 
                                   <div className="d-flex justify-content-between align-items-start mt-4 col-md-12 price-prodname">
-                                    <p className="text-start prize-size col-md-8 mb-0"> {item.brand.name} @{prod.name}
+                                    <p className="text-start prize-size col-md-8 mb-0 text-truncate" style={{maxWidth:'200px'}}> {item.brand.name} @{prod.name}
                                     </p>
                                     <p className="text-end fw-bold col-md-4 mb-0">₹{prod.amount}</p>
 

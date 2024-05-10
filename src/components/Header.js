@@ -399,21 +399,21 @@ const Header = () => {
                     src="../assets/images/winterbear-logo.png"
                     className="d-block img-fluid w-75"
                     alt="Logo"
-                    
+
                   />
                 </a>
 
               </div>
               {/* Login/Register and Cart Icons */}
               <div className="col-md-4 d-md-block d-none  text-start mt-md-0">
-                <div className="row d-flex justify-content-between">
-                  <div className="col-md-7">
-                  
+                <div className="row d-flex justify-content-between align-items-center">
+                  <div className="col-md-6">
+
                     <SearchList />
                   </div>
-                  <div className="col-md-5 mt-1">
+                  <div className="col-md-6 mt-1">
                     <div className="text-end">
-                      <div>
+                      <div className="d-flex justify-content-between align-items-center"> 
                         {getUserResponse && getUserResponse.User ? (
                           <>
 
@@ -425,33 +425,37 @@ const Header = () => {
 
                             </a>
 
+                            <a
+                              href="#"
+                              className="link-body-emphasis text-decoration-none "
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+
+
+                              <img
+                                // src={getUserResponse?.User?.profile_img}
+                                src="../assets/images/icon-pofile.svg"
+                                alt="mdo"
+                                width={25}
+                                height={20}
+                                className="mx-2"
+                              />{" "}
+                              {/* <strong className="px-1">
+                                          {getUserResponse.User.firstname}
+                                        </strong> */}
+
+                            </a>
 
 
                             <a
                               href="/cart"
                               className="text-decoration-none mx-2"
-                            > <img src="../assets/images/icon_cart.svg" />
-                              <a
-                                href="#"
-                                className="link-body-emphasis text-decoration-none "
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                              >
+                            >
+
+                              <img src="../assets/images/icon_cart.svg" />
 
 
-                                <img
-                                  // src={getUserResponse?.User?.profile_img}
-                                  src="../assets/images/icon-pofile.svg"
-                                  alt="mdo"
-                                  width={25}
-                                  height={20}
-                                  className="mx-2"
-                                />{" "}
-                                {/* <strong className="px-1">
-                                {getUserResponse.User.firstname}
-                              </strong> */}
-
-                              </a>
                               <ul className="mt-3 dropdown-menu text-small">
 
 

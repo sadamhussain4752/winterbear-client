@@ -5,11 +5,19 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import "owl.carousel/dist/assets/owl.theme.green.css";
 import constant from "../constant/constant";
+import { useHistory } from 'react-router-dom';
 
 const HomeSlider = () => {
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.data);
   console.log(data);
+
+  function shopAllpag() {
+    const history = useHistory();
+    return (
+      history.push('./components/shopall.js')
+    )
+  }
 
   return (
     <div className="mt-80">
@@ -36,22 +44,22 @@ const HomeSlider = () => {
       >
         {data && data?.banners &&  // Check if data is not null or undefined
           data?.banners.map((item, index) => (
-            <div key={index} className="item">
+            <div key={index} className="item" onClick={shopAllpag}>
               <picture>
                 <source
                   media="(min-width:768px)"
-                  src={`${item.imageUrl}`} 
+                  src={`${item.imageUrl}`}
                   className="w-100 "
                 />
                 <source
                   media="(max-width:768px)"
                   className="w-100"
-                  src={`${item.imageUrl}`} 
+                  src={`${item.imageUrl}`}
                   height={486}
                   width={320}
                 />
                 <img
-                 src={`${item.imageUrl}`} 
+                  src={`${item.imageUrl}`}
                   className=" w-100"
                   alt=""
                   title=""
