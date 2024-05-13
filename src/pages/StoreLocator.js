@@ -7,10 +7,10 @@ function StoreLocator() {
     const [map, setMap] = useState(null);
     const [markers, setMarkers] = useState([]);
     const [stores] = useState([
-        { name: 'H&M New York City', address: '435 7th Ave, New York, NY 10001, United States', lat: 40.751083, lng: -73.990964 },
-        { name: 'H&M Los Angeles', address: '8500 Beverly Blvd, Los Angeles, CA 90048, United States', lat: 34.075157, lng: -118.377345 },
-        { name: 'H&M Chicago', address: '22 N State St, Chicago, IL 60602, United States', lat: 41.883838, lng: -87.628780 },
-        { name: 'H&M Miami', address: '541 Lincoln Rd, Miami Beach, FL 33139, United States', lat: 25.790654, lng: -80.132026 }
+        { name: 'Winterbear Pune', address: 'GP-9,10, Lower Ground Floor, Phoenix Marketcity, 207, Viman Nagar Rd, Clover Park, Viman Nagar, Pune, Maharashtra 411014, India', lat: 18.561896, lng: 73.916535 },
+        { name: 'Winterbear Mumbai', address: 'Lower Ground, : PHOENIX MARKETCITY, LG-28, Lal Bahadur Shastri Marg, Patelwadi.Kurla, Kamani, Kurla West, Kurla, Mumbai, Maharashtra 400070, India', lat: 19.081797, lng: 72.88183 },
+        { name: 'Winterbear Chennai', address: 'VR Chennai, 100 Feet Rd, Thirumangalam, Anna Nagar, Chennai, Tamil Nadu 600040', lat: 13.082896, lng: 80.198699 },
+        { name: 'Winterbear Bangalore - HSR Layout', address: 'Ground Floor, No. 1461/1784, Venlak Arcade, 19th Main Rd, Vanganahalli, 1st Sector, HSR Layout, Bengaluru, Karnataka 560102', lat: 12.914548, lng: 77.644889 }
     ]);
     const [filter, setFilter] = useState('');
     const [filteredStores, setFilteredStores] = useState([]);
@@ -20,7 +20,7 @@ function StoreLocator() {
     }, []);
 
     function initMap() {
-        const center = { lat: 40.7128, lng: -74.0060 };
+        const center = { lat: 18.561896, lng: 73.916535 };
         const newMap = new window.google.maps.Map(document.getElementById('map'), {
             zoom: 4,
             center: center
