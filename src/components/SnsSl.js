@@ -2,103 +2,35 @@ import React from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import "owl.carousel/dist/assets/owl.theme.green.css"; 
+import "owl.carousel/dist/assets/owl.theme.green.css";
 const SnsSl = () => {
   return (
-    <section className="py-5">
-      <div className="container ">
-      
+    <section className="py-3">
+      <div className="corosil-snn container">
+        <div id="carouselExample" className="carousel slide d-block mx-auto">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src="../assets/images/slider4.jpg" className="d-block w-100" alt="..." />
+            </div>
+            <div className="carousel-item">
+              <img src="../assets/images/slider2.jpg" className="d-block w-100" alt="..." />
+            </div>
+            <div className="carousel-item">
+              <img src="../assets/images/slider3.jpg" className="d-block w-100" alt="..." />
+            </div>
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
 
-        <OwlCarousel
-          className="owl-theme sns-bg"
-          loop
-          margin={10}
-          autoplay
-          dots={false}
-          autoplayTimeout={1800}
-          smartSpeed={1500}
-          responsive={{
-            0: {
-              items: 1,
-            },
-            600: {
-              items: 1,
-            },
-            1000: {
-              items: 4,
-            },
-          }}
-        >
-          <div className="item">
-            <img
-              src="assets/images/slider1.jpg"
-              className="w-100 d-block mx-auto"
-              alt="Gallery Item"
-            />
-           
-          </div>
-          <div className="item">
-            <img
-                    src="assets/images/slider2.jpg"
-              className="w-100 d-block mx-auto"
-              alt="Gallery Item"
-            />
-           
-          </div>
-          <div className="item">
-            <img
-                 src="assets/images/slider3.jpg"
-              className="w-100 d-block mx-auto"
-              alt="Gallery Item"
-            />{" "}
-           
-          </div>
-          <div className="item">
-            <img
-                  src="assets/images/slider4.jpg"
-              className="w-100 d-block mx-auto"
-              alt="Gallery Item"
-            />{" "}
-           
-          </div>
-          <div className="item">
-            <img
-                      src="assets/images/slider5.jpg"
-              className="w-100 d-block mx-auto"
-              alt="Gallery Item"
-            />{" "}
-           
-          </div>
-          <div className="item">
-            <img
-                 src="assets/images/slider1.jpg"
-              className="w-100 d-block mx-auto"
-              alt="Gallery Item"
-            />{" "}
-           
-          </div>
-          <div className="item">
-            <img
-                       src="assets/images/slider2.jpg"
-              className="w-100 d-block mx-auto"
-              alt="Gallery Item"
-            />{" "}
-           
-          </div>
-          <div className="item">
-            <img
-                     src="assets/images/slider1.jpg"
-              className="w-100 d-block mx-auto"
-              alt="Gallery Item"
-            />{" "}
-           
-          </div>
-        </OwlCarousel>
-        <p className="d-block mx-auto text-center my-3">
-          <a href="#" className="button btn btn-dark text-uppercase  px-5 my-4">
-            Redeem
-          </a>
-        </p>
+          <img src='../assets/images/real-border.PNG' alt='' className="real-border  w-100" />
+
+        </div>
       </div>
     </section>
   );

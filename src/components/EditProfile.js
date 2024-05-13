@@ -141,27 +141,25 @@ const EditProfile = () => {
 
                   {getUserResponse?.User?.profile_img !== "" ? (
                     <>
-                      <Image
-                        className="rounded-circle"
-                        width={120}
-                        height={120}
-                        src={
-                          selectImg !== ""
-                            ? selectImg
-                            : getUserResponse?.User?.profile_img
-                        }
-                      />
-                      <div
-                        onClick={() => {
-                          setAvatarOpen(true);
-                        }}
-                      >
-                        <img
-                          src="assets/images/editicons.png"
-                          width={32}
-                          height={22}
+                      <div className="pos-rel">
+                        <Image
                           className="rounded-circle"
+                          width={120}
+                          height={120}
+                          src={
+                            selectImg !== ""
+                              ? selectImg
+                              : getUserResponse?.User?.profile_img
+                          }
                         />
+                        <div
+                          onClick={() => {
+                            setAvatarOpen(true);
+                          }}
+                          className="pos-abss"
+                        >
+                          <i class="fa-regular fa-pen-to-square"></i>
+                        </div>
                       </div>
                     </>
                   ) : (

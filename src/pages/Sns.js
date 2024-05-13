@@ -26,6 +26,9 @@ const SNS = () => {
         }}
       >
         <SnsSl />
+
+      
+
         <section className="section  px-3  px-md-5 mb-4">
           <div className="container-fluid px-md-5 bg-purple rounded-5 py-4">
             <div className="row">
@@ -90,15 +93,15 @@ const SNS = () => {
           <div className="container px-md-5 ">
             <div className="row">
               <div className="text-uppercase theme-bg-text  mb-2 fs-1   y-5 text-center rewards">
-              similar products
+                similar products
               </div>
             </div>
-           
+
           </div>
         </section>
         <section className="section  px-3  px-md-5 mb-5">
           <div className="container-fluid px-md-5 bg-purple rounded-5 py-4">
-            
+
             <div className="row">
               <div className="col-md-3 ">
                 <div className=" ">

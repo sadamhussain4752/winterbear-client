@@ -103,14 +103,15 @@ const Header = () => {
   }, []);
 
   const location = useLocation();
+
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
-    const changeColorPosition = 10; // Change color after scrolling down 100 pixels
+    const changeColorPosition = 100; // Change color after scrolling down 100 pixels
 
     if (scrollPosition > changeColorPosition) {
-      setNavbarBg("fixed-top");
+      setNavbarBg("d-none");
     } else {
-      setNavbarBg("bg-white");
+      setNavbarBg("b-block");
     }
   };
 
@@ -120,6 +121,8 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
@@ -145,13 +148,20 @@ const Header = () => {
       <p style={contentStyle}>{item.description}:{item.code} </p>
     );
   };
+
+
+
+
+
   return (
     <>
       <header>
         {/* Top Header */}
-        <div className="top-header fixed-top shadow-sm bg-white">
+        <div className={`top-header fixed-top shadow-sm bg-white ${navbarBg === "d-none" && "bg-transparent"}`}>
+
           <div className="container-fluid">
-            <Carousel autoplay className="col-md-10 d-block mx-auto" dots={true}>
+            
+            <Carousel autoplay className={`col-md-10 d-block mx-auto ${navbarBg}`} dots={true}>
               {getCouponResponse?.coupons?.map((item, index) => item.isShow_display && (
                 <div className="col-md-4" key={index}>
                   {renderItem(item)}
@@ -321,6 +331,28 @@ const Header = () => {
                           BRAND DIRECTORY
                         </a>
                       </li>
+
+                      <li className="nav-item">
+                        <a
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="/Sns"
+                        >
+                          SNS
+                        </a>
+                      </li>
+
+
+                      <li className="nav-item">
+                        <a
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="/loyalty"
+                        >
+                          Loyalty
+                        </a>
+                      </li>
+
                       {/* <li className="nav-item dropdown">
                         <a
                           className="nav-link pb-3 fs-5 dropdown-toggle"
@@ -413,7 +445,7 @@ const Header = () => {
                   </div>
                   <div className="col-md-6 mt-1">
                     <div className="text-end">
-                      <div className="d-flex justify-content-between align-items-center"> 
+                      <div className="d-flex justify-content-between align-items-center">
                         {getUserResponse && getUserResponse.User ? (
                           <>
 
@@ -434,12 +466,12 @@ const Header = () => {
 
 
                               <img
-                                // src={getUserResponse?.User?.profile_img}
-                                src="../assets/images/icon-pofile.svg"
+                                src={getUserResponse?.User?.profile_img}
+                                // src="../assets/images/icon-pofile.svg"
                                 alt="mdo"
                                 width={25}
-                                height={20}
-                                className="mx-2"
+                                height={25}
+                                className="mx-2 person-icon-img"
                               />{" "}
                               {/* <strong className="px-1">
                                           {getUserResponse.User.firstname}

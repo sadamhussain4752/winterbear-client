@@ -237,7 +237,7 @@ const ShopAll = () => {
             <div className="col-md-9">
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
-                  <div className="col-md-4 mt-3" key={ind} onClick={() => handleNavigation(prod._id)}>
+                  <div className="col-md-3 mt-3" key={ind} onClick={() => handleNavigation(prod._id)}>
                     <div class="product-card">
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
                         <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">0%</p>
@@ -254,7 +254,7 @@ const ShopAll = () => {
                         <p className=" mb-0">₹{prod.amount}</p>
                         <p className="font-z">{prod.name}</p>
 
-                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 ">
+                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2">
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
 
