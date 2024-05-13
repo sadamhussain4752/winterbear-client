@@ -23,7 +23,7 @@ import Brandlist from "./pages/Brandlist";
 import Privacypolicy from "./pages/Privacypolicy";
 import Terms from "./pages/Terms";
 import Categorylist from "./pages/Categorylist";
-
+import StoreLocator from "./pages/StoreLocator";
 
 const App = () => {
   return (
@@ -55,7 +55,7 @@ const App = () => {
           <Route path="/blogs" element={<Blogs/>}/>
           <Route path="/privacy" element={<Privacypolicy/>}/>
           <Route path="/term" element={<Terms/>}/>
-
+          <Route path="/store-locator" element={<StoreLocator/>}/>
 
 
         </Routes>
