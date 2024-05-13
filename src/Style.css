@@ -23,6 +23,11 @@ body {
     /* 16px */
 }
 
+
+.person-icon-img{
+    border-radius: 50% !important;
+}
+
 .main-header {
     /*background-color: #221A42;
 padding: 15px 0;*/

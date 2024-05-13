@@ -77,9 +77,17 @@ const Home = () => {
       window.removeEventListener('scroll', handleSticky);
     };
   }, []);
+
+
+
+
+
+
   return (
     <>
-      <Header />
+      <div className="">
+        <Header />
+      </div>
       <>
         {data && data?.banners && <HomeSlider />}
         <div className="pt-5">
@@ -107,7 +115,7 @@ const Home = () => {
           </div>
         </section>
         <section className="py-5 shop">
-          <div className="container">
+          <div className="container-fluid">
             <div className="row">
               <div className="col-md-12">
                 <div className="section-heading">
@@ -127,7 +135,7 @@ const Home = () => {
                     // <div key={`stickyBody${index}`} className="sticky-body row">
                     <div key={`stickyBody${index}`} className="row">
                       {/* <div className={`col-md-2 sticky-logo-flex-${index + 1} g-0 bg-transparent sticky`}> */}
-                      <div className={`col-md-2  g-0 bg-transparent sticky d-none`}>
+                      <div className={`col-md-2  g-0 bg-transparent sticky d-none`} >
                         <div className="sticky-logo-1">
                           <img
                             src={`${item.brand.imageUrl}`}
@@ -139,18 +147,20 @@ const Home = () => {
                         </div>
                       </div>
 
-                      <div className="sticky-logo-1 mb-3">
-                        <img
-                          src={`${item.brand.imageUrl}`}
-                          className="d-block mx-auto"
-                        />
+                      <div className="col-md-2  mb-3" id="sticky1">
+                        <div className="sticky-logo-1">
+                          <img
+                            src={`${item.brand.imageUrl}`}
+                            className="d-block mx-auto"
+                          />
+                        </div>
                         {/* <p className="sticky-logo-text mt-3">
                             View the {item.brand.name}
                           </p> */}
                       </div>
 
                       <div
-                        className="col-md-12 shop-by tile-1 px-4"
+                        className="col-md-10 shop-by tile-1 px-4"
                         id={`sticky1${index}`}
                       >
 
@@ -219,18 +229,18 @@ const Home = () => {
                                   </div>
 
                                   <div className="d-flex justify-content-between align-items-start mt-4 col-md-12 price-prodname">
-                                    <p className="text-start prize-size col-md-8 mb-0 text-truncate" style={{maxWidth:'200px'}}> {item.brand.name} @{prod.name}
+                                    <p className="text-start prize-size col-md-8 mb-0 text-truncate" style={{ maxWidth: '200px' }}> {item.brand.name} @{prod.name}
                                     </p>
                                     <p className="text-end fw-bold col-md-4 mb-0">₹{prod.amount}</p>
 
-                                   
+
                                   </div>
 
                                 </div>
                                 <div className="text-center  border-secondary addtocart-btn px-1 py-1 "
-                                      onClick={() => handleNavigation(prod._id)}>
-                                      <i className="fas fa-cart-plus me-2" /> Add to Cart
-                                    </div>
+                                  onClick={() => handleNavigation(prod._id)}>
+                                  <i className="fas fa-cart-plus me-2" /> Add to Cart
+                                </div>
 
 
 
