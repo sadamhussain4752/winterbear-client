@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SnsSl from "../components/SnsSl";
 
+
 import "./SNS.css";
 
 const SNS = () => {

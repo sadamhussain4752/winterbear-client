@@ -70,3 +70,53 @@
     background: none !important;
   }
 }
+
+
+/* snn */
+
+.corosil-snn {
+  background-image: url("../../src/constant/images/IMG_3302.png");
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  padding: 15% 0%;
+
+
+}
+
+#carouselExample {
+  width: 400px;
+  position: relative;
+}
+
+.carousel-inner img {
+  border-radius: 25px;
+}
+
+.real-border {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  margin-left: -15% !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  margin-right: -15% !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #221A42;
+  border-radius: 50%;
+  padding: 3%;
+}

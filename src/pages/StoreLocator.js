@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./StoreLocator.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Input, Button, Checkbox } from "antd";
 
 function StoreLocator() {
     const [map, setMap] = useState(null);
@@ -28,10 +29,10 @@ function StoreLocator() {
         setMap(newMap);
 
         stores.forEach(store => {
-                // Define the path to your custom marker icon
-           const icon = {
-            url: "../assets/images/Winterbear-Favicon32x32.png", // Replace 'path/to/your/icon.png' with the actual path to your icon
-            scaledSize: new window.google.maps.Size(25, 25) // Adjust the size of the icon as needed
+            // Define the path to your custom marker icon
+            const icon = {
+                url: "../assets/images/Winterbear-Favicon32x32.png", // Replace 'path/to/your/icon.png' with the actual path to your icon
+                scaledSize: new window.google.maps.Size(25, 25) // Adjust the size of the icon as needed
             };
             const marker = new window.google.maps.Marker({
                 position: { lat: store.lat, lng: store.lng },
@@ -67,7 +68,7 @@ function StoreLocator() {
         setFilteredStores(filteredStores);
 
         const storeInfoDiv = document.getElementById('storeInfo');
-        
+
         if (filteredStores.length === 0) {
             storeInfoDiv.innerHTML = '<p>No matching stores found.</p>';
         } else {
@@ -82,17 +83,32 @@ function StoreLocator() {
             <div className='section my-5'>
                 <div className='container py-5'>
                     <div className='row'>
+                    <div className="section-heading">
+                                <h6 className="theme-bg-text small">Our Stores</h6>
+                            </div>
                         <div className='col-md-8 mb-3'>
-                            <h1>Winter Bear Store Locator</h1>
+                           
                             <div id="map" style={{ height: '450px', width: '100%' }}></div>
                         </div>
-                        <div className='col-md-4 mt-5'>
-                            <p>Find a store</p>
-                            <input type="text" placeholder="Search for stores.." className='my-2 px-3 Disabled readonly ' onChange={filterStores} value={filter} />
-                            <div id="storeInfo" style={{ height: '500px',  padding: '10px', boxSizing: 'border-box' }}>
+                        <div className='col-md-4'>
+                            <h3>Find Your Preferred Store</h3>
+
+                            <input type="text" placeholder="Search for stores.." className='my-2 px-3 Disabled readonly bg-white' onChange={filterStores} value={filter} />
+
+                            <Button
+                                onClick={() => {
+                                    // window.open(switchmap);
+                                }}
+                                className="btn button rounded w-100 ht-10"
+                                type="primary"
+                            >
+                                Find a preferred store
+                            </Button>
+
+                            <div id="storeInfo" style={{ height: '500px', padding: '10px', boxSizing: 'border-box' }}>
                                 {filteredStores.map((store, index) => (
                                     <div key={index}>
-                                        <h2>{store.name}</h2>
+                                        <h5>{store.name}</h5>
                                         <p>{store.address}</p>
                                     </div>
                                 ))}
