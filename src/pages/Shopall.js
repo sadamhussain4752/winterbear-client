@@ -20,6 +20,7 @@ const ShopAll = () => {
 
   const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
+  const [selectCategory, setCategory] = useState([]);
 
   // States to store product list, selected category, and current page
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -69,6 +70,7 @@ const ShopAll = () => {
     const filteredProducts = productlist.products.filter(
       (item) => item.category_id === categoryId._id
     );
+    console.log(categoryId,"categoryId");
     setProductList(filteredProducts);
     setCurrentPage(1); // Reset current page to 1 when category changes
   };
@@ -111,6 +113,21 @@ const ShopAll = () => {
             <div className="col-md-12 mt-80">
               <div className="section-heading">
                 <h3 className="theme-bg-text ">Shop All</h3>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <div className="section-heading">
+                {selectedCategory  && (
+
+                  <div className="align-items-center">
+                    <h3 className="theme-bg-text">{selectedCategory.name}</h3>
+
+                    <img className="w-100" src={selectedCategory.category_img_desktop} alt={selectedCategory.category_img_desktop} />
+                    {/* <p>{item.brand.name}</p> */}
+                  </div>
+                )}
               </div>
             </div>
           </div>

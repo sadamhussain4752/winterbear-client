@@ -89,7 +89,7 @@ const Home = () => {
 
         <section className="py-5">
           <div className="container">
-            <div className="heading"> Category </div>
+            <div className="heading"> Shop By Category </div>
             <div className="row">
               {data &&
                 data.Categorys &&
