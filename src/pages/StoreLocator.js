@@ -22,16 +22,23 @@ function StoreLocator() {
     function initMap() {
         const center = { lat: 18.561896, lng: 73.916535 };
         const newMap = new window.google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
+            zoom: 5.2,
             center: center
         });
         setMap(newMap);
 
         stores.forEach(store => {
+                // Define the path to your custom marker icon
+           const icon = {
+            url: "../assets/images/Winterbear-Favicon32x32.png", // Replace 'path/to/your/icon.png' with the actual path to your icon
+            scaledSize: new window.google.maps.Size(25, 25) // Adjust the size of the icon as needed
+            };
             const marker = new window.google.maps.Marker({
                 position: { lat: store.lat, lng: store.lng },
                 map: newMap,
-                title: store.name
+                title: store.name,
+                icon: icon // Set the custom icon for the marker
+
             });
 
             marker.addListener('click', () => {
@@ -77,9 +84,10 @@ function StoreLocator() {
                     <div className='row'>
                         <div className='col-md-8 mb-3'>
                             <h1>Winter Bear Store Locator</h1>
-                            <div id="map" style={{ height: '500px', width: '100%' }}></div>
+                            <div id="map" style={{ height: '450px', width: '100%' }}></div>
                         </div>
                         <div className='col-md-4 mt-5'>
+                            <p>Find a store</p>
                             <input type="text" placeholder="Search for stores.." className='my-2 px-3 Disabled readonly ' onChange={filterStores} value={filter} />
                             <div id="storeInfo" style={{ height: '500px',  padding: '10px', boxSizing: 'border-box' }}>
                                 {filteredStores.map((store, index) => (

@@ -74,15 +74,8 @@ const Store = () => {
           </div>
           <div className="row">
             <div className="col-md-8 text-end mt-md-5">
-              <iframe
-                src={switchmap}
-                height="450"
-                style={{ border: "0" }}
-                allowFullScreen=""
-                className="col-md-12 text-end mt-md-5"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+            <div id="map"className="col-md-12 text-end mt-md-5"></div>
+
             </div>
             <div className="col-md-4 text-start mt-md-5 find-store">
               <h4>Find Your Preferred Store</h4>
