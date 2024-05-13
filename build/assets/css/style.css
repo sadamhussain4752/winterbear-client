@@ -270,7 +270,7 @@ input {
 
 .collection-box:hover {
   /* background: #221A42; */
-  border-radius: 20px;
+  /* border-radius: 20px; */
   color: #fff;
 }
 
@@ -285,9 +285,10 @@ input {
 }
 
 .news-latter-bg {
-  background-image: url('../images/news-latter-bg.png');
+  /* background-image: url('../images/news-latter-bg.png');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  background-color: #221A42;
   height: 100%;
   width: 100%;
   text-align: center;
@@ -334,7 +335,7 @@ input {
   /* border: 2px solid #221A42; */
   box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.1);
   /* background: rgb(239,230,255); */
-  background: linear-gradient(90deg, rgba(239,230,255,1) 15%, rgba(217,196,255,1) 85%, rgba(239,230,255,1)100%);
+  background: linear-gradient(90deg, rgba(239, 230, 255, 1) 15%, rgba(217, 196, 255, 1) 85%, rgba(239, 230, 255, 1)100%);
   margin-bottom: 20px;
 }
 
@@ -557,13 +558,13 @@ footer ul a {
   transition: transform 0.3s;
 }
 
-.price-prodname{
+.price-prodname {
   min-height: 30px;
   display: flex;
   align-items: center;
 }
 
-.product-shopby{
+.product-shopby {
   height: 150px !important;
   object-fit: cover !important;
 }
@@ -631,18 +632,17 @@ width: 77%;
 }
 
 .sticky-logo-1 {
-  display: flex;
- 
+  display: block;
+  max-width: 180px !important;
   padding: 0 1rem;
-  /* position: sticky; */
+  position: sticky;
   top: 15%;
-  margin-top: 3%;
   transition: transform 0.3s ease-in-out;
-  flex-direction: column;
+  margin: 0 auto;
 }
 
-.sticky-logo-1 img{
-  width: 20%;
+.sticky-logo-1 img {
+  width: 100%;
 }
 
 .sticky-logo-flex-1 {
@@ -685,6 +685,22 @@ width: 77%;
   max-height: 9%;
   background-color: "transparent" !important;
   margin-top: 42%;
+}
+
+.pos-rel{
+  position: relative;
+}
+
+.pos-abss{
+  position: absolute;
+  top: 0%;
+  right: 40%;
+  background-color: #4e3c98;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color:white;
+    /* transform: translate(-50%,0%); */
 }
 
 .sticky-logo-flex-8 {
@@ -897,10 +913,10 @@ width: 77%;
   overflow: hidden;
 }
 
-.image-container img{
+.image-container img {
   width: 200px;
   height: 200px;
-} 
+}
 
 .shop-container {
   position: relative;
@@ -908,8 +924,8 @@ width: 77%;
 }
 
 .addtocart-btn {
-  
- 
+
+
   background-color: rgba(34, 26, 66, 0.7) !important;
   color: white !important;
   border-top-left-radius: 5px;
@@ -1557,15 +1573,15 @@ input {
 
 
 .filter-item div:first-child {
- background-color: transparent !important;
+  background-color: transparent !important;
 }
 
-.fa-filter{
+.fa-filter {
   color: #221A42 !important;
 }
 
-.fa-filter:hover{
-  color:white !important;
+.fa-filter:hover {
+  color: white !important;
   margin: 2%;
 }
 
@@ -1619,11 +1635,15 @@ input {
 .body-card-product img {
   /* background-color: #221A42 !important; */
   width: 100%;
-  height: 250px !important;
+  height: 175px !important;
   align-self: center;
 
   object-fit: contain;
 
+}
+
+.person-icon-img{
+  border-radius: 50%;
 }
 
 .body-card-product p {
@@ -2323,7 +2343,6 @@ input {
 
 }
 
-
 .find-store-image {
   width: auto !important;
   height: 200px !important;
@@ -2345,13 +2364,13 @@ input {
   font-size: 30px !important;
 }
 
-.product-card{
-  border:1px solid black;
+.product-card {
+  border: 1px solid black;
   position: relative;
   border-radius: 10px !important;
 }
 
-.addtocart-btn:hover{
+.addtocart-btn:hover {
   background-color: rgba(34, 26, 66, 1) !important;
 }
 
@@ -2367,6 +2386,7 @@ input {
 
 
 }
+
 .sns-mob {
   background-image: url('../images/IMG_3301.PNG');
   width: 100%;
@@ -2379,7 +2399,56 @@ input {
 
 }
 
-.bg-transparent{
+.bg-transparent {
   background-color: transparent !important;
 
+}
+
+/* snn */
+
+.corosil-snn {
+  background-image: url('../images/IMG_3302.PNG');
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  padding: 15% 0%;
+
+
+}
+
+#carouselExample {
+  width: 400px;
+  position: relative;
+}
+
+.carousel-inner img {
+  border-radius: 25px;
+}
+
+.real-border {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  margin-left: -15% !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  margin-right: -15% !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #221A42;
+  border-radius: 50%;
+  padding: 3%;
 }

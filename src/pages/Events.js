@@ -87,17 +87,17 @@ const dispatch = useDispatch()
                   </p>
                 </div>
 
-                <div className="about-breadcum-content d-md-block">
+                {/* <div className="about-breadcum-content d-md-block">
                   <div className="row justify-content-center">
                     <div className="col-md-12 mt-5">
-                      {/* <h3 className="text-main-color">Sound of Christmas 2024</h3> */}
-                      {/* <h5>Your Ultimate Destination for Trendsetting Fashion</h5> */}
+                      <h3 className="text-main-color">Sound of Christmas 2024</h3>
+                      <h5>Your Ultimate Destination for Trendsetting Fashion</h5>
                       <a href="/event-details" className="button">
                         More Details
                       </a>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* <div className="waveContainer" style={{
