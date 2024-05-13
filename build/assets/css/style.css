@@ -642,7 +642,7 @@ width: 77%;
 }
 
 .sticky-logo-1 img{
-  width: 12%;
+  width: 20%;
 }
 
 .sticky-logo-flex-1 {
@@ -2250,7 +2250,7 @@ input {
   text-align: center;
   color: #FFF;
   font-size: 17px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(51, 41, 93, 0.9);
   font-family: Poppins;
   width: 80%;
   /* Adjust the width as needed */
@@ -2352,4 +2352,33 @@ input {
 
 .addtocart-btn:hover{
   background-color: rgba(34, 26, 66, 1) !important;
+}
+
+.sns-bg {
+  background-image: url('../images/IMG_3302.PNG');
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  padding: 15% 0%;
+
+
+}
+.sns-mob {
+  background-image: url('../images/IMG_3301.PNG');
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  padding: 15% 0%;
+
+}
+
+.bg-transparent{
+  background-color: transparent !important;
+
 }

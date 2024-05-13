@@ -28,33 +28,8 @@ const AllBrand = () => {
           </div>
           <div className="row justify-content-center">
             <div className="col-md-12   text-dark">
-              <div className="filter-buttons text-dark py-3 ">
-                <button className="active text-dark" data-filter="*">
-                  All
-                </button>
-                <button className="text-dark" data-filter=".koya">
-                  KOYA
-                </button>
-                <button className="text-dark" data-filter=".rj">
-                  RJ
-                </button>
-                <button className="text-dark" data-filter=".shooky">
-                  SHOOKY
-                </button>
-                <button className="text-dark" data-filter=".mang">
-                  MANG
-                </button>
-                <button className="text-dark" data-filter=".chimmy">
-                  CHIMMY
-                </button>
-                <button className="text-dark" data-filter=".tata">
-                  TATA
-                </button>
-                <button className="text-dark" data-filter=".cooky">
-                  COOKY
-                </button>
-              </div>
-              <div className="portfolio px-3  mt-3">
+              
+              <div className="portfolio px-3  mt-3 fw-bold">
                 <div className="row">
                   <div className="col-md-3 d-block mx-auto mb-3 koya ">
                     <img
@@ -62,8 +37,10 @@ const AllBrand = () => {
                       alt="Web Project 1"
                       className="d-block mx-auto mb-2 w-100"
                     />
-                    <span className="text-dark text-center">
-                      BT21© COOKY POCKET MIRROR ₹699.00
+                    <p className="fw-bold">Stationery</p>
+                   
+                    <span className="text-dark fw-normal">
+                    BUY_BT21 minini Figure Stamp TATA_SOLOMO
                     </span>
                   </div>
                   <div className="col-md-3 d-block mx-auto mb-3 rj ">
@@ -72,8 +49,11 @@ const AllBrand = () => {
                       alt="Web Project 1"
                       className="d-block mx-auto mb-2 w-100"
                     />
-                    <span className="text-dark text-center">
-                      BT21© COOKY POCKET MIRROR ₹699.00
+                    <p className="text-dark">
+                       Home Soft 
+                    </p>
+                    <span className="text-dark fw-normal">
+                    BT21 KOYA WRIST CUSHION
                     </span>
                   </div>
                   <div className="col-md-3 d-block mx-auto mb-3 shooky ">
@@ -82,9 +62,10 @@ const AllBrand = () => {
                       alt="Web Project 1"
                       className="d-block mx-auto mb-2 w-100"
                     />
-                    <span className="text-dark text-center">
-                      BT21© COOKY POCKET MIRROR ₹699.00
-                    </span>
+                    <p className="text-dark">
+                       Phone accessories 
+                    </p>
+                    <span className="text-dark fw-normal">BT21 KOYA CABLE WINDER</span>
                   </div>
                   <div className="col-md-3 d-block mx-auto mb-3 mang ">
                     <img
@@ -92,9 +73,11 @@ const AllBrand = () => {
                       alt="Web Project 1"
                       className="d-block mx-auto mb-2 w-100"
                     />
-                    <span className="text-dark text-center">
-                      BT21© COOKY POCKET MIRROR ₹699.00
-                    </span>
+                    <p className="text-dark">
+                       Keychain and magnet 
+                    </p>
+                    <span className="text-dark fw-normal">BT21 TATA ACRYL KEY RING</span>
+
                   </div>
                   <div className="col-md-3 d-block mx-auto mb-3 chimmy ">
                     <img
@@ -102,8 +85,9 @@ const AllBrand = () => {
                       alt="Web Project 1"
                       className="d-block mx-auto mb-2 w-100"
                     />
-                    <span className="text-dark text-center">
-                      BT21© COOKY POCKET MIRROR ₹699.00
+                    <p>Stickers  </p>
+                    <span className="text-dark fw-normal">
+                    BT21 COMIC POP DECO STICKER SET 
                     </span>
                   </div>
                   <div className="col-md-3 d-block mx-auto mb-3 tata ">
@@ -112,8 +96,11 @@ const AllBrand = () => {
                       alt="Web Project 1"
                       className="d-block mx-auto mb-2 w-100"
                     />
-                    <span className="text-dark text-center">
-                      BT21© COOKY POCKET MIRROR ₹699.00
+                    <p className="text-dark">
+                       Notebooks/Planners/Diary 
+                    </p>
+                    <span className="text-dark fw-normal">
+                    BT21 MANG MATHEMATICS NOTE
                     </span>
                   </div>
                   <div className="col-md-3 d-block mx-auto mb-3 cooky ">
@@ -122,8 +109,12 @@ const AllBrand = () => {
                       alt="Web Project 1"
                       className="d-block mx-auto mb-2 w-100"
                     />
-                    <span className="text-dark text-center">
-                      BT21© COOKY POCKET MIRROR ₹699.00
+                    
+                    <p className="text-dark">
+                       Photo album/frame/holders 
+                    </p>
+                    <span className="text-dark fw-normal">
+                    BUY_BT21 minini Glitter Key Holder KOYA_
                     </span>
                   </div>
                   <div className="col-md-3 d-block mx-auto mb-3 koya ">
@@ -132,8 +123,59 @@ const AllBrand = () => {
                       alt="Web Project 1"
                       className="d-block mx-auto mb-2 w-100"
                     />
-                    <span className="text-dark text-center">
-                      BT21© COOKY POCKET MIRROR ₹699.00
+                    <p>Pouches and Pencil Cases </p>
+                    <span className="text-dark fw-normal">
+                    BT21 RJ BIG ZIPPER PENCIL CASE
+                    </span>
+                  </div>
+                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
+                    <img
+                      src="assets/images/Rectangle 18.png"
+                      alt="Web Project 1"
+                      className="d-block mx-auto mb-2 w-100"
+                    />
+                    <p> Kitchen accessories </p>
+                    <span className="text-dark fw-normal">
+                    LINE FRIENDS ART APRON SET
+                    </span>
+                  </div>
+                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
+                    <img
+                      src="assets/images/Rectangle 18.png"
+                      alt="Web Project 1"
+                      className="d-block mx-auto mb-2 w-100"
+                    />
+                    <p className="text-dark">
+                    Bags 
+                    </p>
+                    <span className="text-dark fw-normal">
+                    BT21 KOYA BLACK ECO BAG 
+                    </span>
+                  </div>
+                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
+                    <img
+                      src="assets/images/Rectangle 18.png"
+                      alt="Web Project 1"
+                      className="d-block mx-auto mb-2 w-100"
+                    />
+                    <p className="text-dark">
+                    Fashion Accessory
+                    </p>
+                    <span className="text-dark fw-normal">
+                    BT21 BRUSH SET
+                    </span>
+                  </div>
+                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
+                    <img
+                      src="assets/images/Rectangle 18.png"
+                      alt="Web Project 1"
+                      className="d-block mx-auto mb-2 w-100"
+                    />
+                    <p className="text-dark">
+                    Apparels
+                    </p>
+                    <span className="text-dark fw-normal">
+                    BT21 MININI PAJAMAS SET YE S
                     </span>
                   </div>
                 </div>

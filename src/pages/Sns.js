@@ -18,7 +18,7 @@ const SNS = () => {
     <>
       <Header />
       <div
-        className="main g-0 p-0"
+        className="main g-0 p-0 mt-80"
         style={{
           background: 'url("assets/images/loyaltiy-bg.png")',
           backgroundSize: "contain",

@@ -285,9 +285,10 @@ input {
 }
 
 .news-latter-bg {
-  background-image: url('../images/news-latter-bg.png');
+  /* background-image: url('../images/news-latter-bg.png');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  background-color: #221A42;
   height: 100%;
   width: 100%;
   text-align: center;
@@ -2352,4 +2353,33 @@ input {
 
 .addtocart-btn:hover{
   background-color: rgba(34, 26, 66, 1) !important;
+}
+
+.sns-bg {
+  background-image: url('../images/IMG_3302.PNG');
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  padding: 15% 0%;
+
+
+}
+.sns-mob {
+  background-image: url('../images/IMG_3301.PNG');
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  padding: 15% 0%;
+
+}
+
+.bg-transparent{
+  background-color: transparent !important;
+
 }

@@ -49,15 +49,15 @@ const Awards = () => {
               </div>
             </div>
             <div className="col-md-4 text-center mb-3">
-              <p className="fs-1 fw-semibold mb-0">$10 Off </p>
+              <p className="fs-1 fw-semibold mb-0">₹10 Off </p>
               <p className="text-danger">500 POINTS</p>
             </div>
             <div className="col-md-4 text-center mb-3">
-              <p className="fs-1 fw-semibold mb-0">$30 Off </p>
+              <p className="fs-1 fw-semibold mb-0">₹30 Off </p>
               <p className="text-danger">100 POINTS</p>
             </div>
             <div className="col-md-4 text-center mb-3">
-              <p className="fs-1 fw-semibold mb-0">$100 Off </p>
+              <p className="fs-1 fw-semibold mb-0">₹100 Off </p>
               <p className="text-danger">2500 POINTS</p>
             </div>
           </div>
@@ -114,7 +114,7 @@ const Awards = () => {
             <div className="col-md-3 text-center mb-3 ">
               <div className="border  px-3 py-5 earn">
                 <p className="fs-1 fw-semibold mb-0">01 </p>
-                <p className="fs-2  mb-0">$1=1 POINTS</p>
+                <p className="fs-2  mb-0">₹1=1 POINTS</p>
                 <p className="lh-md fs-5 text-danger">Make a Purhcase</p>
               </div>
             </div>
@@ -241,8 +241,8 @@ const Awards = () => {
           <div className="row">
             <div className="d-block mx-auto col-md-7 bg-white py-4 px-4">
               <h5 className="text-dark text-center ">Refer a Friend </h5>
-              <h5 className="text-dark text-center fs-3 fw-bold">Give $5, Get $5 </h5>
-              <p className="text-dark text-center fs-6 fw-bold">Refer a friend and get $5 for you and a friend when they make a purchase. </p>
+              <h5 className="text-dark text-center fs-3 fw-bold">Give ₹5, Get ₹5 </h5>
+              <p className="text-dark text-center fs-6 fw-bold">Refer a friend and get ₹5 for you and a friend when they make a purchase. </p>
             <form method="" >
                   <input type="text" placeholder="Your Email Address*" className="px-3 mb-3 w-75 d-block mx-auto my-5" />
                       

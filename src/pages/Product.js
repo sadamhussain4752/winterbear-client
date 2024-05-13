@@ -296,9 +296,9 @@ const Product = () => {
                   <div className="col-md-3 sku-tag feature-item ">
                     <h4>Shipping Information</h4>
                     <p><strong>Courier:</strong>  2 - 4 days, free shipping</p>
-                    <p><strong>Local Shipping:</strong>  up to one week, $19.00</p>
-                    <p><strong>UPS Ground Shipping:</strong>  4 - 6 days, $29.00</p>
-                    <p><strong>Unishop Global Export:</strong> 3 - 4 days, $39.00</p>
+                    <p><strong>Local Shipping:</strong>  up to one week, ₹19.00</p>
+                    <p><strong>UPS Ground Shipping:</strong>  4 - 6 days, ₹29.00</p>
+                    <p><strong>Unishop Global Export:</strong> 3 - 4 days, ₹39.00</p>
                     <p>Secure payment method</p>
                   </div>
 

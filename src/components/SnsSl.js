@@ -6,11 +6,11 @@ import "owl.carousel/dist/assets/owl.theme.green.css";
 const SnsSl = () => {
   return (
     <section className="py-5">
-      <div className="container">
+      <div className="container ">
       
 
         <OwlCarousel
-          className="owl-theme"
+          className="owl-theme sns-bg"
           loop
           margin={10}
           autoplay
@@ -94,7 +94,6 @@ const SnsSl = () => {
            
           </div>
         </OwlCarousel>
-
         <p className="d-block mx-auto text-center my-3">
           <a href="#" className="button btn btn-dark text-uppercase  px-5 my-4">
             Redeem

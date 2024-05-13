@@ -51,7 +51,7 @@ const NewsPaper = ({ visible, onClose }) => {
                             Starting price:
                         </p>
                         <button className="btn bg-white font-news-btn">
-                            $99 USD
+                            ₹ 99 INR
                         </button>
                     </div>
 

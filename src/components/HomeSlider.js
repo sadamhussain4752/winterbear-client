@@ -5,17 +5,18 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import "owl.carousel/dist/assets/owl.theme.green.css";
 import constant from "../constant/constant";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const HomeSlider = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { data, loading, error } = useSelector((state) => state.data);
   console.log(data);
 
   function shopAllpag() {
-    const history = useHistory();
     return (
-      history.push('./components/shopall.js')
+      navigate('/shop')
     )
   }
 
