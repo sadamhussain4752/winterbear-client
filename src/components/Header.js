@@ -220,8 +220,8 @@ const Header = () => {
                       id="offcanvasExampleLabel"
                     >
                       <img
-                        src="../assets/images/winterbear-logo.png"
-                        className="d-block ps-md-2 img-fluid my-5 "
+                    src="../assets/images/Asset 19.png"
+                    className="d-block ps-md-2 img-fluid my-5 w-75"
                         alt="Logo"
                       />
                     </div>
@@ -396,7 +396,7 @@ const Header = () => {
                   href="/"
                 >
                   <img
-                    src="../assets/images/winterbear-logo.png"
+                    src="../assets/images/Asset 19.png"
                     className="d-block img-fluid w-75"
                     alt="Logo"
 
