@@ -18,7 +18,7 @@ import './innerstyle.css';
 
 
 import constant from "../constant/constant";
-const Home2 = () => {
+const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -40,10 +40,6 @@ const Home2 = () => {
   document.title = "Winter Bear";
   document.getElementsByTagName("META")[2].content = "Winter Bear";
 
-  // btn click
-
-  //  let heartselect =   document.getElementById('hertbtn');
-  //  heartselect.style.backgroundColor ="red"
 
 
   const handleNavigation = (productId) => {
@@ -57,7 +53,7 @@ const Home2 = () => {
 
   useEffect(() => {
     const handleSticky = () => {
-      const stickyElements = document.querySelectorAll('.sticky-logo-2');
+      const stickyElements = document.querySelectorAll('.sticky-logo-1');
 
       stickyElements.forEach((element) => {
         const offset = element.offsetTop;
@@ -77,17 +73,9 @@ const Home2 = () => {
       window.removeEventListener('scroll', handleSticky);
     };
   }, []);
-
-
-
-
-
-
   return (
     <>
-      <div className="">
-        <Header />
-      </div>
+      <Header />
       <>
         {data && data?.banners && <HomeSlider />}
         <div className="pt-5">
@@ -97,7 +85,7 @@ const Home2 = () => {
 
         <section className="py-5">
           <div className="container">
-            <div className="heading"> Shop By Category </div>
+            <div className="heading fs-1"> Category </div>
             <div className="row">
               {data &&
                 data.Categorys &&
@@ -106,7 +94,7 @@ const Home2 = () => {
                     <div className="collection-box" onClick={() => navigate(`/shop`)}>
                       <div className="image-container">
                         <img src={`${item.imageUrl}`} className="mb-0" />
-                        <h4>{item.name} </h4>
+                        <h4>{item.name}</h4>
                       </div>
                     </div>
                   </div>
@@ -115,7 +103,7 @@ const Home2 = () => {
           </div>
         </section>
         <section className="py-5 shop">
-          <div className="container">
+          <div className="container-fluid">
             <div className="row">
               <div className="col-md-12">
                 <div className="section-heading">
@@ -124,7 +112,6 @@ const Home2 = () => {
               </div>
             </div>
 
-
             <div className="row justify-content-center ">
               {productOldlist &&
                 productOldlist.productList &&
@@ -132,11 +119,10 @@ const Home2 = () => {
                   if (!item || !item.products || item.products.length === 0)
                     return null;
                   return (
-                    // <div key={`stickyBody${index}`} className="sticky-body row">
-                    <div key={`stickyBody${index}`} className="row">
-                      {/* <div className={`col-md-2 sticky-logo-flex-${index + 1} g-0 bg-transparent sticky`}> */}
-                      <div className={`col-md-2  g-0 bg-transparent sticky d-none`} >
-                        <div className="sticky-logo-2">
+                    <div key={`stickyBody${index}`} className="sticky-body row">
+
+                      <div className={`col-md-2 sticky-logo-flex-${index + 1} g-0 bg-transparent sticky`}>
+                        <div className="sticky-logo-1">
                           <img
                             src={`${item.brand.imageUrl}`}
                             className="w-75 d-block mx-auto"
@@ -147,26 +133,13 @@ const Home2 = () => {
                         </div>
                       </div>
 
-                      <div className="mb-3" id="sticky2">
-                        <div className="sticky-logo-2">
-                          <img
-                            src={`${item.brand.imageUrl}`}
-                            className="d-block mx-auto sticky-log2"
-                          />
-                        </div>
-                        {/* <p className="sticky-logo-text mt-3">
-                            View the {item.brand.name}
-                          </p> */}
-                      </div>
-
                       <div
-                        className="col-md-12 shop-by tile-1 px-4"
+                        className="col-md-10 shop-by tile-1"
                         id={`sticky1${index}`}
                       >
-
                         <div className="container-fluid ">
                           <ul
-                            className="nav nav-pills  nav-fill shop-by-tab py-3"
+                            className="nav nav-pills  nav-fill shop-by-tab"
                             id="pills-tab"
                             role="tablist"
                           >
@@ -265,4 +238,4 @@ const Home2 = () => {
   );
 };
 
-export default Home2;
+export default Home;

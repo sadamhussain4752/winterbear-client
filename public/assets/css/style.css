@@ -735,7 +735,7 @@ width: 77%;
 
 .sticky-body {
   position: sticky;
-  top: 100px;
+  top: 0px;
 }
 
 /************************* About Page *************************/

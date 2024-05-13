@@ -21,7 +21,7 @@ const HomeSlider = () => {
   }
 
   return (
-    <div className="mt-80">
+    <div className="">
       <OwlCarousel
         className="owl-theme"
         loop
