@@ -24,7 +24,7 @@ import Privacypolicy from "./pages/Privacypolicy";
 import Terms from "./pages/Terms";
 import Categorylist from "./pages/Categorylist";
 import StoreLocator from "./pages/StoreLocator";
-import Home2 from "./pages/Home2";
+import Home2 from "./pages/Homeold";
 
 const App = () => {
   return (
@@ -43,7 +43,6 @@ const App = () => {
           <Route path="/events" element={<EventsSection />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/account" element={<Account />} />
           <Route path="/cart" element={<Checkout />} />
           <Route path="/awards" element={<Awards />} />
@@ -58,7 +57,7 @@ const App = () => {
           <Route path="/term" element={<Terms/>}/>
           <Route path="/store-locator" element={<Stores/>}/>
 
-          <Route path="/Home2" element={<Home2/>}/>
+          <Route path="/home-old" element={<Home2/>}/>
 
 
         </Routes>

@@ -2409,3 +2409,7 @@ input {
   width: 18%;
   margin-top: 3%;
 }
+
+.bg-wt {
+  background-color: #ffffff !important;
+}

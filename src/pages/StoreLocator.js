@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./StoreLocator.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Input, Button, Checkbox } from "antd";
+import { Input, Button } from "antd";
 
 function StoreLocator() {
     const [map, setMap] = useState(null);
@@ -14,7 +14,7 @@ function StoreLocator() {
         { name: 'Winterbear Bangalore - HSR Layout', address: 'Ground Floor, No. 1461/1784, Venlak Arcade, 19th Main Rd, Vanganahalli, 1st Sector, HSR Layout, Bengaluru, Karnataka 560102', lat: 12.914548, lng: 77.644889 }
     ]);
     const [filter, setFilter] = useState('');
-    const [filteredStores, setFilteredStores] = useState([]);
+    const [filtermap, setFilterMap] = useState([]);
 
     useEffect(() => {
         initMap();
@@ -29,17 +29,15 @@ function StoreLocator() {
         setMap(newMap);
 
         stores.forEach(store => {
-            // Define the path to your custom marker icon
             const icon = {
-                url: "../assets/images/Winterbear-Favicon32x32.png", // Replace 'path/to/your/icon.png' with the actual path to your icon
-                scaledSize: new window.google.maps.Size(25, 25) // Adjust the size of the icon as needed
+                url: "../assets/images/Winterbear-Favicon32x32.png", // Replace 
+                scaledSize: new window.google.maps.Size(25, 25)
             };
             const marker = new window.google.maps.Marker({
                 position: { lat: store.lat, lng: store.lng },
                 map: newMap,
                 title: store.name,
-                icon: icon // Set the custom icon for the marker
-
+                icon: icon
             });
 
             marker.addListener('click', () => {
@@ -48,8 +46,6 @@ function StoreLocator() {
 
             setMarkers(prevMarkers => [...prevMarkers, marker]);
         });
-
-        setFilteredStores(stores);
     }
 
     function displayStoreInfo(store) {
@@ -64,17 +60,15 @@ function StoreLocator() {
         const filteredStores = stores.filter(store =>
             store.name.toLowerCase().includes(searchText) || store.address.toLowerCase().includes(searchText)
         );
+        if (searchText.length > 0) {
+            setFilterMap(filteredStores)
 
-        setFilteredStores(filteredStores);
-
-        const storeInfoDiv = document.getElementById('storeInfo');
-
-        if (filteredStores.length === 0) {
-            storeInfoDiv.innerHTML = '<p>No matching stores found.</p>';
         } else {
-            storeInfoDiv.innerHTML = '';
-            filteredStores.forEach(store => displayStoreInfo(store));
+            setFilterMap([])
+
         }
+
+
     }
 
     return (
@@ -83,17 +77,21 @@ function StoreLocator() {
             <div className='section my-5'>
                 <div className='container py-5'>
                     <div className='row'>
-                    <div className="section-heading">
-                                <h6 className="theme-bg-text small">Our Stores</h6>
-                            </div>
+                        <div className="section-heading">
+                            <h6 className="theme-bg-text small">Our Stores</h6>
+                        </div>
                         <div className='col-md-8 mb-3'>
-                           
                             <div id="map" style={{ height: '450px', width: '100%' }}></div>
                         </div>
                         <div className='col-md-4'>
                             <h3>Find Your Preferred Store</h3>
 
-                            <input type="text" placeholder="Search for stores.." className='my-2 px-3 Disabled readonly bg-white' onChange={filterStores} value={filter} />
+                            <Input
+                                placeholder="Search for stores.."
+                                className='my-2 px-3 Disabled readonly bg-white'
+                                onChange={filterStores}
+                                value={filter}
+                            />
 
                             <Button
                                 onClick={() => {
@@ -106,10 +104,16 @@ function StoreLocator() {
                             </Button>
 
                             <div id="storeInfo" style={{ height: '500px', padding: '10px', boxSizing: 'border-box' }}>
-                                {filteredStores.map((store, index) => (
+                                {filtermap.map((store, index) => (
                                     <div key={index}>
-                                        <h5>{store.name}</h5>
-                                        <p>{store.address}</p>
+                                        <h5 className='fs-5'>{store.name}</h5>
+                                        <p className='fs-6'>{store.address}</p>
+                                        <Button
+
+                                            className="btn button rounded-pill w-50 ht-10 mb-2"
+                                            onClick={() => {
+                                                window.open(`https://maps.google.com/?q=${store.lat},${store.lng}`);
+                                            }}> Visit store</Button>
                                     </div>
                                 ))}
                             </div>

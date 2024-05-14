@@ -34,7 +34,7 @@ const About = () => {
           <div className="row justify-content-center">
             <div className="col-md-12">
               <div className="section-heading">
-                <h3 className="theme-bg-text ">About us</h3>
+                <h3 className="theme-bg-text  ">About us</h3>
               </div>
             </div>
             <div className="col-md-8 text-center">
