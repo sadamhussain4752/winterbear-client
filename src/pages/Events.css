@@ -7,7 +7,7 @@
   width: 18.7%;
   height: 6.0%;
   z-index: 2;
-  background: red;
+  background: transparent;
  }
  .second-div { position: absolute;
   left: 32%;
@@ -15,7 +15,7 @@
   width: 21%;
   height: 7%;
   z-index: 2;
-  background: green;
+  background: transparent;
  }
  }
 @media only screen and (min-width:1376px) and (max-width:1430px)  {
@@ -26,7 +26,7 @@
  width: 18.7%;
  height: 6.0%;
  z-index: 2;
- background: red;
+ background: transparent;
 }
 .second-div { position: absolute;
  left: 32%;
@@ -34,7 +34,7 @@
  width: 21%;
  height: 7%;
  z-index: 2;
- background: green;
+ background: transparent;
 }
 }
 
@@ -46,7 +46,7 @@
   width: 16.7%;
   height: 6.0%;
   z-index: 2;
-  background: red;
+  background: transparent;
  }
  .second-div { position: absolute;
   left: 34.5%;
@@ -54,7 +54,7 @@
   width: 18%;
   height: 7%;
   z-index: 2;
-  background: green;
+  background: transparent;
  }
 }
 @media only screen and (min-width:1601px) and (max-width:1980px)  {
@@ -64,7 +64,7 @@
   width: 16%;
   height: 5.8%;
   z-index: 2;
-  background: red;
+  background: transparent;
  }
  .second-div { position: absolute;
   left: 34%;
@@ -72,7 +72,7 @@
   width: 19%;
   height: 7.0%;
   z-index: 2;
-  background: green;
+  background: transparent;
  }
  }
  
@@ -84,7 +84,7 @@
   width: 40.7%;
   height: 3.75%;
   z-index: 2;
-  background: red;
+  background: transparent;
  }
  .second-div { position: absolute;
   left: 12.88%;
@@ -92,7 +92,7 @@
   width: 42%;
   height: 4%;
   z-index: 2;
-  background: green;
+  background: transparent;
  }
  }
  @media only screen and (min-width:375px) and (max-width:413px)  {
@@ -103,7 +103,7 @@
    width: 41.5%;
    height: 5.75%;
    z-index: 2;
-   background: red;
+   background: transparent;
   }
   .second-div { position: absolute;
    left: 11.0%;
@@ -111,7 +111,7 @@
    width: 45%;
    height: 6.25%;
    z-index: 2;
-   background: green;
+   background: transparent;
   }
   }
 
@@ -123,7 +123,7 @@
     width: 41.2%;
     height: 5.5%;
     z-index: 2;
-    background: red;
+    background: transparent;
    }
    .second-div { position: absolute;
     left: 11.0%;
@@ -131,6 +131,20 @@
     width: 45%;
     height: 6.5%;
     z-index: 2;
-    background: green;
+    background: transparent;
    }
    }
+   .first-div .months-row td {text-align: center !important;background: #fff;text-align: center !important;
+    margin: 4px;
+    display: inline;
+    padding: 0 4.5px;
+    font-size: 11px !important;
+  }
+  .dates-table tr td {text-align: center !important;
+   margin: 3px;
+   display: inline;
+   padding: 0 5px;
+   font-size: 11px !important;font-weight: bold;}
+  .dates-table  {display: inline-block;height:65px;overflow-x: hidden;overflow-y: scroll; width: 100%;margin-top: 2px; }
+  
+  

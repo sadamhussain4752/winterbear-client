@@ -156,12 +156,9 @@ const EventsSection = () => {
         </div>
       </section>
       <section>
-        <div className="container py-5 my" style={{position:'relative'}}>
+        <div className="container py-5 my" style={{ position: "relative" }}>
           <div className="row">
-            <div
-              className="col-md-12 d-flex justify-content-center align-items-center my-3"
-            
-            >
+            <div className="col-md-12 d-flex justify-content-center align-items-center my-3">
               <div>
                 <img
                   src="assets/images/Category.png"
@@ -169,20 +166,135 @@ const EventsSection = () => {
                   className="w-100"
                 />
               </div>
-              <div
-              id="first-div"  className="first-div"
-                href=""
-                title=""
-               
-              >
-                hello 1
+              <div id="first-div" className="first-div" href="" title="">
+                <table
+                  className="months-table w-100 py-2  bg-transparent "
+                  style={{ marginTop: "1px ", padding: "5px" }}
+                >
+                  <tbody>
+                    <tr class="months-row">
+                      <td className="month text-dark rounded-pill">Jan</td>
+                      <td className="month text-dark rounded-pill ">Feb</td>
+                      <td className="month text-dark rounded-pill">Mar</td>
+                      <td className="month text-dark rounded-pill">Apr</td>
+                      <td className="month text-dark rounded-pill">May</td>
+                      <td className="month text-dark rounded-pill">Jun</td>
+                    </tr>
+                    <tr className="months-row">
+                      <td className="month text-dark rounded-pill">Jul</td>
+                      <td className="month text-dark rounded-pill">Aug</td>
+                      <td className="month text-dark rounded-pill">Sep</td>
+                      <td className="month text-dark rounded-pill">Oct</td>
+                      <td className="month text-dark rounded-pill">Nov</td>
+                      <td className="month text-dark rounded-pill">Dec</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div className="d-flex align-items-center text-center mt-3 w-100 d-none">
+                  <table
+                    className="single-months-table w-100 py-2  "
+                    style={{ marginTop: "-3px ", padding: "1px" }}
+                  >
+                    <tbody>
+                      <tr class="single-months-row">
+                        <td className="single-month text-dark px-3 py-2  fs-2  rounded-pill text-center w-100">
+                          January
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <div  id="second-div" className="second-div"
+              <div
+                id="second-div"
+                className="second-div d-flex align-items-center"
                 href=""
                 title=""
-               
               >
-                hello 2
+                <div>
+                  <table
+                    className="months-table w-100 py-2 bg-transparent "
+                    style={{ marginTop: "1px ", padding: "3px" }}
+                  >
+                    <tbody>
+                      <tr class="months-row">
+                        <td>
+                          <span
+                            className="left-button fa fa-chevron-left"
+                            id="prev"
+                          ></span>
+                        </td>
+                        <td className="month text-dark px-3 fs-5">2024</td>
+                        <td className="month text-dark px-3 fs-5">2025</td>
+                        <td className="month text-dark px-3 fs-5">2026</td>
+
+                        <td>
+                          <span
+                            className="right-button fa fa-chevron-right"
+                            id="next"
+                          ></span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <table className="dates-table w-100 d-none">
+                    <tbody className="tbody">
+                      <tr className="table-row" />
+                      <tr className="table-row">
+                        <td className="table-date nil"> &nbsp; </td>
+                        <td className="table-date nil">&nbsp;</td>
+                        <td className="table-date nil">&nbsp;</td>
+                        <td className="table-date nil">&nbsp;</td>
+                        <td className="table-date active-date">1</td>
+                        <td className="table-date">2</td>
+                        <td className="table-date">3</td>
+                      </tr>
+                      <tr className="table-row">
+                        <td className="table-date">4</td>
+                        <td className="table-date">5</td>
+                        <td className="table-date">6</td>
+                        <td className="table-date">7</td>
+                        <td className="table-date">8</td>
+                        <td className="table-date">9</td>
+                        <td className="table-date">10</td>
+                      </tr>
+                      <tr className="table-row">
+                        <td className="table-date">11</td>
+                        <td className="table-date">12</td>
+                        <td className="table-date">13</td>
+                        <td className="table-date">14</td>
+                        <td className="table-date">15</td>
+                        <td className="table-date">16</td>
+                        <td className="table-date">17</td>
+                      </tr>
+                      <tr className="table-row">
+                        <td className="table-date">18</td>
+                        <td className="table-date">19</td>
+                        <td className="table-date">20</td>
+                        <td className="table-date">21</td>
+                        <td className="table-date">22</td>
+                        <td className="table-date">23</td>
+                        <td className="table-date">24</td>
+                      </tr>
+                      <tr className="table-row">
+                        <td className="table-date">25</td>
+                        <td className="table-date">26</td>
+                        <td className="table-date">27</td>
+                        <td className="table-date">28</td>
+                        <td className="table-date">29</td>
+                        <td className="table-date">30</td>
+                        <td className="table-date">31</td>
+                      </tr>
+                      <tr className="table-row">
+                        <td className="table-date nil" />
+                        <td className="table-date nil" />
+                        <td className="table-date nil" />
+                        <td className="table-date nil" />
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
