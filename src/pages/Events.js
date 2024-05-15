@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Events.css";
 const EventsSection = () => {
   const [activeTab, setActiveTab] = useState("div1");
+  const [activeDays, setActiveDays] = useState("");
+
   const dispatch = useDispatch();
 
   const showDiv = (divId) => {
@@ -117,11 +119,11 @@ const EventsSection = () => {
 
           <div className="row justify-content-center text-center ">
             <div className="position-relative">
-              <img
+              {/* <img
                 src={require("../constant/images/EventPageAnimation.gif")}
                 alt="Upcoming Sale"
                 className="img-fluid pt-5 mt-5"
-              />
+              /> */}
               <div className="col-md-12 row d-flex justify-content-center position-absolute top-0 ">
                 <div className=" col-md-9 row d-flex justify-content-center event-tap ">
                   <p className="col-md-3 event-text-color">Upcoming Events</p>
@@ -171,24 +173,32 @@ const EventsSection = () => {
                   className="months-table w-100 py-2  bg-transparent "
                   style={{ marginTop: "1px ", padding: "5px" }}
                 >
-                  <tbody>
-                    <tr class="months-row">
-                      <td className="month text-dark rounded-pill">Jan</td>
-                      <td className="month text-dark rounded-pill ">Feb</td>
-                      <td className="month text-dark rounded-pill">Mar</td>
-                      <td className="month text-dark rounded-pill">Apr</td>
-                      <td className="month text-dark rounded-pill">May</td>
-                      <td className="month text-dark rounded-pill">Jun</td>
+                  {activeDays === '' ? <tbody>
+                    <tr className="months-row">
+                      <td onClick={() => setActiveDays("January")} className="month text-dark rounded-pill">Jan</td>
+                      <td onClick={() => setActiveDays("February")} className="month text-dark rounded-pill">Feb</td>
+                      <td onClick={() => setActiveDays("March")} className="month text-dark rounded-pill">Mar</td>
+                      <td onClick={() => setActiveDays("April")} className="month text-dark rounded-pill">Apr</td>
+                      <td onClick={() => setActiveDays("May")} className="month text-dark rounded-pill">May</td>
+                      <td onClick={() => setActiveDays("June")} className="month text-dark rounded-pill">Jun</td>
                     </tr>
                     <tr className="months-row">
-                      <td className="month text-dark rounded-pill">Jul</td>
-                      <td className="month text-dark rounded-pill">Aug</td>
-                      <td className="month text-dark rounded-pill">Sep</td>
-                      <td className="month text-dark rounded-pill">Oct</td>
-                      <td className="month text-dark rounded-pill">Nov</td>
-                      <td className="month text-dark rounded-pill">Dec</td>
+                      <td onClick={() => setActiveDays("July")} className="month text-dark rounded-pill">Jul</td>
+                      <td onClick={() => setActiveDays("August")} className="month text-dark rounded-pill">Aug</td>
+                      <td onClick={() => setActiveDays("September")} className="month text-dark rounded-pill">Sep</td>
+                      <td onClick={() => setActiveDays("October")} className="month text-dark rounded-pill">Oct</td>
+                      <td onClick={() => setActiveDays("November")} className="month text-dark rounded-pill">Nov</td>
+                      <td onClick={() => setActiveDays("December")} className="month text-dark rounded-pill">Dec</td>
                     </tr>
-                  </tbody>
+                  </tbody> : <tbody>
+                    <tr class="single-months-row">
+                      <td className="single-month text-dark fs-2  rounded-pill text-center w-100">
+                        {activeDays}
+                      </td>
+                    </tr>
+                  </tbody>}
+
+
                 </table>
                 <div className="d-flex align-items-center text-center mt-3 w-100 d-none">
                   <table
@@ -224,9 +234,29 @@ const EventsSection = () => {
                             id="prev"
                           ></span>
                         </td>
-                        <td className="month text-dark px-3 fs-5">2024</td>
-                        <td className="month text-dark px-3 fs-5">2025</td>
-                        <td className="month text-dark px-3 fs-5">2026</td>
+                        {activeDays === "" ? <>
+                          <td className="month text-dark px-3  event-image">2024</td>
+                          <td className="month text-dark px-3  event-image">2025</td>
+                          <td className="month text-dark px-3  event-image">2026</td></> :
+                          <>
+                            <tr className="table-row">
+
+                            <td className="month text-dark px-3  event-image-days">1</td>
+                            <td className="month text-dark px-3  event-image-days">2</td>
+                            <td className="month text-dark px-3  event-image-days">3</td>
+                            <td className="month text-dark px-3  event-image-days">4</td>
+                            <td className="month text-dark px-3  event-image-days">5</td>
+                            </tr>
+                            <tr className="table-row">
+                            <td className="month text-dark px-3  event-image-days">6</td>
+                            <td className="month text-dark px-3  event-image-days">7</td>
+                            <td className="month text-dark px-3  event-image-days">8</td>
+                            <td className="month text-dark px-3  event-image-days">9</td>
+                            <td className="month text-dark px-3  event-image-days">10</td>
+                            </tr>
+</>
+                        }
+
 
                         <td>
                           <span
@@ -286,12 +316,7 @@ const EventsSection = () => {
                         <td className="table-date">30</td>
                         <td className="table-date">31</td>
                       </tr>
-                      <tr className="table-row">
-                        <td className="table-date nil" />
-                        <td className="table-date nil" />
-                        <td className="table-date nil" />
-                        <td className="table-date nil" />
-                      </tr>
+                      
                     </tbody>
                   </table>
                 </div>

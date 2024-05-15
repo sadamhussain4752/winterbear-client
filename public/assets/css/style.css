@@ -2383,3 +2383,42 @@ input {
   background-color: transparent !important;
 
 }
+
+.single-months-row {
+  background-color: #ffffff !important;
+
+}
+
+.event-image{
+  background-image: url("../images/HeartShape.png");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+  height: 100px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.event-image:hover{
+  background-size: 80% !important;
+  font-size: 13px !important;
+
+}
+
+
+.event-image-days{
+  background-image: url("../images/HeartShape.png");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+  height: 35px;
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.event-image-days:hover{
+  background-size: 80% !important;
+  font-size: 13px !important;
+
+}
