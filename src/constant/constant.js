@@ -5,4 +5,4 @@ export default{
     //baseUrl: "http://ec2-13-48-245-166.eu-north-1.compute.amazonaws.com:5000/",
     // baseUrl:"https://api.birlaadvaya.xyz/"
 
-}
+}   
