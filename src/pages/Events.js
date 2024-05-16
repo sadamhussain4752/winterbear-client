@@ -236,10 +236,15 @@ const EventsSection = () => {
                             id="prev"
                           ></span>
                         </td>
-                        {activeDays === "" ? <>
+                        {activeDays === "" ? 
+                        <>
+                          <tr className="table-row">
+
                           <td className="month text-dark px-3  event-image">2024</td>
                           <td className="month text-dark px-3  event-image">2025</td>
-                          <td className="month text-dark px-3  event-image">2026</td></> :
+                          <td className="month text-dark px-3  event-image">2026</td>
+                          </tr>
+                          </> :
                           <>
                             <tr className="table-row">
 

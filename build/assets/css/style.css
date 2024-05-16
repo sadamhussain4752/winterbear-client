@@ -23,6 +23,10 @@ body {
   /* 16px */
 }
 
+.header-logo {
+  width: 75%;
+}
+
 .main-header {
   /*background-color: #221A42;
 padding: 15px 0;*/
@@ -350,6 +354,7 @@ input {
   border-radius: 40px;
   background: #221A42;
   color: #FFE5E5;
+  border: 1.5px solid white !important;
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -358,7 +363,6 @@ input {
   width: 120px;
   height: 45px;
   right: 25px;
-  border: none;
 }
 
 .social i {
@@ -369,6 +373,10 @@ input {
 footer {
   /* background: #221A42; */
   padding: 60px 0 150px 0;
+}
+
+.p-text:hover {
+  font-weight: 300 !important;
 }
 
 .footer-heading h4 {
@@ -382,6 +390,13 @@ footer {
   /* 33.6px */
   letter-spacing: 0.56px;
   text-transform: uppercase;
+}
+
+.brand-namee {
+  /* font-family: Poppins; */
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 
@@ -688,11 +703,11 @@ width: 77%;
   margin-top: 42%;
 }
 
-.pos-rel{
+.pos-rel {
   position: relative;
 }
 
-.pos-abss{
+.pos-abss {
   position: absolute;
   top: 0%;
   right: 40%;
@@ -700,8 +715,8 @@ width: 77%;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  color:white;
-    /* transform: translate(-50%,0%); */
+  color: white;
+  /* transform: translate(-50%,0%); */
 }
 
 .sticky-logo-flex-8 {
@@ -987,7 +1002,7 @@ width: 77%;
 }
 
 .mt-80 {
-  margin-top: 80px !important;
+  margin-top: 30px !important;
 }
 
 .mt-120 {
@@ -1643,7 +1658,7 @@ input {
 
 }
 
-.person-icon-img{
+.person-icon-img {
   border-radius: 50%;
 }
 
@@ -2284,7 +2299,7 @@ input {
   align-items: start;
   text-align: start;
   line-height: 20px !important;
-
+  cursor: pointer;
 
 }
 
@@ -2312,10 +2327,11 @@ input {
 
 .shop-all-cards {
   width: auto;
-  height: 50px;
+  /* height: 50px; */
   text-align: left !important;
-  padding-top: 20px;
-  margin-top: 20px;
+  /* padding-top: 20px;
+  margin-top: 20px; */
+  cursor: pointer;
 
 
 }
@@ -2324,7 +2340,7 @@ input {
 
 .shop-all-cards img {
   width: auto;
-  height: 40px;
+  height: 35px;
   text-align: center;
 
   /* margin-top: 50px; */
@@ -2332,7 +2348,7 @@ input {
 
 .shop-all-cards p {
   font-family: Poppins;
-  font-size: 12px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
 }
@@ -2371,9 +2387,59 @@ input {
   border-radius: 10px !important;
 }
 
-.addtocart-btn:hover {
+.home-product {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-product .addtocart-btn {
+  display: block;
+  position: absolute;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+
+.product-card .addtocart-btn {
+  display: block;
+  position: absolute;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+
+.home-product:hover .addtocart-btn {
+  bottom: 40%;
+  opacity: 1;
+  width: 75%;
+  padding: 4% 0% !important;
   background-color: rgba(34, 26, 66, 1) !important;
 }
+
+
+.product-card:hover .addtocart-btn {
+  bottom: 40%;
+  opacity: 1;
+  width: 75%;
+  padding: 4% 0% !important;
+  background-color: rgba(34, 26, 66, 1) !important;
+}
+
+/* .home-product:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+} */
 
 .sns-bg {
   background-image: url('../images/IMG_3302.PNG');
@@ -2405,8 +2471,7 @@ input {
 
 }
 
-
-.sticky-log2{
+.sticky-log2 {
   width: 18%;
   margin-top: 3%;
 }
@@ -2414,41 +2479,73 @@ input {
 .bg-wt {
   background-color: #ffffff !important;
 }
+
 .single-months-row {
   background-color: #ffffff !important;
 
 }
 
-.event-image{
+.event-image {
   background-image: url("../images/HeartShape.png");
   background-repeat: no-repeat;
   background-size: 75%;
   background-position: center;
   height: 100px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
 }
 
-.event-image:hover{
+.event-image:hover {
   background-size: 80% !important;
   font-size: 13px !important;
 
 }
 
 
-.event-image-days{
+.event-image-days {
   background-image: url("../images/HeartShape.png");
   background-repeat: no-repeat;
   background-size: 75%;
   background-position: center;
   height: 35px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   text-align: center;
+  margin-bottom: 10px;
 }
 
-.event-image-days:hover{
+.event-image-days:hover {
   background-size: 80% !important;
   font-size: 13px !important;
 
+}
+
+@media only screen and (max-width:760px) {
+  .header-logo {
+    width: 100%;
+  }
+
+  .image-container img {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* 
+  .image-container{
+    margin-top: 0%;
+  } */
+
+
+  .fa-regular .fa-bookmark {
+    font-size: 20px !important;
+  }
+
+  .image-container h4 {
+    font-size: 12px;
+  }
+
+}
+
+.productdet {
+  width: 30%;
 }

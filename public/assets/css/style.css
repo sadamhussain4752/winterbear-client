@@ -2491,7 +2491,7 @@ input {
   background-size: 75%;
   background-position: center;
   height: 100px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
 }
 
@@ -2508,9 +2508,10 @@ input {
   background-size: 75%;
   background-position: center;
   height: 35px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .event-image-days:hover {
