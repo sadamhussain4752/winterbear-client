@@ -119,11 +119,11 @@ const EventsSection = () => {
 
           <div className="row justify-content-center text-center ">
             <div className="position-relative">
-              {/* <img
+              <img
                 src={require("../constant/images/EventPageAnimation.gif")}
                 alt="Upcoming Sale"
                 className="img-fluid pt-5 mt-5"
-              /> */}
+              />
               <div className="col-md-12 row d-flex justify-content-center position-absolute top-0 ">
                 <div className=" col-md-9 row d-flex justify-content-center event-tap ">
                   <p className="col-md-3 event-text-color">Upcoming Events</p>
@@ -169,6 +169,7 @@ const EventsSection = () => {
                 />
               </div>
               <div id="first-div" className="first-div" href="" title="">
+                <h1 className="text-main-color">Trending</h1>
                 <table
                   className="months-table w-100 py-2  bg-transparent "
                   style={{ marginTop: "1px ", padding: "5px" }}
