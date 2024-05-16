@@ -16,7 +16,7 @@ const HomeSlider = () => {
     navigate(`/brand/${productId}`);
   };
   return (
-    <section className="py-5">
+    <section className="pt-md-5 pb-md-5 pt-5 pb-0">
       <div className="container-fluid px-3">
         <OwlCarousel
           className="owl-theme"

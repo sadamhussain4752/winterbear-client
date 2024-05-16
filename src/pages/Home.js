@@ -90,7 +90,7 @@ const Home2 = () => {
       </div>
       <>
         {data && data?.banners && <HomeSlider />}
-        <div className="pt-5">
+        <div className="pt-md-5">
           {data && data?.Brands && <BrandSlider />}
         </div>
 
@@ -102,7 +102,7 @@ const Home2 = () => {
               {data &&
                 data.Categorys &&
                 data.Categorys.map((item) => (
-                  <div className="col-md-3 mt-2">
+                  <div className="col-md-3 col-6 mt-2">
                     <div className="collection-box" onClick={() => navigate(`/shop`)}>
                       <div className="image-container">
                         <img src={`${item.imageUrl}`} className="mb-0" />

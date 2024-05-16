@@ -23,6 +23,10 @@ body {
   /* 16px */
 }
 
+.header-logo {
+  width: 75%;
+}
+
 .main-header {
   /*background-color: #221A42;
 padding: 15px 0;*/
@@ -350,6 +354,7 @@ input {
   border-radius: 40px;
   background: #221A42;
   color: #FFE5E5;
+  border: 1.5px solid white !important;
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -358,7 +363,6 @@ input {
   width: 120px;
   height: 45px;
   right: 25px;
-  border: none;
 }
 
 .social i {
@@ -369,6 +373,10 @@ input {
 footer {
   /* background: #221A42; */
   padding: 60px 0 150px 0;
+}
+
+.p-text:hover {
+  font-weight: 300 !important;
 }
 
 .footer-heading h4 {
@@ -688,11 +696,11 @@ width: 77%;
   margin-top: 42%;
 }
 
-.pos-rel{
+.pos-rel {
   position: relative;
 }
 
-.pos-abss{
+.pos-abss {
   position: absolute;
   top: 0%;
   right: 40%;
@@ -700,8 +708,8 @@ width: 77%;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  color:white;
-    /* transform: translate(-50%,0%); */
+  color: white;
+  /* transform: translate(-50%,0%); */
 }
 
 .sticky-logo-flex-8 {
@@ -1643,7 +1651,7 @@ input {
 
 }
 
-.person-icon-img{
+.person-icon-img {
   border-radius: 50%;
 }
 
@@ -2405,8 +2413,7 @@ input {
 
 }
 
-
-.sticky-log2{
+.sticky-log2 {
   width: 18%;
   margin-top: 3%;
 }
@@ -2451,4 +2458,32 @@ input {
   background-size: 80% !important;
   font-size: 13px !important;
 
+}
+@media only screen and (max-width:760px) {
+  .header-logo {
+    width: 100%;
+  }
+
+  .image-container img {
+    width: 100px;
+    height: 100px;
+  }
+/* 
+  .image-container{
+    margin-top: 0%;
+  } */
+
+
+  .fa-regular .fa-bookmark{
+    font-size: 20px !important;
+  }
+
+  .image-container h4 {
+    font-size: 12px;
+  }
+
+}
+
+.productdet{
+  width: 30%;
 }

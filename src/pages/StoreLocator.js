@@ -100,7 +100,7 @@ function StoreLocator() {
                                 className="btn button rounded w-100 ht-10"
                                 type="primary"
                             >
-                                Find a preferred store
+                                Find a preferred store <i class="fa-solid fa-map ms-4"></i>
                             </Button>
 
                             <div id="storeInfo" style={{ height: '500px', padding: '10px', boxSizing: 'border-box' }}>
