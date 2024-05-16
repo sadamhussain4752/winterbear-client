@@ -7,6 +7,7 @@ import "./Loyalty.css";
 const Loyalty = () => {
   const backgroundImageStyle = {
     background: '#9B91C4',
+    backgroundImage: 'url("../assets/images/Loyalty-banner.png")',
     backgroundSize: "100% 100%",
     postion: "relative",
   };
@@ -29,7 +30,7 @@ const Loyalty = () => {
           <div className="award">
             <div className="row ">
               <div className="offset-md-2 my-md-5 awards">
-                <div>
+                <div className="d-none">
                   <h3 className="text-white fs-1 fw-bold">
                     Join Our Community{" "}
                   </h3>

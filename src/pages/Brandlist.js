@@ -152,15 +152,26 @@ const Brandlist = () => {
 
       <section className="py-5 shop">
         <div className="container-fluid">
-          <div className="row">
+          <div className="row ">
             <div className="col-md-12 mt-80">
               <div className="section-heading">
                 {productOldlist && subBrandlist.length > 0 && (
 
                   <div className="align-items-center full-banner">
-                    <h3 className="theme-bg-text">{subBrandlist[0].brand.name}</h3>
 
-                    <img src={subBrandlist[0].brand.imageUrl} alt={subBrandlist[0].brand.name} />
+                    {/* <h3 className="theme-bg-text">{subBrandlist[0].brand.name}</h3> */}
+                    <div className="row px-0">
+                      {subBrandlist[0]?.brand.banner_img.map((img_item) => {
+
+                        return (
+                          <div className="col-lg-4 px-0">
+                            <img src={img_item} alt={img_item} className="brand-img px-0" />
+                          </div>
+
+                        )
+
+                      })}
+                    </div>
                     {/* <p>{item.brand.name}</p> */}
                   </div>
                 )}
