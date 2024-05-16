@@ -157,10 +157,10 @@ const EventsSection = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section style={{ position: "relative" }}>
         <div className="container py-5 my" style={{ position: "relative" }}>
-          <div className="row">
-            <div className="col-md-12 d-flex justify-content-center align-items-center my-3">
+          <div className="row event-cont">
+            <div className="col-md-12 d-flex justify-content-center align-items-center my-3 ">
               <div>
                 <img
                   src="assets/images/Category.png"
@@ -168,11 +168,10 @@ const EventsSection = () => {
                   className="w-100"
                 />
               </div>
-              <div id="first-div" className="first-div" href="" title="">
-                <h1 className="text-main-color">Trending</h1>
+              <div id="first-div" className="first-div d-flex align-items-center" href="" title="">
                 <table
                   className="months-table w-100 py-2  bg-transparent "
-                  style={{ marginTop: "1px ", padding: "5px" }}
+                  style={{ marginTop: "25px ", padding: "5px" }}
                 >
                   {activeDays === '' ? <tbody>
                     <tr className="months-row">
@@ -193,8 +192,10 @@ const EventsSection = () => {
                     </tr>
                   </tbody> : <tbody>
                     <tr class="single-months-row">
-                      <td className="single-month text-dark fs-2  rounded-pill text-center w-100">
-                        {activeDays}
+                      <td className="single-month text-dark month-disp  rounded-pill text-center ">
+                        <span className="mont-span">
+                          {activeDays}
+                        </span>
                       </td>
                     </tr>
                   </tbody>}
@@ -242,20 +243,20 @@ const EventsSection = () => {
                           <>
                             <tr className="table-row">
 
-                            <td className="month text-dark px-3  event-image-days">1</td>
-                            <td className="month text-dark px-3  event-image-days">2</td>
-                            <td className="month text-dark px-3  event-image-days">3</td>
-                            <td className="month text-dark px-3  event-image-days">4</td>
-                            <td className="month text-dark px-3  event-image-days">5</td>
+                              <td className="month text-dark px-3  event-image-days">1</td>
+                              <td className="month text-dark px-3  event-image-days">2</td>
+                              <td className="month text-dark px-3  event-image-days">3</td>
+                              <td className="month text-dark px-3  event-image-days">4</td>
+                              <td className="month text-dark px-3  event-image-days">5</td>
                             </tr>
                             <tr className="table-row">
-                            <td className="month text-dark px-3  event-image-days">6</td>
-                            <td className="month text-dark px-3  event-image-days">7</td>
-                            <td className="month text-dark px-3  event-image-days">8</td>
-                            <td className="month text-dark px-3  event-image-days">9</td>
-                            <td className="month text-dark px-3  event-image-days">10</td>
+                              <td className="month text-dark px-3  event-image-days">6</td>
+                              <td className="month text-dark px-3  event-image-days">7</td>
+                              <td className="month text-dark px-3  event-image-days">8</td>
+                              <td className="month text-dark px-3  event-image-days">9</td>
+                              <td className="month text-dark px-3  event-image-days">10</td>
                             </tr>
-</>
+                          </>
                         }
 
 
@@ -317,13 +318,21 @@ const EventsSection = () => {
                         <td className="table-date">30</td>
                         <td className="table-date">31</td>
                       </tr>
-                      
+
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
+
+
+
           </div>
+        </div>
+        <div className="event-content">
+          <p> for the event page - Discover your next fandom adventure with WINTERBEAR's whimsical event jars! </p>
+
+          <p> for the jar - Pop the lid, and reveal your next WINTERBEAR event!</p>
         </div>
       </section>
 
