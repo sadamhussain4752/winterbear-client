@@ -232,12 +232,13 @@ const Brandlist = () => {
                     </div>
                   ))}
               </div>
-              <div className="p-0  text-center rounded">
+              <div className="p-0  text-center rounded mx-5">
+              <h3 className=" fs-2 fw-bolder text-start mb-4">Brands</h3>
                 {productOldlist && productOldlist.productList && productOldlist.productList.map((item) =>  (
                   item.brand._id !== id &&
                   <div key={item.brand._id}>
                     <div className="align-items-center shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
-                      <img src={item.brand.imageUrl} alt={item.brand.name} />
+                      <p>{item.brand.name}</p> 
                     </div>
                     {/* <div>
                       {item.subbrand.map((subItem) => (
@@ -282,7 +283,7 @@ const Brandlist = () => {
                           </p>
                         </div>
                         <div class="text-center  border-secondary addtocart-btn px-1 py-1 ">
-                          <i class="fas fa-cart-plus me-2"></i> Add to kk Cart
+                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>
                     </div>
