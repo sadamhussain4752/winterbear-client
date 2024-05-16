@@ -296,7 +296,7 @@ const ShopAll = () => {
                           alt={item.brand.name}
                           className="img-pop"
                         /> */}
-                                                <p className="fs-6">{item.brand.name}</p>
+                                                <p className="brand-namee">{item.brand.name}</p>
 
                       </div>
                       {/* <div>

@@ -43,13 +43,13 @@ const HomeSlider = () => {
           {data &&
             data?.Brands &&
             data?.Brands.map((brand, index) => (
-              <div key={index} className="item" onClick={()=>{
+              <div key={index} className="item mx-4" onClick={()=>{
                 handleNavigation(brand._id)
               }}>
                 <img
                   src={brand.imageUrl || "assets/images/placeholder.png"}
                   alt={brand.name || "Brand Name"}
-                  className="w-auto d-block mx-auto "
+                  className="d-block  mx-auto "
                   width={"60px"}
                   height={"60px"}
                 />

@@ -196,7 +196,7 @@ const Home2 = () => {
                           {item &&
                             item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
-                              <div className="item col-md-3 px-3 pl-3 pt-3 border border-secondary rounded position-relative mb-3 py-4">
+                              <div className="item col-md-3 px-3 pl-3 pt-3 border border-secondary rounded position-relative mb-3 py-4 home-product">
 
                                 <img
 
