@@ -51,16 +51,24 @@ const RegisterModal = ({ visible, onClose }) => {
     setFailModalVisible(false);
   };
 
-  // Listen for changes in the registration response
+ // Listen for changes in the registration response
   useEffect(() => {
     if (createUserResponse) {
       // If registration was successful, show the success modal
       // setSuccessModalVisible(true);
       message.success(createUserResponse, 5); // Display error message for 5 seconds
+      console.log(createUserResponse);
       onClose()
+      localStorage.setItem("userId", createUserResponse.userId);
+      onClose();
+      window.location.reload();
+      window.location.href = "/";
     }
     if (createUserError) {
-      message.error(createUserError, 5); // Display error message for 5 seconds
+      console.log(createUserError);
+      // message.error(createUserError, 5); // Display error message for 5 seconds
+      console.error("Please enter valid data for registration");
+
     }
   }, [createUserResponse, createUserError]);
 

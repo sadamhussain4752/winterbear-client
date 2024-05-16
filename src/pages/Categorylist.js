@@ -55,9 +55,9 @@ const Categorylist = () => {
     if (productOldlist && productOldlist?.productList) {
 
       let Sub_Brand_List =  data.Categorys.filter((item) => {
-        return item.brand._id === id
+        return item._id === id
       })
-      setSubbrand(Sub_Brand_List)
+      // setSubbrand(Sub_Brand_List)
       console.log(Sub_Brand_List, "Sub_Brand_List");
       // Update productList with all products from Redux state
     }
@@ -232,22 +232,18 @@ const Categorylist = () => {
                     </div>
                   ))}
               </div>
-              <div className="p-0  text-center rounded">
+              <div className="p-0  text-center rounded mx-5">
+              <h3 className=" fs-2 fw-bolder text-start mb-4">BRANDS</h3>
+
                 {productOldlist && productOldlist.productList && productOldlist.productList.map((item) =>  (
                   item.brand._id !== id &&
                   <div key={item.brand._id}>
                     <div className="align-items-center shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
-                      <img src={item.brand.imageUrl} alt={item.brand.name} />
+                    <p className="fs-6">{item.brand.name}</p>
+
                     </div>
                     <div>
-                      {item.subbrand.map((subItem) => (
-                        <div key={subItem.id} className="align-items-center shop-all-cards" onClick={() => handleSubbrandClick(subItem)}>
-                          <div className="d-flex justify-content-start align-items-center text-center mx-5">
-                            <img src={subItem.imageUrl} alt={subItem.name} />
-                            <p className="mt-3 mx-2">{subItem.name}</p>
-                          </div>
-                        </div>
-                      ))}
+                     
                     </div>
                   </div>
                 ))}
@@ -259,30 +255,40 @@ const Categorylist = () => {
                 {productList &&
                   productList &&
                   productList.map((prod, ind) => (
-                    <div className="col-md-4 rounded-border mt-3" onClick={() => handleNavigation(prod._id)}>
-                      <div class="product-card">
-                        <img
+                    <div
+                    className="col-md-3 mt-3"
+                    key={ind}
+                    onClick={() => handleNavigation(prod._id)}
+                  >
+                    <div class="product-card">
+                      <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                        <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
+                          0%
+                        </p>
+                        <button class="heart-btn" id="hertbtn">
+                          <i class="fa-regular fa-heart"></i>
+                        </button>
+                      </div>
+                      <img
+                        src={
+                          prod.images[0] !== null &&
+                            prod.images[0] !== "image_url1"
+                            ? `${prod.images[0]}`
+                            : "assets/images/Rectangle 22.png"
+                        }
+                        className=""
+                        alt="Web Project 1"
+                      />
+                      <div className="text-center price-card py-2">
+                        <p className=" mb-0">₹{prod.amount}</p>
+                        <p className="font-z">{prod.name}</p>
 
-                          src={
-
-                            prod.images[0] !== null &&
-                              prod.images[0] !== "image_url1"
-                              ? `${prod.images[0]}`
-                              : "assets/images/Rectangle 22.png"
-                          }
-                          className="rounded border"
-                          alt="Web Project 1"
-                        />
-                        <div className="text-center price-card py-2">
-                          <p className=" mb-0">
-                            ${prod.amount}
-                          </p>
-                          <p className="font-z">
-                            {prod.name}
-                          </p>
+                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2">
+                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>
                     </div>
+                  </div>
                   ))}
 
               </div>}

@@ -225,7 +225,7 @@ const Brandlist = () => {
                 {data &&
                   data.Categorys &&
                   data.Categorys.map((item) => (
-                    <div className={`${item._id === selectedCategory?._id ? "" : "col-md-12 d-flex justify-content-start "}`} key={item._id} onClick={() => handleCategoryClick(item)}>
+                    <div className={`${item._id === selectedCategory?._id ? "" : "col-md-12 d-flex justify-content-start "}`} key={item._id} onClick={() => navigate(`/shop/${item._id}`)}>
                       <div className="align-items-start shop-all-card-item ">
                         <p>{item.name}</p>
                       </div>

@@ -105,7 +105,7 @@ const Header = () => {
     const changeColorPosition = 100; // Change color after scrolling down 100 pixels
 
     if (scrollPosition > changeColorPosition) {
-      setNavbarBg("d-none");
+      setNavbarBg("");
     } else {
       setNavbarBg("b-block");
     }
@@ -185,7 +185,7 @@ const Header = () => {
                     <div className="col-md-10 d-md-block d-none mt-2">
                       <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
-                        to="/shop"
+                        to="/shop/0"
                       >
                         {Language.shop_all}
                       </Link>

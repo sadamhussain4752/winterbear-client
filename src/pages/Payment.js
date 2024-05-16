@@ -837,7 +837,7 @@ const Payment = () => {
             </Button>,
             <Button key="newOrder" onClick={() => {
               SetOrderType(false)
-              navigate(`/shop`);
+              navigate(`/shop/0`);
 
             }}>
               Place New Order

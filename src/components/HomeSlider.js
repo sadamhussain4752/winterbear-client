@@ -16,7 +16,7 @@ const HomeSlider = () => {
 
   function shopAllpag() {
     return (
-      navigate('/shop')
+      navigate('/shop/0')
     )
   }
 

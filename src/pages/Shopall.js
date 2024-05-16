@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   fetchProductData,
   fetchBannerData,
@@ -23,6 +23,8 @@ const ShopAll = () => {
   const [selectCategory, setCategory] = useState([]);
   const [sortby, setSortby] = useState('');
   const [priceby, setpriceby] = useState('');
+  const { id } = useParams();
+
 
   // States to store product list, selected category, and current page
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -49,7 +51,23 @@ const ShopAll = () => {
     if (productlist && productlist.products) {
       setProductList(productlist.products);
     }
-  }, [productlist]);
+    
+  }, [productlist,id]);
+  // Handle category selection based on URL parameter
+  useEffect(() => {
+    if (id && id !== "0" && productlist && productlist.products) {
+      const filteredProducts = data.Categorys.filter(
+        (item) => item._id === id
+      );
+      console.log(filteredProducts);
+      if(filteredProducts.length > 0){
+        handleCategoryClick(filteredProducts[0]);
+
+      }
+    }
+  }, [id, productlist]);
+
+  
 
   // Define the menu
   const menu = (
@@ -119,24 +137,24 @@ const ShopAll = () => {
 
       <section className="py-5 shop">
         <div className="container-fluid">
-          <div className="row">
+          {!selectedCategory && <div className="row">
             <div className="col-md-12 mt-80">
               <div className="section-heading">
                 <h3 className="theme-bg-text ">Shop All</h3>
               </div>
             </div>
-          </div>
+          </div>}
+          
           <div className="row">
             <div className="col-md-12">
               <div className="section-heading">
-                {selectedCategory && (
+                {selectedCategory && selectedCategory?.category_img_desktop && (
                   <div className="align-items-center">
-                    <h3 className="theme-bg-text">{selectedCategory.name}</h3>
 
                     <img
                       className="w-100"
-                      src={selectedCategory.category_img_desktop}
-                      alt={selectedCategory.category_img_desktop}
+                      src={selectedCategory?.category_img_desktop}
+                      alt={selectedCategory?.category_img_desktop}
                     />
                     {/* <p>{item.brand.name}</p> */}
                   </div>
