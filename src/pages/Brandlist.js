@@ -282,7 +282,7 @@ const Brandlist = () => {
                           </p>
                         </div>
                         <div class="text-center  border-secondary addtocart-btn px-1 py-1 ">
-                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                          <i class="fas fa-cart-plus me-2"></i> Add to kk Cart
                         </div>
                       </div>
                     </div>

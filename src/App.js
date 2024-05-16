@@ -24,7 +24,9 @@ import Privacypolicy from "./pages/Privacypolicy";
 import Terms from "./pages/Terms";
 import Categorylist from "./pages/Categorylist";
 import StoreLocator from "./pages/StoreLocator";
-import Home2 from "./pages/Home2";
+import Home2 from "./pages/Homeold";
+
+import Wishlist from "./pages/Wishlist";
 
 const App = () => {
   return (
@@ -58,7 +60,8 @@ const App = () => {
           <Route path="/term" element={<Terms/>}/>
           <Route path="/store-locator" element={<Stores/>}/>
 
-          <Route path="/Home2" element={<Home2/>}/>
+          <Route path="/Homeold" element={<Home2/>}/>
+          <Route path="/Wishlist" element={<Wishlist/>}/>
 
 
         </Routes>
