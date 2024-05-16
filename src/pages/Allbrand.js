@@ -1,190 +1,53 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import Testimonals from "../components/Testimonals";
 import "./Awards.css";
+import BrandSlider from "../components/BrandSlider";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBannerData } from "../reducer/thunks";
+
 
 const AllBrand = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBannerData());
+  }, []);
+
   const backgroundImageStyle = {
     background: 'url("assets/images/bear.jpeg")',
     backgroundSize: "cover",
     postion: "relative",
   };
+
+  const {
+    data,
+    loading: bannerLoading,
+    error: bannerError,
+  } = useSelector((state) => state.data);
   document.title = "Awards";
   document.getElementsByTagName("META")[2].content = "Awards";
   return (
     <>
       <Header />
 
-      <section className="shop  mt-80 px-5">
+      <section className="shop px-5">
         <div className="container">
           <div className="row">
-            <div className="col-md-12 mt-80">
+            <div className="col-md-12">
               <div className="section-heading">
                 <h3 className="theme-bg-text">BRAND DIRECTORY</h3>
               </div>
             </div>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-md-12   text-dark">
-              
-              <div className="portfolio px-3  mt-3 fw-bold">
-                <div className="row">
-                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p className="fw-bold">Stationery</p>
-                   
-                    <span className="text-dark fw-normal">
-                    BUY_BT21 minini Figure Stamp TATA_SOLOMO
-                    </span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 rj ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p className="text-dark">
-                       Home Soft 
-                    </p>
-                    <span className="text-dark fw-normal">
-                    BT21 KOYA WRIST CUSHION
-                    </span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 shooky ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p className="text-dark">
-                       Phone accessories 
-                    </p>
-                    <span className="text-dark fw-normal">BT21 KOYA CABLE WINDER</span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 mang ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p className="text-dark">
-                       Keychain and magnet 
-                    </p>
-                    <span className="text-dark fw-normal">BT21 TATA ACRYL KEY RING</span>
+          {data && data?.Brands && <BrandSlider />}
 
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 chimmy ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p>Stickers  </p>
-                    <span className="text-dark fw-normal">
-                    BT21 COMIC POP DECO STICKER SET 
-                    </span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 tata ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p className="text-dark">
-                       Notebooks/Planners/Diary 
-                    </p>
-                    <span className="text-dark fw-normal">
-                    BT21 MANG MATHEMATICS NOTE
-                    </span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 cooky ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    
-                    <p className="text-dark">
-                       Photo album/frame/holders 
-                    </p>
-                    <span className="text-dark fw-normal">
-                    BUY_BT21 minini Glitter Key Holder KOYA_
-                    </span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p>Pouches and Pencil Cases </p>
-                    <span className="text-dark fw-normal">
-                    BT21 RJ BIG ZIPPER PENCIL CASE
-                    </span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p> Kitchen accessories </p>
-                    <span className="text-dark fw-normal">
-                    LINE FRIENDS ART APRON SET
-                    </span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p className="text-dark">
-                    Bags 
-                    </p>
-                    <span className="text-dark fw-normal">
-                    BT21 KOYA BLACK ECO BAG 
-                    </span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p className="text-dark">
-                    Fashion Accessory
-                    </p>
-                    <span className="text-dark fw-normal">
-                    BT21 BRUSH SET
-                    </span>
-                  </div>
-                  <div className="col-md-3 d-block mx-auto mb-3 koya ">
-                    <img
-                      src="assets/images/Rectangle 18.png"
-                      alt="Web Project 1"
-                      className="d-block mx-auto mb-2 w-100"
-                    />
-                    <p className="text-dark">
-                    Apparels
-                    </p>
-                    <span className="text-dark fw-normal">
-                    BT21 MININI PAJAMAS SET YE S
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <div className="row py-3 ">
-            <h5 className="text-left fw-bold fs-3 mt-3">Brand Directory</h5>
+            {/* <h5 className="text-left fw-bold fs-3 mt-3">Brand Directory</h5> */}
             <ul className="nav nav-pills nav-fill border-bottom">
               <li className="nav-item " id="">
                 <a className="nav-link text-dark fw-bold mb-3" href="#">

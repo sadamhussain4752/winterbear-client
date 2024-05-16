@@ -273,11 +273,13 @@ const ShopAll = () => {
                         className=" shop-all-cards"
                         onClick={() => handleNavigationbrand(item.brand._id)}
                       >
-                        <img
+                        {/* <img
                           src={item.brand.imageUrl}
                           alt={item.brand.name}
                           className="img-pop"
-                        />
+                        /> */}
+                                                <p className="fs-6">{item.brand.name}</p>
+
                       </div>
                       {/* <div>
                       {item.subbrand.map((subItem) => (
