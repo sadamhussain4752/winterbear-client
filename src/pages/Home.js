@@ -103,8 +103,8 @@ const Home2 = () => {
                 data.Categorys &&
                 data.Categorys.map((item) => (
                   <div className="col-md-3 col-6 mt-2">
-                    <div className="collection-box" onClick={() => navigate(`/shop/${item._id}`)}>
-                      <div className="image-container">
+                    <div className="collection-box-1" onClick={() => navigate(`/category/${item._id}`)}>
+                      <div className="image-container-1">
                         <img src={`${item.imageUrl}`} className="mb-0" />
                         <h4>{item.name} </h4>
                       </div>
@@ -196,7 +196,7 @@ const Home2 = () => {
                           {item &&
                             item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
-                              <div className="item col-md-3 px-3 pl-3 pt-3 border border-secondary rounded position-relative mb-3 py-4 home-product">
+                              <div className="item col-md-3 px-5 pl-5 pt-3 border border-secondary rounded position-relative mb-3 py-4 home-product">
 
                                 <img
 
