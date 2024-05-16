@@ -105,9 +105,9 @@ const Header = () => {
     const changeColorPosition = 100; // Change color after scrolling down 100 pixels
 
     if (scrollPosition > changeColorPosition) {
-      setNavbarBg("");
+      setNavbarBg("d-none");
     } else {
-      setNavbarBg("b-block");
+      setNavbarBg("fixed-top");
     }
   };
 
@@ -153,12 +153,12 @@ const Header = () => {
     <>
       <header>
         {/* Top Header */}
-        <div className={`top-header shadow-sm bg-white ${navbarBg === "d-none" && "bg-transparent"}`}>
+        <div className={`top-header shadow-sm bg-white fixed-top ${navbarBg === "d-none" && "bg-transparent"}`}>
 
           <div className="container-fluid">
 
             <Carousel autoplay className={`col-md-10 d-block mx-auto ${navbarBg}`} dots={true}>
-              {getCouponResponse?.coupons?.map((item, index) => item.isShow_display && (
+              {getCouponResponse && getCouponResponse?.coupons &&getCouponResponse?.coupons?.map((item, index) => item.isShow_display && (
                 <div className="col-md-4" key={index}>
                   {renderItem(item)}
                 </div>

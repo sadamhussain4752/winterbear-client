@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { Modal, Form, Input, Button,message } from 'antd';
+import { Modal, Form, Input, Button, message,Spin } from 'antd';
 import { CreateUserData } from "./../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -8,6 +8,7 @@ const RegisterModal = ({ visible, onClose }) => {
   const [form] = Form.useForm();
   const [successModalVisible, setSuccessModalVisible] = useState(false);
   const [failModalVisible, setFailModalVisible] = useState(false);
+  const [loaderVisible, setloaderVisible] = useState(false);
 
   const {
     loading: createUserLoading,
@@ -16,6 +17,7 @@ const RegisterModal = ({ visible, onClose }) => {
   } = useSelector((state) => state.userData);
 
   const handleRegister = (values) => {
+    setloaderVisible(true)
     if (values.email && values.password && values.firstName && values.lastName && values.mobileNumber) {
       let body = {
         firstname: values.firstName,
@@ -29,6 +31,8 @@ const RegisterModal = ({ visible, onClose }) => {
       // Dispatch the CreateUserData action
       dispatch(CreateUserData(body));
     } else {
+      setloaderVisible(false)
+
       // Handle validation errors or show a message to the user
       console.error("Please enter valid data for registration");
     }
@@ -63,14 +67,22 @@ const RegisterModal = ({ visible, onClose }) => {
       onClose();
       window.location.reload();
       window.location.href = "/";
-    }
-    if (createUserError) {
-      console.log(createUserError);
-      // message.error(createUserError, 5); // Display error message for 5 seconds
-      console.error("Please enter valid data for registration");
+      setloaderVisible(false)
 
     }
+
+    if (createUserError && typeof createUserError === "string") {
+      console.log(createUserError);
+      setloaderVisible(false)
+      message.error(`${createUserError}`, 5); // Display error message for 5 seconds
+  
+    }
+   
   }, [createUserResponse, createUserError]);
+
+ 
+
+ 
 
   // Display a message when registration fails
  
@@ -125,14 +137,15 @@ const RegisterModal = ({ visible, onClose }) => {
         </Form.Item>
 
         <Form.Item>
-          <div style={{ textAlign: 'center' }}>
-            <Button type="primary"
-              className="btn button w-75 h-25 mt-4"
-               htmlType="submit">
-              Register
-            </Button>
-          </div>
-        </Form.Item>
+            <div style={{ textAlign: 'center' }}>
+            {loaderVisible ? <Spin /> :<Button type="primary" className="btn button w-75 h-25 mt-4" htmlType="submit">
+
+Register
+</Button>}
+
+            
+            </div>
+          </Form.Item>
       </Form>
     </Modal>
     {/* <Modal

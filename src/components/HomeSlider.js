@@ -14,10 +14,10 @@ const HomeSlider = () => {
   const { data, loading, error } = useSelector((state) => state.data);
   console.log(data);
 
-  function shopAllpag() {
-    return (
-      navigate('/shop/0')
-    )
+  function shopAllpag(brand) {
+    
+    navigate(`/brand/${brand.link_brand}`)
+
   }
 
   return (
@@ -45,7 +45,7 @@ const HomeSlider = () => {
       >
         {data && data?.banners &&  // Check if data is not null or undefined
           data?.banners.map((item, index) => (
-            <div key={index} className="item" onClick={shopAllpag}>
+            <div key={index} className="item" onClick={()=> shopAllpag(item)}>
               <picture>
                 <source
                   media="(min-width:768px)"

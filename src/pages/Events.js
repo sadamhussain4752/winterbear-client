@@ -169,7 +169,6 @@ const EventsSection = () => {
                 />
               </div>
               <div id="first-div" className="first-div" href="" title="">
-                <h1 className="text-main-color">Trending</h1>
                 <table
                   className="months-table w-100 py-2  bg-transparent "
                   style={{ marginTop: "1px ", padding: "5px" }}
