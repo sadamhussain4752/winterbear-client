@@ -7,7 +7,8 @@ import constant from "../constant/constant";
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchProductData, fetchBannerData, fetchProductDataOld } from "../reducer/thunks";
 import HomeSlider from "../components/BrandSlider";
-import { Dropdown, Menu, Empty } from 'antd';
+import { Dropdown, Menu, Empty, Pagination, Slider } from "antd";
+
 
 
 
@@ -22,6 +23,11 @@ const Brandlist = () => {
   const [productList, setProductList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [subBrandlist, setSubbrand] = useState([])
+
+
+  const [selectCategory, setCategory] = useState([]);
+  const [sortby, setSortby] = useState('');
+  const [priceby, setpriceby] = useState('');
 
   const {
     productlist,
@@ -110,12 +116,12 @@ const Brandlist = () => {
     </Menu>
   );
 
-    // Function to handle navigation to brand page
-    const handleNavigationbrand = (productId) => {
-      navigate(`/brand/${productId}`);
-      window.location.reload();
+  // Function to handle navigation to brand page
+  const handleNavigationbrand = (productId) => {
+    navigate(`/brand/${productId}`);
+    window.location.reload();
 
-    };
+  };
 
   const handleNavigation = (productId) => {
     // Navigate to the specified product id
@@ -175,7 +181,7 @@ const Brandlist = () => {
 
                   <div className="d-flex justify-content-center">
                     {item.subbrand.map((subItem) => (
-                      <div key={subItem.id} className="align-items-center shop-all-cards mx-5" onClick={() => {
+                      <div key={subItem.id} className="d-flex justify-content-center flex-column  align-items-center shop-all-cards mx-5" onClick={() => {
                         handleCategoryClick(subItem)
                       }}>
                         <img src={subItem.imageUrl} alt={subItem.name} />
@@ -191,17 +197,86 @@ const Brandlist = () => {
 
           <div className="col-md-12">
             <div className="text-end d-flex justify-content-end filter-item">
-              {/* <div>
-                Sort by:
-              </div> */}
-              <Dropdown overlay={menu} trigger={['hover']} placement="bottomCenter">
-                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                  Sort by:
+              <div className="p-0">
+                <button
+                  class="btn p-0 text-white"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight1"
+                  aria-controls="offcanvasRight1"
+                >
+                  <i class="fa-solid fa-filter mt-2"></i>
+                </button>
+
+                <div
+                  class="offcanvas offcanvas-end"
+                  tabindex="-1"
+                  id="offcanvasRight1"
+                  aria-labelledby="offcanvasRight1Label"
+                >
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRight1Label">
+                      Filter BY Brands
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="offcanvas-body position-relative text-start">
+                    {productOldlist &&
+                      productOldlist.productList &&
+                      productOldlist.productList.map((item) => (
+                        <div key={item.brand.id}>
+                          <p>{item.brand.name}</p>
+                        </div>
+                      ))}
+                    <div style={{
+
+                    }}>
+                      <h5>Price</h5>
+                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} />
+
+                    </div>
+                    <div className="position-absolute bottom-0 end-0">
+                      <button className=" text-black btn button mx-1">
+                        {" "}
+                        Clear All
+                      </button>
+                      <button className="text-black btn button mx-1">
+                        {" "}
+                        Apply
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <Dropdown
+                overlay={menu}
+                trigger={["hover"]}
+                placement="bottomCenter"
+              >
+                <div
+                  className="ant-dropdown-link"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  {sortby !== "" ? sortby : "Sort by"}
                 </div>
               </Dropdown>
-              <Dropdown overlay={pricemenu} trigger={['hover']} placement="bottomCenter">
-                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                  Price
+              <Dropdown
+                overlay={pricemenu}
+                trigger={["hover"]}
+                placement="bottomCenter"
+              >
+                <div
+                  className="ant-dropdown-link"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  {priceby !== "" ? priceby : "Price"}
+
                 </div>
               </Dropdown>
               <div>
@@ -233,12 +308,12 @@ const Brandlist = () => {
                   ))}
               </div>
               <div className="p-0  text-center rounded mx-5">
-              <h3 className=" fs-2 fw-bolder text-start mb-4">Brands</h3>
-                {productOldlist && productOldlist.productList && productOldlist.productList.map((item) =>  (
+                <h3 className=" fs-2 fw-bolder text-start mb-4">Brands</h3>
+                {productOldlist && productOldlist.productList && productOldlist.productList.map((item) => (
                   item.brand._id !== id &&
                   <div key={item.brand._id}>
                     <div className="align-items-center shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
-                      <p>{item.brand.name}</p> 
+                      <p>{item.brand.name}</p>
                     </div>
                     {/* <div>
                       {item.subbrand.map((subItem) => (
@@ -260,30 +335,34 @@ const Brandlist = () => {
                 {productList &&
                   productList &&
                   productList.map((prod, ind) => (
-                    <div className="col-md-4 rounded-border mt-3 " onClick={() => handleNavigation(prod._id)}>
-                      <div class="product-card pb-4 px-3">
+                    <div className="col-md-3 rounded-border mt-3 " onClick={() => handleNavigation(prod._id)}>
+                      <div class="product-card">
+                        <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                          <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
+                            {parseFloat(prod.offeramount / 100).toFixed(0)}%
+
+                          </p>
+                          <button class="heart-btn" id="hertbtn">
+                            <i class="fa-regular fa-heart"></i>
+                          </button>
+                        </div>
                         <img
-
                           src={
-
                             prod.images[0] !== null &&
                               prod.images[0] !== "image_url1"
                               ? `${prod.images[0]}`
                               : "assets/images/Rectangle 22.png"
                           }
-                          className="rounded"
+                          className=""
                           alt="Web Project 1"
                         />
                         <div className="text-center price-card py-2">
-                          <p className=" mb-0">
-                            ${prod.amount}
-                          </p>
-                          <p className="font-z">
-                            {prod.name}
-                          </p>
-                        </div>
-                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 ">
-                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                          <p className=" mb-0">₹{prod.amount}</p>
+                          <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
+
+                          <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2">
+                            <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                          </div>
                         </div>
                       </div>
                     </div>
