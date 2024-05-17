@@ -5,8 +5,8 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import "owl.carousel/dist/assets/owl.theme.green.css";
 const SnsSl = () => {
   return (
-    <section className="py-3">
-      <div className="corosil-snn container">
+    <section className="py-3" >
+      <div className="corosil-snn container" >
         <div id="carouselExample" className="carousel slide d-block mx-auto">
           <div className="carousel-inner">
             <div className="carousel-item active">

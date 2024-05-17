@@ -13,22 +13,26 @@ const About = () => {
   return (
     <>
       <Header />
-      {/* <div
-        className="breadcum mt-80"
-        style={backgroundImageStyle}
-      >
-        <div className="about-breadcum-content d-md-block d-none">
-          <div className="row justify-content-center">
-            <div className="col-md-12">
-              <h3>Step into the K-pop Style Realm</h3>
-              <h5>Your Ultimate Destination for Trendsetting Fashion</h5>
-              <a href="#" className="button">
-                Shop now
-              </a>
+
+      {
+        /* <div
+          className="breadcum mt-80"
+          style={backgroundImageStyle}
+        >
+          <div className="about-breadcum-content d-md-block d-none">
+            <div className="row justify-content-center">
+              <div className="col-md-12">
+                <h3>Step into the K-pop Style Realm</h3>
+                <h5>Your Ultimate Destination for Trendsetting Fashion</h5>
+                <a href="#" className="button">
+                  Shop now
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </div> */}
+        </div> */
+      }
+
       <section className="py-5 mt-8">
         <div className="container">
           <div className="row justify-content-center">
