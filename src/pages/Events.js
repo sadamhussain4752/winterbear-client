@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
-import Eventlist from "../components/Event-list";
-import Wave from "../components/Wave";
+// import Eventlist from "../components/Event-list";
+// import Wave from "../components/Wave";
 import { fetchEventData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import "./Events.css";
@@ -109,29 +109,29 @@ const EventsSection = () => {
 
       <section className="py-5 mt-80">
         <div className="no">
-          <div className="row justify-content-center">
+          {/* <div className="row justify-content-center">
             <div className="col-md-12">
               <div className="section-heading">
                 <h3 className="theme-bg-text">Event Details</h3>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="row justify-content-center text-center ">
             <div className="position-relative">
               <img
                 src={require("../constant/images/EventPageAnimation.gif")}
                 alt="Upcoming Sale"
-                className="img-fluid pt-5 mt-5"
+                className="img-fluid "
               />
               <div className="col-md-12 row d-flex justify-content-center position-absolute top-0 ">
-                <div className=" col-md-9 row d-flex justify-content-center event-tap ">
+                {/* <div className=" col-md-9 row d-flex justify-content-center event-tap ">
                   <p className="col-md-3 event-text-color">Upcoming Events</p>
                   <p className="col-md-3 event-item">
                     40% di sconto dal 20 aprile al 5 maggio!
                   </p>
                   <p className="col-md-3 event-text-color">India</p>
-                </div>
+                </div> */}
 
                 {/* <div className="about-breadcum-content d-md-block">
                   <div className="row justify-content-center">
@@ -160,7 +160,7 @@ const EventsSection = () => {
       <section style={{ position: "relative" }}>
         <div className="container py-5 my" style={{ position: "relative" }}>
           <div className="row event-cont">
-            <div className="col-md-12 d-flex justify-content-center align-items-center my-3 ">
+            <div className="col-md-8 d-flex justify-content-center align-items-center my-3 ">
               <div>
                 <img
                   src="assets/images/Category.png"
@@ -330,8 +330,6 @@ const EventsSection = () => {
               </div>
             </div>
 
-
-
           </div>
         </div>
         <div className="event-content">
@@ -343,7 +341,9 @@ const EventsSection = () => {
 
       <Gallery />
       <Footer />
+      // eslint-disable-next-line 
     </>
+    
   );
 };
 

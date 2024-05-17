@@ -135,7 +135,7 @@ const Footer = () => {
         <div className="container">
           <div className="text-center">
             <p className="mb-0">
-              <b>© 2023 Digital Partners IM Solutions</b>
+              <b>© 2024 Digital Partners IM Solutions</b>
             </p>
           </div>
         </div>

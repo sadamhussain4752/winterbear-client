@@ -166,7 +166,7 @@ const Home2 = () => {
 
                         <div className="container-fluid ">
                           <ul
-                            className="nav nav-pills  nav-fill shop-by-tab py-3"
+                            className="nav nav-pills  nav-fill shop-by-tab py-3 "
                             id="pills-tab"
                             role="tablist"
                           >
@@ -196,7 +196,7 @@ const Home2 = () => {
                           {item &&
                             item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
-                              <div className="item col-lg-3 px-5 pl-5 pt-3 border border-secondary rounded position-relative mb-3 py-4 home-product">
+                              <div className="item col-lg-3 px-4 pl-5 pt-3 border border-secondary rounded position-relative mb-3 pb-2 home-product">
 
                                 <img
 
@@ -213,11 +213,11 @@ const Home2 = () => {
 
                                 <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
                                   <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-                                    {item.brand._id === "65aa405f6bfadce6d5a0ef3c" && <p className="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
+                                    {item.brand._id === "65aa405f6bfadce6d5a0ef3c" && <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
                                       {parseFloat(prod.offeramount / 100).toFixed(0)}%
                                     </p>}
                                     
-
+                                  <div></div>
 
                                     <button className="heart-btn" id="hertbtn">
                                       <i class="fa-regular fa-heart"></i>
@@ -228,7 +228,7 @@ const Home2 = () => {
 
                                   </div>
 
-                                  <div className="d-flex justify-content-between align-items-start mt-4 col-md-12 price-prodname">
+                                  <div className="d-flex justify-content-between align-items-center mt-4 col-md-12 price-prodname">
                                     <p className="text-start prize-size col-md-8 mb-0 text-truncate" style={{ maxWidth: '200px' }}> {item.brand.name} @{prod.name}
                                     </p>
                                     <p className="text-end fw-bold col-md-4 mb-0">₹{prod.amount}</p>

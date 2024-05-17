@@ -20,7 +20,7 @@ const Loyalty = () => {
         className="loyalty-main g-0 p-0"
         style={{
           background: 'url("assets/images/loyaltiy-bg.png")',
-        
+
           backgroundSize: "contain",
           backgroundRepeat: "repeat",
           height: "100%",
@@ -158,14 +158,14 @@ const Loyalty = () => {
         </section>
 
         <section className="section py-5">
-          <div className="container">
+          <div className="container px-lg-5">
             <div className="row justify-content-center">
               <div className="col-md-12 mb-3">
                 <div className="section-heading">
                   <h3 className="theme-bg-text mb-2">Ways to Earn</h3>
                 </div>
               </div>
-              <div className="col-md-3 text-center mb-3 ">
+              <div className="col-md-3 text-center bg-white mb-3 ">
                 <div className="border  px-3 py-5 earn">
                   <p className="fs-1 fw-semibold mb-0">
                     <img
@@ -177,7 +177,7 @@ const Loyalty = () => {
                   <p className="lh-md fs-5 text-dark">Make a Purhcase</p>
                 </div>
               </div>
-              <div className="col-md-3 text-center mb-3 ">
+              <div className="col-md-3 text-center bg-white mb-3 ">
                 <div className="border  px-3 py-5 earn">
                   <p className="fs-1 fw-semibold mb-0">
                     <img
@@ -189,7 +189,7 @@ const Loyalty = () => {
                   <p className="lh-md fs-5 text-dark">Create a Account</p>
                 </div>
               </div>
-              <div className="col-md-3 text-center mb-3 ">
+              <div className="col-md-3 text-center bg-white mb-3 ">
                 <div className="border  px-3 py-5 earn">
                   <p className="fs-1 fw-semibold mb-0">
                     <img
@@ -201,7 +201,7 @@ const Loyalty = () => {
                   <p className="lh-md fs-5 text-dark">Birthday Awards</p>
                 </div>
               </div>
-              <div className="col-md-3 text-center mb-3 ">
+              <div className="col-md-3 text-center bg-white mb-3 ">
                 <div className="border  px-3 py-5 earn">
                   <p className="fs-1 fw-semibold mb-0">
                     <img
@@ -214,7 +214,7 @@ const Loyalty = () => {
                 </div>
               </div>
 
-              <div className="col-md-3 text-center mb-3">
+              <div className="col-md-3 text-center bg-white mb-3">
                 <div className="border  px-3 py-5 earn">
                   <p className="fs-1 fw-semibold mb-0">
                     <img
@@ -226,7 +226,7 @@ const Loyalty = () => {
                   <p className="lh-md fs-5 text-dark">Add a Photo in review</p>
                 </div>
               </div>
-              <div className="col-md-3 text-center mb-3">
+              <div className="col-md-3 text-center bg-white mb-3">
                 <div className="border  px-3 py-5 earn">
                   <p className="fs-1 fw-semibold mb-0">
                     <img
@@ -238,7 +238,7 @@ const Loyalty = () => {
                   <p className="lh-md fs-5 text-dark">Add a video in review</p>
                 </div>
               </div>
-              <div className="col-md-3 text-center mb-3">
+              <div className="col-md-3 text-center bg-white mb-3">
                 <div className="border  px-3 py-5 earn">
                   <p className="fs-1 fw-semibold mb-0">
                     <img
@@ -250,7 +250,7 @@ const Loyalty = () => {
                   <p className="lh-md fs-5 text-dark">Follow on us Tiktok</p>
                 </div>
               </div>
-              <div className="col-md-3 text-center mb-3">
+              <div className="col-md-3 text-center bg-white mb-3">
                 <div className="border  px-3 py-5 earn">
                   <p className="fs-1 fw-semibold mb-0">
                     <img
@@ -339,10 +339,10 @@ const Loyalty = () => {
         <section className="section">
           <div className="container">
             <div className="row">
-            <div className="section-heading mb-0">
-                  <h3 className="theme-bg-text mb-2">Follow us on </h3>
-                </div>
-            
+              <div className="section-heading mb-0">
+                <h3 className="theme-bg-text mb-2">Follow us on </h3>
+              </div>
+
             </div>
             <div className="row text-center mt-3 mb-5">
               <div className="">
@@ -350,27 +350,27 @@ const Loyalty = () => {
                   <i className="fab px-1 fa-facebook" />
                 </div>
                 <div class="d-inline p-2 t-purple fs-1 mx-3">
-                <i className="fab px-1 fa-linkedin-in" />
+                  <i className="fab px-1 fa-linkedin-in" />
                 </div>
                 <div class="d-inline p-2 t-purple fs-1 mx-3">
-                <i className="fab px-1 fa-twitter" />
+                  <i className="fab px-1 fa-twitter" />
                 </div>
                 <div class="d-inline p-2 t-purple fs-1 mx-3">
-                <i className="fab px-1 fa-instagram" />
+                  <i className="fab px-1 fa-instagram" />
                 </div>
-                
 
-               
-               
-              
-               
-               
+
+
+
+
+
+
               </div>
             </div>
           </div>
         </section>
       </div>
-  
+
 
       <Footer />
     </>

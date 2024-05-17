@@ -1,7 +1,7 @@
 @media only screen and (min-width: 1050px) and (max-width: 1280px) {
   .first-div {
     position: absolute;
-    left: 33%;
+    left: 19%;
     top: 64.8%;
     width: 18.7%;
     height: 6%;
@@ -23,7 +23,7 @@
 @media only screen and (min-width: 1376px) and (max-width: 1430px) {
   .first-div {
     position: absolute;
-    left: 33%;
+    left: 19%;
     top: 64.8%;
     width: 18.7%;
     height: 6%;
@@ -33,8 +33,8 @@
 
   .second-div {
     position: absolute;
-    left: 32%;
-    top: 72.25%;
+    left: 19%;
+    top: 75.25%;
     width: 21%;
     height: 7%;
     z-index: 2;
@@ -201,11 +201,11 @@
 
 .event-content {
   position: absolute;
-  right: 0%;
-  top: 5%;
+  right: 5%;
+  top: 45%;
   width: 40%;
   padding: 1% 2%;
   background-color: white;
   border-radius: 20px;
-  border: 2px solid rgba(34, 26, 66, 0.7);
+  border: 5px solid #362a69;
 }

@@ -29,7 +29,7 @@ const About = () => {
           </div>
         </div>
       </div> */}
-      <section className="py-5 mt-80">
+      <section className="py-5 mt-8">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12">
@@ -37,7 +37,7 @@ const About = () => {
                 <h3 className="theme-bg-text  ">About us</h3>
               </div>
             </div>
-            <div className="col-md-8 text-center">
+            <div className="col-md-10 text-center">
               <span className="sub-heading">
                 Welcome to Winterbear, where we redefine shopping as our lifestyle.
                 Winterbear is India’s first character-based multi-category brand,
@@ -52,9 +52,9 @@ const About = () => {
               </span>
             </div>
           </div>
-          <div className="row mt-5">
+          <div className="row mt-5 d-flex align-items-center">
             <div className="col-md-6">
-              <p>
+              <p className="fs-5">
                 WINTERBEAR's extensive offerings extend beyond apparel to encompass
                 various categories, including stationery, home decor, fashion accessories,
                 plush toys, and consumer electronics. WINTERBEAR's commitment to
@@ -64,15 +64,12 @@ const About = () => {
                 every customer.
 
               </p>
-              
+
             </div>
-            <div className="col-md-6 position-relative">
-              <div className="about1 position-absolute">
-                <img src="assets/images/about1.png" className="" />
-              </div>
-              <div className="about2 position-absolute">
-                <img src="assets/images/about2.png" className="" />
-              </div>
+            <div className="col-md-6 position-relative d-flex justify-content-end">
+
+              <img src="assets/images/about-us.png" className="w-75" />
+
             </div>
           </div>
         </div>
@@ -86,18 +83,18 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="row align-items-center">
+          <div className="row">
             <div className="col-md-4 mb-4">
               <div className="image-container about-img-cont">
                 <img
-                  src='assets\images\about\About Us_Icons_Business Development.png'
+                  src='assets\images\about\ico-1.png'
                   class="img-fluid d-block mx-auto"
                   alt="Your Image"
                 />
 
                 <div className="abt-cont">
 
-                  <p className="head-abt-sub mb-0">
+                  <p className="head-abt-sub mb-2">
                     Globally Curated
                   </p>
 
@@ -114,7 +111,7 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container about-img-cont">
                 <img
-                  src='assets\images\about\About Us_Icons_Location.png'
+                  src='assets\images\about\ico-3.png'
                   class="img-fluid d-block mx-auto "
                   alt="Your Image"
                 />
@@ -123,7 +120,7 @@ const About = () => {
 
                 <div className="abt-cont">
 
-                  <p className="head-abt-sub mb-0">
+                  <p className="head-abt-sub mb-2">
                     Uncompromising Quality
                   </p>
 
@@ -141,14 +138,14 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container about-img-cont">
                 <img
-                  src='assets\images\about\About Us_Icons_Marketing.png'
+                  src='assets\images\about\ico-8.png'
                   class="img-fluid d-block mx-auto "
                   alt="Your Image"
                 />
 
                 <div className="abt-cont">
 
-                  <p className="head-abt-sub mb-0">
+                  <p className="head-abt-sub mb-2">
                     Seasonal Trendsetting
                   </p>
 
@@ -166,7 +163,7 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container about-img-cont">
                 <img
-                  src='assets\images\about\About Us_Icons_Product.png'
+                  src='assets\images\about\ico-6.png'
                   class="img-fluid d-block mx-auto "
                   alt="Your Image"
                 />
@@ -174,7 +171,7 @@ const About = () => {
 
                 <div className="abt-cont">
 
-                  <p className="head-abt-sub mb-0">
+                  <p className="head-abt-sub mb-2">
                     Authenticity Guaranteed
                   </p>
 
@@ -192,14 +189,14 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container about-img-cont">
                 <img
-                  src='assets\images\about\About Us_Icons_Setup.png'
+                  src='assets\images\about\ico-2.png'
                   class="img-fluid d-block mx-auto "
                   alt="Your Image"
                 />
 
                 <div className="abt-cont">
 
-                  <p className="head-abt-sub mb-0">
+                  <p className="head-abt-sub mb-2">
                     Market Presence
                   </p>
 
@@ -217,14 +214,14 @@ const About = () => {
             <div className="col-md-4 mb-4">
               <div className="image-container about-img-cont">
                 <img
-                  src='assets\images\about\About Us_Icons_Technology.png'
+                  src='assets\images\about\ico-5.png'
                   class="img-fluid d-block mx-auto"
                   alt="Your Image"
                 />
 
                 <div className="abt-cont">
 
-                  <p className="head-abt-sub mb-0">
+                  <p className="head-abt-sub mb-2">
                     Brand Valor
                   </p>
 

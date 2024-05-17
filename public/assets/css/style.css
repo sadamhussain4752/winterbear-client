@@ -128,6 +128,10 @@ padding: 15px 0;*/
   background-color: #221A42;
 }
 
+.bg-theme-dis{
+  background-color: red;
+}
+
 .theme-bg-text {
   position: relative;
   /* font-family: 'Satisfy', cursive; */
@@ -386,8 +390,14 @@ input {
 
 .shop-by-tab {
   display: flex;
-  flex-wrap: nowrap;
+  justify-content: center;
+  /* flex-wrap: nowrap; */
 }
+
+.nav-fill .nav-item, .nav-fill>.nav-link{
+  flex: none !important;
+}
+
 
 .btn-subscribe {
   position: relative;
@@ -615,7 +625,7 @@ footer ul a {
 }
 
 .price-prodname {
-  min-height: 30px;
+  min-height: 20px;
   display: flex;
   align-items: center;
 }
@@ -853,13 +863,20 @@ width: 77%;
 
 .sub-heading {
   color: #3C465F;
-  text-align: center;
+  text-align: justify;
+  text-align-last: center;
   font-family: Poppins;
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
   line-height: 30px;
 }
+
+.jus-cent-cont{
+  text-align: justify;
+  /* text-align-last: center; */
+}
+
 
 .about1 img {
   width: 250px;
@@ -1045,6 +1062,9 @@ width: 77%;
   margin-top: 30px !important;
 }
 
+.mt-8 {
+  margin-top: 120px !important;
+}
 
 
 
@@ -1718,6 +1738,8 @@ input {
 .price-card {
   /* background-color: #FFE5E5; */
   width: 100%;
+  display: flex;
+  justify-content: space-around;
   /* padding: 10%; */
 }
 
@@ -2355,12 +2377,13 @@ input {
 
 .head-abt-sub{
   font-size: 25px;
+  text-align: center;
 }
 
 .about-img-cont img{
-  width: 150px;
-  height: 150px;
-  margin-bottom: 30px;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
  
 }
 
@@ -2492,7 +2515,7 @@ input {
 
 
 .home-product:hover .addtocart-btn {
-  bottom: 40%;
+  bottom: 25%;
   opacity: 1;
   width: 75%;
   padding: 4% 0% !important;

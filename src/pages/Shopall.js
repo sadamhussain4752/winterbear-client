@@ -345,8 +345,9 @@ const ShopAll = () => {
                         alt="Web Project 1"
                       />
                       <div className="text-center price-card py-2">
-                        <p className=" mb-0">₹{prod.amount}</p>
+                        
                         <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
+                        <p className=" mb-0">₹{prod.amount}</p>
 
                         <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2">
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
