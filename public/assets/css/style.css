@@ -2625,3 +2625,15 @@ input {
 .full-banner.brand-img{
   width: 100% !important;
 }
+
+/* Initial state of the header: hidden */
+.top-headers {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+/* On hover, show the header */
+.header-container:hover .top-headers {
+  max-height: 450px; /* Adjust this value based on your header's content height */
+}

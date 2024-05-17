@@ -150,10 +150,10 @@ const Header = () => {
 
 
   return (
-    <>
-      <header>
+    <div className="header-container"> {/* Add a wrapper div */}
+    <header>
         {/* Top Header */}
-        <div className={`top-header shadow-sm bg-white fixed-top ${navbarBg === "d-none" && "bg-transparent"}`}>
+        <div className={`top-header shadow-sm bg-white fixed-top ${navbarBg === "d-none" && "bg-white top-headers"}`}>
 
           <div className="container-fluid">
 
@@ -587,7 +587,7 @@ const Header = () => {
         <RegisterModal visible={modalVisible} onClose={handleCloseModal} />
         <NewsPaper visible={newsVisible} onClose={handleCloseNews} />
       </>
-    </>
+    </div>
   );
 };
 

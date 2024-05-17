@@ -160,7 +160,7 @@ const Home2 = () => {
                       </div>
 
                       <div
-                        className="col-md-12 shop-by tile-1 px-4"
+                        className="container-fluid shop-by tile-1 px-4"
                         id={`sticky1${index}`}
                       >
 
@@ -192,11 +192,11 @@ const Home2 = () => {
 
                         </div>
 
-                        <div className="portfolio row">
+                        <div className="portfolio mx-3 ml-3 row">
                           {item &&
                             item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
-                              <div className="item col-md-3 px-5 pl-5 pt-3 border border-secondary rounded position-relative mb-3 py-4 home-product">
+                              <div className="item col-lg-3 px-5 pl-5 pt-3 border border-secondary rounded position-relative mb-3 py-4 home-product">
 
                                 <img
 
@@ -213,10 +213,10 @@ const Home2 = () => {
 
                                 <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
                                   <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-
-                                    <p className="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
+                                    {item.brand._id === "65aa405f6bfadce6d5a0ef3c" && <p className="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
                                       {parseFloat(prod.offeramount / 100).toFixed(0)}%
-                                    </p>
+                                    </p>}
+                                    
 
 
                                     <button className="heart-btn" id="hertbtn">

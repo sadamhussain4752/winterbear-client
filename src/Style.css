@@ -486,7 +486,7 @@ footer ul a {
 }
 
 .tile-1 .item {
-    width: 246px;
+    width: 90% !important;
     margin: 5px;
     position: relative;
     overflow: hidden;
