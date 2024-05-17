@@ -203,13 +203,13 @@ const Header = () => {
                         {Language.find}
 
                       </Link>
-                      <Link
+                      {/* <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/blogs"
                       >
                         {Language.blogs}
 
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>
@@ -299,7 +299,7 @@ const Header = () => {
                           FAQs
                         </a>
                       </li>
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
                             }`}
@@ -307,7 +307,7 @@ const Header = () => {
                         >
                           EVENT
                         </a>
-                      </li>
+                      </li> */}
 
                       <li className="nav-item">
                         <a
@@ -328,7 +328,7 @@ const Header = () => {
                         </a>
                       </li>
 
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
                             }`}
@@ -336,7 +336,7 @@ const Header = () => {
                         >
                           SNS
                         </a>
-                      </li>
+                      </li> */}
 
 
                       <li className="nav-item">
@@ -506,15 +506,7 @@ const Header = () => {
                                 <li>
                                   <hr className="dropdown-divider" />
                                 </li>
-                                <li>
-                                  <Link
-                                    className={`dropdown-item`}
-                                    to="/awards"
-                                  >
-                                    Awards
-                                  </Link>
-                                </li>
-
+                                
                                 <li>
                                   <hr className="dropdown-divider" />
                                 </li>

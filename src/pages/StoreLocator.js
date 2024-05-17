@@ -12,7 +12,7 @@ function StoreLocator() {
         { name: 'Winterbear Mumbai', address: 'Lower Ground, : PHOENIX MARKETCITY, LG-28, Lal Bahadur Shastri Marg, Patelwadi.Kurla, Kamani, Kurla West, Kurla, Mumbai, Maharashtra 400070, India', lat: 19.081797, lng: 72.88183 },
         { name: 'Winterbear Chennai', address: 'VR Chennai, 100 Feet Rd, Thirumangalam, Anna Nagar, Chennai, Tamil Nadu 600040', lat: 13.082896, lng: 80.198699 },
         { name: 'Winterbear Bangalore - HSR Layout', address: 'Ground Floor, No. 1461/1784, Venlak Arcade, 19th Main Rd, Vanganahalli, 1st Sector, HSR Layout, Bengaluru, Karnataka 560102', lat: 12.914548, lng: 77.644889 },
-        { name: 'Winterbear Bangalore - Jayanagar', address: 'Jayanagar: #228/15, Winterbear, Lower Ground Floor, 9th Main Road, 3rd Block, Jayanagar, Bangalore, Karnataka - 560011', lat: 12.914548, lng: 77.644889 }
+        { name: 'Winterbear Bangalore - Jayanagar', address: 'Jayanagar: #228/15, Winterbear, Lower Ground Floor, 9th Main Road, 3rd Block, Jayanagar, Bangalore, Karnataka - 560011', lat: 12.9334118, lng: 77.5790271 }
 
     ]);
     const [filter, setFilter] = useState('');

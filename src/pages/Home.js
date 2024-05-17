@@ -103,7 +103,7 @@ const Home2 = () => {
                 data.Categorys &&
                 data.Categorys.map((item) => (
                   <div className="col-md-3 col-6 mt-2">
-                    <div className="collection-box-1" onClick={() => navigate(`/category/${item._id}`)}>
+                    <div className="collection-box-1" onClick={() => navigate(`/shop/${item._id}`)}>
                       <div className="image-container-1">
                         <img src={`${item.imageUrl}`} className="mb-0" />
                         <h4>{item.name} </h4>
@@ -148,7 +148,9 @@ const Home2 = () => {
                       </div>
 
                       <div className="mb-3" id="sticky2">
-                        <div className="sticky-logo-2">
+                        <div className="sticky-logo-2" onClick={()=>{
+                                navigate(`/brand/${item.brand._id}`);
+                              }}>
                           <img
                             src={`${item.brand.imageUrl}`}
                             className="d-block mx-auto sticky-log2"
@@ -171,7 +173,10 @@ const Home2 = () => {
                             role="tablist"
                           >
                             {item?.subbrand.map((itemname) => (
-                              <li className="nav-item py-0" role="presentation">
+                              <li className="nav-item py-0" role="presentation" onClick={()=>{
+                                navigate(`/brand/${item.brand._id}`);
+                              }}>
+                              
                                 <img src={`${itemname.imageUrl}`} className="shopby-top-icoimg" />
                                 <button
                                   className="nav-link  fw-semibold py-0  position-relative rounded-pill"
