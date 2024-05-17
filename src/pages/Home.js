@@ -168,7 +168,7 @@ const Home2 = () => {
 
                         <div className="container-fluid ">
                           <ul
-                            className="nav nav-pills  nav-fill shop-by-tab py-3 "
+                            className="nav nav-pills  nav-fill shop-by-tab py-3  mb-4"
                             id="pills-tab"
                             role="tablist"
                           >
@@ -201,28 +201,29 @@ const Home2 = () => {
                           {item &&
                             item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
-                              <div className="item col-lg-3 px-4 pl-5 pt-3 border border-secondary rounded position-relative mb-3 pb-2 home-product">
+                              <div className="item col-lg-3 position-relative mb-3 home-product px-0">
+                                <div className="home-product-in">
+                                  <img
 
-                                <img
+                                    src={
 
-                                  src={
-
-                                    prod.images[0] !== null &&
-                                      prod.images[0] !== "image_url1"
-                                      ? `${prod.images[0]}`
-                                      : "assets/images/Rectangle 22.png"
-                                  }
-                                  className="product-shopby"
-                                  alt="Web Project 1"
-                                />
+                                      prod.images[0] !== null &&
+                                        prod.images[0] !== "image_url1"
+                                        ? `${prod.images[0]}`
+                                        : "assets/images/Rectangle 22.png"
+                                    }
+                                    className="product-shopby"
+                                    alt="Web Project 1"
+                                  />
+                                </div>
 
                                 <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
                                   <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
                                     {item.brand._id === "65aa405f6bfadce6d5a0ef3c" && <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
                                       {parseFloat(prod.offeramount / 100).toFixed(0)}%
                                     </p>}
-                                    
-                                  <div></div>
+
+                                    <div></div>
 
                                     <button className="heart-btn" id="hertbtn">
                                       <i class="fa-regular fa-heart"></i>
@@ -233,10 +234,10 @@ const Home2 = () => {
 
                                   </div>
 
-                                  <div className="d-flex justify-content-between align-items-center mt-4 col-md-12 price-prodname">
-                                    <p className="text-start prize-size col-md-8 mb-0 text-truncate" style={{ maxWidth: '200px' }}> {item.brand.name} @{prod.name}
+                                  <div className=" mt-4 col-md-12 price-prodname">
+                                    <p className="text-start prize-size mb-0 "> {item.brand.name} @{prod.name}
                                     </p>
-                                    <p className="text-end fw-bold col-md-4 mb-0">₹{prod.amount}</p>
+                                    <p className="prod-pric mb-0 ">₹{prod.amount}</p>
 
 
                                   </div>

@@ -1,110 +1,113 @@
  .tile-1 .item img {
-    width: 100%;
-    height: 20vh;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    transition: transform 0.3s;
-} 
+     width: 100%;
+     height: 250px !important;
+     object-fit: cover;
+     /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+     transition: transform 0.3s;
+ }
 
 
-.product-img-main{
-    height: 350px;
-    object-fit: cover;
-    border: 1px solid grey;
-    padding: 2%;
-}
+ .product-img-main {
+     height: 350px;
+     object-fit: cover;
+     border: 1px solid grey;
+     padding: 2%;
+ }
 
 
-.react-multi-carousel-list{
-    width: 100%;
-    margin:0px;
-    margin-top: 2%;
-    justify-content: space-between;
-    padding: 3% 1%;
-}
 
-.react-multiple-carousel__arrow {
-    background-color:  #221A42 !important;
-}
+ .react-multi-carousel-list {
+     width: 100%;
+     margin: 0px;
+     margin-top: 2%;
+     justify-content: space-between;
+     padding: 3% 1%;
+ }
 
-.react-multi-carousel-track{
-    width: 100%;
-}
+ .react-multiple-carousel__arrow {
+     background-color: #221A42 !important;
+ }
 
-.react-multi-carousel-track {
-    width: 80%;
-}
+ .react-multi-carousel-track {
+     width: 100%;
+ }
 
-.react-multi-carousel-track li {
-    display: block;
-    margin: auto;
-}
+ .react-multi-carousel-track {
+     width: 80%;
+ }
 
-.prod-bot-tab{
-    border: 1px solid #E4E7E9;
-}
+ .react-multi-carousel-track li {
+     display: block;
+     margin: auto;
+ }
 
-.nav-tabs{
-    border-bottom: 1px solid #E4E7E9 !important;
-}
+ .prod-bot-tab {
+     border: 1px solid #E4E7E9;
+ }
 
-.nav-item {
-    padding: 2% 0%;
-}
+ .nav-tabs {
+     border-bottom: 1px solid #E4E7E9 !important;
+ }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    border: none !important;
-    border-bottom: 2px solid blue !important;
-}
+ .nav-item {
+     padding: 2% 0%;
+ }
 
-.tab-discription{
-    padding: 4%;
-}
+ .nav-tabs .nav-item.show .nav-link,
+ .nav-tabs .nav-link.active {
+     border: none !important;
+     border-bottom: 2px solid blue !important;
+ }
 
-.product-card{
-    margin-bottom:50px;
-    border-radius: 1px;
+ .tab-discription {
+     padding: 4%;
+ }
 
-}
+ .product-card {
+     margin-bottom: 50px;
+     border-radius: 1px;
 
-.price-card {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
+ }
 
-.price-card .font-z{
+ .price-card {
+     border-bottom-left-radius: 0px;
+     border-bottom-right-radius: 0px;
+ }
 
-    margin-bottom: 0% !important;
-    border-radius: 20px;
+ .price-card .font-z {
 
-}
+     margin-bottom: 0% !important;
+     border-radius: 20px;
 
-
-.box-card-over{
-
-    width: 85%;
-
-}
+ }
 
 
-.about-breadcum-content{
-    z-index: 300;
-}
+ .box-card-over {
+
+     width: 85%;
+
+ }
 
 
-/* cart style */
-
-.product-name{
-    font-size: 14px;
-}
+ .about-breadcum-content {
+     z-index: 300;
+ }
 
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    color: white !important;
-    background: #4e3c98;
-}
+ /* cart style */
 
-.cor-minimg{
-    border: 1px solid gray;
-}
+ .product-name {
+     font-size: 14px;
+ }
+
+
+ .nav-pills .nav-link.active,
+ .nav-pills .show>.nav-link {
+     color: white !important;
+     background: #4e3c98;
+ }
+
+ .cor-minimg {
+     border: 1px solid gray;
+ }
