@@ -94,7 +94,7 @@ const Home2 = () => {
                 data.Categorys.map((item) => (
                   <div className="col-md-3 col-6 mt-2">
                     <div
-                      className="collection-box-1"
+                      className="collection-box-1 d-block mx-auto"
                       onClick={() => navigate(`/shop/${item._id}`)}
                     >
                       <div className="image-container-1">

@@ -324,12 +324,12 @@ const ShopAll = () => {
                   >
                     <div class="product-card">
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-                        {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
+                        <p> {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
                           {parseFloat(prod.offeramount / 100).toFixed(0)}%
 
                         </p>}
 
-
+                        </p>
                         <button class="heart-btn" id="hertbtn">
                           <i class="fa-regular fa-heart"></i>
                         </button>

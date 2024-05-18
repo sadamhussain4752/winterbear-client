@@ -164,13 +164,13 @@ const Brandlist = () => {
 
                       <div id="carouselExample1" className="carousel slide w-100">
 
-                        
+
                         <div className="carousel-inner">
 
-                          {subBrandlist[0]?.brand.banner_img.map((img_item ,isIndex) => {
+                          {subBrandlist[0]?.brand.banner_img.map((img_item, isIndex) => {
 
                             return (
-                              <div className={`carousel-item  ${isIndex===0 ? 'active' :'' }`}>
+                              <div className={`carousel-item  ${isIndex === 0 ? 'active' : ''}`}>
                                 <img src={img_item} alt={img_item} className="brand-img px-0 rounded-0" />
                               </div>
 
@@ -381,16 +381,18 @@ const Brandlist = () => {
                             <i className="fa-regular fa-heart"></i>
                           </button>
                         </div>
-                        <img
-                          src={prod && prod?.images[0]&&
-                            prod.images[0] !== null && prod.images[0] !== undefined &&
+                        <div className="home-product-in">
+                          <img
+                            src={prod && prod?.images[0] &&
+                              prod.images[0] !== null && prod.images[0] !== undefined &&
                               prod.images[0] !== "image_url1"
                               ? `${prod.images[0]}`
                               : "assets/images/Rectangle 22.png"
-                          }
-                          className=""
-                          alt="Web Project 1"
-                        />
+                            }
+                            className=""
+                            alt="Web Project 1"
+                          />
+                        </div>
                         <div className="text-center price-card py-2">
                           <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
                           <p className=" mb-0 pro-price">₹{prod.amount}</p>
