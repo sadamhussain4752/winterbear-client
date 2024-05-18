@@ -104,15 +104,15 @@
   bottom: 0%;
 }
 
-.carousel-control-next,
+/* #carouselExample .carousel-control-next,
 .carousel-control-prev {
   margin-left: -15% !important;
 }
 
-.carousel-control-next,
+#carouselExample .carousel-control-next,
 .carousel-control-prev {
   margin-right: -15% !important;
-}
+} */
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {

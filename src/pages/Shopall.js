@@ -51,8 +51,8 @@ const ShopAll = () => {
     if (productlist && productlist.products) {
       setProductList(productlist.products);
     }
-    
-  }, [productlist,id]);
+
+  }, [productlist, id]);
   // Handle category selection based on URL parameter
   useEffect(() => {
     if (id && id !== "0" && productlist && productlist.products) {
@@ -60,14 +60,14 @@ const ShopAll = () => {
         (item) => item._id === id
       );
       console.log(filteredProducts);
-      if(filteredProducts.length > 0){
+      if (filteredProducts.length > 0) {
         handleCategoryClick(filteredProducts[0]);
 
       }
     }
   }, [id, productlist]);
 
-  
+
 
   // Define the menu
   const menu = (
@@ -144,7 +144,7 @@ const ShopAll = () => {
               </div>
             </div>
           </div>}
-          
+
           <div className="row">
             <div className="col-md-12">
               <div className="section-heading">
@@ -265,8 +265,8 @@ const ShopAll = () => {
                   data.Categorys.map((item) => (
                     <div
                       className={`${item._id === selectedCategory?._id
-                          ? ""
-                          : "col-md-12 d-flex justify-content-start "
+                        ? ""
+                        : "col-md-12 d-flex justify-content-start "
                         }`}
                       key={item._id}
                       onClick={() => handleCategoryClick(item)}
@@ -296,7 +296,7 @@ const ShopAll = () => {
                           alt={item.brand.name}
                           className="img-pop"
                         /> */}
-                                                <p className="brand-namee">{item.brand.name}</p>
+                        <p className="brand-namee">{item.brand.name}</p>
 
                       </div>
                       {/* <div>
@@ -324,28 +324,30 @@ const ShopAll = () => {
                   >
                     <div class="product-card">
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-                      {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" &&  <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
-                        {parseFloat(prod.offeramount / 100).toFixed(0)}%
+                        {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
+                          {parseFloat(prod.offeramount / 100).toFixed(0)}%
 
                         </p>}
-                       
-                       
+
+
                         <button class="heart-btn" id="hertbtn">
                           <i class="fa-regular fa-heart"></i>
                         </button>
                       </div>
-                      <img
-                        src={
-                          prod.images[0] !== null &&
-                            prod.images[0] !== "image_url1"
-                            ? `${prod.images[0]}`
-                            : "assets/images/Rectangle 22.png"
-                        }
-                        className=""
-                        alt="Web Project 1"
-                      />
+                      <div className="home-product-in">
+                        <img
+                          src={
+                            prod.images[0] !== null &&
+                              prod.images[0] !== "image_url1"
+                              ? `${prod.images[0]}`
+                              : "assets/images/Rectangle 22.png"
+                          }
+                          className="product-shopall"
+                          alt="Web Project 1"
+                        />
+                      </div>
                       <div className="text-center price-card py-2">
-                        
+
                         <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
                         <p className=" mb-0">₹{prod.amount}</p>
 
