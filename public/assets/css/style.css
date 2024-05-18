@@ -2712,3 +2712,14 @@ input {
 .rel-prod{
   height: 250px !important;
 }
+
+
+.fa-heart.fa-solid.active {
+  color: red;
+}
+
+.ant-modal-close-icon{
+  background-color: white;
+  padding: 55%;
+  border-radius: 5px;
+}

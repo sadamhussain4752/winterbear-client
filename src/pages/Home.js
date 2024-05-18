@@ -10,6 +10,8 @@ import BrandSlider from "../components/BrandSlider";
 import { fetchBannerData, fetchProductDataOld } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import HeartButton from "../components/heartbutton";
+
 import "./innerstyle.css";
 
 import { HeartOutlined } from "@ant-design/icons";
@@ -206,7 +208,7 @@ const Home2 = () => {
                                   <img
                                     src={
                                       prod.images[0] !== null &&
-                                      prod.images[0] !== "image_url1"
+                                        prod.images[0] !== "image_url1"
                                         ? `${prod.images[0]}`
                                         : "assets/images/Rectangle 22.png"
                                     }
@@ -219,20 +221,14 @@ const Home2 = () => {
                                   <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
                                     {item.brand._id ===
                                       "65aa405f6bfadce6d5a0ef3c" && (
-                                      <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
-                                        40%
-                                      </p>
-                                    )}
+                                        <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
+                                          40%
+                                        </p>
+                                      )}
 
                                     <div></div>
 
-                                    <button className="heart-btn" id="hertbtn">
-                                      <i class="fa-regular fa-heart"></i>
-                                       {/* <Rate
-                                        character={<HeartOutlined />  }
-                                        count={1}
-                                      /> */}
-                                    </button>
+                                    <HeartButton />
                                   </div>
 
                                   <div className=" mt-4 col-md-12 price-prodname">

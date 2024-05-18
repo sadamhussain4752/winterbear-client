@@ -31,83 +31,92 @@ const NewsPaper = ({ visible, onClose }) => {
         <Modal
             visible={visible}
             onCancel={onClose}
-            width="440px"
+            width="50%"
             footer={null}
             className="news-paper-modal"
         >
             <div className="news-paper-modal-div">
-                <div className="text-center ">
-                    <p className="text-white font-news">
-                        Welcome To WINTERBEAR !
-                    </p>
-                    <p className="text-white fs-5 fw-bold ">
-                        GET 21% OFF
-                    </p>
-                    <p className="text-white font-news-text">
-                        Escape the noise, It’s time to hear the magic with Xiaomi Earbuds.
-                    </p>
-                    <div className="d-flex justify-content-center align-items-center align-self-center font-news-text">
-                        <p className="text-white ">
-                            Starting price:
-                        </p>
-                        <button className="btn bg-white font-news-btn">
-                            ₹ 99 INR
-                        </button>
+
+                <div className="row">
+                    <div className="col-lg-6">
+
+                        <div className="text-center ">
+                            <p className="text-white font-news">
+                                Welcome To WINTERBEAR !
+                            </p>
+                            <p className="text-white fs-5 fw-bold ">
+                                GET 21% OFF
+                            </p>
+                            <p className="text-white font-news-text">
+                                Escape the noise, It’s time to hear the magic with Xiaomi Earbuds.
+                            </p>
+                            <div className="d-flex justify-content-center align-items-center align-self-center font-news-text">
+                                <p className="text-white ">
+                                    Starting price:
+                                </p>
+                                <button className="btn bg-white font-news-btn">
+                                    ₹ 99 INR
+                                </button>
+                            </div>
+
+                        </div>
+
                     </div>
 
+                    <div className="col-lg-6">
+                        <Form initialValues={notificationData}>
+                            <Form.Item
+                                name="email"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please enter your email",
+                                    },
+                                    {
+                                        type: "email",
+                                        message: "Please enter a valid email",
+                                    },
+                                ]}
+                            >
+                                <Input
+                                    className="form-control"
+                                    placeholder="Enter Your Email Address"
+                                    onChange={handleEmailChange}
+                                />
+                            </Form.Item>
+
+                            <Form.Item
+                                name="phone"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please enter your phone number",
+                                    },
+                                ]}
+                            >
+                                <Input
+                                    className="form-control"
+                                    placeholder="Enter Your Phone Number"
+                                    onChange={handlePhoneChange}
+                                />
+                            </Form.Item>
+
+                            <Form.Item>
+                                <Checkbox className="text-white" onChange={handleWhatsAppChange}>Receive important information and updates on WhatsApp</Checkbox>
+                            </Form.Item>
+
+                            <div className="d-flex justify-content-center pt-2 mb-5">
+                                <Button
+                                    type="primary"
+                                    className="btn button w-75 h-25"
+                                    onClick={handleSubscribe}
+                                >
+                                    SUBSCRIBE
+                                </Button>
+                            </div>
+                        </Form>
+                    </div>
                 </div>
-
-                <Form initialValues={notificationData}>
-                    <Form.Item
-                        name="email"
-                        rules={[
-                            {
-                                required: true,
-                                message: "Please enter your email",
-                            },
-                            {
-                                type: "email",
-                                message: "Please enter a valid email",
-                            },
-                        ]}
-                    >
-                        <Input
-                            className="form-control"
-                            placeholder="Enter Your Email Address"
-                            onChange={handleEmailChange}
-                        />
-                    </Form.Item>
-
-                    <Form.Item
-                        name="phone"
-                        rules={[
-                            {
-                                required: true,
-                                message: "Please enter your phone number",
-                            },
-                        ]}
-                    >
-                        <Input
-                            className="form-control"
-                            placeholder="Enter Your Phone Number"
-                            onChange={handlePhoneChange}
-                        />
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Checkbox className="text-white" onChange={handleWhatsAppChange}>Receive important information and updates on WhatsApp</Checkbox>
-                    </Form.Item>
-
-                    <div className="d-flex justify-content-center pt-2 mb-5">
-                        <Button
-                            type="primary"
-                            className="btn button w-75 h-25"
-                            onClick={handleSubscribe}
-                        >
-                            SUBSCRIBE
-                        </Button>
-                    </div>
-                </Form>
             </div>
         </Modal>
     );
