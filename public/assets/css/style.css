@@ -1736,25 +1736,30 @@ input {
 }
 
 .price-card {
-  /* background-color: #FFE5E5; */
-  width: 100%;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 600;
+  font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
 
   /* padding: 10%; */
 }
+.body-card-product p {
+  font-weight: 600 !important;
+  text-align: left !important;
+}
 
-.price-card p {
-  /* margin-top: 10px; */
+.pro-price{
+  font-size: 500 !important;
+}
+
+/* .price-card p {
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 30px !important;
-  /* 16px */
   color: #221A42 !important;
-}
+} */
 
 .product-des {}
 
@@ -2374,7 +2379,12 @@ input {
   color: #221A42;
   text-align: center;
   transition: background 0.3s ease, border-radius 0.3s ease, color 0.3s ease;
-  /* height: 300px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10% !important; 
+  height: 225px;
+  width: 250px;
 }
 
 .head-abt-sub {
@@ -2481,6 +2491,11 @@ input {
 
 }
 
+.product-shopall:hover{
+  transform: scale(1.5);
+  overflow: hidden !important;
+}
+
 .add-to-card-price {
   background-color: #221A42 !important;
 
@@ -2493,10 +2508,20 @@ input {
 .product-card img {
   height: 250px !important;
   object-fit: cover;
+  transition: transform 0.3s;
 }
 
 .product-card {
   position: relative;
+}
+
+.brandimg-cont{
+  overflow: hidden;
+}
+
+.product-card img:hover {
+  transform: scale(1.5);
+  overflow: hidden !important;
 }
 
 .home-product {

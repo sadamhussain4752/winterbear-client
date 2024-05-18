@@ -160,17 +160,37 @@ const Brandlist = () => {
                   <div className="align-items-center full-banner">
 
                     {/* <h3 className="theme-bg-text">{subBrandlist[0].brand.name}</h3> */}
-                    <div className="row px-0">
-                      {subBrandlist[0]?.brand.banner_img.map((img_item) => {
+                    <div className="row px-0 mt-5">
 
-                        return (
-                          <div className="col-lg-4 px-0">
-                            <img src={img_item} alt={img_item} className="brand-img px-0" />
-                          </div>
+                      <div id="carouselExample1" className="carousel slide w-100">
 
-                        )
+                        
+                        <div className="carousel-inner">
 
-                      })}
+                          {subBrandlist[0]?.brand.banner_img.map((img_item ,isIndex) => {
+
+                            return (
+                              <div className={`carousel-item  ${isIndex===0 ? 'active' :'' }`}>
+                                <img src={img_item} alt={img_item} className="brand-img px-0 rounded-0" />
+                              </div>
+
+                            )
+
+                          })}
+
+                        </div>
+                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
+                          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
+                          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span className="visually-hidden">Next</span>
+                        </button>
+                      </div>
+
+
+
                     </div>
                     {/* <p>{item.brand.name}</p> */}
                   </div>
@@ -210,33 +230,33 @@ const Brandlist = () => {
             <div className="text-end d-flex justify-content-end filter-item">
               <div className="p-0">
                 <button
-                  class="btn p-0 text-white"
+                  className="btn p-0 text-white"
                   type="button"
                   data-bs-toggle="offcanvas"
                   data-bs-target="#offcanvasRight1"
                   aria-controls="offcanvasRight1"
                 >
-                  <i class="fa-solid fa-filter mt-2"></i>
+                  <i className="fa-solid fa-filter mt-2"></i>
                 </button>
 
                 <div
-                  class="offcanvas offcanvas-end"
+                  className="offcanvas offcanvas-end"
                   tabindex="-1"
                   id="offcanvasRight1"
                   aria-labelledby="offcanvasRight1Label"
                 >
-                  <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasRight1Label">
+                  <div className="offcanvas-header">
+                    <h5 className="offcanvas-title" id="offcanvasRight1Label">
                       Filter BY Brands
                     </h5>
                     <button
                       type="button"
-                      class="btn-close"
+                      className="btn-close"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div class="offcanvas-body position-relative text-start">
+                  <div className="offcanvas-body position-relative text-start">
                     {productOldlist &&
                       productOldlist.productList &&
                       productOldlist.productList.map((item) => (
@@ -347,35 +367,38 @@ const Brandlist = () => {
                   productList &&
                   productList.map((prod, ind) => (
                     <div className="col-md-3 rounded-border mt-3 " onClick={() => handleNavigation(prod._id)}>
-                      <div class="product-card">
-                        <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                      <div className="product-card">
+                        <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
 
-                        {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" &&  <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
-                        {parseFloat(prod.offeramount / 100).toFixed(0)}%
 
-                        </p>}
-                       
-                          
-                          <button class="heart-btn" id="hertbtn">
-                            <i class="fa-regular fa-heart"></i>
+                          < p> {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && <p className="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
+                            {parseFloat(prod.offeramount / 100).toFixed(0)}%
+
+                          </p>}
+                          </p>
+
+                          <button className="heart-btn" id="hertbtn">
+                            <i className="fa-regular fa-heart"></i>
                           </button>
                         </div>
-                        <img
-                          src={
-                            prod.images[0] !== null &&
-                              prod.images[0] !== "image_url1"
-                              ? `${prod.images[0]}`
-                              : "assets/images/Rectangle 22.png"
-                          }
-                          className=""
-                          alt="Web Project 1"
-                        />
+                        <div className="brandimg-cont">
+                          <img
+                            src={
+                              prod.images[0] !== null &&
+                                prod.images[0] !== "image_url1"
+                                ? `${prod.images[0]}`
+                                : "assets/images/Rectangle 22.png"
+                            }
+                            className=""
+                            alt="Web Project 1"
+                          />
+                        </div>
                         <div className="text-center price-card py-2">
-                          <p className=" mb-0">₹{prod.amount}</p>
                           <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
+                          <p className=" mb-0 pro-price">₹{prod.amount}</p>
 
-                          <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2">
-                            <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                          <div className="text-center  border-secondary addtocart-btn px-1 py-1 mx-2">
+                            <i className="fas fa-cart-plus me-2"></i> Add to Cart
                           </div>
                         </div>
                       </div>
