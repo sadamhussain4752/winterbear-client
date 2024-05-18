@@ -24,6 +24,7 @@ import Privacypolicy from "./pages/Privacypolicy";
 import Terms from "./pages/Terms";
 import Categorylist from "./pages/Categorylist";
 import StoreLocator from "./pages/StoreLocator";
+import Wishlist from "./pages/Wishlist";
 
 const App = () => {
   return (
@@ -41,7 +42,9 @@ const App = () => {
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/events" element={<EventsSection />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />          
+          <Route path="/wishlist" element={<Wishlist />} />
+
 
           <Route path="/login" element={<Login />} />
           <Route path="/account" element={<Account />} />

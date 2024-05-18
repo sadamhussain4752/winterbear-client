@@ -60,7 +60,13 @@ import {
   fetchProductOldFailure,
   UserUploadIdRequest,
   UserUploadIdSuccess,
-  UserUploadIdFailure
+  UserUploadIdFailure,
+  WishlistRequest,
+  WishlistSuccess,
+  WishlistFailure,
+  fetchWishlistRequest,
+  fetchWishlistSuccess,
+  fetchWishlistFailure
 } from './actions';
 import constant from '../constant/constant';
 
@@ -86,6 +92,10 @@ const CouponProductid = `${constant.baseUrl}api/coupon/GetCoupon`;
 const AddupdateCartItemId = `${constant.baseUrl}api/addcart/updateCartItem`;
 const EventList = `${constant.baseUrl}api/event/allevents`;
 const Uploadprofile = `${constant.baseUrl}api/user/User`;
+const AddWishAPI = `${constant.baseUrl}api/wishlist/createWishlistItem`;
+const GetWishAPI = `${constant.baseUrl}api/wishlist/wishlistUser`;
+const DeleteWishAPI = `${constant.baseUrl}api/wishlist/deleteWishlistItem`;
+
 
 
 
@@ -344,5 +354,43 @@ export const UserUploadById = (body,userId) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch(UserUploadIdFailure(error.response.data.message));
+  }
+};
+
+export const AddWishlistFetch = (body,userId) => async (dispatch) => {
+  dispatch(WishlistRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.post(`${AddWishAPI}`,body);
+    dispatch(WishlistSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(WishlistFailure(error.response.data.message));
+  }
+};
+
+
+export const fetchWishlistData = (userId) => async (dispatch) => {
+  dispatch(fetchWishlistRequest());
+
+  try {
+    const response = await axios.get(`${GetWishAPI}/${userId}`);
+    dispatch(fetchWishlistSuccess(response.data));
+  } catch (error) {
+    dispatch(fetchWishlistFailure(error.message));
+  }
+};
+
+export const DeleteWishlistFetch = (Id) => async (dispatch) => {
+  dispatch(WishlistRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.delete(`${DeleteWishAPI}/${Id}`);
+    dispatch(WishlistSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(WishlistFailure(error.response.data.message));
   }
 };

@@ -153,7 +153,7 @@ const Brandlist = () => {
       <section className="py-5 shop">
         <div className="container-fluid">
           <div className="row ">
-            <div className="col-md-12 mt-80">
+            <div className="col-md-12">
               <div className="section-heading">
                 {productOldlist && subBrandlist.length > 0 && (
 

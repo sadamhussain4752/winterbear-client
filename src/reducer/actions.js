@@ -74,6 +74,14 @@ export const USER_PROFILE_IB_BY_REQUEST = 'USER_PROFILE_IB_BY_REQUEST';
 export const USER_PROFILE_IB_BY_SUCCESS = 'USER_PROFILE_IB_BY_SUCCESS';
 export const USER_PROFILE_IB_BY_FAILURE = 'USER_PROFILE_IB_BY_FAILURE';
 
+export const ADD_WISH_LIST_IB_BY_REQUEST = 'ADD_WISH_LIST_IB_BY_REQUEST';
+export const ADD_WISH_LIST_IB_BY_SUCCESS = 'ADD_WISH_LIST_IB_BY_SUCCESS';
+export const ADD_WISH_LIST_IB_BY_FAILURE = 'ADD_WISH_LIST_IB_BY_FAILURE';
+
+export const FETCH_WISH_LIST_REQUEST = 'FETCH_WISH_LIST_REQUEST';
+export const FETCH_WISH_LIST_SUCCESS = 'FETCH_WISH_LIST_SUCCESS';
+export const FETCH_WISH_LIST_FAILURE = 'FETCH_WISH_LIST_FAILURE';
+
 export const fetchHeaderRequest = () => ({
   type: FETCH_DATA_REQUEST,
 });
@@ -361,5 +369,33 @@ export const UserUploadIdSuccess = (data) => ({
 
 export const UserUploadIdFailure = (error) => ({
   type: USER_PROFILE_IB_BY_FAILURE,
+  payload: error,
+});
+
+export const WishlistRequest = () => ({
+  type: ADD_WISH_LIST_IB_BY_REQUEST,
+});
+
+export const WishlistSuccess = (data) => ({
+  type: ADD_WISH_LIST_IB_BY_SUCCESS,
+  payload: data,
+});
+
+export const WishlistFailure = (error) => ({
+  type: ADD_WISH_LIST_IB_BY_FAILURE,
+  payload: error,
+});
+
+export const fetchWishlistRequest = () => ({
+  type: FETCH_WISH_LIST_REQUEST,
+});
+
+export const fetchWishlistSuccess = (data) => ({
+  type: FETCH_WISH_LIST_SUCCESS,
+  payload: data,
+});
+
+export const fetchWishlistFailure = (error) => ({
+  type: FETCH_WISH_LIST_FAILURE,
   payload: error,
 });

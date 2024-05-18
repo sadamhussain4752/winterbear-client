@@ -7,7 +7,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Gallery from "../components/Gallery";
 import HomeSlider from "../components/HomeSlider";
 import BrandSlider from "../components/BrandSlider";
-import { fetchBannerData, fetchProductDataOld } from "../reducer/thunks";
+import { fetchBannerData, fetchProductDataOld, AddWishlistFetch,fetchWishlistData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./innerstyle.css";
@@ -21,6 +21,8 @@ import constant from "../constant/constant";
 const Home2 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  let userId = localStorage.getItem("userId");
+
 
   // Destructuring with different names to avoid conflict
   const {
@@ -28,6 +30,12 @@ const Home2 = () => {
     loading: bannerLoading,
     error: bannerError,
   } = useSelector((state) => state.data);
+
+  const {
+    wishlist,
+    addloading: addloadingLoading,
+    error: productListErrors,
+  } = useSelector((state) => state.wishlist);
 
   const {
     productOldlist,
@@ -51,7 +59,18 @@ const Home2 = () => {
   useEffect(() => {
     dispatch(fetchBannerData());
     dispatch(fetchProductDataOld());
+    if ((userId !== undefined && userId !== null)) {
+      dispatch(fetchWishlistData(userId));
+    }
   }, []);
+
+
+  const handlewishlist = async (prod_id) => {
+    let userIds = localStorage.getItem("userId");
+
+    let passbody = { userId: userIds, productId: prod_id }
+    await dispatch(AddWishlistFetch(passbody))
+  }
 
   useEffect(() => {
     const handleSticky = () => {
@@ -199,14 +218,14 @@ const Home2 = () => {
 
                         <div className="portfolio mx-3 ml-3 row">
                           {item &&
-                            item.products &&
+                            item.products && wishlist &&
                             item.products.slice(0, 8).map((prod, ind) => (
                               <div className="item col-lg-3 position-relative mb-3 home-product px-0">
                                 <div className="home-product-in">
                                   <img
                                     src={
                                       prod.images[0] !== null &&
-                                      prod.images[0] !== "image_url1"
+                                        prod.images[0] !== "image_url1"
                                         ? `${prod.images[0]}`
                                         : "assets/images/Rectangle 22.png"
                                     }
@@ -219,16 +238,22 @@ const Home2 = () => {
                                   <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
                                     {item.brand._id ===
                                       "65aa405f6bfadce6d5a0ef3c" && (
-                                      <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
-                                        40%
-                                      </p>
-                                    )}
+                                        <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
+                                          40%
+                                        </p>
+                                      )}
 
                                     <div></div>
 
-                                    <button className="heart-btn" id="hertbtn">
-                                      <i class="fa-regular fa-heart"></i>
-                                       {/* <Rate
+                                    <button className="heart-btn" id="hertbtn" onClick={() => {
+                                      handlewishlist(prod._id)
+                                    }}>
+                                       {wishlist?.wishlistItems?.some((item) => item.productId === prod._id) ? (
+              <i className="fa-regular fa-heart-red"></i>
+            ) : (
+              <i className="fa-regular fa-heart"></i>
+            )}
+                                      {/* <Rate
                                         character={<HeartOutlined />  }
                                         count={1}
                                       /> */}

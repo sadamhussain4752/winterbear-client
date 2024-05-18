@@ -83,7 +83,7 @@ const Header = () => {
     console.log(userId, "userId");
     if (userId !== undefined || userId !== null) {
       dispatch(ProfileUserData(userId));
-      dispatch(CouponUserById())
+      // dispatch(CouponUserById())
     }
     if (NewsPaperId === null) {
       setNewsVisible(true)
@@ -157,13 +157,13 @@ const Header = () => {
 
           <div className="container-fluid">
 
-            <Carousel autoplay className={`col-md-10 d-block mx-auto ${navbarBg}`} dots={true}>
+            {/* <Carousel autoplay className={`col-md-10 d-block mx-auto ${navbarBg}`} dots={true}>
               {getCouponResponse && getCouponResponse?.coupons &&getCouponResponse?.coupons?.map((item, index) => item.isShow_display && (
                 <div className="col-md-4" key={index}>
                   {renderItem(item)}
                 </div>
               ))}
-            </Carousel>
+            </Carousel> */}
 
 
             <div className="row align-items-center justify-content-between ">
@@ -339,7 +339,7 @@ const Header = () => {
                       </li> */}
 
 
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
                             }`}
@@ -347,7 +347,7 @@ const Header = () => {
                         >
                           LOYALTY
                         </a>
-                      </li>
+                      </li> */}
 
                       {/* <li className="nav-item dropdown">
                           <a
@@ -453,7 +453,7 @@ const Header = () => {
 
                             </a>
                             <a
-                              href="/"
+                              href="/wishlist"
                               className="text-decoration-none "
                             >
                               {/* <img src="../assets/images/icon_cart.svg" /> */}

@@ -2712,3 +2712,13 @@ input {
 .rel-prod{
   height: 250px !important;
 }
+
+.trans{
+  transition: transform 0.3s !important;
+
+}
+
+.pointer-cur {
+  cursor: pointer;
+
+}

@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import { useParams } from "react-router-dom";
-import { ProductUserById, AddCardProductById, RatingProductUserById } from "../../src/reducer/thunks";
+import { ProductUserById, AddCardProductById, RatingProductUserById ,fetchProductData} from "../../src/reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import OwlCarousel from "react-owl-carousel";
@@ -53,6 +53,10 @@ const Product = () => {
     ProductIderror: ProductIdError,
     GetProductId: GetProductIdResponse,
   } = useSelector((state) => state.GetProductId);
+
+  useEffect(() => {
+    dispatch(fetchProductData());
+  }, []);
 
   const {
     productlist,
@@ -366,7 +370,7 @@ const Product = () => {
   const renderRelatedProducts = () => {
     return (
       <OwlCarousel
-        className="owl-theme"
+        className="owl-theme col-md-12"
         margin={10}
         autoplay
         dots={false}
@@ -383,28 +387,58 @@ const Product = () => {
         }}
       >
         {productlist?.products?.slice(0, 10).map((prod, ind) => (
-          <div key={prod.categoryId} className="portfolio ">
-            <div key={ind} className="body-card-product">
-              <img
-                src={
-                  prod.images[0] !== null && prod.images[0] !== "image_url1"
-                    ? `${prod.images[0]}`
-                    : "assets/images/Rectangle 22.png"
-                }
-                alt={`Web Project ${ind + 1}`}
-              />
-              <span className="text-black ">
-                {prod.name} ₹{prod.amount}
-              </span>
+        <div className="item col-md-10 position-relative mb-3 home-product px-0">
+        <div className="home-product-in">
+          <img
+            src={
+              prod.images[0] !== null &&
+              prod.images[0] !== "image_url1"
+                ? `${prod.images[0]}`
+                : "assets/images/Rectangle 22.png"
+            }
+            className="product-shopby trans"
+            alt="Web Project 1"
+          />
+        </div>
 
-            </div>
-            <div
-              className="btn button buy-now-tag text-black bg-transparent border border-secondary"
-              onClick={() => fetchProductbyId(prod._id)}
-            >
-              <i className="fas fa-cart-plus" /> Add to Cart
-            </div>
+        <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
+          <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+            {/* {item.brand._id ===
+              "65aa405f6bfadce6d5a0ef3c" && (
+              <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
+                40%
+              </p>
+            )} */}
+
+            <div></div>
+
+            <button className="heart-btn" id="hertbtn">
+              <i class="fa-regular fa-heart"></i>
+               {/* <Rate
+                character={<HeartOutlined />  }
+                count={1}
+              /> */}
+            </button>
           </div>
+
+          <div className=" mt-4 col-md-12 price-prodname">
+            <p className="text-start prize-size mb-0 ">
+              {" "}
+               {prod.name}
+            </p>
+            <p className="prod-pric mb-0 ">
+              ₹{prod.amount}
+            </p>
+          </div>
+        </div>
+        <div
+          className="text-center  border-secondary addtocart-btn px-1 py-1 "
+          onClick={() => handleNavigation(prod._id)}
+        >
+          <i className="fas fa-cart-plus me-2" /> Add to
+          Cart
+        </div>
+      </div>
         ))}
       </OwlCarousel>
     );
@@ -440,7 +474,11 @@ const Product = () => {
               <div className="text-center mt-5 mb-5">
                 <h3 className="fw-bolder">Related Products</h3>
               </div>
+              <div className="col-md-12"> 
+
               {renderRelatedProducts()}
+
+              </div>
             </div>
           </section>
         </div>

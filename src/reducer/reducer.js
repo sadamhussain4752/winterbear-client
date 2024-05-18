@@ -57,6 +57,9 @@ import {
   USER_PROFILE_IB_BY_REQUEST,
   USER_PROFILE_IB_BY_SUCCESS,
   USER_PROFILE_IB_BY_FAILURE,
+  FETCH_WISH_LIST_REQUEST,
+  FETCH_WISH_LIST_SUCCESS,
+  FETCH_WISH_LIST_FAILURE,
 } from "./actions";
 
 const initialState = {
@@ -431,6 +434,22 @@ const dataReducer = (state = initialState, action) => {
           ...state,
           UserUploadRes: action.payload,
         };
+
+        case FETCH_WISH_LIST_REQUEST:
+          return {
+            ...state,
+            loading: true,
+          };
+        case FETCH_WISH_LIST_SUCCESS:
+          return {
+            ...state,
+            wishlist: action.payload,
+          };
+        case FETCH_WISH_LIST_FAILURE:
+          return {
+            ...state,
+            wishlist: action.payload,
+          };
 
     default:
       return state;
