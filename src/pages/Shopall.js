@@ -323,7 +323,7 @@ const ShopAll = () => {
                     onClick={() => handleNavigation(prod._id)}
                   >
                     <div class="product-card">
-                      <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                      <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3">
                         <p> {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
                           {parseFloat(prod.offeramount / 100).toFixed(0)}%
 

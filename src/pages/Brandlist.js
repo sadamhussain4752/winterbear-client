@@ -368,7 +368,7 @@ const Brandlist = () => {
                   productList.map((prod, ind) => prod.images !== undefined && (
                     <div className="col-md-3 rounded-border mt-3 " onClick={() => handleNavigation(prod._id)}>
                       <div className="product-card">
-                        <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                        <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3">
 
 
                           < p> {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && <p className="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">

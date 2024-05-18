@@ -227,11 +227,11 @@ const Home2 = () => {
                                     <div></div>
 
                                     <button className="heart-btn" id="hertbtn">
-                                      {/* <i class="fa-regular fa-heart"></i> */}
-                                       <Rate
+                                      <i class="fa-regular fa-heart"></i>
+                                       {/* <Rate
                                         character={<HeartOutlined />  }
                                         count={1}
-                                      />
+                                      /> */}
                                     </button>
                                   </div>
 
