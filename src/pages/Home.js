@@ -9,13 +9,13 @@ import HomeSlider from "../components/HomeSlider";
 import BrandSlider from "../components/BrandSlider";
 import { fetchBannerData, fetchProductDataOld } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom';
-import './innerstyle.css';
+import { useNavigate } from "react-router-dom";
+import "./innerstyle.css";
 
+import { HeartOutlined } from "@ant-design/icons";
+import { Flex, Rate } from "antd";
 
 // new style
-
-
 
 import constant from "../constant/constant";
 const Home2 = () => {
@@ -28,7 +28,6 @@ const Home2 = () => {
     loading: bannerLoading,
     error: bannerError,
   } = useSelector((state) => state.data);
-
 
   const {
     productOldlist,
@@ -45,7 +44,6 @@ const Home2 = () => {
   //  let heartselect =   document.getElementById('hertbtn');
   //  heartselect.style.backgroundColor ="red"
 
-
   const handleNavigation = (productId) => {
     // Navigate to the specified product id
     navigate(`/product/${productId}`);
@@ -57,31 +55,26 @@ const Home2 = () => {
 
   useEffect(() => {
     const handleSticky = () => {
-      const stickyElements = document.querySelectorAll('.sticky-logo-2');
+      const stickyElements = document.querySelectorAll(".sticky-logo-2");
 
       stickyElements.forEach((element) => {
         const offset = element.offsetTop;
 
         if (window.pageYOffset > offset) {
-          element.classList.add('sticky');
+          element.classList.add("sticky");
         } else {
-          element.classList.remove('sticky');
+          element.classList.remove("sticky");
         }
       });
     };
 
-    window.addEventListener('scroll', handleSticky);
+    window.addEventListener("scroll", handleSticky);
 
     // Clean up the event listener when the component is unmounted
     return () => {
-      window.removeEventListener('scroll', handleSticky);
+      window.removeEventListener("scroll", handleSticky);
     };
   }, []);
-
-
-
-
-
 
   return (
     <>
@@ -90,10 +83,7 @@ const Home2 = () => {
       </div>
       <>
         {data && data?.banners && <HomeSlider />}
-        <div className="pt-md-5">
-          {data && data?.Brands && <BrandSlider />}
-        </div>
-
+        <div className="pt-md-5">{data && data?.Brands && <BrandSlider />}</div>
 
         <section className="py-5">
           <div className="container">
@@ -103,7 +93,10 @@ const Home2 = () => {
                 data.Categorys &&
                 data.Categorys.map((item) => (
                   <div className="col-md-3 col-6 mt-2">
-                    <div className="collection-box-1" onClick={() => navigate(`/shop/${item._id}`)}>
+                    <div
+                      className="collection-box-1"
+                      onClick={() => navigate(`/shop/${item._id}`)}
+                    >
                       <div className="image-container-1">
                         <img src={`${item.imageUrl}`} className="mb-0" />
                         <h4>{item.name} </h4>
@@ -124,7 +117,6 @@ const Home2 = () => {
               </div>
             </div>
 
-
             <div className="row justify-content-center ">
               {productOldlist &&
                 productOldlist.productList &&
@@ -135,7 +127,9 @@ const Home2 = () => {
                     // <div key={`stickyBody${index}`} className="sticky-body row">
                     <div key={`stickyBody${index}`} className="row">
                       {/* <div className={`col-md-2 sticky-logo-flex-${index + 1} g-0 bg-transparent sticky`}> */}
-                      <div className={`col-md-2  g-0 bg-transparent sticky d-none`} >
+                      <div
+                        className={`col-md-2  g-0 bg-transparent sticky d-none`}
+                      >
                         <div className="sticky-logo-2">
                           <img
                             src={`${item.brand.imageUrl}`}
@@ -148,9 +142,12 @@ const Home2 = () => {
                       </div>
 
                       <div className="mb-3" id="sticky2">
-                        <div className="sticky-logo-2" onClick={()=>{
-                                navigate(`/brand/${item.brand._id}`);
-                              }}>
+                        <div
+                          className="sticky-logo-2"
+                          onClick={() => {
+                            navigate(`/brand/${item.brand._id}`);
+                          }}
+                        >
                           <img
                             src={`${item.brand.imageUrl}`}
                             className="d-block mx-auto sticky-log2"
@@ -165,7 +162,6 @@ const Home2 = () => {
                         className="container-fluid shop-by tile-1 px-4"
                         id={`sticky1${index}`}
                       >
-
                         <div className="container-fluid ">
                           <ul
                             className="nav nav-pills  nav-fill shop-by-tab py-3  mb-4"
@@ -173,11 +169,17 @@ const Home2 = () => {
                             role="tablist"
                           >
                             {item?.subbrand.map((itemname) => (
-                              <li className="nav-item py-0" role="presentation" onClick={()=>{
-                                navigate(`/brand/${item.brand._id}`);
-                              }}>
-                              
-                                <img src={`${itemname.imageUrl}`} className="shopby-top-icoimg" />
+                              <li
+                                className="nav-item py-0"
+                                role="presentation"
+                                onClick={() => {
+                                  navigate(`/brand/${item.brand._id}`);
+                                }}
+                              >
+                                <img
+                                  src={`${itemname.imageUrl}`}
+                                  className="shopby-top-icoimg"
+                                />
                                 <button
                                   className="nav-link  fw-semibold py-0  position-relative rounded-pill"
                                   id="pills-koya-tab"
@@ -192,9 +194,7 @@ const Home2 = () => {
                                 </button>
                               </li>
                             ))}
-
                           </ul>
-
                         </div>
 
                         <div className="portfolio mx-3 ml-3 row">
@@ -204,11 +204,9 @@ const Home2 = () => {
                               <div className="item col-lg-3 position-relative mb-3 home-product px-0">
                                 <div className="home-product-in">
                                   <img
-
                                     src={
-
                                       prod.images[0] !== null &&
-                                        prod.images[0] !== "image_url1"
+                                      prod.images[0] !== "image_url1"
                                         ? `${prod.images[0]}`
                                         : "assets/images/Rectangle 22.png"
                                     }
@@ -219,42 +217,45 @@ const Home2 = () => {
 
                                 <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
                                   <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-                                    {item.brand._id === "65aa405f6bfadce6d5a0ef3c" && <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
-                                      {parseFloat(prod.offeramount / 100).toFixed(0)}%
-                                    </p>}
+                                    {item.brand._id ===
+                                      "65aa405f6bfadce6d5a0ef3c" && (
+                                      <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
+                                        40%
+                                      </p>
+                                    )}
 
                                     <div></div>
 
                                     <button className="heart-btn" id="hertbtn">
-                                      <i class="fa-regular fa-heart"></i>
+                                      {/* <i class="fa-regular fa-heart"></i> */}
+                                       <Rate
+                                        character={<HeartOutlined />  }
+                                        count={1}
+                                      />
                                     </button>
-
-
-
-
                                   </div>
 
                                   <div className=" mt-4 col-md-12 price-prodname">
-                                    <p className="text-start prize-size mb-0 "> {item.brand.name} @{prod.name}
+                                    <p className="text-start prize-size mb-0 ">
+                                      {" "}
+                                      {item.brand.name} @{prod.name}
                                     </p>
-                                    <p className="prod-pric mb-0 ">₹{prod.amount}</p>
-
-
+                                    <p className="prod-pric mb-0 ">
+                                      ₹{prod.amount}
+                                    </p>
                                   </div>
-
                                 </div>
-                                <div className="text-center  border-secondary addtocart-btn px-1 py-1 "
-                                  onClick={() => handleNavigation(prod._id)}>
-                                  <i className="fas fa-cart-plus me-2" /> Add to Cart
+                                <div
+                                  className="text-center  border-secondary addtocart-btn px-1 py-1 "
+                                  onClick={() => handleNavigation(prod._id)}
+                                >
+                                  <i className="fas fa-cart-plus me-2" /> Add to
+                                  Cart
                                 </div>
-
-
-
                               </div>
                             ))}
                         </div>
                       </div>
-
                     </div>
                   );
                 })}

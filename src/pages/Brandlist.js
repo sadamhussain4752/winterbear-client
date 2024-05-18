@@ -345,7 +345,7 @@ const Brandlist = () => {
               {<div className="row col-md-12 body-card-product" >
                 {productList &&
                   productList &&
-                  productList.map((prod, ind) => (
+                  productList.map((prod, ind) => prod.images !== undefined && (
                     <div className="col-md-3 rounded-border mt-3 " onClick={() => handleNavigation(prod._id)}>
                       <div class="product-card">
                         <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100">
@@ -361,8 +361,8 @@ const Brandlist = () => {
                           </button>
                         </div>
                         <img
-                          src={
-                            prod.images[0] !== null &&
+                          src={prod && prod?.images[0]&&
+                            prod.images[0] !== null && prod.images[0] !== undefined &&
                               prod.images[0] !== "image_url1"
                               ? `${prod.images[0]}`
                               : "assets/images/Rectangle 22.png"
