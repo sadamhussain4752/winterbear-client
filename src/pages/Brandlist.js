@@ -162,7 +162,7 @@ const Brandlist = () => {
                   <div className="align-items-center full-banner">
 
                     {/* <h3 className="theme-bg-text">{subBrandlist[0].brand.name}</h3> */}
-                    <div className="row px-0 mt-5">
+                    <div className="row px-0 mt-2">
 
                       <div id="carouselExample1" className="carousel slide w-100">
 
