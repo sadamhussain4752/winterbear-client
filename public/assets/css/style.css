@@ -2722,3 +2722,12 @@ input {
   cursor: pointer;
 
 }
+.fa-heart.fa-solid.active {
+  color: red;
+}
+
+.ant-modal-close-icon{
+  background-color: white;
+  padding: 55%;
+  border-radius: 5px;
+}

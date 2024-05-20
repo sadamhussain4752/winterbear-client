@@ -9,6 +9,8 @@ import { fetchProductData, fetchBannerData, fetchProductDataOld } from "../reduc
 import HomeSlider from "../components/BrandSlider";
 import { Dropdown, Menu, Empty, Pagination, Slider } from "antd";
 
+import HeartButton from "../components/heartbutton";
+
 
 
 
@@ -212,7 +214,8 @@ const Brandlist = () => {
 
                   <div className="d-flex justify-content-center">
                     {item.subbrand.map((subItem) => (
-                      <div key={subItem.id} className="d-flex justify-content-center flex-column  align-items-center shop-all-cards mx-5" onClick={() => {
+                      <div key={subItem.id} className="d-flex justify-content-center flex-column  align-items-center shop-all-cards mx-5"
+                       onClick={() => {
                         handleCategoryClick(subItem)
                       }}>
                         <img src={subItem.imageUrl} alt={subItem.name} />
@@ -366,7 +369,9 @@ const Brandlist = () => {
                 {productList &&
                   productList &&
                   productList.map((prod, ind) => prod.images !== undefined && (
-                    <div className="col-md-3 rounded-border mt-3 " onClick={() => handleNavigation(prod._id)}>
+                    <div className="col-md-3 rounded-border mt-3 "
+                    //  onClick={() => handleNavigation(prod._id)}
+                     >
                       <div className="product-card">
                         <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3">
 
@@ -377,9 +382,7 @@ const Brandlist = () => {
                           </p>}
                           </p>
 
-                          <button className="heart-btn" id="hertbtn">
-                            <i className="fa-regular fa-heart"></i>
-                          </button>
+                          <HeartButton />
                         </div>
                         <div className="home-product-in">
                           <img

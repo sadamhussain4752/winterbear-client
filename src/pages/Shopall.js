@@ -5,6 +5,8 @@ import Gallery from "../components/Gallery";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate, useParams } from 'react-router-dom';
+import HeartButton from "../components/heartbutton";
+
 import {
   fetchProductData,
   fetchBannerData,
@@ -320,7 +322,7 @@ const ShopAll = () => {
                   <div
                     className="col-md-3 mt-3"
                     key={ind}
-                    onClick={() => handleNavigation(prod._id)}
+                    // onClick={() => handleNavigation(prod._id)}
                   >
                     <div class="product-card">
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3">
@@ -330,9 +332,7 @@ const ShopAll = () => {
                         </p>}
 
                         </p>
-                        <button class="heart-btn" id="hertbtn">
-                          <i class="fa-regular fa-heart"></i>
-                        </button>
+                        <HeartButton />
                       </div>
                       <div className="home-product-in">
                         <img

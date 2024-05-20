@@ -7,7 +7,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Gallery from "../components/Gallery";
 import HomeSlider from "../components/HomeSlider";
 import BrandSlider from "../components/BrandSlider";
-import { fetchBannerData, fetchProductDataOld, AddWishlistFetch,fetchWishlistData } from "../reducer/thunks";
+import { fetchBannerData, fetchProductDataOld, AddWishlistFetch, fetchWishlistData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./innerstyle.css";
@@ -18,6 +18,7 @@ import { Flex, Rate } from "antd";
 // new style
 
 import constant from "../constant/constant";
+import HeartButton from "../components/heartbutton";
 const Home2 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -218,7 +219,7 @@ const Home2 = () => {
 
                         <div className="portfolio mx-3 ml-3 row">
                           {item &&
-                            item.products && wishlist &&
+                            item.products &&
                             item.products.slice(0, 8).map((prod, ind) => (
                               <div className="item col-lg-3 position-relative mb-3 home-product px-0">
                                 <div className="home-product-in">
@@ -248,11 +249,12 @@ const Home2 = () => {
                                     <button className="heart-btn" id="hertbtn" onClick={() => {
                                       handlewishlist(prod._id)
                                     }}>
-                                       {wishlist?.wishlistItems?.some((item) => item.productId === prod._id) ? (
-              <i className="fa-regular fa-heart-red"></i>
-            ) : (
-              <i className="fa-regular fa-heart"></i>
-            )}
+                                      {wishlist?.wishlistItems?.some((item) => item.productId === prod._id) ? (
+                                          <HeartButton isActives={true}/>
+                                      ) : (
+                                        <HeartButton isActives={false}/>
+                                       
+                                      )}
                                       {/* <Rate
                                         character={<HeartOutlined />  }
                                         count={1}
