@@ -301,6 +301,8 @@ const ShopAll = () => {
                         <p className="brand-namee">{item.brand.name}</p>
 
                       </div>
+
+
                       {/* <div>
                       {item.subbrand.map((subItem) => (
                         <div key={subItem.id} className="align-items-center shop-all-cards" onClick={() => handleSubbrandClick(subItem)}>
@@ -313,6 +315,14 @@ const ShopAll = () => {
                     </div> */}
                     </div>
                   ))}
+                  <div className="shop-all-cards" onClick={()=>{
+                        navigate(`/Allbrand`);
+
+                  }}>
+                  <p className="brand-namee">More Brands</p>
+
+                  </div>
+
               </div>
             </div>
 
