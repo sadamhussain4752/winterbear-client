@@ -174,6 +174,8 @@ const EventsSection = () => {
         </div>
       </section>
       <section style={{ position: "relative" }}>
+      <h2 className="text-center">Discover your next fandom adventure with WINTERBEAR's whimsical event jars!</h2>
+
         <div className="container py-5 my" style={{ position: "relative" }}>
           <div className="row event-cont">
             <div className="col-md-8 d-flex justify-content-center align-items-center my-3 ">

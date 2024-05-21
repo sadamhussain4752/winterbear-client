@@ -71,15 +71,15 @@ const AllBrand = () => {
               </li>
 
               <li className="nav-item " id="#d">
-                <a className="nav-link  disabled">D</a>
+                <a className="nav-link  text-dark fw-bold">D</a>
               </li>
               <li className="nav-item " id="#e">
-                <a className="nav-link  disabled" href="#">
+                <a className="nav-link  text-dark fw-bold" href="#">
                   E
                 </a>
               </li>
               <li className="nav-item " id="#f">
-                <a className="nav-link  disabled" href="#">
+                <a className="nav-link  text-dark fw-bold" href="#">
                   F
                 </a>
               </li>
@@ -90,17 +90,17 @@ const AllBrand = () => {
               </li>
 
               <li className="nav-item " id="#">
-                <a className="nav-link disabled" href="#h">
+                <a className="nav-link text-dark fw-bold" href="#h">
                   H
                 </a>
               </li>
               <li className="nav-item " id="#i">
-                <a className="nav-link disabled" href="#i">
+                <a className="nav-link text-dark fw-bold" href="#i">
                   I
                 </a>
               </li>
               <li className="nav-item " id="#j">
-                <a className="nav-link disabled" href="#j">
+                <a className="nav-link text-dark fw-bold" href="#j">
                   J
                 </a>
               </li>
@@ -126,7 +126,7 @@ const AllBrand = () => {
                 </a>
               </li>
               <li className="nav-item " id="#o">
-                <a className="nav-link disabled" href="#o">
+                <a className="nav-link text-dark fw-bold" href="#o">
                   O
                 </a>
               </li>
@@ -136,7 +136,7 @@ const AllBrand = () => {
                 </a>
               </li>
               <li className="nav-item " id="#q">
-                <a className="nav-link disabled" href="#q">
+                <a className="nav-link text-dark fw-bold" href="#q">
                   Q
                 </a>
               </li>
@@ -158,32 +158,32 @@ const AllBrand = () => {
               </li>
 
               <li className="nav-item " id="#u">
-                <a className="nav-link disabled" href="#u">
+                <a className="nav-link text-dark fw-bold" href="#u">
                   U
                 </a>
               </li>
               <li className="nav-item " id="#v">
-                <a className="nav-link disabled" href="#v">
+                <a className="nav-link text-dark fw-bold" href="#v">
                   V
                 </a>
               </li>
               <li className="nav-item " id="#w">
-                <a className="nav-link disabled" href="#w">
+                <a className="nav-link text-dark fw-bold" href="#w">
                   W
                 </a>
               </li>
               <li className="nav-item " id="#x">
-                <a className="nav-link disabled" href="#x">
+                <a className="nav-link text-dark fw-bold" href="#x">
                   X
                 </a>
               </li>
               <li className="nav-item " id="#y">
-                <a className="nav-link disabled" href="#y">
+                <a className="nav-link text-dark fw-bold" href="#y">
                   Y
                 </a>
               </li>
               <li className="nav-item " id="#z">
-                <a className="nav-link disabled" href="#z">
+                <a className="nav-link text-dark fw-bold" href="#z">
                   Z
                 </a>
               </li>
@@ -199,7 +199,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        22 MININI HANDMIRROR YELLOW
+                       
                       </a>
                     </p>
                   </div>
@@ -209,7 +209,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        8MM MATHEMATICS NOTE
+                        
                       </a>
                     </p>
                   </div>
@@ -226,10 +226,51 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        AFTER SCHOOL MASKING TAPE 30MM
-                      </a>{" "}
+                        Aladdin
+                      </a>
+                   
+                     {" "}
                     </p>
                   </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                        Agust D
+                      </a>
+                   
+                     {" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       Avengers
+                      </a>
+                   
+                     {" "}
+                    </p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       Attack on Titan
+                      </a>
+                   
+                     {" "}
+                    </p>
+                  </div>
+                 
                 </div>
               </div>
             </div>
@@ -243,7 +284,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        BASIC MASKING TAPE 30MM
+                        Baby Shark
                       </a>{" "}
                     </p>
                   </div>
@@ -254,7 +295,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        BRAWLSTARSX BIBI RJ 22 KEY RING
+                   Black Clover
                       </a>{" "}
                     </p>
                   </div>
@@ -264,7 +305,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        BRAWLSTARSX BULL MANG 22 KEY RING
+                        Beauty and the beast
                       </a>{" "}
                     </p>
                   </div>
@@ -274,7 +315,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        BRAWLSTARSX EDGAR TATA 22 KEY RING
+                     Barbie
                       </a>{" "}
                     </p>
                   </div>
@@ -284,7 +325,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        BRAWLSTARSX JACKY COOKY 22 KEY RING
+                       Banitte
                       </a>{" "}
                     </p>
                   </div>
@@ -294,7 +335,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        BRAWLSTARSX RUFFS CHIMMY 22 KEY RING
+                       Bandai Namco
                       </a>{" "}
                     </p>
                   </div>
@@ -304,7 +345,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        BRAWLSTARSX SANDY KOYA 22 KEY RING
+                        Brigerton
                       </a>{" "}
                     </p>
                   </div>
@@ -314,7 +355,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        BROWN CLEAR POUCH SET
+                        BlackPink
                       </a>{" "}
                     </p>
                   </div>
@@ -324,7 +365,27 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        BRUSH SET
+                       Black Widow
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                    Black Panther
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       BTS
                       </a>{" "}
                     </p>
                   </div>
@@ -341,7 +402,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        CHIMMY 22 MININI 3 COLOR PEN
+                       Chainsaw Man
                       </a>{" "}
                     </p>
                   </div>
@@ -351,7 +412,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        CHIMMY 22 PADDED HOBO BAG
+                       Captain America
                       </a>{" "}
                     </p>
                   </div>
@@ -361,7 +422,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        CHIMMY 5TH ANNIVERSARY PACK
+                        Cinnamoroll
                       </a>{" "}
                     </p>
                   </div>
@@ -371,522 +432,146 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        CHIMMY ACRYLIC STRAP KEYRING
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY BADGE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY CLEAR DECO STICKER VER. 2
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY CLEAR STICKER SWEETIE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY ECO BAG
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY GIFT BOX
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY JELLY SWEETIE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY LAYERED LETTER SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY MASKING TAPE SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY MININI GEL INK BALL PEN
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY MININI MACARON KEYRING
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY MININI NAME TAG SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY MININI PHOTO S ALBUM
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY MININI STICKY GEL PAD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY PHOTO HOLDER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY PVC COVER DIARY
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY SHINE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY SOFT NECK PILLOW
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY STICKY NOTE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY TATTOO STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY THREE PIECE STAMP
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CHIMMY THREE PIECE STAMP
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COLOR WOODEN MECHANICAL PENCIL
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COMIC POP MASKING TAPE 30MM
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CONFETTI BALLOON A
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        CONFETTI BALLOON B
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKIE HOLIDAY STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKIE JELLY SWEETIE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKIE TATTOO STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY 22 MININI 3 COLOR PEN
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY 22 PADDED HOBO BAG
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      ></a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY ACRYLIC STRAP KEYRING
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY CABLE WINDER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY CLEAR CARD POCKET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY CLEAR DECO STICKER VER. 2
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY CLEAR DECO STICKER VER. 3
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY CLIP BOARD+PADNOTE SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY ECO BAG
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY GIFT BOX
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY HOLOGRAM STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY LAYERED LETTER SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY MASKING TAPE SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY MININI NAME TAG SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY MININI PHOTO S ALBUM
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY MININI STICKY GEL PAD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY MOUSE PAD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY PHOTO HOLDER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY PVC COVER DIARY
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY SHINE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY SOFT NECK PILLOW
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        COOKY STICKY NOTE
+                        Cindrella
                       </a>{" "}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
+            <div id="d" className="row py-3 border-bottom Name-G">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">d</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                        Deathnote
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                     Dark Horse
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                   Disney Princess
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                     Disney
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                     Demon Slayer
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                     Dragonball Z
+                      </a>{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="e" className="row py-3 border-bottom Name-G">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">E</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                    Enhypen
+                      </a>{" "}
+                    </p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div id="f" className="row py-3 border-bottom Name-G">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">F</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       Fortnite
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                    Fifa
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                    Frozen
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                 Friends
+                      </a>{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
             <div id="g" className="row py-3 border-bottom Name-G">
               <div className="offset-md-1 col-md-1 fw-bold fs-3">G</div>
               <div className="col-md-10">
@@ -897,7 +582,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        GROUP MASKING TAPE 30MM
+                        Garfeild
                       </a>{" "}
                     </p>
                   </div>
@@ -907,10 +592,153 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        GROUP PICNIC MAT
+                        G(idle)
                       </a>{" "}
                     </p>
                   </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                        Genshin Impact
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       Godzilla
+                      </a>{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="h" className="row py-3 border-bottom Name-G">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">H</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       Harry Potter
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       Haikyu
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       Hulk
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                    Hot Wheels
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                  Hello Kitty
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                    Hawkeye
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                    Hasbro
+                      </a>{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="i" className="row py-3 border-bottom Name-G">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">I</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                      Ironman
+                      </a>{" "}
+                    </p>
+                  </div>
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       IVE
+                      </a>{" "}
+                    </p>
+                  </div>
+               
+                </div>
+              </div>
+            </div>
+            <div id="j" className="row py-3 border-bottom Name-G">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">J</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                       Jujutsu Kaisen
+                      </a>{" "}
+                    </p>
+                  </div>
+               
                 </div>
               </div>
             </div>
@@ -924,7 +752,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        KOYA 22 MININI 3 COLOR PEN
+                       Kuromi
                       </a>{" "}
                     </p>
                   </div>
@@ -934,7 +762,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        KOYA 22 MININI PHOTO ALBUM
+                      Kodansha
                       </a>{" "}
                     </p>
                   </div>
@@ -944,110 +772,12 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        KOYA ACRYL CLIP BALLPEN
+                    Kero Kero Keroppi
                       </a>{" "}
                     </p>
                   </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA ACRYLIC STRAP KEYRING
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA GIFT BOX
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA JELLY SWEETIE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA LAYERED LETTER SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA MININI PHOTO S ALBUM
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA MOUSE PAD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA MULTI DECO STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA SHINE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA STICKY NOTE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        KOYA TATTOO STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
+                
+                 
                 </div>
               </div>
             </div>
@@ -1061,7 +791,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        L HOLDER
+                        Lion King
                       </a>{" "}
                     </p>
                   </div>
@@ -1072,241 +802,11 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        LINE FRIENDS 12 COLOR MARKER
+                        Lessarafim
                       </a>{" "}
                     </p>
                   </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS 20 PENCIL CRAYONS
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS BROWN 22 MINIONS AIRPODS
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        {" "}
-                        CASE LINE FRIENDS BROWN GREETING CARD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS BROWN STICK PENCILCASE VER .2
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS CONY 3 COLOR BALLPOINT PEN
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS CONY ACRYL KEYRING
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS CONY GREETING CARD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS CONY LINE NOTE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS CONY MONTHLY PLANNER VER. 2
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS CONY SPANGLE POUCH
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS CONY STICK PENCILCASE VER .2
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS MASKING TAPE KIT S
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS MINI FRIENDS ACRYL PENHOLDER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS NON-WOVEN FABRIC BAG BLUE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS NON-WOVEN FABRIC BAG -XL
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS PALLET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS PINK DOCUMENT FILE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS SALLY 22 MINIONS AIRPODS CASE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS SALLY ACRYL KEYRING
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS SALLY GREETING CARD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS SALLY LINE NOTE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS SALLY STICK PENCILCASE VER .2
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        LINE FRIENDS TARPAULIN BAG BEIGE LARGE
-                      </a>{" "}
-                    </p>
-                  </div>
+                
                 </div>
               </div>
             </div>
@@ -1320,7 +820,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG 22 CANDY KEYRING
+                    Money Heist
                       </a>{" "}
                     </p>
                   </div>
@@ -1330,7 +830,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG 22 MININI 3 COLOR PEN
+                       Mickey Mouse
                       </a>{" "}
                     </p>
                   </div>
@@ -1340,7 +840,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG 22 MININI PHOTO ALBUM
+                       Marvel Studios
                       </a>{" "}
                     </p>
                   </div>
@@ -1350,7 +850,18 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG ACRYL CLIP BALLPEN
+                        Mulan
+                      </a>{" "}
+                    </p>
+                  </div>
+                  
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                        Music
                       </a>{" "}
                     </p>
                   </div>
@@ -1360,7 +871,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG ACRYLIC STRAP KEYRING
+                        My Melody 
                       </a>{" "}
                     </p>
                   </div>
@@ -1370,7 +881,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG BADGE STICKER
+                        My Little Pony
                       </a>{" "}
                     </p>
                   </div>
@@ -1380,7 +891,25 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG BLACK ECO BAG
+                        My Hero Academia
+                      </a>{" "}
+                    </p>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            <div id="n" className="row py-3 border-bottom Name-P">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">N</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                      NCT 127
                       </a>{" "}
                     </p>
                   </div>
@@ -1390,7 +919,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG CABLE WINDER
+                        NASA
                       </a>{" "}
                     </p>
                   </div>
@@ -1400,7 +929,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG CLEAR DECO STICKER VER. 3
+                 Naruto
                       </a>{" "}
                     </p>
                   </div>
@@ -1410,7 +939,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG CLEAR STICKER SWEETIE
+                       New Jeans
                       </a>{" "}
                     </p>
                   </div>
@@ -1420,150 +949,28 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG GIFT BOX
+                      Netflix
                       </a>{" "}
                     </p>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div id="o" className="row py-3 border-bottom Name-P">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">O</div>
+              <div className="col-md-10">
+                <div className="row">
                   <div className=" col-md-4">
                     <p>
                       <a
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        MANG JELLY SWEETIE STICKER
+                       One Piece
                       </a>{" "}
                     </p>
                   </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG KNOCK PENCIL
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG LAYERED LETTER SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG MAGIC SHOP CLIPBOARD AND PAD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG MATHEMATICS NOTE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG MOUSE PAD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG RUBBER BALLOON
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG SHINE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG SLIM BALLPEN
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG STICKY NOTE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG TATTOO STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MANG WRIST CUSHION
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MATHEMATICS NOTE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        MY LITTLE BUDDY ACRYL PENHOLDER
-                      </a>{" "}
-                    </p>
-                  </div>
+            
                 </div>
               </div>
             </div>
@@ -1577,7 +984,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        PARTY HAT FACE
+                        Pokemon
                       </a>{" "}
                     </p>
                   </div>
@@ -1587,7 +994,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        PHOTO COLLECT BOOK PURPLE
+                        Peter Pan
                       </a>{" "}
                     </p>
                   </div>
@@ -1597,7 +1004,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        PHOTO COLLECT BOOK YELLOW
+                        Peppa Peg
                       </a>{" "}
                     </p>
                   </div>
@@ -1607,7 +1014,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        PHOTO FRAME DECO SET
+                  Paw Petrol
                       </a>{" "}
                     </p>
                   </div>
@@ -1617,7 +1024,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        PINK HAND MIRROR
+                        Pacman
                       </a>{" "}
                     </p>
                   </div>
@@ -1627,341 +1034,15 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        PINK HAND TOWEL
+                        Pompompuri
                       </a>{" "}
                     </p>
                   </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        PURPLE ACRYLIC MAGNET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        PURPLE CLEAR POUCH SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        PURPLE HAND TOWEL
-                      </a>{" "}
-                    </p>
-                  </div>
+              
                 </div>
               </div>
             </div>
-            <div id="r" className="row py-3 border-bottom Name-R">
-              <div className="offset-md-1 col-md-1 fw-bold fs-3">R</div>
-              <div className="col-md-10">
-                <div className="row">
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RED ACRYLIC MAGNET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ 22 MININI 3 COLOR PEN
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ 22 SWEET THINGS PLUSH KEYRING
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ 3 COLOR BALLPOINT PEN
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ ACRYL CLIP BALLPEN
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ ACRYLIC STRAP KEYRING
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ BADGE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ BIG ZIPPER PENCIL CASE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ CLEAR CARD POCKET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ CLEAR DECO STICKER VER. 2
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ CLEAR DECO STICKER VER. 3
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ ECO BAG
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ GIFT BOX
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ HOLIDAY STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ JELLY SWEETIE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ LAYERED LETTER SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ MASKING TAPE SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ MININI NAME TAG SET
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ MININI PHOTO S ALBUM
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ MININI STICKY GEL PAD RJ MOBILE STICKER VER. 2
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ MOUSE PAD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ PHOTO HOLDER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ RUBBER BALLOON
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ SHINE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ SPANGLE STICK POUCH
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ STICKY NOTE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ STREETMOOD STANDING DOLL
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        RJ TATTOO STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        ROOMIES MASKING TAPE 30MM
-                      </a>{" "}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
             <div id="s" className="row py-3 border-bottom Name-S">
               <div className="offset-md-1 col-md-1 fw-bold fs-3">S</div>
               <div className="col-md-10">
@@ -1972,7 +1053,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY 22 MININI 3 COLOR PEN
+                       Seven Seas
                       </a>{" "}
                     </p>
                   </div>
@@ -1982,7 +1063,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY BADGE STICKER
+                        Sanrio
                       </a>{" "}
                     </p>
                   </div>
@@ -1992,7 +1073,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY CABLE WINDER
+                        Sailor Moon
                       </a>{" "}
                     </p>
                   </div>
@@ -2002,7 +1083,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY CLEAR DECO STICKER VER. 2
+                     Snoopy
                       </a>{" "}
                     </p>
                   </div>
@@ -2012,7 +1093,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY GIFT BOX
+                        Smurfs
                       </a>{" "}
                     </p>
                   </div>
@@ -2022,7 +1103,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY LAYERED LETTER SET
+                        Sleeping Beauty
                       </a>{" "}
                     </p>
                   </div>
@@ -2031,7 +1112,7 @@ const AllBrand = () => {
                       <a
                         className="text-decoration-none text-dark small m-0"
                         href="#"
-                      ></a>{" "}
+                      >Seventeen</a>{" "}
                     </p>
                   </div>
                   <div className=" col-md-4">
@@ -2040,17 +1121,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY MAGIC SHOP CLIPBOARD AND PAD
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        SHOOKY MININI GEL INK BALL PEN
+                        Squid Game
                       </a>{" "}
                     </p>
                   </div>
@@ -2060,7 +1131,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY MININI PHOTO ALBUM
+               Spy X Family
                       </a>{" "}
                     </p>
                   </div>
@@ -2070,7 +1141,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY STICKY NOTE
+                        SpiderMan
                       </a>{" "}
                     </p>
                   </div>
@@ -2080,7 +1151,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SHOOKY WRIST CUSHION
+                    Snow white
                       </a>{" "}
                     </p>
                   </div>
@@ -2090,7 +1161,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        STICKER FILE
+                       Stary Kids
                       </a>{" "}
                     </p>
                   </div>
@@ -2100,10 +1171,11 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        SUMMER DOLCE MASKING TAPE 30MM
+                       Stranger Kids
                       </a>{" "}
                     </p>
                   </div>
+                
                 </div>
               </div>
             </div>
@@ -2117,7 +1189,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA 22 MININI 3 COLOR PEN
+                  Talking Tom
                       </a>{" "}
                     </p>
                   </div>
@@ -2126,7 +1198,7 @@ const AllBrand = () => {
                       <a
                         className="text-decoration-none text-dark small m-0"
                         href="#"
-                      ></a>{" "}
+                      >Taemin</a>{" "}
                     </p>
                   </div>
                   <div className=" col-md-4">
@@ -2135,17 +1207,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA 22 PADDED HOBO BAG
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        TATA ACRYLIC STRAP KEYRING
+                      =The Witcher
                       </a>{" "}
                     </p>
                   </div>
@@ -2155,7 +1217,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA CLEAR CARD POCKET
+                        The Simpsons
                       </a>{" "}
                     </p>
                   </div>
@@ -2165,7 +1227,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA CLEAR DECO STICKER VER. 3
+                      The Little Mermaid
                       </a>{" "}
                     </p>
                   </div>
@@ -2175,7 +1237,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA CLEAR STICKER SWEETIE
+                        The Jungle Book
                       </a>{" "}
                     </p>
                   </div>
@@ -2185,7 +1247,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA ECO BAG
+                        The Cars
                       </a>{" "}
                     </p>
                   </div>
@@ -2195,7 +1257,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA GIFT BOX
+                        The Batman
                       </a>{" "}
                     </p>
                   </div>
@@ -2205,7 +1267,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA HOLIDAY STICKER
+                        Tarzan
                       </a>{" "}
                     </p>
                   </div>
@@ -2215,7 +1277,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA HOLOGRAM STICKER
+                        Tangled
                       </a>{" "}
                     </p>
                   </div>
@@ -2225,7 +1287,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA JELLY SWEETIE STICKER
+                        Transformers
                       </a>{" "}
                     </p>
                   </div>
@@ -2235,7 +1297,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA LAYERED LETTER SET
+                        Tom and Jerry
                       </a>{" "}
                     </p>
                   </div>
@@ -2245,7 +1307,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA MACARON KEYRING
+                        Tinker Bell
                       </a>{" "}
                     </p>
                   </div>
@@ -2255,7 +1317,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA MASKING TAPE SET
+                        Thor
                       </a>{" "}
                     </p>
                   </div>
@@ -2265,7 +1327,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA MININI GEL INK BALL PEN
+                       TXT
                       </a>{" "}
                     </p>
                   </div>
@@ -2275,7 +1337,59 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA MININI PHOTO S ALBUM
+                        Twice
+                      </a>{" "}
+                    </p>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            <div id="u" className="row py-3 border-bottom Name-T">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">U</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                Universal Studios
+                      </a>{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="v" className="row py-3 border-bottom Name-T">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">V</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+                Viz Media
+                      </a>{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="w" className="row py-3 border-bottom Name-T">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">W</div>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className=" col-md-4">
+                    <p>
+                      <a
+                        className="text-decoration-none text-dark small m-0"
+                        href="#"
+                      >
+               Wonder Women
                       </a>{" "}
                     </p>
                   </div>
@@ -2285,7 +1399,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA MININI STICKY GEL PAD
+              Winnie the pooh
                       </a>{" "}
                     </p>
                   </div>
@@ -2295,80 +1409,30 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA MOUSE PAD
+              Wednesday
                       </a>{" "}
                     </p>
                   </div>
+              
+                </div>
+              </div>
+            </div>
+            <div id="w" className="row py-3 border-bottom Name-T">
+              <div className="offset-md-1 col-md-1 fw-bold fs-3">W</div>
+              <div className="col-md-10">
+                <div className="row">
                   <div className=" col-md-4">
                     <p>
                       <a
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        TATA PVC COVER DIARY
+            Yen Press
                       </a>{" "}
                     </p>
                   </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        TATA SHINE STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        TATA SOFT NECK PILLOW
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        TATA STICKY NOTE
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        TATA TATTOO STICKER
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        TATA THREE PIECE STAMP
-                      </a>{" "}
-                    </p>
-                  </div>
-                  <div className=" col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                        TIME TO PARTY ACRYL PENHOLDER
-                      </a>{" "}
-                    </p>
-                  </div>
+                 
+              
                 </div>
               </div>
             </div>
