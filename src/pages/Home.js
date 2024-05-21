@@ -179,7 +179,7 @@ const Home2 = () => {
                       </div>
 
                       <div
-                        className="container-fluid shop-by tile-1 px-4"
+                        className="container-fluid shop-by tile-1 px-lg-4 px-0"
                         id={`sticky1${index}`}
                       >
                         <div className="container-fluid ">

@@ -172,6 +172,7 @@ const Brandlist = () => {
                           {subBrandlist[0]?.brand.banner_img.map((img_item, isIndex) => {
 
                             return (
+
                               <div className={`carousel-item  ${isIndex === 0 ? 'active' : ''}`}>
                                 <img src={img_item} alt={img_item} className="brand-img px-0 rounded-0" />
                               </div>
@@ -215,9 +216,9 @@ const Brandlist = () => {
                   <div className="d-flex justify-content-center">
                     {item.subbrand.map((subItem) => (
                       <div key={subItem.id} className="d-flex justify-content-center flex-column  align-items-center shop-all-cards mx-5"
-                       onClick={() => {
-                        handleCategoryClick(subItem)
-                      }}>
+                        onClick={() => {
+                          handleCategoryClick(subItem)
+                        }}>
                         <img src={subItem.imageUrl} alt={subItem.name} />
                         <p>{subItem.name}</p>
                       </div>
@@ -270,8 +271,8 @@ const Brandlist = () => {
                     <div style={{
 
                     }}>
-                      <h5>Price</h5>
-                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} />
+                      {/* <h5>Price</h5>
+                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
 
                     </div>
                     <div className="position-absolute bottom-0 end-0">
@@ -371,7 +372,7 @@ const Brandlist = () => {
                   productList.map((prod, ind) => prod.images !== undefined && (
                     <div className="col-md-3 rounded-border mt-3 "
                     //  onClick={() => handleNavigation(prod._id)}
-                     >
+                    >
                       <div className="product-card">
                         <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3">
 
