@@ -1,7 +1,7 @@
 @media only screen and (min-width: 1050px) and (max-width: 1280px) {
   .first-div {
     position: absolute;
-    left: 19%;
+    left: 16.5%;
     top: 64.8%;
     width: 18.7%;
     height: 6%;
@@ -11,7 +11,7 @@
 
   .second-div {
     position: absolute;
-    left: 32%;
+    left: 16%;
     top: 75.25%;
     width: 21%;
     height: 7%;
@@ -202,9 +202,9 @@
 .event-content {
   position: absolute;
   right: 5%;
-  top: 45%;
+  top: 8%;
   width: 40%;
-  padding: 1% 2%;
+  padding: 0% 2%;
   background-color: white;
   border-radius: 20px;
   border: 5px solid #362a69;
