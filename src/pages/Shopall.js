@@ -206,8 +206,8 @@ const ShopAll = () => {
                     <div style={{
 
                     }}>
-                      <h5>Price</h5>
-                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} />
+                      {/* <h5>Price</h5>
+                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
 
                     </div>
                     <div className="position-absolute bottom-0 end-0">

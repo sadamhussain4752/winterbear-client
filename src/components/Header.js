@@ -294,7 +294,7 @@ const Header = () => {
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
                             }`}
-                          href="/shopall"
+                          href="/shop/0"
                         >
                           SHOP ALL
                         </a>
