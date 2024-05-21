@@ -115,7 +115,7 @@ const Faqs = () => {
                   </li>
                 </ul>
                 <div
-                  className="tab-content text-white px-lg-3"
+                  className="tab-content text-white px-3"
                   id="pills-tabContent"
                 >
                   <div

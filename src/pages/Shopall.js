@@ -206,8 +206,8 @@ const ShopAll = () => {
                     <div style={{
 
                     }}>
-                      {/* <h5>Price</h5>
-                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
+                      <h5>Price</h5>
+                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} />
 
                     </div>
                     <div className="position-absolute bottom-0 end-0">
@@ -257,9 +257,9 @@ const ShopAll = () => {
           </div>
 
           <div className="row justify-content-end">
-            <div className="col-md-3 cat-brand">
+            <div className="col-md-3">
               <div className="p-0 text-center rounded mx-5">
-                <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase mt-5">
+                <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase">
                   Category
                 </h3>
                 {data &&
@@ -332,7 +332,7 @@ const ShopAll = () => {
                   <div
                     className="col-md-3 mt-3"
                     key={ind}
-                  // onClick={() => handleNavigation(prod._id)}
+                    // onClick={() => handleNavigation(prod._id)}
                   >
                     <div class="product-card">
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3">

@@ -144,7 +144,7 @@ const Categorylist = () => {
     <>
       <Header />
 
-      <section className="py-5 shop ">
+      <section className="py-5 shop  mt-80">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12 mt-80">
@@ -232,8 +232,8 @@ const Categorylist = () => {
                     </div>
                   ))}
               </div>
-              <div className="p-0  text-center rounded mx-lg-5">
-                <h3 className=" fs-2 fw-bolder text-start mb-lg-4">BRANDS</h3>
+              <div className="p-0  text-center rounded mx-5">
+                <h3 className=" fs-2 fw-bolder text-start mb-4">BRANDS</h3>
 
                 {productOldlist && productOldlist.productList && productOldlist.productList.map((item) => (
                   item.brand._id !== id &&

@@ -33,7 +33,7 @@ const About = () => {
         </div> */
       }
 
-      <section className="py-lg-5 mt-8">
+      <section className="py-5 mt-8">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12">
@@ -58,7 +58,7 @@ const About = () => {
           </div>
           <div className="row mt-5 d-flex align-items-center">
             <div className="col-md-6">
-              <p className="fs-lg-5 fs-6">
+              <p className="fs-5">
                 WINTERBEAR's extensive offerings extend beyond apparel to encompass
                 various categories, including stationery, home decor, fashion accessories,
                 plush toys, and consumer electronics. WINTERBEAR's commitment to
@@ -87,7 +87,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="row px-4">
+          <div className="row">
             <div className="col-md-4 mb-4">
               <div className="image-container about-img-cont">
                 <img

@@ -328,7 +328,7 @@ input {
   font-style: normal;
   font-weight: 500;
   line-height: 100%;
-
+  /* 24px */
   transition: color 0.3s ease, transform 0.3s ease;
 
   /* Add transition for a smooth effect */
@@ -423,9 +423,8 @@ input {
 }
 
 footer {
-
+  /* background: #221A42; */
   padding: 60px 0 150px 0;
-
 }
 
 .p-text:hover {
@@ -440,11 +439,13 @@ footer {
   line-height: 120%;
   text-align: left;
   padding-left: 15%;
+  /* 33.6px */
   letter-spacing: 0.56px;
   text-transform: uppercase;
 }
 
 .brand-namee {
+  /* font-family: Poppins; */
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -480,7 +481,7 @@ footer ul a {
 
 .copy-rights-img img {
   position: absolute;
-  left: 50% !important;
+  left: 50%;
   bottom: 0;
   transform: translateX(-50%);
 
@@ -499,14 +500,14 @@ footer ul a {
   }
 
   .copy-rights-img {
-    height: 5vh;
+    height: 9vh;
     position: relative;
   }
 
   .copy-rights-img img {
     position: absolute;
     left: 0;
-    bottom: 60%;
+    bottom: 12px;
     width: 100%;
   }
 }
@@ -1736,19 +1737,18 @@ input {
 
 .price-card {
   font-family: Poppins;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 600;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
 
   /* padding: 10%; */
 }
-
 .body-card-product p {
   font-weight: 600 !important;
   text-align: left !important;
 }
 
-.pro-price {
+.pro-price{
   font-size: 500 !important;
 }
 
@@ -2382,7 +2382,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10% !important;
+  margin-top: 10% !important; 
   height: 225px;
   width: 250px;
 }
@@ -2491,7 +2491,7 @@ input {
 
 }
 
-.product-shopall:hover {
+.product-shopall:hover{
   transform: scale(1.5);
   overflow: hidden !important;
 }
@@ -2515,7 +2515,7 @@ input {
   position: relative;
 }
 
-.brandimg-cont {
+.brandimg-cont{
   overflow: hidden;
 }
 
@@ -2709,11 +2709,11 @@ input {
 }
 
 
-.rel-prod {
+.rel-prod{
   height: 250px !important;
 }
 
-.trans {
+.trans{
   transition: transform 0.3s !important;
 
 }
@@ -2722,79 +2722,12 @@ input {
   cursor: pointer;
 
 }
-
 .fa-heart.fa-solid.active {
   color: red;
 }
 
-.ant-modal-close-icon {
+.ant-modal-close-icon{
   background-color: white;
   padding: 55%;
   border-radius: 5px;
-}
-
-.abt-cont {
-  text-align: justify;
-  text-align-last: center;
-}
-
-
-@media only screen and (max-width:760px) {
-
-  .collection-box-1 {
-    width: 100%;
-    height: auto;
-    display: flex !important;
-    justify-content: center;
-  }
-
-  .image-container-1 img {
-    width: 120px !important;
-    height: auto !important;
-  }
-
-  .image-container-1 h4 {
-    font-size: 12px;
-    width: 90%;
-    display: block;
-    margin: auto;
-  }
-
-  .shopby-top-icoimg {
-    width: 25px;
-    height: 25px;
-  }
-
-  .shop-by-tab button {
-    font-size: 12px;
-  }
-
-  .sticky-log2 {
-    width: 60%;
-    margin-top: 3%;
-  }
-
-  .mt-8 {
-    margin-top: 75px !important;
-  }
-
-  .sub-heading {
-    font-size: 16px;
-    line-height: 25px;
-  }
-
-  .head-abt-sub {
-    font-size: 20px;
-  }
-
-
-  #faqs-tab {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .cat-brand {
-    display: flex;
-  }
-
 }
