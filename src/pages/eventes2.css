@@ -1,0 +1,188 @@
+
+.main-event-cont {
+    display: flex;
+  
+    align-items: center;
+    background-color: transparent;
+    margin: 0;
+  }
+
+
+.background-div {
+    background-image: url("../constant/images/Category-src.png");
+    background-position: center;
+    padding-top: 6px;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: 100%;
+    /* Resize the background image to cover the entire container */
+    background-color: transparent;
+  }
+
+  .vending-machine {
+    width: 400px;
+    /* Increased width */
+    height: 650px;
+    /* Increased height */
+    background-color: transparent;
+    border-radius: 20px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    position: relative;
+    overflow: visible;
+  }
+
+  .vending-machine::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .shelves {
+    position: absolute;
+    top: 90px;
+    left: 47px;
+    right: 45px;
+    bottom: 241px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .shelf {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .jar {
+    width: 50px;
+    /* Increased width */
+    height: 70px;
+    /* Increased height */
+    background-color: transparent;
+    border-radius: 10px;
+    position: relative;
+    background-image: url("../constant/images/jar-img.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+
+  .jar::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    /* Adjusted width */
+    height: 10px;
+ 
+  }
+
+  .heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    /* Adjusted width */
+    height: 24px;
+    /* Adjusted height */
+    background-color: #4b0082;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+  }
+
+ 
+.controls {
+position: absolute;
+bottom: 91px;
+left: 42px;
+right: 27px;
+height: 120px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+  .cont-display {
+    height: 40px;
+    width: 170px;
+    /* Increased height */
+    background-color: #12003c;
+    border: 2px solid #000;
+    border-radius: 5px;
+    margin-top: -2px;
+  }
+
+
+  .months-table {
+    margin-left: -10px;
+    margin-top: 10px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button {
+    width: 50px;
+    /* Increased width */
+    height: 50px;
+    /* Increased height */
+    background-color: #f8f8f8;
+    border: 2px solid #000;
+    border-radius: 5px;
+  }
+
+  /* .month-sec {
+    width: 180px;
+  } */
+
+  .small-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .small-button {
+    width: 25px;
+    /* Increased width */
+    height: 25px;
+    /* Increased height */
+    background-color: #f8f8f8;
+    border: 2px solid #000;
+    border-radius: 5px;
+  }
+
+  .mont{
+    font-size: 10px;
+    background-color: white;
+    text-align: center;
+    color: #000;
+    margin: 5%;
+    border-radius: 5px;
+
+  }
+
+  .year-row{
+    height: 50px;
+  }

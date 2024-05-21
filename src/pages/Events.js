@@ -7,6 +7,9 @@ import Gallery from "../components/Gallery";
 import { fetchEventData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import "./Events.css";
+
+import "./eventes2.css";
+
 const EventsSection = () => {
   const [activeTab, setActiveTab] = useState("div1");
   const [activeDays, setActiveDays] = useState("");
@@ -179,7 +182,7 @@ const EventsSection = () => {
       </section>
       <section style={{ position: "relative" }}>
         <div className="container py-5 my" style={{ position: "relative" }}>
-          <div className="row event-cont">
+          {/* <div className="row event-cont">
             <div className="col-md-8 d-flex justify-content-center align-items-center my-3 ">
               <div className="event-img">
                 <img
@@ -193,7 +196,6 @@ const EventsSection = () => {
                   onMouseLeave={() => setIsHovered(false)}>
                   {isHovered && <div className="message">
 
-                    Pop the lid, and reveal your next WINTERBEAR event!
                   </div>}
                 </div>
               </div>
@@ -359,6 +361,191 @@ const EventsSection = () => {
               </div>
             </div>
 
+          </div> */}
+          <div className="main-event-cont">
+            <div className="background-div">
+              <div className="vending-machine">
+                <div className="shelves">
+                  <div className="shelf">
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                  </div>
+                  <div className="shelf">
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                  </div>
+                  <div className="shelf">
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                  </div>
+                  <div className="shelf">
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                    <div className="jar">
+
+                    </div>
+                  </div>
+                </div>
+                <div className="controls">
+                  <div className="cont-display">
+
+                    <div className="row month-sec px-2 mb-2">
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          jan
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Feb
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Mar
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Apr
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          May
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Jun
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Jul
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Aug
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Sep
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Oct
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Nov
+                        </div>
+                      </div>
+                      <div className="col-2 p-0 text-center">
+                        <div className="mont">
+                          Dec
+                        </div>
+                      </div>
+
+                      <>
+                        <table
+                          className="months-table w-100 py-2 bg-transparent mt-2"
+                          style={{ marginTop: "1px ", padding: "3px" }}
+                        >
+                          <tbody>
+                            <tr class="year-row">
+                              <td>
+                                <span
+                                  className="left-button fa fa-chevron-left"
+                                  id="prev"
+                                ></span>
+                              </td>
+                              {activeDays === "" ?
+                                <>
+                                  <tr className="table-row">
+
+                                    <td className="month text-dark px-3  event-image">2024</td>
+                                    <td className="month text-dark px-3  event-image">2025</td>
+                                    <td className="month text-dark px-3  event-image">2026</td>
+                                  </tr>
+                                </> :
+                                <>
+                                  <tr className="table-row">
+
+                                    <td className="month text-dark px-3  event-image-days">1</td>
+                                    <td className="month text-dark px-3  event-image-days">2</td>
+                                    <td className="month text-dark px-3  event-image-days">3</td>
+                                    <td className="month text-dark px-3  event-image-days">4</td>
+                                    <td className="month text-dark px-3  event-image-days">5</td>
+                                  </tr>
+                                  <tr className="table-row">
+                                    <td className="month text-dark px-3  event-image-days">6</td>
+                                    <td className="month text-dark px-3  event-image-days">7</td>
+                                    <td className="month text-dark px-3  event-image-days">8</td>
+                                    <td className="month text-dark px-3  event-image-days">9</td>
+                                    <td className="month text-dark px-3  event-image-days">10</td>
+                                  </tr>
+                                </>
+                              }
+
+
+                              <td>
+                                <span
+                                  className="right-button fa fa-chevron-right"
+                                  id="next"
+                                ></span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="event-content">
@@ -398,15 +585,11 @@ const EventsSection = () => {
       </section>
 
 
-      <section>
 
-
-      </section>
 
 
       <Gallery />
       <Footer />
-      // eslint-disable-next-line
     </>
 
   );

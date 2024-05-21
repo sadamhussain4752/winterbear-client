@@ -211,11 +211,11 @@
 }
 
 
-.event-img{
+.event-img {
   position: relative;
 }
 
-.event-overlay{
+.event-overlay {
   position: absolute;
   /* background-color: rgba(0, 0, 0 ,0.5); */
   height: 480px;
@@ -224,7 +224,7 @@
   top: 5%;
 }
 
-.message{
+.message {
   border-radius: 20px;
   border: 3px solid black;
   width: 35%;
@@ -232,3 +232,15 @@
   background-color: white;
   padding: 2%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
