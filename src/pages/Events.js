@@ -6,6 +6,8 @@ import Gallery from "../components/Gallery";
 // import Wave from "../components/Wave";
 import { fetchEventData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
+import { Popover, Button } from 'antd';
+
 import "./Events.css";
 const EventsSection = () => {
   const [activeTab, setActiveTab] = useState("div1");
@@ -16,6 +18,12 @@ const EventsSection = () => {
   const showDiv = (divId) => {
     setActiveTab(divId);
   };
+
+  const content = (
+    <div>
+      <p>Pop the lid, and reveal your next WINTERBEAR event!</p>
+    </div>
+  );
 
   const {
     eventlist,
@@ -186,6 +194,12 @@ const EventsSection = () => {
                   className="w-100"
                 />
               </div>
+              <Popover content={content} title="Title" trigger="hover">
+              <div id="image-div" className="image-div d-flex align-items-center">
+
+</div>
+  </Popover>
+              
               <div id="first-div" className="first-div d-flex align-items-center" href="" title="">
                 <table
                   className="months-table w-100 py-2  bg-transparent "
@@ -384,6 +398,8 @@ const EventsSection = () => {
           </div>
 
         </div>
+        
+      
       </section>
 
 

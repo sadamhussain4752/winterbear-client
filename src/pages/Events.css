@@ -18,6 +18,15 @@
     z-index: 2;
     background: transparent;
   }
+  .image-div {
+    position: absolute;
+    left: 12.5%;
+    top: 20.25%;
+    width: 42%;
+    height: 40%;
+    z-index: 2;
+    background: transparent;
+  }
 }
 
 @media only screen and (min-width: 1376px) and (max-width: 1430px) {
@@ -203,10 +212,11 @@
 .event-content {
   position: absolute;
   right: 5%;
-  top: 8%;
+  top: 28%;
   width: 40%;
   padding: 0% 2%;
   background-color: white;
   border-radius: 20px;
   border: 5px solid #362a69;
 }
+
