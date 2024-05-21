@@ -362,6 +362,13 @@ const Brandlist = () => {
                     </div> */}
                   </div>
                 ))}
+                <div className="shop-all-cards" onClick={()=>{
+                        navigate(`/Allbrand`);
+
+                  }}>
+                  <p className="brand-namee">More Brands</p>
+
+                  </div>
               </div>
             </div>
 
