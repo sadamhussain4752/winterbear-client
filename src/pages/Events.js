@@ -41,6 +41,10 @@ const EventsSection = () => {
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
 
+  // hover message
+
+  const [isHovered, setIsHovered] = useState(false);
+
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
   const months = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -187,12 +191,21 @@ const EventsSection = () => {
         <div className="container py-5 my" style={{ position: "relative" }}>
           <div className="row event-cont">
             <div className="col-md-8 d-flex justify-content-center align-items-center my-3 ">
-              <div>
+              <div className="event-img">
                 <img
                   src="assets/images/Category.png"
                   alt="category"
                   className="w-100"
                 />
+
+                <div className="event-overlay hover-container"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}>
+                  {isHovered && <div className="message">
+
+                    Pop the lid, and reveal your next WINTERBEAR event!
+                  </div>}
+                </div>
               </div>
               <Popover content={content} title="Title" trigger="hover">
               <div id="image-div" className="image-div d-flex align-items-center">
