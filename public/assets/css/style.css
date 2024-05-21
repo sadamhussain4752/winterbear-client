@@ -2798,3 +2798,83 @@ input {
   }
 
 }
+
+
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+
+.card2 {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+
+.sel-2 .sel-1 {
+  width: 100%;
+}
+
+.sel-3 {
+  width: 100% !important;
+}
+
+.two-cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-container select {
+  /* width: 100% !important; */
+  margin-top: 3%;
+}
+
+
+.card2 {
+  /* border: 2px solid black; */
+  padding: 3%;
+  border-radius: 15px;
+}
+
+.find-yer {
+  border: none;
+  background-color: #221A42;
+  border-radius: 5px;
+  margin-top: 20px;
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: block;
+  margin: auto;
+}
+
+.card2 h2 {
+  margin-top: 0;
+}
+
+.dropdown-container {
+  margin-top: 20px;
+}
+
+.dropdown-container select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 45%;
+  background-color: #f9f9f9;
+  font-size: 16px;
+}
+
+.dropdown-container select:focus {
+  border-color: #007bff;
+  outline: none;
+
+}

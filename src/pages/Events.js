@@ -27,6 +27,22 @@ const EventsSection = () => {
     dispatch(fetchEventData());
   }, [dispatch]);
 
+  // calender
+
+  const [day, setDay] = useState('');
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
+
+  const days = Array.from({ length: 31 }, (_, i) => i + 1);
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: currentYear - 1899 }, (_, i) => currentYear - i);
+
+
+
   const wavesData = [
     {
       src: require("../constant/images/property.png"),
@@ -236,14 +252,14 @@ const EventsSection = () => {
                             id="prev"
                           ></span>
                         </td>
-                        {activeDays === "" ? 
-                        <>
-                          <tr className="table-row">
+                        {activeDays === "" ?
+                          <>
+                            <tr className="table-row">
 
-                          <td className="month text-dark px-3  event-image">2024</td>
-                          <td className="month text-dark px-3  event-image">2025</td>
-                          <td className="month text-dark px-3  event-image">2026</td>
-                          </tr>
+                              <td className="month text-dark px-3  event-image">2024</td>
+                              <td className="month text-dark px-3  event-image">2025</td>
+                              <td className="month text-dark px-3  event-image">2026</td>
+                            </tr>
                           </> :
                           <>
                             <tr className="table-row">
@@ -333,17 +349,53 @@ const EventsSection = () => {
           </div>
         </div>
         <div className="event-content">
-          <p> for the event page - Discover your next fandom adventure with WINTERBEAR's whimsical event jars! </p>
+          <div className="card2">
+            <h2>Select Your Events</h2>
+            <div className="dropdown-container">
+              <div className="two-cont">
 
-          <p> for the jar - Pop the lid, and reveal your next WINTERBEAR event!</p>
+                <select className="sel-2" value={year} onChange={(e) => setYear(e.target.value)}>
+                  <option value="" disabled>Year</option>
+                  {years.map((y) => (
+                    <option key={y} value={y}>{y}</option>
+                  ))}
+                </select>
+                <select className="sel-2" value={month} onChange={(e) => setMonth(e.target.value)}>
+                  <option value="" disabled>Month</option>
+                  {months.map((m, index) => (
+                    <option key={index} value={index + 1}>{m}</option>
+                  ))}
+                </select>
+              </div>
+
+              <select className="sel-3" value={day} onChange={(e) => setDay(e.target.value)}>
+                <option value="" disabled>Day</option>
+                {days.map((d) => (
+                  <option key={d} value={d}>{d}</option>
+                ))}
+              </select>
+
+
+              <button className="find-yer mt-4 px-4 py-2">FInd Event</button>
+
+            </div>
+          </div>
+
         </div>
       </section>
 
+
+      <section>
+
+
+      </section>
+
+
       <Gallery />
       <Footer />
-      // eslint-disable-next-line 
+      // eslint-disable-next-line
     </>
-    
+
   );
 };
 
