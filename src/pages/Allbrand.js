@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -53,7 +53,7 @@ const AllBrand = () => {
       setProductsByLetter(productsByLetter);
     }
   }, [data?.Brands]);
-  
+
 
   const backgroundImageStyle = {
     background: 'url("assets/images/bear.jpeg")',
@@ -61,7 +61,7 @@ const AllBrand = () => {
     postion: "relative",
   };
 
- 
+
   document.title = "Awards";
   document.getElementsByTagName("META")[2].content = "Awards";
   return (
@@ -140,7 +140,7 @@ const AllBrand = () => {
               </li>
 
               <li className="nav-item " id="#k">
-                <a className="nav-link text-dark fw-bold " href="#"k>
+                <a className="nav-link text-dark fw-bold " href="#" k>
                   K
                 </a>
               </li>
@@ -233,7 +233,7 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                       
+
                       </a>
                     </p>
                   </div>
@@ -243,42 +243,45 @@ const AllBrand = () => {
                         className="text-decoration-none text-dark small m-0"
                         href="#"
                       >
-                        
+
                       </a>
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div>
-      {Object.entries(productsByLetter).map(([letter, products]) => (
-        products.length > 0 && (
-          <div key={letter} id={letter.toUpperCase()} className="row py-3 border-bottom Name-A">
-            <div className="offset-md-1 col-md-1 fw-bold fs-3">{letter}</div>
-            <div className="col-md-10">
-              <div className="row">
-                {products.map((product, index) => (
-                  <div key={product._id} className="col-md-4">
-                    <p>
-                      <a
-                        className="text-decoration-none text-dark small m-0"
-                        href="#"
-                      >
-                                               <img className="icons-img" src={product.imageUrl}/>
 
-                        {product.name}
-                      </a>
-                    </p>
+            <div>
+              {Object.entries(productsByLetter).map(([letter, products]) => (
+                products.length > 0 && (
+                  <div key={letter} id={letter.toUpperCase()} className="row py-3 border-bottom Name-A">
+                    <div className="offset-md-1 col-md-1 fw-bold fs-3">{letter}</div>
+                    <div className="col-md-10">
+                      <div className="row">
+                        {products.map((product, index) => (
+                          <div key={product._id} className="col-md-4 brand-img-cont">
+                            <p>
+                              <a
+                                className="text-decoration-none text-dark small m-0"
+                                href="#"
+                              >
+                                <div className="brand-innimg-cont">
+                                  <img className="icons-img" src={product.imageUrl} />
+                                </div>
+                              </a>
+                              <p className="brand-img-name">
+                                {product.name}
+                              </p>
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                ))}
-              </div>
+                )
+              ))}
             </div>
-          </div>
-        )
-      ))}
-    </div>
-            
+
           </div>
         </div>
       </section>
