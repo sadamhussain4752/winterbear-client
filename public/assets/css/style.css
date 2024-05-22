@@ -2889,3 +2889,7 @@ input {
   color: #221A42;
   font-weight: 700;
 }
+.icons-img{
+  width: 100px !important;
+  height: 50px !important;
+}
