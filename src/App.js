@@ -25,6 +25,7 @@ import Terms from "./pages/Terms";
 import Categorylist from "./pages/Categorylist";
 import StoreLocator from "./pages/StoreLocator";
 import Wishlist from "./pages/Wishlist";
+import Shoponline from "./pages/Shoponline";
 
 import Event2 from "./pages/Event2";
 
@@ -65,7 +66,7 @@ const App = () => {
 
           <Route path="/event2" element={<Event2/>}/>
 
-
+          <Route path="/shop-online" element={<Shoponline/>}/>
         </Routes>
       </Router>
       
