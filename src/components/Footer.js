@@ -92,7 +92,7 @@ const Footer = () => {
                 <div className="row">
                   <div className="col-md-12 col-6">
                     <ul>
-                      {productOldlist?.productList?.map((item) => (
+                      {productOldlist?.productList?.slice(0, 8).map((item) => (
                         <li key={item.brand.id}>
                           <a href="" onClick={()=>handleNavigationbrand(item.brand._id)}>{item.brand.name}</a>
                         </li>

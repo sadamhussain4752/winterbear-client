@@ -287,7 +287,7 @@ const ShopAll = () => {
 
                 {productOldlist &&
                   productOldlist.productList &&
-                  productOldlist.productList.map((item) => (
+                  productOldlist.productList.slice(0, 8).map((item) => (
                     <div key={item.brand.id}>
                       <div
                         className=" shop-all-cards"

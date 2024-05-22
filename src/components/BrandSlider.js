@@ -42,7 +42,7 @@ const HomeSlider = () => {
         >
           {data &&
             data?.Brands &&
-            data?.Brands.map((brand, index) => (
+            data?.Brands.slice(0,8).map((brand, index) => (
               <div key={index} className="item mx-4" onClick={()=>{
                 handleNavigation(brand._id)
               }}>

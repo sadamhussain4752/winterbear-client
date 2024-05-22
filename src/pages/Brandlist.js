@@ -344,7 +344,7 @@ const Brandlist = () => {
               </div>
               <div className="p-0  text-center rounded mx-5">
                 <h3 className=" fs-2 fw-bolder text-start mb-4">Brands</h3>
-                {productOldlist && productOldlist.productList && productOldlist.productList.map((item) => (
+                {productOldlist && productOldlist.productList && productOldlist.productList.slice(0, 8).map((item) => (
                   item.brand._id !== id &&
                   <div key={item.brand._id}>
                     <div className="align-items-center shop-all-cards" onClick={() => handleNavigationbrand(item.brand._id)}>
