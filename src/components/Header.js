@@ -1,7 +1,7 @@
 // Header.js
 
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
 import { ProfileUserData, CouponUserById } from "../reducer/thunks";
@@ -28,6 +28,9 @@ const Header = () => {
     marginLeft: "35%",
   };
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
   const latestOffers = [
     { id: 1, title: "Offer 1: 20% off on all products", link: "/offer1" },
     { id: 2, title: "Offer 2: Buy one, get one free", link: "/offer2" },
@@ -58,6 +61,11 @@ const Header = () => {
     loginerror: getprofileUserError,
     getprofile: getUserResponse,
   } = useSelector((state) => state.getprofile);
+  const {
+    data,
+    loading: bannerLoading,
+    error: bannerError,
+  } = useSelector((state) => state.data);
   const { CouponListsRes: getCouponResponse } = useSelector(
     (state) => state.CouponListsRes
   );
@@ -150,9 +158,8 @@ const Header = () => {
       <header>
         {/* Top Header */}
         <div
-          className={`top-header shadow-sm bg-white fixed-top ${
-            navbarBg === "d-none" && "bg-white top-headers"
-          }`}
+          className={`top-header shadow-sm bg-white fixed-top ${navbarBg === "d-none" && "bg-white top-headers"
+            }`}
         >
           <div className="container-fluid">
             {/* <Carousel autoplay className={`col-md-10 d-block mx-auto ${navbarBg}`} dots={true}>
@@ -239,9 +246,8 @@ const Header = () => {
                     <ul className="navbar-nav justify-content-end flex-grow-1 ps-md-3 ps-3">
                       <li className="nav-item pb-3">
                         <a
-                          className={`nav-link fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
+                          className={`nav-link fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
                           href="/"
                         >
                           HOME
@@ -280,9 +286,8 @@ const Header = () => {
                         </li> */}
                       <li className="nav-item">
                         <a
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
                           href="/about"
                         >
                           ABOUT
@@ -291,10 +296,9 @@ const Header = () => {
 
                       <li className="nav-item">
                         <a
-                          className={`nav-link pb-3 fs-5 show-shop-all ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
-                          href="/shop/0"  onMouseEnter={() => setIsHovered(true)}
+                          className={`nav-link pb-3 fs-5 show-shop-all ${location.pathname === "/" ? "active" : ""
+                            }`}
+                          href="/shop/0" onMouseEnter={() => setIsHovered(true)}
                           onMouseLeave={() => setIsHovered(false)}
                         >
                           SHOP ALL
@@ -303,9 +307,8 @@ const Header = () => {
 
                       <li className="nav-item">
                         <a
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
                           href="/faqs"
                         >
                           FAQs
@@ -323,9 +326,8 @@ const Header = () => {
 
                       <li className="nav-item">
                         <a
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
                           href="/stores"
                         >
                           STORES
@@ -333,9 +335,8 @@ const Header = () => {
                       </li>
                       <li className="nav-item">
                         <a
-                          className={`nav-link pb-3 fs-5 ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
+                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                            }`}
                           href="/Allbrand"
                         >
                           BRAND DIRECTORY
@@ -399,9 +400,8 @@ const Header = () => {
 
                       <li className="mt-md-5 nav-item">
                         <a
-                          className={`nav-link pb-3 fs-6 fw-normal ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
+                          className={`nav-link pb-3 fs-6 fw-normal ${location.pathname === "/" ? "active" : ""
+                            }`}
                           href="tel:9035576906"
                         >
                           <i className="fa-solid fa-phone-volume" />{" "}
@@ -410,9 +410,8 @@ const Header = () => {
                       </li>
                       <li className=" nav-item">
                         <a
-                          className={`nav-link pb-3 fs-6 fw-normal ${
-                            location.pathname === "/" ? "active" : ""
-                          }`}
+                          className={`nav-link pb-3 fs-6 fw-normal ${location.pathname === "/" ? "active" : ""
+                            }`}
                           href="mailto:hello@winterbear.in"
                         >
                           <i className="fa-regular fa-envelope" />{" "}
@@ -579,304 +578,48 @@ const Header = () => {
         </div>
       </header>
       {isHovered && (
-      <div className="shopall-menu px-3 " style={{marginTop:'105px'}}>
-        <div className="container-fluid bg-light mt-3 py-4">
-          <div className="row">
-            <div className="col-md-3  ps-5">
-              <div className="menu-items px-3 py-3">
-                <div className="ps-4">
-                <a href="" className="btn text-decoration-none btn-outline-dark "> Shop All</a>
+        <div className="shopall-menu px-3 " style={{ marginTop: '105px' }}>
+          <div className="container-fluid bg-light mt-3 py-4">
+            <div className="row">
+              <div className="col-md-3  ps-5">
+                <div className="menu-items px-3 py-3">
+                  <div className="ps-4">
+                    <a href="" className="btn text-decoration-none btn-outline-dark "> Shop All</a>
+                  </div>
+
+                  <p className="fw-bold ps-3 text-uppercase my-2">Shop by category</p>
+                  <div className="d-block text-start">
+                    {data &&
+                      data.Categorys &&
+                      data.Categorys.map((item) => (
+                        <a href="#" className="btn text-decoration-none my-3 d-block fs-6 text-start"> {item.name}</a>
+
+                      ))}
+                  </div>
+
                 </div>
-                
-                <p className="fw-bold ps-3 text-uppercase my-2">Shop by category</p>
-                <div className="d-block text-start">
-                <a href="#" className="btn text-decoration-none my-3 d-block fs-5 text-start"> Fashion Accessories</a>
-                <a href="#" className="btn text-decoration-none my-3 d-block fs-5 text-start"> Fashion Accessories</a>
-                <a href="#" className="btn text-decoration-none my-3 d-block fs-5 text-start"> Fashion Accessories</a>
-                <a href="#" className="btn text-decoration-none my-3 d-block fs-5 text-start"> Fashion Accessories</a>
-                <a href="#" className="btn text-decoration-none my-3 d-block fs-5 text-start"> Fashion Accessories</a>
-                <a href="#" className="btn text-decoration-none my-3 d-block fs-5 text-start"> Fashion Accessories</a>
-                <a href="#" className="btn text-decoration-none my-3 d-block fs-5 text-start"> Fashion Accessories</a>
+              </div>
+              <div className="col-md-3  ps-5">
+                <div className="menu-items px-3 py-3 col-md-12">
+
+                  {data && data?.Brands.map((item) => (
+                    <a href="" className="col-md-3">
+                      <img
+                        src={`${item.imageUrl}`}
+                        className="shop-online-brand mb-3"
+                      />
+                    </a>
+
+                  ))}
+
+
                 </div>
-                
               </div>
-            </div>
-            <div className="col-md-3  ps-5">
-              <div className="menu-items px-3 py-3">
-              <a href="">
-                      <img
-                        src="assets/images/client-logo.png"
-                        className="  shop-online-brand mb-3"
-                      />
-                    </a>
-                    <div className="row">
-                      <div className="col-1 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div><div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div><div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                   
-              </div>
-            </div>
-            <div className="col-md-3  ps-5">
-              <div className="menu-items px-3 py-3">
-              <a href="">
-                      <img
-                        src="assets/images/client-logo1.png"
-                        className="  shop-online-brand mb-3"
-                      />
-                    </a>
-                    <div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
 
-              </div>
-            </div>
-            <div className="col-md-3  ps-5">
-              <div className="menu-items px-3 py-3">
-              <a href="">
-                      <img
-                        src="assets/images/client-logo2.png"
-                        className="  shop-online-brand mb-3"
-                      />
-                    </a>
-                    <div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-3 px-1 col-md-3">
-                        <a href="">
-                          <img
-                            src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/1713118368071-853479702"
-                            className="img-fluid   mb-3 mt-3"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-9 col-md-9 d-flex align-items-center">
-                        <div>
-                          <a
-                            href=""
-                            className="text-dark fw-bold text-decoration-none"
-                          >
-                                              Koya
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-              </div>
             </div>
           </div>
         </div>
-      </div>
-       )
+      )
       }
       <>
         <LoginModal visible={loginVisible} onClose={handleCloseLogin} />
