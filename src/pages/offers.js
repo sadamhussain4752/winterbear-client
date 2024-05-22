@@ -1,6 +1,9 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import offer1 from "../constant/images/offer-1.png";
+import offer11 from "../constant/images/offer-11.png";
+import offer12 from "../constant/images/offer-12.png";
 
 import Testimonals from "../components/Testimonals";
 
@@ -16,7 +19,7 @@ function Offers() {
                     <span> SHOP NOW</span>
                 </div>
 
-                <div className="container py-5">
+                <div className="container py-5 border-bottom">
                     <p className="p-sub-path"> Home /
                         Special Deals & Offers </p>
 
@@ -25,15 +28,15 @@ function Offers() {
                     <p className="sm-fnt">
                         New deals and offers are updated monthly—don't miss out! Check back often to get the best deals. Available while supplies last. Terms apply.*
                     </p>
-                    <img src="https://sukoshimart.com/cdn/shop/files/Artboard_1_cf1b373d-b053-4a55-a536-224fdfd0c768.png?format=pjpg&v=1685633165&width=1920" className="w-100" />
+                    <img src={offer1} className="w-100" />
 
                     <div className="row mt-4">
                         <div className="col-lg-6">
-                            <img src="https://sukoshimart.com/cdn/shop/files/May-Offers_web_banner1_soldout.jpg?format=pjpg&v=1715019729&width=960" className="w-100" />
+                            <img src={offer11} className="w-100" />
                         </div>
 
                         <div className="col-lg-6">
-                            <img src="https://sukoshimart.com/cdn/shop/files/May-Offers_web_banner1_soldout.jpg?format=pjpg&v=1715019729&width=960" className="w-100" />
+                            <img src={offer12} className="w-100" />
                         </div>
                     </div>
                     <p className="p-end-txt mt-4 mb-0">

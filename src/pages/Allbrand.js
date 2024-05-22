@@ -145,7 +145,7 @@ const AllBrand = () => {
                     <div className="col-md-10">
                       <div className="row">
                         {products.map((product, index) => (
-                          <div key={product._id} className="col-md-4 brand-img-cont" onClick={()=>{
+                          <div key={product._id} className="col-md-4   brand-img-cont" onClick={()=>{
                             navigate(`/brand/${product._id}`);
 
                           }}>
@@ -155,7 +155,7 @@ const AllBrand = () => {
                                 href="#"
                               >
                                 <div className="brand-innimg-cont">
-                                  <img className="icons-img" src={product.imageUrl} />
+                                  <img className="icons-img" src={product.imageUrl} loading="lazy" />
                                 </div>
                               </a>
                               <p className="brand-img-name">

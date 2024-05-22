@@ -114,6 +114,8 @@ padding: 15px 0;*/
   }
 }
 
+
+
 .navbar .navbar-nav .nav-link {
   color: #fff;
 }
@@ -293,11 +295,15 @@ input {
   transform: scale(1.4);
 }
 
+.item img {
+  cursor: pointer;
+}
 
 .collection-box-1:hover {
   /* background: #221A42; */
   /* border-radius: 20px; */
   color: #fff;
+  cursor: pointer;
 }
 
 .collection-box-1:hover h4 {
@@ -398,6 +404,7 @@ input {
 .nav-fill .nav-item,
 .nav-fill>.nav-link {
   flex: none !important;
+  cursor: pointer;
 }
 
 
@@ -1630,8 +1637,13 @@ input {
   margin-bottom: 1%;
 }
 
+.filter-item {
+  cursor: pointer;
+}
+
 .filter-item div {
   border-radius: 6px;
+
 
   font-family: Poppins;
   font-size: 14px;
@@ -2524,6 +2536,10 @@ input {
   overflow: hidden !important;
 }
 
+a{
+  cursor: pointer;
+}
+
 .home-product {
   position: relative;
   overflow-y: hidden !important;
@@ -2535,6 +2551,7 @@ input {
 
 .product-card {
   position: relative;
+  cursor: pointer;
   overflow-y: hidden !important;
 }
 
@@ -2867,7 +2884,7 @@ input {
 
 .card2 h2 {
   margin-top: 0;
-  font-size: 20px ;
+  font-size: 20px;
 }
 
 .dropdown-container {
@@ -2904,34 +2921,35 @@ input {
 }
 
 
-.brand-img-cont{
+.brand-img-cont {
   display: flex;
   justify-content: center;
 }
 
-.icons-img{
+.icons-img {
   width: 150px !important;
   max-height: 75px;
- display: block;
- margin: auto !important;
+  display: block;
+  margin: auto !important;
 }
 
-.brand-innimg-cont{
+.brand-innimg-cont {
   width: 200px;
   height: 85px;
   display: flex;
   align-items: center;
 }
 
-.brand-img-name{
+.brand-img-name {
   font-size: 14px;
   text-transform: capitalize;
   background-color: #221a42;
   color: white;
   padding: 2% 0%;
   text-align: center;
-  
+
 }
+
 .view-more {
   font-size: 15px;
   text-align: center;
