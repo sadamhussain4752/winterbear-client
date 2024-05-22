@@ -2541,22 +2541,29 @@ input {
 .home-product .addtocart-btn {
   display: block;
   position: absolute;
-  bottom: -100%;
+  bottom: 30%;
   left: 50%;
   transform: translateX(-50%);
-  transition: bottom 0.5s ease, opacity 0.5s ease;
+  transition: bottom 0.8s ease, opacity 0.5s ease;
   opacity: 0;
+
+  width: 75%;
+  padding: 4% 0% !important;
+
 }
 
 
 .product-card .addtocart-btn {
   display: block;
   position: absolute;
-  bottom: -100%;
+  bottom: 30%;
   left: 50%;
   transform: translateX(-50%);
   transition: bottom 0.5s ease, opacity 0.5s ease;
   opacity: 0;
+
+  width: 75%;
+  padding: 4% 0% !important;
 }
 
 
@@ -2564,10 +2571,9 @@ input {
   bottom: 35%;
   opacity: 1;
   width: 75%;
-  padding: 4% 0% !important;
+  /* padding: 4% 0% !important; */
   background-color: rgba(34, 26, 66, 1) !important;
 }
-
 
 .product-card:hover .addtocart-btn {
   bottom: 35%;
@@ -2880,4 +2886,48 @@ input {
   border-color: #007bff;
   outline: none;
 
+}
+
+.top-patch {
+  background-color: #fee8ea;
+  text-align: center;
+  padding: 2%;
+}
+
+.sm-fnt {
+  font-size: 15px;
+}
+
+.p-sub-path {
+  font-size: 14px;
+}
+
+
+.brand-img-cont{
+  display: flex;
+  justify-content: center;
+}
+
+.icons-img{
+  width: 150px !important;
+  max-height: 75px;
+ display: block;
+ margin: auto !important;
+}
+
+.brand-innimg-cont{
+  width: 200px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+}
+
+.brand-img-name{
+  font-size: 14px;
+  text-transform: capitalize;
+  background-color: #221a42;
+  color: white;
+  padding: 2% 0%;
+  text-align: center;
+  
 }

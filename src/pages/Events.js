@@ -586,8 +586,6 @@ const EventsSection = () => {
 
 
 
-
-
       <Gallery />
       <Footer />
     </>
