@@ -205,9 +205,9 @@ const Header = () => {
                       </Link>
                       <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
-                        to="/offer"
+                        to="/offers"
                       >
-                       Offers
+                       OFFERS
 
                       </Link>
                       {/* <Link

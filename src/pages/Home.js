@@ -141,9 +141,9 @@ const Home2 = () => {
                           </div>
                           <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
                             <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-                              {item.brand._id === "65aa405f6bfadce6d5a0ef3c" && (
+                              {item.brand._id === "65aa405f6bfadce6d5a0ef3c" ?(
                                 <p className="text-white text-center text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">40%</p>
-                              )}
+                              ):  <p ></p>}
                               <button className="heart-btn" id="hertbtn" onClick={() => handleWishlist(prod._id)}>
                                 {wishlist?.wishlistItems?.some((item) => item.productId === prod._id) ? (
                                   <HeartButton isActives={true} />
