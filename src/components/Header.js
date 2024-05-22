@@ -16,7 +16,11 @@ import SearchList from "./SearchList";
 const { Option } = Select;
 
 const Header = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  //const [isHovered, setIsHovered] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const handleMenuToggle = () => {
+    setIsMenuVisible(prevState => !prevState);
+  };
   const contentStyle = {
     height: "30px",
     color: "#000",
@@ -183,8 +187,7 @@ const Header = () => {
                       <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/shop/0"
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
+                        onClick={handleMenuToggle}
                       >
                         {Language.shop_all}
                       </Link>
@@ -294,8 +297,7 @@ const Header = () => {
                           className={`nav-link pb-3 fs-5 show-shop-all ${
                             location.pathname === "/" ? "active" : ""
                           }`}
-                          href="/shop/0"  onMouseEnter={() => setIsHovered(true)}
-                          onMouseLeave={() => setIsHovered(false)}
+                          href="/shop/0"   onClick={handleMenuToggle}
                         >
                           SHOP ALL
                         </a>
@@ -578,7 +580,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {isHovered && (
+      {isMenuVisible && (
       <div className="shopall-menu px-3 " style={{marginTop:'105px'}}>
         <div className="container-fluid bg-light mt-3 py-4">
           <div className="row">
@@ -605,8 +607,8 @@ const Header = () => {
               <div className="menu-items px-3 py-3">
               <a href="">
                       <img
-                        src="assets/images/client-logo.png"
-                        className="  shop-online-brand mb-3"
+                        src="/assets/images/client-logo.png"
+                        className="shop-online-brand mb-3"
                       />
                     </a>
                     <div className="row">
@@ -694,7 +696,7 @@ const Header = () => {
               <div className="menu-items px-3 py-3">
               <a href="">
                       <img
-                        src="assets/images/client-logo1.png"
+                        src="/assets/images/client-logo1.png"
                         className="  shop-online-brand mb-3"
                       />
                     </a>
@@ -785,7 +787,7 @@ const Header = () => {
               <div className="menu-items px-3 py-3">
               <a href="">
                       <img
-                        src="assets/images/client-logo2.png"
+                        src="/assets/images/client-logo2.png"
                         className="  shop-online-brand mb-3"
                       />
                     </a>
