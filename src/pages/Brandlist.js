@@ -408,7 +408,7 @@ const Brandlist = () => {
                           <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
                           <p className=" mb-0 pro-price">₹{prod.amount}</p>
 
-                          <div className="text-center  border-secondary addtocart-btn px-1 py-1 mx-2">
+                          <div className="text-center  border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
                             <i className="fas fa-cart-plus me-2"></i> Add to Cart
                           </div>
                         </div>
