@@ -15,6 +15,15 @@ import Language from "../constant/Language";
 import SearchList from "./SearchList";
 const { Option } = Select;
 
+
+function chunkArray(array, chunkSize) {
+  const chunks = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    chunks.push(array.slice(i, chunkSize + i));
+  }
+  return chunks;
+}
+
 const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
   const contentStyle = {
@@ -151,6 +160,9 @@ const Header = () => {
     );
   };
 
+  // for dropdown
+  const chunkedBrands = data ? chunkArray(data.Brands, 10) : [];
+
   return (
     <div className="header-container">
       {" "}
@@ -211,7 +223,7 @@ const Header = () => {
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/offers"
                       >
-                       OFFERS
+                        OFFERS
 
                       </Link>
                       {/* <Link
@@ -330,7 +342,7 @@ const Header = () => {
                           EVENT
                         </a>
                       </li> */}
-                      
+
 
                       <li className="nav-item">
                         <a
@@ -341,7 +353,7 @@ const Header = () => {
                           STORES
                         </a>
                       </li>
-                      
+
                       <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
@@ -587,8 +599,8 @@ const Header = () => {
         </div>
       </header>
       {isHovered && (
-        <div className="shopall-menu px-3 " style={{ marginTop: '105px' }}>
-          <div className="container-fluid bg-light mt-3 py-4">
+        <div className="shopall-menu px-3" style={{ marginTop: '50px' }}>
+          <div className="container-fluid bg-light mt-3 py-4 ">
             <div className="row">
               <div className="col-md-3  ps-5">
                 <div className="menu-items px-3 py-3">
@@ -608,7 +620,25 @@ const Header = () => {
 
                 </div>
               </div>
-              <div className="col-md-3  ps-5">
+
+              
+                {chunkedBrands.map((brandChunk, index) => (
+                  <div className={`col-md-3 ps-5`} key={index}>
+                    <div className="menu-items px-3 py-3 col-md-12">
+                      {brandChunk.map((item, idx) => (
+                        <a href="" className="col-md-3" key={idx}>
+                          <img
+                            src={`${item.imageUrl}`}
+                            className="shop-online-brand mb-3"
+                            alt={`Brand ${idx}`}
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+
+              {/* <div className="col-md-3  ps-5">
                 <div className="menu-items px-3 py-3 col-md-12">
 
                   {data && data?.Brands.map((item) => (
@@ -623,7 +653,7 @@ const Header = () => {
 
 
                 </div>
-              </div>
+              </div> */}
 
             </div>
           </div>

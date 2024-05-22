@@ -2551,6 +2551,15 @@ a{
   overflow: hidden;
 }
 
+.shop-online-brand{
+  width: 120px;
+}
+
+
+.shopall-menu:hover{
+  display: block !important;
+}
+
 .product-card {
   position: relative;
   cursor: pointer;
