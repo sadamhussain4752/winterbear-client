@@ -224,12 +224,12 @@ const Product = () => {
               </p>
             </div>
             <div className="col-md-3">
-              <button className="btn button buy-now-tag" onClick={() => buyproduct(product._id)}>Buy Now</button>
+              <button className="btn w-100 text-white button buy-now-tag" onClick={() => buyproduct(product._id)}>Buy Now</button>
 
             </div>
             <div className="col-md-4">
               <button
-                className="btn button buy-now-tag text-black bg-transparent border border-secondary"
+                className="btn w-100  button buy-now-tag text-white bg-transparent border border-secondary"
                 onClick={() => addcard(product._id)}
               >
                 Add to Cart
@@ -387,8 +387,8 @@ const Product = () => {
         }}
       >
         {productlist?.products?.slice(0, 10).map((prod, ind) => (
-        <div className="item col-md-10 position-relative mb-3 home-product px-0">
-        <div className="home-product-in">
+        <div className="item col-md-10 position-relative mb-3 home-product px-0 ">
+        <div className="home-product-in px-">
           <img
             src={
               prod.images[0] !== null &&
@@ -399,6 +399,13 @@ const Product = () => {
             className="product-shopby trans"
             alt="Web Project 1"
           />
+           <div
+          className="text-center  border-secondary addtocart-btn px-1 py-1 "
+          onClick={() => handleNavigation(prod._id)}
+        >
+          <i className="fas fa-cart-plus me-2" /> Add to
+          Cart
+        </div>
         </div>
 
         <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
@@ -432,7 +439,7 @@ const Product = () => {
           </div>
         </div>
         <div
-          className="text-center  border-secondary addtocart-btn px-1 py-1 "
+          className="text-center d-none border-secondary addtocart-btn px-1 py-1 "
           onClick={() => handleNavigation(prod._id)}
         >
           <i className="fas fa-cart-plus me-2" /> Add to

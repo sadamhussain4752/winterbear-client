@@ -279,11 +279,14 @@ const Categorylist = () => {
                           className=""
                           alt="Web Project 1"
                         />
+                         <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
+                            <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                          </div>
                         <div className="text-center price-card py-2">
                           <p className=" mb-0">₹{prod.amount}</p>
                           <p className="font-z">{prod.name}</p>
 
-                          <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
+                          <div class="text-center d-none border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
                             <i class="fas fa-cart-plus me-2"></i> Add to Cart
                           </div>
                         </div>
