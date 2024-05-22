@@ -26,6 +26,8 @@ import Categorylist from "./pages/Categorylist";
 import StoreLocator from "./pages/StoreLocator";
 import Wishlist from "./pages/Wishlist";
 
+import Event2 from "./pages/Event2";
+
 const App = () => {
   return (
     <div>
@@ -60,6 +62,8 @@ const App = () => {
           <Route path="/privacy" element={<Privacypolicy/>}/>
           <Route path="/term" element={<Terms/>}/>
           <Route path="/store-locator" element={<StoreLocator/>}/>
+
+          <Route path="/event2" element={<Event2/>}/>
 
 
         </Routes>
