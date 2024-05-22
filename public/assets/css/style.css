@@ -640,6 +640,7 @@ footer ul a {
 .product-shopby {
   height: 150px !important;
   object-fit: cover !important;
+  transition: transform 0.7s ease; 
 }
 
 /*.tile-1 .item:hover img {
@@ -678,7 +679,7 @@ width: 77%;
   width: 58%;
   text-align: center;
   /* Align text to the center */
-  transition: bottom 0.5s ease;
+  transition: bottom 0.9s ease;
   /* Add smooth transition */
 }
 
@@ -1825,7 +1826,7 @@ input {
 .buy-now-tag {}
 
 .buy-now-tag {
-  height: 30px !important;
+  height: 35px !important;
   border-radius: 8px !important;
   text-align: center;
   padding: 5px 20px !important;
@@ -2497,7 +2498,7 @@ input {
 }
 
 .product-shopby:hover {
-
+  transition: transform 0.9s ease; 
   transform: scale(1.5);
   overflow: hidden !important;
 
@@ -2506,6 +2507,7 @@ input {
 .product-shopall:hover {
   transform: scale(1.5);
   overflow: hidden !important;
+  
 }
 
 .add-to-card-price {
@@ -2584,20 +2586,23 @@ a{
 }
 
 
-.home-product:hover .addtocart-btn {
+.home-product .home-product-in:hover .addtocart-btn {
   bottom: 35%;
   opacity: 1;
   width: 75%;
   /* padding: 4% 0% !important; */
   background-color: rgba(34, 26, 66, 1) !important;
+  transition: bottom 0.6s ease, opacity 1s ease;
 }
 
-.product-card:hover .addtocart-btn {
+
+.product-card .home-product-in:hover .addtocart-btn {
   bottom: 35%;
   opacity: 1;
   width: 75%;
   padding: 4% 0% !important;
   background-color: rgba(34, 26, 66, 1) !important;
+  transition: bottom 0.6s ease, opacity 1s ease;
 }
 
 /* .home-product:hover{

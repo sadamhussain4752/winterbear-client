@@ -327,12 +327,12 @@ const ShopAll = () => {
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
                   <div
-                    className="col-md-3 mt-3"
+                    className="col-md-3 my-1"
                     key={ind}
                   // onClick={() => handleNavigation(prod._id)}
                   >
                     <div class="product-card">
-                      <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3">
+                      <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3 px-">
                         <p> {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
                           {parseFloat(prod.offeramount / 100).toFixed(0)}%
 
@@ -349,16 +349,19 @@ const ShopAll = () => {
                               ? `${prod.images[0]}`
                               : "assets/images/Rectangle 22.png"
                           }
-                          className="product-shopall"
-                          alt="Web Project 1"
+                          className="product-shopall img-fluid"
+                          alt={prod.name}
                         />
+                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
+                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                        </div>
                       </div>
                       <div className="text-center price-card py-2">
 
                         <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
                         <p className=" mb-0">₹{prod.amount}</p>
 
-                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2">
+                        <div class="text-center d-none border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>

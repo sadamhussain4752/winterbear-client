@@ -49,7 +49,7 @@ const Relatedproducts = () => {
         }}
       >
         {productlist?.productList[0].products?.slice(0, 6).map((prod, ind) => (
-          <div className="portfolio mx-3 ml-3 row">
+          <div className="portfolio mx-3 ml-3 row ">
             {prod &&
               prod.products &&
               prod.products.slice(0, 8).map((prod, ind) => (
@@ -62,9 +62,16 @@ const Relatedproducts = () => {
                           ? `${prod.images[0]}`
                           : "assets/images/Rectangle 22.png"
                       }
-                      className="product-shopby"
+                      className="product-shopby img-fluid"
                       alt="Web Project 1"
                     />
+                     <div
+                    className="text-center  border-secondary addtocart-btn px-1 py-1 "
+                    onClick={() => handleNavigation(prod._id)}
+                  >
+                    <i className="fas fa-cart-plus me-2" /> Add to
+                    Cart
+                  </div>
                   </div>
 
                   <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
@@ -98,7 +105,7 @@ const Relatedproducts = () => {
                     </div>
                   </div>
                   <div
-                    className="text-center  border-secondary addtocart-btn px-1 py-1 "
+                    className="text-center d-none border-secondary addtocart-btn px-1 py-1 "
                     onClick={() => handleNavigation(prod._id)}
                   >
                     <i className="fas fa-cart-plus me-2" /> Add to

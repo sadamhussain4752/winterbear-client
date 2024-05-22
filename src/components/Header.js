@@ -1,7 +1,7 @@
 // Header.js
 
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
 import { ProfileUserData, CouponUserById } from "../reducer/thunks";
@@ -9,39 +9,42 @@ import { useDispatch, useSelector } from "react-redux";
 import { message } from "antd/es";
 import { IoIosLogIn } from "react-icons/io";
 import NewsPaper from "./NewsPaper";
-import {
-  ShoppingCartOutlined,
-  WalletOutlined
-} from "@ant-design/icons";
-import { Carousel, Select } from 'antd';
+import { ShoppingCartOutlined, WalletOutlined } from "@ant-design/icons";
+import { Carousel, Select } from "antd";
 import Language from "../constant/Language";
 import SearchList from "./SearchList";
 const { Option } = Select;
 
 const Header = () => {
+  const [isHovered, setIsHovered] = useState(false);
   const contentStyle = {
-    height: '30px',
-    color: '#000',
-    lineHeight: '30px',
-    textAlign: 'center',
-    background: '#FFE5E5',
+    height: "30px",
+    color: "#000",
+    lineHeight: "30px",
+    textAlign: "center",
+    background: "#FFE5E5",
     borderRadius: "60px 0px 60px 0px", // Corrected the typo from "borderradios" to "borderRadius"
     marginRight: "35%",
-    marginLeft: "35%"
-
+    marginLeft: "35%",
   };
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
   const latestOffers = [
-    { id: 1, title: 'Offer 1: 20% off on all products', link: '/offer1' },
-    { id: 2, title: 'Offer 2: Buy one, get one free', link: '/offer2' },
-    { id: 3, title: 'Offer 3: Free shipping on orders over $50', link: '/offer3' }
+    { id: 1, title: "Offer 1: 20% off on all products", link: "/offer1" },
+    { id: 2, title: "Offer 2: Buy one, get one free", link: "/offer2" },
+    {
+      id: 3,
+      title: "Offer 3: Free shipping on orders over $50",
+      link: "/offer3",
+    },
   ];
   const IndianStates = [
     { key: "En", value: "en" },
-    { key: "JP", value: 'jp' },
+    { key: "JP", value: "jp" },
     { key: "KR", value: "kr" },
     { key: "AR", value: "au" },
-
   ];
 
   let userId = localStorage.getItem("userId");
@@ -59,8 +62,13 @@ const Header = () => {
     getprofile: getUserResponse,
   } = useSelector((state) => state.getprofile);
   const {
-    CouponListsRes: getCouponResponse,
-  } = useSelector((state) => state.CouponListsRes);
+    data,
+    loading: bannerLoading,
+    error: bannerError,
+  } = useSelector((state) => state.data);
+  const { CouponListsRes: getCouponResponse } = useSelector(
+    (state) => state.CouponListsRes
+  );
   const handleOpenLogin = () => {
     setLoginVisible(true);
   };
@@ -86,8 +94,8 @@ const Header = () => {
       // dispatch(CouponUserById())
     }
     if (NewsPaperId === null) {
-      setNewsVisible(true)
-      localStorage.setItem("NewsPaperID", true)
+      setNewsVisible(true);
+      localStorage.setItem("NewsPaperID", true);
     }
     // localStorage.removeItem("NewsPaperID")
 
@@ -95,7 +103,6 @@ const Header = () => {
     //   const { firstname, lastname } = getUserResponse.User;
     //   message.success(`Welcome ${firstname} ${lastname}`, 5);
     // }
-
   }, []);
 
   const location = useLocation();
@@ -118,45 +125,43 @@ const Header = () => {
     };
   }, []);
 
-
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
   }, []);
 
   const logoutFunction = () => {
-    localStorage.removeItem('userId');
+    localStorage.removeItem("userId");
     window.location.reload();
     window.location.href = "/";
-
-
   };
 
   const handleStateChange = (value) => {
     setSelectedState(value);
     console.log(value);
-    Language.setLanguage(value)
+    Language.setLanguage(value);
   };
 
   // Define the renderItem function
   const renderItem = (item) => {
     return (
-      <p style={contentStyle}>{item.description}:{item.code} </p>
+      <p style={contentStyle}>
+        {item.description}:{item.code}{" "}
+      </p>
     );
   };
 
-
-
-
-
   return (
-    <div className="header-container"> {/* Add a wrapper div */}
-    <header>
+    <div className="header-container">
+      {" "}
+      {/* Add a wrapper div */}
+      <header>
         {/* Top Header */}
-        <div className={`top-header shadow-sm bg-white fixed-top ${navbarBg === "d-none" && "bg-white top-headers"}`}>
-
+        <div
+          className={`top-header shadow-sm bg-white fixed-top ${navbarBg === "d-none" && "bg-white top-headers"
+            }`}
+        >
           <div className="container-fluid">
-
             {/* <Carousel autoplay className={`col-md-10 d-block mx-auto ${navbarBg}`} dots={true}>
               {getCouponResponse && getCouponResponse?.coupons &&getCouponResponse?.coupons?.map((item, index) => item.isShow_display && (
                 <div className="col-md-4" key={index}>
@@ -164,7 +169,6 @@ const Header = () => {
                 </div>
               ))}
             </Carousel> */}
-
 
             <div className="row align-items-center justify-content-between ">
               {/* Language Selection */}
@@ -186,6 +190,8 @@ const Header = () => {
                       <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/shop/0"
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
                       >
                         {Language.shop_all}
                       </Link>
@@ -194,14 +200,12 @@ const Header = () => {
                         to="/faqs"
                       >
                         {Language.faqs}
-
                       </Link>
                       <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/stores"
                       >
                         {Language.find}
-
                       </Link>
                       <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
@@ -299,9 +303,10 @@ const Header = () => {
 
                       <li className="nav-item">
                         <a
-                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
+                          className={`nav-link pb-3 fs-5 show-shop-all ${location.pathname === "/" ? "active" : ""
                             }`}
-                          href="/shop/0"
+                          href="/shop/0" onMouseEnter={() => setIsHovered(true)}
+                          onMouseLeave={() => setIsHovered(false)}
                         >
                           SHOP ALL
                         </a>
@@ -356,7 +361,6 @@ const Header = () => {
                           SNS
                         </a>
                       </li> */}
-
 
                       {/* <li className="nav-item">
                         <a
@@ -418,7 +422,6 @@ const Header = () => {
                           className={`nav-link pb-3 fs-6 fw-normal ${location.pathname === "/" ? "active" : ""
                             }`}
                           href="mailto:hello@winterbear.in"
-
                         >
                           <i className="fa-regular fa-envelope" />{" "}
                           hello@winterbear.in
@@ -438,24 +441,18 @@ const Header = () => {
               </div>
               {/* Logo */}
               <div className="col-md-3  col-6">
-                <a
-
-                  href="/"
-                >
+                <a href="/">
                   <img
                     src="../assets/images/winterbear-logo.png"
                     className="d-block header-logo"
                     alt="Logo"
-
                   />
                 </a>
-
               </div>
               {/* Login/Register and Cart Icons */}
               <div className="col-md-4 d-md-block d-none  text-start mt-md-0">
                 <div className="row d-flex justify-content-between align-items-center">
                   <div className="col-md-6">
-
                     <SearchList />
                   </div>
                   <div className="col-md-6 mt-1">
@@ -463,20 +460,26 @@ const Header = () => {
                       <div className="d-flex justify-content-between align-items-center">
                         {getUserResponse && getUserResponse.User ? (
                           <>
-
-                            <a href="/loyalty" className="link-body-emphasis text-decoration-none"
+                            <a
+                              href="/loyalty"
+                              className="link-body-emphasis text-decoration-none"
                             >
                               {/* <WalletOutlined style={{ fontSize: '16px', color: '#9E2717', marginRight: '5px' }} /> */}
-                              <i class="fa-solid fa-star" style={{ color: "#ffdc64" }}></i>
+                              <i
+                                class="fa-solid fa-star"
+                                style={{ color: "#ffdc64" }}
+                              ></i>
                               {getUserResponse.User.loyalty_point}
-
                             </a>
                             <a
                               href="/wishlist"
                               className="text-decoration-none "
                             >
                               {/* <img src="../assets/images/icon_cart.svg" /> */}
-                              <i class="fa-regular fa-bookmark" style={{"fontSize": "20px"}}></i>
+                              <i
+                                class="fa-regular fa-bookmark"
+                                style={{ fontSize: "20px" }}
+                              ></i>
                             </a>
 
                             <a
@@ -485,9 +488,6 @@ const Header = () => {
                               data-bs-toggle="dropdown"
                               aria-expanded="false"
                             >
-
-
-
                               <img
                                 src={getUserResponse?.User?.profile_img}
                                 // src="../assets/images/icon-pofile.svg"
@@ -499,21 +499,15 @@ const Header = () => {
                               {/* <strong className="px-1">
                                             {getUserResponse.User.firstname}
                                           </strong> */}
-
                             </a>
-
 
                             <a
                               href="/cart"
                               className="text-decoration-none mx-2"
                             >
-
                               <img src="../assets/images/icon_cart.svg" />
 
-
                               <ul className="mt-3 dropdown-menu text-small">
-
-
                                 <li>
                                   <Link
                                     className={`dropdown-item`}
@@ -525,12 +519,16 @@ const Header = () => {
                                 <li>
                                   <hr className="dropdown-divider" />
                                 </li>
-                                
+
                                 <li>
                                   <hr className="dropdown-divider" />
                                 </li>
                                 <li>
-                                  <a className="dropdown-item" onClick={logoutFunction} href="#">
+                                  <a
+                                    className="dropdown-item"
+                                    onClick={logoutFunction}
+                                    href="#"
+                                  >
                                     Sign out
                                   </a>
                                 </li>
@@ -570,10 +568,6 @@ const Header = () => {
                             >
                               Register
                             </a>
-
-
-
-
                             <a
                               href="/cart"
                               className="text-decoration-none ps-3"
@@ -592,6 +586,50 @@ const Header = () => {
           </div>
         </div>
       </header>
+      {isHovered && (
+        <div className="shopall-menu px-3 " style={{ marginTop: '105px' }}>
+          <div className="container-fluid bg-light mt-3 py-4">
+            <div className="row">
+              <div className="col-md-3  ps-5">
+                <div className="menu-items px-3 py-3">
+                  <div className="ps-4">
+                    <a href="" className="btn text-decoration-none btn-outline-dark "> Shop All</a>
+                  </div>
+
+                  <p className="fw-bold ps-3 text-uppercase my-2">Shop by category</p>
+                  <div className="d-block text-start">
+                    {data &&
+                      data.Categorys &&
+                      data.Categorys.map((item) => (
+                        <a href="#" className="btn text-decoration-none my-3 d-block fs-6 text-start"> {item.name}</a>
+
+                      ))}
+                  </div>
+
+                </div>
+              </div>
+              <div className="col-md-3  ps-5">
+                <div className="menu-items px-3 py-3 col-md-12">
+
+                  {data && data?.Brands.map((item) => (
+                    <a href="" className="col-md-3">
+                      <img
+                        src={`${item.imageUrl}`}
+                        className="shop-online-brand mb-3"
+                      />
+                    </a>
+
+                  ))}
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )
+      }
       <>
         <LoginModal visible={loginVisible} onClose={handleCloseLogin} />
 
