@@ -358,7 +358,7 @@ const ShopAll = () => {
                         <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
                         <p className=" mb-0">₹{prod.amount}</p>
 
-                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2">
+                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>

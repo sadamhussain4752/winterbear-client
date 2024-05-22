@@ -132,7 +132,7 @@ const Home2 = () => {
             <div className="row">
               <div className="col-md-12">
                 <div className="section-heading">
-                  <h3 className="theme-bg-text ">Shop All</h3>
+                  <h3 className="theme-bg-text ">Shop By Brands</h3>
                 </div>
               </div>
             </div>
