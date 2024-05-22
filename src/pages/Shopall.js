@@ -317,7 +317,7 @@ const ShopAll = () => {
                         navigate(`/Allbrand`);
 
                   }}>
-                  <p className="brand-namee">More Brands</p>
+                  <p className="brand-namee">More Brands <i class="fa-solid fa-arrow-right"></i></p>
 
                   </div>
               </div>

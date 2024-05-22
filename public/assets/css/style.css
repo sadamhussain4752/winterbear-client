@@ -2882,3 +2882,10 @@ input {
   outline: none;
 
 }
+
+.view-more {
+  font-size: 15px;
+  text-align: center;
+  color: #221A42;
+  font-weight: 700;
+}

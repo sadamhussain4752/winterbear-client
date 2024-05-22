@@ -366,7 +366,7 @@ const Brandlist = () => {
                         navigate(`/Allbrand`);
 
                   }}>
-                  <p className="brand-namee">More Brands</p>
+                  <p className="brand-namee fs-6">More Brands -></p>
 
                   </div>
               </div>
