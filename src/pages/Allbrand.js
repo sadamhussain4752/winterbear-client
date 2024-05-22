@@ -7,9 +7,12 @@ import "./Awards.css";
 import BrandSlider from "../components/BrandSlider";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBannerData } from "../reducer/thunks";
+import { useNavigate } from "react-router-dom";
 
 
 const AllBrand = () => {
+  const navigate = useNavigate();
+
   const [productsByLetter, setProductsByLetter] = useState({});
 
   const dispatch = useDispatch();
@@ -88,139 +91,22 @@ const AllBrand = () => {
                   #
                 </a>
               </li>
-              <li className="nav-item " id="#b">
-                <a className="nav-link text-dark fw-bold" href="#a">
-                  A
-                </a>
-              </li>
-              <li className="nav-item " id="#c">
-                <a className="nav-link text-dark fw-bold" href="#b">
-                  B
-                </a>
-              </li>
-              <li className="nav-item " id="#d">
-                <a className="nav-link text-dark fw-bold" href="#c">
-                  C
-                </a>
-              </li>
-
-              <li className="nav-item " id="#d">
-                <a className="nav-link  text-dark fw-bold">D</a>
-              </li>
-              <li className="nav-item " id="#e">
-                <a className="nav-link  text-dark fw-bold" href="#">
-                  E
-                </a>
-              </li>
-              <li className="nav-item " id="#f">
-                <a className="nav-link  text-dark fw-bold" href="#">
-                  F
-                </a>
-              </li>
-              <li className="nav-item " id="#g">
-                <a className="nav-link text-dark fw-bold" href="#">
-                  G
-                </a>
-              </li>
-
-              <li className="nav-item " id="#">
-                <a className="nav-link text-dark fw-bold" href="#h">
-                  H
-                </a>
-              </li>
-              <li className="nav-item " id="#i">
-                <a className="nav-link text-dark fw-bold" href="#i">
-                  I
-                </a>
-              </li>
-              <li className="nav-item " id="#j">
-                <a className="nav-link text-dark fw-bold" href="#j">
-                  J
-                </a>
-              </li>
-
-              <li className="nav-item " id="#k">
-                <a className="nav-link text-dark fw-bold " href="#" k>
-                  K
-                </a>
-              </li>
-              <li className="nav-item " id="#l">
-                <a className="nav-link text-dark fw-bold" href="#l">
-                  L
-                </a>
-              </li>
-              <li className="nav-item " id="#m">
-                <a className="nav-link text-dark fw-bold" href="#m">
-                  M
-                </a>
-              </li>
-              <li className="nav-item " id="#n">
-                <a className="nav-link text-dark fw-bold" href="#n">
-                  N
-                </a>
-              </li>
-              <li className="nav-item " id="#o">
-                <a className="nav-link text-dark fw-bold" href="#o">
-                  O
-                </a>
-              </li>
-              <li className="nav-item " id="#p">
-                <a className="nav-link text-dark fw-bold" href="#p">
-                  P
-                </a>
-              </li>
-              <li className="nav-item " id="#q">
-                <a className="nav-link text-dark fw-bold" href="#q">
-                  Q
-                </a>
-              </li>
-
-              <li className="nav-item " id="#r">
-                <a className="nav-link text-dark fw-bold mb-3" href="#r">
-                  R
-                </a>
-              </li>
-              <li className="nav-item " id="#s">
-                <a className="nav-link text-dark fw-bold" href="#s">
-                  S
-                </a>
-              </li>
-              <li className="nav-item " id="#t">
-                <a className="nav-link text-dark fw-bold" href="#t">
-                  T
-                </a>
-              </li>
-
-              <li className="nav-item " id="#u">
-                <a className="nav-link text-dark fw-bold" href="#u">
-                  U
-                </a>
-              </li>
-              <li className="nav-item " id="#v">
-                <a className="nav-link text-dark fw-bold" href="#v">
-                  V
-                </a>
-              </li>
-              <li className="nav-item " id="#w">
-                <a className="nav-link text-dark fw-bold" href="#w">
-                  W
-                </a>
-              </li>
-              <li className="nav-item " id="#x">
-                <a className="nav-link text-dark fw-bold" href="#x">
-                  X
-                </a>
-              </li>
-              <li className="nav-item " id="#y">
-                <a className="nav-link text-dark fw-bold" href="#y">
-                  Y
-                </a>
-              </li>
-              <li className="nav-item " id="#z">
-                <a className="nav-link text-dark fw-bold" href="#z">
-                  Z
-                </a>
-              </li>
+              {Object.entries(productsByLetter).map(([letter, products]) => (
+                products.length > 0 ?  (
+                  <li className="nav-item " id={"#"+letter.toUpperCase()}>
+                  <a className="nav-link text-dark fw-bold" href={"#"+letter.toUpperCase()}>
+                    {letter.toUpperCase()}
+                  </a>
+                </li>
+                ) : (
+                  <li className="nav-item disabled" id={"#"+letter.toUpperCase()}>
+                  <a className="nav-link text-dark fw-bold" href={"#"+letter.toUpperCase()}>
+                    {letter.toUpperCase()}
+                  </a>
+                </li>
+                )
+              ))}
+              
             </ul>
 
             <div id="#" className="row py-3 border-bottom Name#">
@@ -259,7 +145,10 @@ const AllBrand = () => {
                     <div className="col-md-10">
                       <div className="row">
                         {products.map((product, index) => (
-                          <div key={product._id} className="col-md-4 brand-img-cont">
+                          <div key={product._id} className="col-md-4 brand-img-cont" onClick={()=>{
+                            navigate(`/brand/${product._id}`);
+
+                          }}>
                             <p>
                               <a
                                 className="text-decoration-none text-dark small m-0"

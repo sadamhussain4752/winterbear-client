@@ -203,6 +203,13 @@ const Header = () => {
                         {Language.find}
 
                       </Link>
+                      <Link
+                        className="ps-1 fs-6 text-main text-decoration-none "
+                        to="/offer"
+                      >
+                       Offers
+
+                      </Link>
                       {/* <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/blogs"
@@ -318,6 +325,7 @@ const Header = () => {
                           EVENT
                         </a>
                       </li> */}
+                      
 
                       <li className="nav-item">
                         <a
@@ -328,6 +336,7 @@ const Header = () => {
                           STORES
                         </a>
                       </li>
+                      
                       <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""

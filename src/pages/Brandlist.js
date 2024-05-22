@@ -169,7 +169,7 @@ const Brandlist = () => {
 
                         <div className="carousel-inner">
 
-                          {subBrandlist[0]?.brand.banner_img.map((img_item, isIndex) => {
+                          {subBrandlist[0]?.brand.banner_img?.map((img_item, isIndex) => {
 
                             return (
 
