@@ -621,22 +621,34 @@ const Header = () => {
                 </div>
               </div>
 
-              
-                {chunkedBrands.map((brandChunk, index) => (
-                  <div className={`col-md-3 ps-5`} key={index}>
-                    <div className="menu-items px-3 py-3 col-md-12">
-                      {brandChunk.map((item, idx) => (
-                        <a href="" className="col-md-3" key={idx}>
-                          <img
-                            src={`${item.imageUrl}`}
-                            className="shop-online-brand mb-3"
-                            alt={`Brand ${idx}`}
-                          />
-                        </a>
-                      ))}
-                    </div>
+
+              {/* {chunkedBrands.map((brandChunk, index) => (
+                <div className={`col-md-3 ps-5`} key={index}>
+                  <div className="menu-items px-3 py-3 col-md-12">
+                    {brandChunk.map((item, idx) => (
+                      <a href="" className="col-md-3" key={idx}>
+                        <img
+                          src={`${item.imageUrl}`}
+                          className="shop-online-brand mb-3"
+                          alt={`Brand ${idx}`}
+                        />
+                      </a>
+                    ))}
                   </div>
+                </div>
+              ))} */}
+
+              <div className="col-lg-3 brand-list-nav mt-4">
+                {data && data?.Brands.slice(0, 8).map((item) => (
+                  <a href="" >
+                    <img
+                      src={`${item.imageUrl}`}
+                      className="shop-online-brand mb-3"
+                    />
+                  </a>
+
                 ))}
+              </div>
 
               {/* <div className="col-md-3  ps-5">
                 <div className="menu-items px-3 py-3 col-md-12">
