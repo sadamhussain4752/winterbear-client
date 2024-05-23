@@ -200,10 +200,10 @@ const Header = () => {
                     </div>
                     <div className="col-md-10 d-md-block d-none mt-2">
                       <Link
-                        className="ps-1 fs-6 text-main text-decoration-none "
-                        to="/shop/0"
+                        className="ps-1 fs-6 text-main text-decoration-none"
+                        to="#"
                         onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
+                        // onMouseLeave={() => setIsHovered(false)}
                       >
                         {Language.shop_all}
                       </Link>
@@ -599,13 +599,18 @@ const Header = () => {
         </div>
       </header>
       {isHovered && (
-        <div className="shopall-menu px-3" style={{ marginTop: '50px' }}>
+        <div className="shopall-menu px-3"   
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)} 
+        style={{ marginTop: '50px' }}>
           <div className="container-fluid bg-light mt-3 py-4 ">
             <div className="row">
               <div className="col-md-3  ps-5">
                 <div className="menu-items px-3 py-3">
-                  <div className="ps-4">
-                    <a href="" className="btn text-decoration-none btn-outline-dark "> Shop All</a>
+                  <div className="ps-2" onClick={()=>{
+                    navigate("/shop/0")
+                  }}>
+                    <a href="" className="btn text-decoration-none btn-outline-dark "> SHOP ALL</a>
                   </div>
 
                   <p className="fw-bold ps-3 text-uppercase my-2">Shop by category</p>
@@ -613,7 +618,8 @@ const Header = () => {
                     {data &&
                       data.Categorys &&
                       data.Categorys.map((item) => (
-                        <a href="#" className="btn text-decoration-none my-3 d-block fs-6 text-start"> {item.name}</a>
+                        <a href="#" onClick={() => {navigate(`/shop/${item._id}`);
+                        setIsHovered(false)}} className="btn text-decoration-none my-3 d-block fs-6 text-start"> {item.name}</a>
 
                       ))}
                   </div>
@@ -643,6 +649,7 @@ const Header = () => {
                   <a href="" >
                     <img
                       src={`${item.imageUrl}`}
+                      onClick={() => navigate(`/brand/${item._id}`)}
                       className="shop-online-brand mb-3"
                     />
                   </a>
