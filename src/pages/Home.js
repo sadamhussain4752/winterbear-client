@@ -34,7 +34,7 @@ const Home2 = () => {
     navigate(`/product/${productId}`);
   };
 
-  const handleWishlist = async (prod_id) => {
+  const handleWishlists = async (prod_id) => {
     const userIds = localStorage.getItem("userId");
     const passbody = { userId: userIds, productId: prod_id };
     await dispatch(AddWishlistFetch(passbody));
@@ -135,32 +135,74 @@ const Home2 = () => {
                     </div>
                     <div className="portfolio mx-3 ml-3 row">
                       {item.products.slice(0, visibleProducts[item.brand._id] || 8).map((prod, ind) => (
-                        <div className="item col-lg-3 position-relative mb-3 home-product px-0" key={prod._id}>
-                          <div className="home-product-in">
-                            <img src={prod.images[0] !== null && prod.images[0] !== "image_url1" ? `${prod.images[0]}` : "assets/images/Rectangle 22.png"} className="product-shopby" alt={prod.name} />
-                          </div>
-                          <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
-                            <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-                              {item.brand._id === "65aa405f6bfadce6d5a0ef3c" ?(
-                                <p className="text-white text-center text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">40%</p>
-                              ):  <p ></p>}
-                              <button className="heart-btn" id="hertbtn" onClick={() => handleWishlist(prod._id)}>
-                                {wishlist?.wishlistItems?.some((item) => item.productId === prod._id) ? (
-                                  <HeartButton isActives={true} />
-                                ) : (
-                                  <HeartButton isActives={false} />
-                                )}
-                              </button>
-                            </div>
-                            <div className="mt-4 col-md-12 price-prodname">
-                              <p className="text-start prize-size mb-0">{item.brand.name} @{prod.name}</p>
-                              <p className="prod-pric mb-0">₹{prod.amount}</p>
-                            </div>
-                          </div>
-                          <div className="text-center border-secondary addtocart-btn px-1 py-1" onClick={() => handleNavigation(prod._id)}>
-                            <i className="fas fa-cart-plus me-2" /> Add to Cart
-                          </div>
+                      <div className="item col-lg-3 position-relative mb-3 home-product px-0">
+                      <div className="home-product-in">
+                        <img
+                          src={
+                            prod.images[0] !== null &&
+                              prod.images[0] !== "image_url1"
+                              ? `${prod.images[0]}`
+                              : "assets/images/Rectangle 22.png"
+                          }
+                          className="product-shopby img-fluid"
+                          alt="Web Project 1"
+                          
+                        />
+
+<div
+                        className="text-center  border-secondary addtocart-btn px-1 py-1 "
+                        onClick={() => handleNavigation(prod._id)}
+                      >
+                        <i className="fas fa-cart-plus me-2" /> Add to
+                        Cart
+                      </div>
+                      </div>
+
+                      <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
+                        <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                          {item.brand._id ===
+                            "65aa405f6bfadce6d5a0ef3c" && (
+                              <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
+                                40%
+                              </p>
+                            )}
+
+                          <div></div>
+
+                          <button className="heart-btn" id="hertbtn" onClick={() => {
+                            handleWishlists(prod._id)
+                          }}>
+                            {wishlist?.wishlistItems?.some((item) => item.productId === prod._id) ? (
+                                <HeartButton isActives={true}/>
+                            ) : (
+                              <HeartButton isActives={false}/>
+                             
+                            )}
+                            {/* <Rate
+                              character={<HeartOutlined />  }
+                              count={1}
+                            /> */}
+                          </button>
                         </div>
+
+                        <div className=" mt-4 col-md-12 price-prodname">
+                          <p className="text-start prize-size mb-0 ">
+                            {" "}
+                            {item.brand.name} @{prod.name}
+                          </p>
+                          <p className="prod-pric mb-0 ">
+                            ₹{prod.amount}
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        className="text-center d-none border-secondary addtocart-btn px-1 py-1 "
+                        onClick={() => handleNavigation(prod._id)}
+                      >
+                        <i className="fas fa-cart-plus me-2" /> Add to
+                        Cart
+                      </div>
+                    </div>
                       ))}
                     </div>
                     {!visibleProducts[item.brand._id]  ? (

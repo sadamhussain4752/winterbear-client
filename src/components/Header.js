@@ -200,24 +200,25 @@ const Header = () => {
                     </div>
                     <div className="col-md-10 d-md-block d-none mt-2">
 
-                      <Link id="menu-products"
+                      <div id="menu-products"
                         className="ps-1 fs-6 text-main text-decoration-none"
                         to="#"
                       >
                         {Language.shop_all}
                         <div id="dropdown-products">
                           <div className="shopall-menu px-3"
-                            onMouseEnter={() => setIsHovered(true)}
-                            onMouseLeave={() => setIsHovered(false)}
+                         
                             style={{ marginTop: '50px' }}>
                             <div className="container-fluid bg-light">
                               <div className="row">
                                 <div className="col-md-3  ps-5">
                                   <div className="menu-items px-3 py-3">
-                                    <div className="ps-2" onClick={() => {
+                                    <div className="ps-2" >
+                                      <div onClick={() => {
                                       navigate("/shop/0")
-                                    }}>
-                                      <a href="" className="btn text-decoration-none btn-outline-dark "> SHOP ALL</a>
+                                      console.log("call");
+
+                                    }} className="btn text-decoration-none btn-outline-dark "> SHOP ALL</div>
                                     </div>
 
                                     <p className="fw-bold ps-3 text-uppercase my-2">Shop by category</p>
@@ -255,7 +256,7 @@ const Header = () => {
                             </div>
                           </div>
                         </div>
-                      </Link>
+                      </div>
 
 
                       {/* <Link
@@ -382,8 +383,7 @@ const Header = () => {
                         <a
                           className={`nav-link pb-3 fs-5 show-shop-all ${location.pathname === "/" ? "active" : ""
                             }`}
-                          href="/shop/0" onMouseEnter={() => setIsHovered(true)}
-                          onMouseLeave={() => setIsHovered(false)}
+                          href="/shop/0" 
                         >
                           SHOP ALL
                         </a>
