@@ -199,14 +199,73 @@ const Header = () => {
                       </button>
                     </div>
                     <div className="col-md-10 d-md-block d-none mt-2">
-                      <Link
+
+                      <Link id="menu-products"
+                        className="ps-1 fs-6 text-main text-decoration-none"
+                        to="#"
+                      >
+                        {Language.shop_all}
+                        <div id="dropdown-products">
+                          <div className="shopall-menu px-3"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                            style={{ marginTop: '50px' }}>
+                            <div className="container-fluid bg-light">
+                              <div className="row">
+                                <div className="col-md-3  ps-5">
+                                  <div className="menu-items px-3 py-3">
+                                    <div className="ps-2" onClick={() => {
+                                      navigate("/shop/0")
+                                    }}>
+                                      <a href="" className="btn text-decoration-none btn-outline-dark "> SHOP ALL</a>
+                                    </div>
+
+                                    <p className="fw-bold ps-3 text-uppercase my-2">Shop by category</p>
+                                    <div className="d-block text-start">
+                                      {data &&
+                                        data.Categorys &&
+                                        data.Categorys.map((item) => (
+                                          <a href="#" onClick={() => {
+                                            navigate(`/shop/${item._id}`);
+                                            setIsHovered(false)
+                                          }} className="btn text-decoration-none d-block fs-6 text-start"> {item.name}</a>
+
+                                        ))}
+                                    </div>
+
+                                  </div>
+                                </div>
+
+                                <div className="col-lg-3 brand-list-nav mt-4">
+                                  {data && data?.Brands.slice(0, 8).map((item) => (
+                                    <a href="" >
+                                      <img
+                                        src={`${item.imageUrl}`}
+                                        onClick={() => navigate(`/brand/${item._id}`)}
+                                        className="shop-online-brand mb-3"
+                                      />
+                                    </a>
+
+                                  ))}
+                                </div>
+
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+
+
+                      {/* <Link
                         className="ps-1 fs-6 text-main text-decoration-none"
                         to="#"
                         onMouseEnter={() => setIsHovered(true)}
-                        // onMouseLeave={() => setIsHovered(false)}
+                      // onMouseLeave={() => setIsHovered(false)}
                       >
                         {Language.shop_all}
-                      </Link>
+                      </Link> */}
                       <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/faqs"
@@ -219,6 +278,7 @@ const Header = () => {
                       >
                         {Language.find}
                       </Link>
+
                       <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/offers"
@@ -226,6 +286,11 @@ const Header = () => {
                         OFFERS
 
                       </Link>
+
+
+
+
+
                       {/* <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/blogs"
@@ -598,87 +663,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {isHovered && (
-        <div className="shopall-menu px-3"   
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)} 
-        style={{ marginTop: '50px' }}>
-          <div className="container-fluid bg-light mt-3 py-4 ">
-            <div className="row">
-              <div className="col-md-3  ps-5">
-                <div className="menu-items px-3 py-3">
-                  <div className="ps-2" onClick={()=>{
-                    navigate("/shop/0")
-                  }}>
-                    <a href="" className="btn text-decoration-none btn-outline-dark "> SHOP ALL</a>
-                  </div>
 
-                  <p className="fw-bold ps-3 text-uppercase my-2">Shop by category</p>
-                  <div className="d-block text-start">
-                    {data &&
-                      data.Categorys &&
-                      data.Categorys.map((item) => (
-                        <a href="#" onClick={() => {navigate(`/shop/${item._id}`);
-                        setIsHovered(false)}} className="btn text-decoration-none my-3 d-block fs-6 text-start"> {item.name}</a>
-
-                      ))}
-                  </div>
-
-                </div>
-              </div>
-
-
-              {/* {chunkedBrands.map((brandChunk, index) => (
-                <div className={`col-md-3 ps-5`} key={index}>
-                  <div className="menu-items px-3 py-3 col-md-12">
-                    {brandChunk.map((item, idx) => (
-                      <a href="" className="col-md-3" key={idx}>
-                        <img
-                          src={`${item.imageUrl}`}
-                          className="shop-online-brand mb-3"
-                          alt={`Brand ${idx}`}
-                        />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ))} */}
-
-              <div className="col-lg-3 brand-list-nav mt-4">
-                {data && data?.Brands.slice(0, 8).map((item) => (
-                  <a href="" >
-                    <img
-                      src={`${item.imageUrl}`}
-                      onClick={() => navigate(`/brand/${item._id}`)}
-                      className="shop-online-brand mb-3"
-                    />
-                  </a>
-
-                ))}
-              </div>
-
-              {/* <div className="col-md-3  ps-5">
-                <div className="menu-items px-3 py-3 col-md-12">
-
-                  {data && data?.Brands.map((item) => (
-                    <a href="" className="col-md-3">
-                      <img
-                        src={`${item.imageUrl}`}
-                        className="shop-online-brand mb-3"
-                      />
-                    </a>
-
-                  ))}
-
-
-                </div>
-              </div> */}
-
-            </div>
-          </div>
-        </div>
-      )
-      }
       <>
         <LoginModal visible={loginVisible} onClose={handleCloseLogin} />
 
