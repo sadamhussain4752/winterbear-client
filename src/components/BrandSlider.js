@@ -49,6 +49,7 @@ const HomeSlider = () => {
                 <img
                   src={brand.imageUrl || "assets/images/placeholder.png"}
                   alt={brand.name || "Brand Name"}
+                  style={{'objectFit': 'contain'}}
                   className="d-block  mx-auto "
                   width={"60px"}
                   height={"60px"}

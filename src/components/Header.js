@@ -15,7 +15,6 @@ import Language from "../constant/Language";
 import SearchList from "./SearchList";
 const { Option } = Select;
 
-
 function chunkArray(array, chunkSize) {
   const chunks = [];
   for (let i = 0; i < array.length; i += chunkSize) {
@@ -110,7 +109,7 @@ const Header = () => {
 
     // if (getUserResponse) {
     //   const { firstname, lastname } = getUserResponse.User;
-    //   message.success(`Welcome ${firstname} ${lastname}`, 5);
+    //   message.success(Welcome ${firstname} ${lastname}, 5);
     // }
   }, []);
 
@@ -174,7 +173,7 @@ const Header = () => {
             }`}
         >
           <div className="container-fluid">
-            {/* <Carousel autoplay className={`col-md-10 d-block mx-auto ${navbarBg}`} dots={true}>
+            {/* <Carousel autoplay className={col-md-10 d-block mx-auto ${navbarBg}} dots={true}>
               {getCouponResponse && getCouponResponse?.coupons &&getCouponResponse?.coupons?.map((item, index) => item.isShow_display && (
                 <div className="col-md-4" key={index}>
                   {renderItem(item)}
@@ -199,72 +198,88 @@ const Header = () => {
                       </button>
                     </div>
                     <div className="col-md-10 d-md-block d-none mt-2">
-
-                      <div id="menu-products"
+                      <div
+                        id="menu-products"
                         className="ps-1 fs-6 text-main text-decoration-none"
                         to="#"
                       >
                         {Language.shop_all}
                         <div id="dropdown-products">
-                          <div className="shopall-menu px-3"
-
-                            style={{ marginTop: '50px' }}>
+                          <div
+                            className="shopall-menu px-3"
+                            style={{ marginTop: "50px" }}
+                          >
                             <div className="container-fluid bg-light">
                               <div className="row">
                                 <div className="col-md-3  ps-5">
                                   <div className="menu-items px-3 py-3">
-                                    <div className="ps-2" >
-                                      <div onClick={() => {
-                                        navigate("/shop/0")
-                                        console.log("call");
-
-                                      }} className="btn text-decoration-none btn-outline-dark "> SHOP ALL</div>
+                                    <div className="ps-2">
+                                      <div
+                                        onClick={() => {
+                                          navigate("/shop/0");
+                                          console.log("call");
+                                        }}
+                                        className="btn text-decoration-none btn-outline-dark pointer"
+                                      >
+                                        {" "}
+                                        SHOP ALL
+                                      </div>
                                     </div>
 
-                                    <p className="fw-bold ps-3 text-uppercase my-2">Shop by category</p>
+                                    <p className="fw-bold ps-3 text-uppercase my-2">
+                                      Shop by category
+                                    </p>
                                     <div className="d-block text-start">
                                       {data &&
                                         data.Categorys &&
                                         data.Categorys.map((item) => (
-                                          <a href="#" onClick={() => {
-                                            navigate(`/shop/${item._id}`);
-                                            setIsHovered(false)
-                                          }} className="btn text-decoration-none d-block fs-6 text-start"> {item.name}</a>
-
+                                          <a
+                                            href="#"
+                                            onClick={() => {
+                                              navigate(`/shop/${ item._id }`);
+                                              setIsHovered(false);
+                                            }}
+                                            className="btn text-decoration-none d-block fs-6 text-start"
+                                          >
+                                            {" "}
+                                            {item.name}
+                                          </a>
                                         ))}
                                     </div>
-
                                   </div>
                                 </div>
 
-                                <div className="col-lg-3 brand-list-nav mt-4">
-                                  {data && data?.Brands.slice(0, 8).map((item) => (
-                                    <a href="" >
-                                      <img
-                                        src={`${item.imageUrl}`}
-                                        onClick={() => navigate(`/brand/${item._id}`)}
-                                        className="shop-online-brand mb-3"
-                                      />
-                                    </a>
-
-                                  ))}
-                                   <div className="shop-all-cards" onClick={()=>{
-                        navigate(`/Allbrand`);
-
-                  }}>
-                  <p className="brand-namee">More Brands <i class="fa-solid fa-arrow-right"></i></p>
-
-                  </div>
+                                <div className="col-lg-9 brand-list-nav mt-4 ">
+                                  <div className="row">
+                                    {data &&
+                                      data.Brands.slice(0, 20).map((item) => (
+                                        <div key={item._id} className="col-6 col-md-3 mb-4 d-flex align-items-center">
+                                          <a href="" onClick={() => navigate(`/brand/${ item._id }`)}>
+                                            <img
+                                              src={item.imageUrl}
+                                              alt={item.name}
+                                              className="shop-online-brand d-block mx-auto"
+                                            />
+                                          </a>
+                                        </div>
+                                      ))}
+                                  </div>
+                                  <div
+                                    className="shop-all-cards mt-3 w-100 me-lg-5 "
+                                    onClick={() => {
+                                      navigate('Allbrand');
+                                    }}
+                                  >
+                                    <span className="brand-namee me-5 view-mor-brand px-4 py-2 rounded">
+                                      More Brands <i className="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                  </div>
                                 </div>
-
-
-
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-
 
                       {/* <Link
                         className="ps-1 fs-6 text-main text-decoration-none"
@@ -292,12 +307,7 @@ const Header = () => {
                         to="/offers"
                       >
                         OFFERS
-
                       </Link>
-
-
-
-
 
                       {/* <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
@@ -414,7 +424,6 @@ const Header = () => {
                           EVENT
                         </a>
                       </li> */}
-
 
                       <li className="nav-item">
                         <a
@@ -594,7 +603,7 @@ const Header = () => {
                               <ul className="mt-3 dropdown-menu text-small">
                                 <li>
                                   <Link
-                                    className={`dropdown-item`}
+                                    className={'dropdown-item'}
                                     to="/account"
                                   >
                                     Account
@@ -670,7 +679,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-
       <>
         <LoginModal visible={loginVisible} onClose={handleCloseLogin} />
 
@@ -682,4 +690,3 @@ const Header = () => {
 };
 
 export default Header;
-//   eslint-disable-next-line
