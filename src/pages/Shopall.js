@@ -329,7 +329,7 @@ const ShopAll = () => {
                   <div
                     className="col-md-3 my-1"
                     key={ind}
-                  // onClick={() => handleNavigation(prod._id)}
+                  onClick={() => handleNavigation(prod._id)}
                   >
                     <div class="product-card">
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3 px-">

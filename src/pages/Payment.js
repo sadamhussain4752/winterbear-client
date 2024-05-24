@@ -138,7 +138,7 @@ const Payment = () => {
 
     // Calculate the total amount after discount
     const totalAmount = (450 > +getTotal() ? getTotal() + 50 : getTotal()) - discount;
-    const loyaltyPointsDiscount = parseFloat(getUserResponse?.User?.loyalty_point / 5);
+    const loyaltyPointsDiscount = parseFloat(getUserResponse?.User?.loyalty_point / 10);
     const finalAmount = checkbox ? (totalAmount - loyaltyPointsDiscount).toFixed(2) : totalAmount.toFixed(2);
     return finalAmount;
 
@@ -541,7 +541,7 @@ const Payment = () => {
                   <span>{getUserResponse?.User?.loyalty_point} Points</span>
                 </div>
               </div>
-              <span class="loyalty-points-discount">(Save ₹ {parseFloat(getUserResponse?.User?.loyalty_point / 5).toFixed(0)} )</span>
+              <span class="loyalty-points-discount">(Save ₹ {parseFloat(getUserResponse?.User?.loyalty_point / 10).toFixed(0)} )</span>
             </div>
             <span><Switch size="small" value={checkbox} onChange={onChangeSwith} /></span>
           </div>
@@ -573,7 +573,7 @@ const Payment = () => {
 
           <div className="cart-totals-item-btn mt-4 mb-4">
 
-            <button className="btn button " onClick={handlePayNow}>
+            <button className=" btn button w-75 rounded-pill" onClick={handlePayNow}>
               Proceed to Payment
             </button>
           </div>

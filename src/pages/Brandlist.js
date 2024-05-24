@@ -362,13 +362,14 @@ const Brandlist = () => {
                     </div> */}
                   </div>
                 ))}
-                <div className="shop-all-cards" onClick={()=>{
-                        navigate(`/Allbrand`);
+                <div style={{ cursor: "pointer" }}
+                  className="shop-all-cards" onClick={() => {
+                    navigate(`/Allbrand`);
 
                   }}>
-                  <p className="brand-namee fs-6">More Brands -></p>
+                  <p className="brand-namee">More Brands <i class="fa-solid fa-arrow-right"></i></p>
 
-                  </div>
+                </div>
               </div>
             </div>
 
@@ -378,7 +379,7 @@ const Brandlist = () => {
                   productList &&
                   productList.map((prod, ind) => prod.images !== undefined && (
                     <div className="col-md-3 rounded-border mt-3 "
-                    //  onClick={() => handleNavigation(prod._id)}
+                     onClick={() => handleNavigation(prod._id)}
                     >
                       <div className="product-card">
                         <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3">
@@ -403,7 +404,7 @@ const Brandlist = () => {
                             className=""
                             alt="Web Project 1"
                           />
-                           <div className="text-center  border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
+                          <div className="text-center  border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
                             <i className="fas fa-cart-plus me-2"></i> Add to Cart
                           </div>
                         </div>

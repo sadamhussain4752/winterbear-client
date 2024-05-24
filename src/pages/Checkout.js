@@ -166,6 +166,8 @@ const Checkout = () => {
                   <td className="product-amount text-center">₹{item.quantity * item.product.amount}</td>
                   <td>
                     <div
+                      style={{ cursor: "pointer" }}
+
                       className="delete-button"
                       onClick={() => handleRemoveItem(item._id)}
                     >
@@ -207,8 +209,8 @@ const Checkout = () => {
           <span>₹{getTotal()}</span>
         </div>
         {/* Proceed to Checkout button */}
-        <div className="cart-totals-item-btn mt-4 mb-4">
-          <button className="btn button " onClick={handleCheckout}>
+        <div className="cart-totals-item-btn mt-4 mb-4 ">
+          <button className="btn button w-75 rounded-pill" onClick={handleCheckout}>
             Proceed to Checkout
           </button>
         </div>

@@ -118,7 +118,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-md-12 text-center text-white">
-              <img src="assets/images/footer-logo.png" className="img-fluid" />
+              <img src={require("../constant/images/footer-logo.png")} className="img-fluid" />
               <p>Official BT21 &amp; LINE FRIENDS Merchandise in India</p>
             </div>
           </div>

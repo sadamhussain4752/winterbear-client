@@ -144,7 +144,7 @@ const Home2 = () => {
           <div className="row justify-content-center">
             {productOldlist &&
               productOldlist.productList &&
-              productOldlist.productList.map((item, index) => {
+              productOldlist.productList.slice(0, 8).map((item, index) => {
                 if (!item || !item.products || item.products.length === 0)
                   return null;
                 return (
@@ -215,7 +215,8 @@ const Home2 = () => {
                         {item.products
                           .slice(0, visibleProducts[item.brand._id] || 8)
                           .map((prod, ind) => (
-                            <div className="item col-lg-3 position-relative mb-3 home-product px-0">
+                            <div className="item col-lg-3 position-relative mb-3 home-product px-0"                                   onClick={() => handleNavigation(prod._id)}
+                            >
                               <div className="home-product-in">
                                 <img
                                   src={
@@ -281,6 +282,8 @@ const Home2 = () => {
                               </div>
                               <div
                                 className="text-center d-none border-secondary addtocart-btn px-1 py-1 "
+                                style={{ cursor: "pointer" }}
+
                                 onClick={() => handleNavigation(prod._id)}
                               >
                                 <i className="fas fa-cart-plus me-2" /> Add to
