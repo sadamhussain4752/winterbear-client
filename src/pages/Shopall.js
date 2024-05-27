@@ -25,6 +25,9 @@ const ShopAll = () => {
   const [selectCategory, setCategory] = useState([]);
   const [sortby, setSortby] = useState('');
   const [priceby, setpriceby] = useState('');
+  const [BrandId, setBrandId] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+
   const { id } = useParams();
 
 
@@ -69,30 +72,39 @@ const ShopAll = () => {
     }
   }, [id, productlist]);
 
+  // Handle brand filter click
+  const handleBrandClick = (brandId) => {
+    setSelectedBrands((prevSelectedBrands) => {
+      if (prevSelectedBrands.includes(brandId)) {
+        return prevSelectedBrands.filter((id) => id !== brandId);
+      } else {
+        return [...prevSelectedBrands, brandId];
+      }
+    });
+  };
 
 
-  // Define the menu
+
   const menu = (
     <Menu>
-      <Menu.Item onClick={() => {
-        setSortby("A to Z")
-      }}>Alphabetical: A to Z</Menu.Item>
-      <Menu.Item onClick={() => {
-        setSortby("Z to A")
-      }}>Alphabetical: Z to A</Menu.Item>
+      <Menu.ItemGroup title="Price">
+        <Menu.Item onClick={() => setSortby("Low to High")}>Lower to Higher</Menu.Item>
+        <Menu.Item onClick={() => setSortby("High to Low")}>Higher to Lower</Menu.Item>
+      </Menu.ItemGroup>
+      <Menu.ItemGroup title="Order">
+        <Menu.Item onClick={() => setSortby("A to Z")}>Alphabetical: A to Z</Menu.Item>
+        <Menu.Item onClick={() => setSortby("Z to A")}>Alphabetical: Z to A</Menu.Item>
+      </Menu.ItemGroup>
+      <Menu.ItemGroup title="Other">
+        <Menu.Item onClick={() => setSortby("Popular")}>Popular</Menu.Item>
+        <Menu.Item onClick={() => setSortby("Newest")}>Newest</Menu.Item>
+        <Menu.Item onClick={() => setSortby("Best Selling")}>Best Selling</Menu.Item>
+      </Menu.ItemGroup>
     </Menu>
   );
 
-  const pricemenu = (
-    <Menu>
-      <Menu.Item onClick={() => {
-        setpriceby("Low to High")
-      }}>Lower to Higher</Menu.Item>
-      <Menu.Item onClick={() => {
-        setpriceby("High to Low")
-      }}>Higher to Lower</Menu.Item>
-    </Menu>
-  );
+
+
 
   // Handle category click
   const handleCategoryClick = (categoryId) => {
@@ -184,10 +196,15 @@ const ShopAll = () => {
                   id="offcanvasRight"
                   aria-labelledby="offcanvasRightLabel"
                 >
+
                   <div class="offcanvas-header">
+
                     <h5 class="offcanvas-title" id="offcanvasRightLabel">
                       Filter BY Brands
                     </h5>
+
+
+
                     <button
                       type="button"
                       class="btn-close"
@@ -195,11 +212,32 @@ const ShopAll = () => {
                       aria-label="Close"
                     ></button>
                   </div>
+                  <div className="col-md-12">
+                    <div className="row">
+                      {productOldlist &&
+                        productOldlist.productList &&
+                        productOldlist.productList.slice(0, 8).map((item) =>
+                          selectedBrands.some((selectedBrandId) => selectedBrandId === item.brand._id) ? (
+                            <div key={item.brand._id} className="col-md-5 btn button" onClick={() => {
+                              handleBrandClick(item.brand._id)
+                            }}>
+                              <div className="text-white  mx-1">
+                                <p>{item.brand.name}</p>
+                              </div>
+                            </div>
+                          ) : null
+                        )}
+                    </div>
+                  </div>
+
+
                   <div class="offcanvas-body position-relative text-start">
                     {productOldlist &&
                       productOldlist.productList &&
-                      productOldlist.productList.map((item) => (
-                        <div key={item.brand.id}>
+                      productOldlist.productList.slice(0, 8).map((item) => (
+                        <div key={item.brand._idid} onClick={() => {
+                          handleBrandClick(item.brand._id)
+                        }}>
                           <p>{item.brand.name}</p>
                         </div>
                       ))}
@@ -210,12 +248,12 @@ const ShopAll = () => {
                       <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
 
                     </div>
-                    <div className="position-absolute bottom-0 end-0">
-                      <button className=" text-black btn button mx-1">
+                    <div className="position-absolute bottom-0 end-0 ">
+                      <button className=" text-black btn button mx-1 bg-white">
                         {" "}
                         Clear All
                       </button>
-                      <button className="text-black btn button mx-1">
+                      <button className="text-black btn button mx-1 bg-white">
                         {" "}
                         Apply
                       </button>
@@ -237,22 +275,7 @@ const ShopAll = () => {
                   {sortby !== "" ? sortby : "Sort by"}
                 </div>
               </Dropdown>
-              <Dropdown
-                overlay={pricemenu}
-                trigger={["hover"]}
-                placement="bottomCenter"
-              >
-                <div
-                  className="ant-dropdown-link"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  {priceby !== "" ? priceby : "Price"}
 
-                </div>
-              </Dropdown>
-              <div>Popular</div>
-              <div>Newest</div>
-              <div>Best Selling</div>
             </div>
           </div>
 
@@ -313,13 +336,13 @@ const ShopAll = () => {
                     </div> */}
                     </div>
                   ))}
-                   <div className="shop-all-cards" onClick={()=>{
-                        navigate(`/Allbrand`);
+                <div className="shop-all-cards" onClick={() => {
+                  navigate(`/Allbrand`);
 
-                  }}>
+                }}>
                   <p className="brand-namee">More Brands <i class="fa-solid fa-arrow-right"></i></p>
 
-                  </div>
+                </div>
               </div>
             </div>
 
@@ -329,7 +352,7 @@ const ShopAll = () => {
                   <div
                     className="col-md-3 my-1"
                     key={ind}
-                  onClick={() => handleNavigation(prod._id)}
+                    onClick={() => handleNavigation(prod._id)}
                   >
                     <div class="product-card">
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3 px-">

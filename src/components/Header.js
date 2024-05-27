@@ -265,7 +265,7 @@ const Header = () => {
                                       ))}
                                   </div>
                                   <div
-                                    className="shop-all-cards mt-3 w-100 me-lg-5 "
+                                    className="header-all-cards mt-3 w-100 me-lg-5 "
                                     onClick={() => {
                                       navigate('Allbrand');
                                     }}

@@ -2463,7 +2463,48 @@ input {
 
 }
 
+.header-all-cards {
+  width: auto;
+  /* height: 50px; */
+  text-align: right !important;
+  /* padding-top: 20px;
+  margin-top: 20px; */
+  cursor: pointer;
 
+
+}
+
+.header-all-cards img {
+  width: auto;
+  height: 35px;
+  text-align: center;
+
+  /* margin-top: 50px; */
+}
+
+.header-all-cards p {
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.view-mor-brand {
+  color: #ffffff;
+  background-color: #221A42 !important;
+}
+
+.shop-all-cards{
+  cursor: pointer !important;
+}
+
+#menu-products {
+  cursor: pointer;
+}
+
+.pointer{
+  cursor: pointer !important;
+}
 
 .shop-all-cards img {
   width: auto;

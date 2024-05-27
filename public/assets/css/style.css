@@ -2455,6 +2455,17 @@ input {
 .shop-all-cards {
   width: auto;
   /* height: 50px; */
+  text-align: left !important;
+  /* padding-top: 20px;
+  margin-top: 20px; */
+  cursor: pointer;
+
+
+}
+
+.header-all-cards {
+  width: auto;
+  /* height: 50px; */
   text-align: right !important;
   /* padding-top: 20px;
   margin-top: 20px; */
@@ -2463,6 +2474,20 @@ input {
 
 }
 
+.header-all-cards img {
+  width: auto;
+  height: 35px;
+  text-align: center;
+
+  /* margin-top: 50px; */
+}
+
+.header-all-cards p {
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
 
 .view-mor-brand {
   color: #ffffff;
