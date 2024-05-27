@@ -2485,7 +2485,7 @@ input {
 
 .filter-btns-cont {
   display: flex;
-  width: 30%;
+  min-width: 25%;
 }
 
 .filter-btns-cont button {
@@ -3159,4 +3159,18 @@ a {
 
 .size-option:hover {
   border-color: black;
+}
+
+
+.size-speck {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.size-speck td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  font-size: 14px;
+  padding: 8px;
 }

@@ -353,12 +353,71 @@ const Product = () => {
                 {/* Reviews Tab Content */}
                 <div className="col-md-12 text-start ">
                   <div className="text-start">
-                    <p className="mt-3">Reviews</p>
-                    <p>There are no reviews yet.</p>
-                    <p>
-                      Only logged in customers who have purchased this product may leave
-                      a review.
-                    </p>
+                    <p className="mt-3">Size:</p>
+
+
+                    <table className="size-speck">
+                      <tr>
+                        <th>Size</th>
+                        <th>	Shoulder</th>
+                        <th>Chest</th>
+                        <th>Sleeve</th>
+                        <th>Length</th>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>
+                          55cm
+                        </td>
+                        <td>
+                          114cm
+                        </td>
+                        <td>
+                          56.5cm
+                        </td>
+                        <td>
+                          101cm
+                        </td>
+                          
+                          
+                         
+                       
+                        
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>56cm</td>
+                        <td>118cm</td>
+                        <td>60cm</td>
+                        <td>105cm</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>57cm</td>
+                        <td>112cm	</td>
+                        <td>	57cm	</td>
+                        <td>	107cm	</td>
+                      </tr>
+
+
+                      <tr>
+                        <td> XL	</td>
+                        <td>58cm</td>
+                        <td>126cm</td>
+                        <td>61cm</td>
+                        <td>109cm</td>
+
+                      </tr>
+                      <tr>
+                        <td> XXL	</td>
+                        <td>59cm</td>
+                        <td>130cm	</td>
+                        <td>61.5cm	</td>
+                        <td>	111cm</td>
+                      </tr>
+                    </table>
+
+
                   </div>
                 </div>
               </Tab.Pane>
@@ -389,7 +448,7 @@ const Product = () => {
           </Tab.Container>
         </div>
 
-      </div>
+      </div >
     );
   };
 
