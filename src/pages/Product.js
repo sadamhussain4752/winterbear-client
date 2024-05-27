@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import { useParams } from "react-router-dom";
-import { ProductUserById, AddCardProductById, RatingProductUserById ,fetchProductData} from "../../src/reducer/thunks";
+import { ProductUserById, AddCardProductById, RatingProductUserById, fetchProductData } from "../../src/reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import OwlCarousel from "react-owl-carousel";
@@ -57,6 +57,14 @@ const Product = () => {
   useEffect(() => {
     dispatch(fetchProductData());
   }, []);
+
+  const [selectedSize, setSelectedSize] = useState(null);
+
+  const sizes = ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'];
+
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
 
   const {
     productlist,
@@ -127,7 +135,7 @@ const Product = () => {
 
     return (
       <>
-        <OwlCarousel className="owl-theme"  loop margin={10} items={1} dots={false} nav={false}>
+        <OwlCarousel className="owl-theme" loop margin={10} items={1} dots={false} nav={false}>
           {product?.images &&
             product?.images.map((image, index) => (
               <div key={index} className="item">
@@ -140,7 +148,7 @@ const Product = () => {
             ))}
         </OwlCarousel>
         <div className="d-flex justify-content-center">
-          {product && product?.images &&product?.images.length > 1 && <MultiCarousel images={product?.images} />}
+          {product && product?.images && product?.images.length > 1 && <MultiCarousel images={product?.images} />}
 
         </div>
 
@@ -212,6 +220,24 @@ const Product = () => {
 
 
           </div>
+          {product.category_id === "65a79023a4420b22a687efa6" && (
+            <div className="size-selector col-md-12 sku-tag row mt-3">
+              <span className="size-label">SIZE</span>
+              <div className="size-options">
+                {sizes.map((size) => (
+                  <button
+                    key={size}
+                    className={`size-option ${selectedSize === size ? 'selected' : ''}`}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+          )}
+
 
           <hr />
 
@@ -282,18 +308,18 @@ const Product = () => {
                   </div>
                   <div className="col-md-4 sku-tag feature-item ">
                     <h4>Feature</h4>
-                    <p className="pt-3"><img  src={require("../constant/images/Medal.png")} className="pe-3" /> Free 1 Year Warranty</p>
+                    <p className="pt-3"><img src={require("../constant/images/Medal.png")} className="pe-3" /> Free 1 Year Warranty</p>
                     <p className="pt-3">
-                    <img  src={require("../constant/images/Truck.png")} className="pe-3" /> 
+                      <img src={require("../constant/images/Truck.png")} className="pe-3" />
                       Free Shipping & Fasted Delivery</p>
                     <p className="pt-3">
-                    <img  src={require("../constant/images/Handshake.png")} className="pe-3" /> 
+                      <img src={require("../constant/images/Handshake.png")} className="pe-3" />
                       100% Money-back guarantee</p>
                     <p className="pt-3">
-                    <img  src={require("../constant/images/customer-support.png")} className="pe-3" /> 
+                      <img src={require("../constant/images/customer-support.png")} className="pe-3" />
                       24/7 Customer support</p>
                     <p className="pt-3">
-                    <img  src={require("../constant/images/CreditCard.png")} className="pe-3" /> 
+                      <img src={require("../constant/images/CreditCard.png")} className="pe-3" />
                       Secure payment method</p>
 
                   </div>
@@ -387,65 +413,65 @@ const Product = () => {
         }}
       >
         {productlist?.products?.slice(0, 10).map((prod, ind) => (
-        <div className="item col-md-10 position-relative mb-3 home-product px-0 ">
-        <div className="home-product-in px-">
-          <img
-            src={
-              prod.images[0] !== null &&
-              prod.images[0] !== "image_url1"
-                ? `${prod.images[0]}`
-                : "assets/images/Rectangle 22.png"
-            }
-            className="product-shopby trans"
-            alt="Web Project 1"
-          />
-           <div
-          className="text-center  border-secondary addtocart-btn px-1 py-1 "
-          onClick={() => handleNavigation(prod._id)}
-        >
-          <i className="fas fa-cart-plus me-2" /> Add to
-          Cart
-        </div>
-        </div>
+          <div className="item col-md-10 position-relative mb-3 home-product px-0 ">
+            <div className="home-product-in px-">
+              <img
+                src={
+                  prod.images[0] !== null &&
+                    prod.images[0] !== "image_url1"
+                    ? `${prod.images[0]}`
+                    : "assets/images/Rectangle 22.png"
+                }
+                className="product-shopby trans"
+                alt="Web Project 1"
+              />
+              <div
+                className="text-center  border-secondary addtocart-btn px-1 py-1 "
+                onClick={() => handleNavigation(prod._id)}
+              >
+                <i className="fas fa-cart-plus me-2" /> Add to
+                Cart
+              </div>
+            </div>
 
-        <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
-          <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-            {/* {item.brand._id ===
+            <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
+              <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                {/* {item.brand._id ===
               "65aa405f6bfadce6d5a0ef3c" && (
               <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
                 40%
               </p>
             )} */}
 
-            <div></div>
+                <div></div>
 
-            <button className="heart-btn" id="hertbtn">
-              <i class="fa-regular fa-heart"></i>
-               {/* <Rate
+                <button className="heart-btn" id="hertbtn">
+                  <i class="fa-regular fa-heart"></i>
+                  {/* <Rate
                 character={<HeartOutlined />  }
                 count={1}
               /> */}
-            </button>
-          </div>
+                </button>
+              </div>
 
-          <div className=" mt-4 col-md-12 price-prodname">
-            <p className="text-start prize-size mb-0 ">
-              {" "}
-               {prod.name}
-            </p>
-            <p className="prod-pric mb-0 ">
-              ₹{prod.amount}
-            </p>
+              <div className=" mt-4 col-md-12 price-prodname">
+                <p className="text-start prize-size mb-0 ">
+                  {" "}
+                  {prod.name}
+                </p>
+                <p className="prod-pric mb-0 ">
+                  ₹{prod.amount}
+                </p>
+              </div>
+            </div>
+            <div
+              className="text-center d-none border-secondary addtocart-btn px-1 py-1 "
+              onClick={() => handleNavigation(prod._id)}
+            >
+              <i className="fas fa-cart-plus me-2" /> Add to
+              Cart
+            </div>
           </div>
-        </div>
-        <div
-          className="text-center d-none border-secondary addtocart-btn px-1 py-1 "
-          onClick={() => handleNavigation(prod._id)}
-        >
-          <i className="fas fa-cart-plus me-2" /> Add to
-          Cart
-        </div>
-      </div>
         ))}
       </OwlCarousel>
     );
@@ -481,9 +507,9 @@ const Product = () => {
               <div className="text-center mt-5 mb-5">
                 <h3 className="fw-bolder">Related Products</h3>
               </div>
-              <div className="col-md-12"> 
+              <div className="col-md-12">
 
-              {renderRelatedProducts()}
+                {renderRelatedProducts()}
 
               </div>
             </div>

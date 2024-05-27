@@ -71,6 +71,35 @@ const ShopAll = () => {
       }
     }
   }, [id, productlist]);
+  useEffect(() => {
+    let sortedProducts = [...productList];
+    switch (sortby) {
+      case "Low to High":
+        sortedProducts.sort((a, b) => a.amount - b.amount);
+        break;
+      case "High to Low":
+        sortedProducts.sort((a, b) => b.amount - a.amount);
+        break;
+      case "A to Z":
+        sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "Z to A":
+        sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case "Popular":
+        // Implement your logic for Popular sorting
+        break;
+      case "Newest":
+        // Implement your logic for Newest sorting
+        break;
+      case "Best Selling":
+        // Implement your logic for Best Selling sorting
+        break;
+      default:
+        break;
+    }
+    setProductList(sortedProducts);
+  }, [sortby, productList]);
 
   // Handle brand filter click
   const handleBrandClick = (brandId) => {
