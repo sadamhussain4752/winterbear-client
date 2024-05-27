@@ -255,10 +255,10 @@ const Product = () => {
             </div>
             <div className="col-md-4">
               <button
-                className="btn w-100  button buy-now-tag text-white bg-transparent border border-secondary"
+                className="btn w-100  buy-now-tag add-to-cart-btn"
                 onClick={() => addcard(product._id)}
               >
-                Add to Cart
+                Add to Cart <i class=" ms-4 fa-solid fa-cart-arrow-down"></i>
               </button>
             </div>
 

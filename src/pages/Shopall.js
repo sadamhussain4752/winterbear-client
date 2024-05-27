@@ -282,7 +282,7 @@ const ShopAll = () => {
                       <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
 
                     </div>
-                    <div className="position-fixed bottom-0 end-1 filter-btns-cont w-25 ">
+                    <div className="position-fixed bottom-0 end-0 filter-btns-cont ">
                       <button className=" text-black btn button mx-1 filter-btns">
                         {" "}
                         Clear All
