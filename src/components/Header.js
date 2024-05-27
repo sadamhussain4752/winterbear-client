@@ -188,11 +188,13 @@ const Header = () => {
                   <div className="row">
                     <div className="col-md-2">
                       <button
+
                         className="btn navbar  navbar-toggler border-0 "
                         data-bs-toggle="offcanvas"
                         href="#offcanvasExample"
                         role="button"
                         aria-controls="offcanvasExample"
+
                       >
                         <span class="navbar-toggler-icon"></span>
                       </button>
@@ -236,7 +238,7 @@ const Header = () => {
                                           <a
                                             href="#"
                                             onClick={() => {
-                                              navigate(`/shop/${ item._id }`);
+                                              navigate(`/shop/${item._id}`);
                                               setIsHovered(false);
                                             }}
                                             className="btn text-decoration-none d-block fs-6 text-start"
@@ -254,7 +256,7 @@ const Header = () => {
                                     {data &&
                                       data.Brands.slice(0, 20).map((item) => (
                                         <div key={item._id} className="col-6 col-md-3 mb-4 d-flex align-items-center">
-                                          <a href="" onClick={() => navigate(`/brand/${ item._id }`)}>
+                                          <a href="" onClick={() => navigate(`/brand/${item._id}`)}>
                                             <img
                                               src={item.imageUrl}
                                               alt={item.name}

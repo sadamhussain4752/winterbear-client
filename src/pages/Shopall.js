@@ -187,11 +187,11 @@ const ShopAll = () => {
                   data-bs-target="#offcanvasRight"
                   aria-controls="offcanvasRight"
                 >
-                  <i class="fa-solid fa-filter mt-2"></i>
+                  <i class="fa-solid fa-filter mt-2 text-white px-4"></i>
                 </button>
 
                 <div
-                  class="offcanvas offcanvas-end"
+                  class="offcanvas offcanvas-end px-3"
                   tabindex="-1"
                   id="offcanvasRight"
                   aria-labelledby="offcanvasRightLabel"
@@ -207,23 +207,28 @@ const ShopAll = () => {
 
                     <button
                       type="button"
-                      class="btn-close"
+                      class="btn-close bg-white"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div className="col-md-12">
+                  <div className="col-md-12 ps-4">
                     <div className="row">
                       {productOldlist &&
                         productOldlist.productList &&
-                        productOldlist.productList.slice(0, 8).map((item) =>
+                        productOldlist.productList.map((item) =>
                           selectedBrands.some((selectedBrandId) => selectedBrandId === item.brand._id) ? (
-                            <div key={item.brand._id} className="col-md-5 btn button" onClick={() => {
+                            <div key={item.brand._id} className="col-md-5 btn button filt-bt ms-5" onClick={() => {
                               handleBrandClick(item.brand._id)
-                            }}>
-                              <div className="text-white  mx-1">
+                            }} style={{ 'backgroundColor': 'white' }}>
+                              <div className=" mx-1">
                                 <p>{item.brand.name}</p>
                               </div>
+
+                              <div className="x-close">
+                                x
+                              </div>
+
                             </div>
                           ) : null
                         )}
@@ -234,7 +239,7 @@ const ShopAll = () => {
                   <div class="offcanvas-body position-relative text-start">
                     {productOldlist &&
                       productOldlist.productList &&
-                      productOldlist.productList.slice(0, 8).map((item) => (
+                      productOldlist.productList.map((item) => (
                         <div key={item.brand._idid} onClick={() => {
                           handleBrandClick(item.brand._id)
                         }}>
@@ -248,12 +253,12 @@ const ShopAll = () => {
                       <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
 
                     </div>
-                    <div className="position-absolute bottom-0 end-0 ">
-                      <button className=" text-black btn button mx-1 bg-white">
+                    <div className="position-fixed bottom-0 end-1 filter-btns-cont w-25 ">
+                      <button className=" text-black btn button mx-1 filter-btns">
                         {" "}
                         Clear All
                       </button>
-                      <button className="text-black btn button mx-1 bg-white">
+                      <button className="text-black btn button mx-1 filter-btns">
                         {" "}
                         Apply
                       </button>
