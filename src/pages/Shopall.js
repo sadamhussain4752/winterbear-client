@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
 
 import {
@@ -23,13 +23,15 @@ const ShopAll = () => {
   const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
   const [selectCategory, setCategory] = useState([]);
-  const [sortby, setSortby] = useState('');
-  const [priceby, setpriceby] = useState('');
+  const [sortby, setSortby] = useState("");
+  const [priceby, setpriceby] = useState("");
   const [BrandId, setBrandId] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
+  const [applyFiliter, setapplyFiliter] = useState(false);
+  const [selectedPriceRange, setSelectedPriceRange] = useState([0, 10000]); // Adjust the range as needed
+  const [hoveredProductId, setHoveredProductId] = useState("");
 
   const { id } = useParams();
-
 
   // States to store product list, selected category, and current page
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -56,18 +58,14 @@ const ShopAll = () => {
     if (productlist && productlist.products) {
       setProductList(productlist.products);
     }
-
   }, [productlist, id]);
   // Handle category selection based on URL parameter
   useEffect(() => {
     if (id && id !== "0" && productlist && productlist.products) {
-      const filteredProducts = data.Categorys.filter(
-        (item) => item._id === id
-      );
+      const filteredProducts = data.Categorys.filter((item) => item._id === id);
       console.log(filteredProducts);
       if (filteredProducts.length > 0) {
         handleCategoryClick(filteredProducts[0]);
-
       }
     }
   }, [id, productlist]);
@@ -112,28 +110,33 @@ const ShopAll = () => {
     });
   };
 
-
-
   const menu = (
     <Menu>
       <Menu.ItemGroup title="Price">
-        <Menu.Item onClick={() => setSortby("Low to High")}>Lower to Higher</Menu.Item>
-        <Menu.Item onClick={() => setSortby("High to Low")}>Higher to Lower</Menu.Item>
+        <Menu.Item onClick={() => setSortby("Low to High")}>
+          Lower to Higher
+        </Menu.Item>
+        <Menu.Item onClick={() => setSortby("High to Low")}>
+          Higher to Lower
+        </Menu.Item>
       </Menu.ItemGroup>
       <Menu.ItemGroup title="Order">
-        <Menu.Item onClick={() => setSortby("A to Z")}>Alphabetical: A to Z</Menu.Item>
-        <Menu.Item onClick={() => setSortby("Z to A")}>Alphabetical: Z to A</Menu.Item>
+        <Menu.Item onClick={() => setSortby("A to Z")}>
+          Alphabetical: A to Z
+        </Menu.Item>
+        <Menu.Item onClick={() => setSortby("Z to A")}>
+          Alphabetical: Z to A
+        </Menu.Item>
       </Menu.ItemGroup>
       <Menu.ItemGroup title="Other">
         <Menu.Item onClick={() => setSortby("Popular")}>Popular</Menu.Item>
         <Menu.Item onClick={() => setSortby("Newest")}>Newest</Menu.Item>
-        <Menu.Item onClick={() => setSortby("Best Selling")}>Best Selling</Menu.Item>
+        <Menu.Item onClick={() => setSortby("Best Selling")}>
+          Best Selling
+        </Menu.Item>
       </Menu.ItemGroup>
     </Menu>
   );
-
-
-
 
   // Handle category click
   const handleCategoryClick = (categoryId) => {
@@ -169,10 +172,44 @@ const ShopAll = () => {
     setCurrentPage(page);
   };
 
+  // Clear all filters
+  const clearFilters = () => {
+    setSelectedBrands([]);
+    setSelectedPriceRange([0, 10000]); // Reset to default range
+  };
+
+  // Handle price range change
+  const handlePriceChange = (range) => {
+    setSelectedPriceRange(range);
+  };
+
+  // Filter products based on selected filters
+  const filterProducts = (products) => {
+    return products.filter((product) => {
+      if (!applyFiliter) {
+        return product;
+      }
+      // Check if product has brand and brand._id
+      const isBrandMatch =
+        selectedBrands.length === 0 ||
+        (product.brand_id && selectedBrands.includes(product.brand_id));
+
+      // Ensure product has amount property
+      const isPriceMatch =
+        product.amount >= selectedPriceRange[0] &&
+        product.amount <= selectedPriceRange[1];
+
+      return isBrandMatch && isPriceMatch;
+    });
+  };
+
   // Calculate start and end indices of items to display
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = productList.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filterProducts(productList).slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
 
   return (
     <>
@@ -180,20 +217,21 @@ const ShopAll = () => {
 
       <section className="py-5 shop">
         <div className="container-fluid">
-          {!selectedCategory && <div className="row">
-            <div className="col-md-12 mt-80">
-              <div className="section-heading">
-                <h3 className="theme-bg-text ">Shop All</h3>
+          {!selectedCategory && (
+            <div className="row">
+              <div className="col-md-12 mt-80">
+                <div className="section-heading">
+                  <h3 className="theme-bg-text ">Shop All</h3>
+                </div>
               </div>
             </div>
-          </div>}
+          )}
 
           <div className="row">
             <div className="col-md-12">
               <div className="section-heading">
                 {selectedCategory && selectedCategory?.category_img_desktop && (
                   <div className="align-items-center">
-
                     <img
                       className="w-100"
                       src={selectedCategory?.category_img_desktop}
@@ -208,7 +246,7 @@ const ShopAll = () => {
 
           <div className="col-md-12">
             <div className="text-end d-flex justify-content-end filter-item">
-              <div className="p-0">
+              <div className="p-0 rounded mx-1">
                 <button
                   class="btn p-0 text-white"
                   type="button"
@@ -225,14 +263,10 @@ const ShopAll = () => {
                   id="offcanvasRight"
                   aria-labelledby="offcanvasRightLabel"
                 >
-
                   <div class="offcanvas-header">
-
                     <h5 class="offcanvas-title" id="offcanvasRightLabel">
                       Filter BY Brands
                     </h5>
-
-
 
                     <button
                       type="button"
@@ -246,53 +280,75 @@ const ShopAll = () => {
                       {productOldlist &&
                         productOldlist.productList &&
                         productOldlist.productList.map((item) =>
-                          selectedBrands.some((selectedBrandId) => selectedBrandId === item.brand._id) ? (
-                            <div key={item.brand._id} className="col-md-5 btn button filt-bt ms-5" onClick={() => {
-                              handleBrandClick(item.brand._id)
-                            }} style={{ 'backgroundColor': 'white' }}>
+                          selectedBrands.some(
+                            (selectedBrandId) =>
+                              selectedBrandId === item.brand._id
+                          ) ? (
+                            <div
+                              key={item.brand._id}
+                              className="col-md-5 btn button filt-bt ms-5"
+                              onClick={() => {
+                                handleBrandClick(item.brand._id);
+                              }}
+                              style={{ backgroundColor: "white" }}
+                            >
                               <div className=" mx-1">
                                 <p>{item.brand.name}</p>
                               </div>
 
-                              <div className="x-close">
-                                x
-                              </div>
-
+                              <div className="x-close">x</div>
                             </div>
                           ) : null
                         )}
                     </div>
                   </div>
 
-
                   <div class="offcanvas-body position-relative text-start">
                     {productOldlist &&
                       productOldlist.productList &&
                       productOldlist.productList.map((item) => (
-                        <div key={item.brand._idid} onClick={() => {
-                          handleBrandClick(item.brand._id)
-                        }}>
+                        <div
+                          key={item.brand._idid}
+                          onClick={() => {
+                            handleBrandClick(item.brand._id);
+                          }}
+                        >
                           <p>{item.brand.name}</p>
                         </div>
                       ))}
-                    <div style={{
-
-                    }}>
+                    <div style={{}}>
                       {/* <h5>Price</h5>
                       <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
-
                     </div>
+<<<<<<< Updated upstream
                     <div className="position-fixed bottom-0 end-0 filter-btns-cont ">
                       <button className=" text-black btn button mx-1 filter-btns">
                         {" "}
+=======
+                    <div className="position-fixed bottom-0 end-1 filter-btns-cont ">
+                      <button
+                        className=" text-black btn button mx-1 filter-btns"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight"
+                        onClick={clearFilters}
+                      >
+>>>>>>> Stashed changes
                         Clear All
                       </button>
-                      <button className="text-black btn button mx-1 filter-btns">
+                      <button
+                        className="text-black btn button mx-1 filter-btns"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight"
+                        onClick={() => setapplyFiliter(!applyFiliter)}
+                      >
                         {" "}
                         Apply
                       </button>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -309,7 +365,6 @@ const ShopAll = () => {
                   {sortby !== "" ? sortby : "Sort by"}
                 </div>
               </Dropdown>
-
             </div>
           </div>
 
@@ -323,10 +378,11 @@ const ShopAll = () => {
                   data.Categorys &&
                   data.Categorys.map((item) => (
                     <div
-                      className={`${item._id === selectedCategory?._id
-                        ? ""
-                        : "col-md-12 d-flex justify-content-start "
-                        }`}
+                      className={`${
+                        item._id === selectedCategory?._id
+                          ? ""
+                          : "col-md-12 d-flex justify-content-start "
+                      }`}
                       key={item._id}
                       onClick={() => handleCategoryClick(item)}
                     >
@@ -356,7 +412,6 @@ const ShopAll = () => {
                           className="img-pop"
                         /> */}
                         <p className="brand-namee">{item.brand.name}</p>
-
                       </div>
                       {/* <div>
                       {item.subbrand.map((subItem) => (
@@ -370,12 +425,15 @@ const ShopAll = () => {
                     </div> */}
                     </div>
                   ))}
-                <div className="shop-all-cards" onClick={() => {
-                  navigate(`/Allbrand`);
-
-                }}>
-                  <p className="brand-namee">More Brands <i class="fa-solid fa-arrow-right"></i></p>
-
+                <div
+                  className="shop-all-cards"
+                  onClick={() => {
+                    navigate(`/Allbrand`);
+                  }}
+                >
+                  <p className="brand-namee">
+                    More Brands <i class="fa-solid fa-arrow-right"></i>
+                  </p>
                 </div>
               </div>
             </div>
@@ -386,41 +444,57 @@ const ShopAll = () => {
                   <div
                     className="col-md-3 my-1"
                     key={ind}
-                    onClick={() => handleNavigation(prod._id)}
+                    onMouseEnter={() => setHoveredProductId(prod._id)}
+                    onMouseLeave={() => setHoveredProductId(null)}
                   >
                     <div class="product-card">
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3 px-">
-                        <p> {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
-                          {parseFloat(prod.offeramount / 100).toFixed(0)}%
-
-                        </p>}
-
+                        <p>
+                          {" "}
+                          {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && (
+                            <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
+                              {parseFloat(prod.offeramount / 100).toFixed(0)}%
+                            </p>
+                          )}
                         </p>
                         <HeartButton />
                       </div>
                       <div className="home-product-in">
-                        <img
+                      <img
                           src={
-                            prod.images[0] !== null &&
-                              prod.images[0] !== "image_url1"
-                              ? `${prod.images[0]}`
+                            hoveredProductId === prod._id && prod.images.length > 1 && prod.images[1]
+                              ? prod.images[1]
+                              : prod.images[0] !== null && prod.images[0] !== "image_url1"
+                              ? prod.images[0]
                               : "assets/images/Rectangle 22.png"
                           }
                           className="product-shopall img-fluid"
                           alt={prod.name}
+                          onClick={() => handleNavigation(prod._id)}
+
                         />
-                        <div class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
+                        <div
+                          class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2"
+                          onClick={() => handleNavigation(prod._id)}
+                        >
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>
                       <div className="text-center price-card py-2">
-
-                        <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
+                        <p
+                          className="font-z text-truncate"
+                          style={{ maxWidth: "200px" }}
+                        >
+                          {prod.name}
+                        </p>
                         <p className=" mb-0">₹{prod.amount}</p>
 
-                        <div class="text-center d-none border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
+                        {/* <div
+                          class="text-center d-none border-secondary addtocart-btn px-1 py-1 mx-2"
+                          onClick={() => handleNavigation(prod._id)}
+                        >
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>

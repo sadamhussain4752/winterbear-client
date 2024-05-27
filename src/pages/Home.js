@@ -215,7 +215,8 @@ const Home2 = () => {
                         {item.products
                           .slice(0, visibleProducts[item.brand._id] || 8)
                           .map((prod, ind) => (
-                            <div className="item col-lg-3 position-relative mb-3 home-product px-0"                                   onClick={() => handleNavigation(prod._id)}
+                            <div className="item col-lg-3 position-relative mb-3 home-product px-0"                                   
+                            // onClick={() => handleNavigation(prod._id)}
                             >
                               <div className="home-product-in">
                                 <img
@@ -227,11 +228,12 @@ const Home2 = () => {
                                   }
                                   className="product-shopby img-fluid"
                                   alt="Web Project 1"
+                                  onClick={() => handleNavigation(prod._id)}
                                 />
 
                                 <div
                                   className="text-center  border-secondary addtocart-btn px-1 py-1 "
-                                  onClick={() => handleNavigation(prod._id)}
+                                  // onClick={() => handleNavigation(prod._id)}
                                 >
                                   <i className="fas fa-cart-plus me-2" /> Add to
                                   Cart
