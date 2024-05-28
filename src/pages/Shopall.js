@@ -35,8 +35,8 @@ const ShopAll = () => {
 
   // States to store product list, selected category, and current page
   const [selectedCategory, setSelectedCategory] = useState(null);
-const [currentPage, setCurrentPage] = useState(1);
-const itemsPerPage = 15; // Number of items per page
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 15; // Number of items per page
 
   const { productlist, loading: productListLoading } = useSelector(
     (state) => state.productlist
@@ -362,8 +362,108 @@ const itemsPerPage = 15; // Number of items per page
             </div>
           </div>
 
+
+          <div className="mob-nav d-md-none d-block">
+
+            <nav role="navigation">
+              <div id="menuToggleone">
+
+
+                <input type="checkbox" />
+
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <div id="menuone">
+                  <div className="p-0 text-center rounded mx-5">
+                    <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase mt-5">
+                      Category
+                    </h3>
+                    {data &&
+                      data.Categorys &&
+                      data.Categorys.map((item) => (
+                        <div
+                          className={`${item._id === selectedCategory?._id
+                            ? ""
+                            : "col-md-12 d-flex justify-content-start "
+                            }`}
+                          key={item._id}
+                          onClick={() => handleCategoryClick(item)}
+                        >
+                          <div className="align-items-start shop-all-card-item ">
+                            <p className="">{item.name}</p>
+                          </div>
+                        </div>
+                      ))}
+
+                  </div>
+
+                  <div className="p-0  text-center rounded mx-5">
+                    <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase  mt-5">
+                      Brands
+                    </h3>
+
+                    {productOldlist &&
+                      productOldlist.productList &&
+                      productOldlist.productList.slice(0, 8).map((item) => (
+                        <div key={item.brand.id}>
+                          <div
+                            className=" shop-all-cards"
+                            onClick={() => handleNavigationbrand(item.brand._id)}
+                          >
+                            {/* <img
+                          src={item.brand.imageUrl}
+                          alt={item.brand.name}
+                          className="img-pop"
+                        /> */}
+                            <p className="brand-namee">{item.brand.name}</p>
+                          </div>
+                          {/* <div>
+                      {item.subbrand.map((subItem) => (
+                        <div key={subItem.id} className="align-items-center shop-all-cards" onClick={() => handleSubbrandClick(subItem)}>
+                          <div className="d-flex justify-content-start align-items-center text-center mx-5">
+                            <img src={subItem.imageUrl} alt={subItem.name} />
+                            <p className="mt-3 mx-2">{subItem.name}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div> */}
+                        </div>
+                      ))}
+                    <div
+                      className="shop-all-cards"
+                      onClick={() => {
+                        navigate(`/Allbrand`);
+                      }}
+                    >
+                      <p className="brand-namee">
+                        More Brands <i class="fa-solid fa-arrow-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+
+
+
           <div className="row justify-content-end">
-            <div className="col-md-3 cat-brand">
+            <div className="col-md-3 cat-brand d-md-block d-none">
               <div className="p-0 text-center rounded mx-5">
                 <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase mt-5">
                   Category
@@ -372,11 +472,10 @@ const itemsPerPage = 15; // Number of items per page
                   data.Categorys &&
                   data.Categorys.map((item) => (
                     <div
-                      className={`${
-                        item._id === selectedCategory?._id
-                          ? ""
-                          : "col-md-12 d-flex justify-content-start "
-                      }`}
+                      className={`${item._id === selectedCategory?._id
+                        ? ""
+                        : "col-md-12 d-flex justify-content-start "
+                        }`}
                       key={item._id}
                       onClick={() => handleCategoryClick(item)}
                     >
@@ -385,6 +484,7 @@ const itemsPerPage = 15; // Number of items per page
                       </div>
                     </div>
                   ))}
+
               </div>
 
               <div className="p-0  text-center rounded mx-5">
@@ -446,22 +546,22 @@ const itemsPerPage = 15; // Number of items per page
                         <p>
                           {" "}
                           {prod.brand_id ===
-                                    "65aa405f6bfadce6d5a0ef3c" && (
-                                    <p className="text-white text-center  text-decoration-line-through w-100 mt-2 rounded-end bg-theme-dis">
-                                      40%
-                                    </p>
-                                  )}
+                            "65aa405f6bfadce6d5a0ef3c" && (
+                              <p className="text-white text-center  text-decoration-line-through w-100 mt-2 rounded-end bg-theme-dis">
+                                40%
+                              </p>
+                            )}
                         </p>
                         <HeartButton />
                       </div>
                       <div className="home-product-in">
-                      <img
+                        <img
                           src={
                             hoveredProductId === prod._id && prod.images.length > 1 && prod.images[1]
                               ? prod.images[1]
                               : prod.images[0] !== null && prod.images[0] !== "image_url1"
-                              ? prod.images[0]
-                              : "assets/images/Rectangle 22.png"
+                                ? prod.images[0]
+                                : "assets/images/Rectangle 22.png"
                           }
                           className="product-shopall img-fluid"
                           alt={prod.name}
