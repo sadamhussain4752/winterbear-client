@@ -2485,8 +2485,9 @@ input {
 
 .filter-btns-cont {
   display: flex;
+  min-width: 20%;
+  margin-bottom: 10px;
 }
-
 .filter-btns-cont button {
   width: 50%;
   height: auto;
@@ -2796,6 +2797,10 @@ a {
     width: 100%;
   }
 
+  .filter-btns-cont{
+    width: 100% !important;
+  }
+
   .image-container img {
     width: 100px;
     height: 100px;
@@ -2927,6 +2932,12 @@ a {
     display: flex;
   }
 
+}
+
+.add-to-cart-btn{
+  background-color: #ffe5e5 !important;
+  color: black !important;
+  border: 2px solid black;
 }
 
 

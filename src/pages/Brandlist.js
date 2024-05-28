@@ -26,10 +26,16 @@ const Brandlist = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [subBrandlist, setSubbrand] = useState([])
 
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 15; // Number of items per page
   const [selectCategory, setCategory] = useState([]);
   const [sortby, setSortby] = useState('');
   const [priceby, setpriceby] = useState('');
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [applyFiliter, setapplyFiliter] = useState(false);
+  const [selectedPriceRange, setSelectedPriceRange] = useState([0, 10000]); // Adjust the range as needed
+  const [hoveredProductId, setHoveredProductId] = useState("");
+
 
   const {
     productlist,
@@ -84,6 +90,35 @@ const Brandlist = () => {
     }
   }, [productlist]);
 
+  useEffect(() => {
+    let sortedProducts = [...productList];
+    switch (sortby) {
+      case "Low to High":
+        sortedProducts.sort((a, b) => a.amount - b.amount);
+        break;
+      case "High to Low":
+        sortedProducts.sort((a, b) => b.amount - a.amount);
+        break;
+      case "A to Z":
+        sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "Z to A":
+        sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case "Popular":
+        // Implement your logic for Popular sorting
+        break;
+      case "Newest":
+        // Implement your logic for Newest sorting
+        break;
+      case "Best Selling":
+        // Implement your logic for Best Selling sorting
+        break;
+      default:
+        break;
+    }
+    setProductList(sortedProducts);
+  }, [sortby, productList]);
 
 
   // useEffect(() => {
@@ -96,13 +131,29 @@ const Brandlist = () => {
   // Define the menu
   const menu = (
     <Menu>
-      <Menu.Item>
-        Alphabetical: A to Z
-      </Menu.Item>
-      <Menu.Item>
-        Alphabetical: Z to A
-      </Menu.Item>
-
+      <Menu.ItemGroup title="Price">
+        <Menu.Item onClick={() => setSortby("Low to High")}>
+          Lower to Higher
+        </Menu.Item>
+        <Menu.Item onClick={() => setSortby("High to Low")}>
+          Higher to Lower
+        </Menu.Item>
+      </Menu.ItemGroup>
+      <Menu.ItemGroup title="Order">
+        <Menu.Item onClick={() => setSortby("A to Z")}>
+          Alphabetical: A to Z
+        </Menu.Item>
+        <Menu.Item onClick={() => setSortby("Z to A")}>
+          Alphabetical: Z to A
+        </Menu.Item>
+      </Menu.ItemGroup>
+      <Menu.ItemGroup title="Other">
+        <Menu.Item onClick={() => setSortby("Popular")}>Popular</Menu.Item>
+        <Menu.Item onClick={() => setSortby("Newest")}>Newest</Menu.Item>
+        <Menu.Item onClick={() => setSortby("Best Selling")}>
+          Best Selling
+        </Menu.Item>
+      </Menu.ItemGroup>
     </Menu>
   );
 
@@ -136,7 +187,23 @@ const Brandlist = () => {
     setProductList(filteredProducts);
   };
 
-  // Handle category click
+    // Handle brand filter click
+    const handleBrandClick = (brandId) => {
+      setSelectedBrands((prevSelectedBrands) => {
+        if (prevSelectedBrands.includes(brandId)) {
+          return prevSelectedBrands.filter((id) => id !== brandId);
+        } else {
+          return [...prevSelectedBrands, brandId];
+        }
+      });
+    };
+
+      // Clear all filters
+  const clearFilters = () => {
+    setSelectedBrands([]);
+    setSelectedPriceRange([0, 10000]); // Reset to default range
+  };
+
   // Handle category click
   const handleCategoryClick = (categoryId) => {
     setSelectedCategory(categoryId);
@@ -147,6 +214,37 @@ const Brandlist = () => {
     setProductList(filteredProducts);
   };
 
+  // Function to handle pagination change
+  const handlePaginationChange = (page) => {
+    setCurrentPage(page);
+  };
+    // Filter products based on selected filters
+    const filterProducts = (products) => {
+      return products.filter((product) => {
+        if (!applyFiliter) {
+          return product;
+        }
+        // Check if product has brand and brand._id
+        const isBrandMatch =
+          selectedBrands.length === 0 ||
+          (product.brand_id && selectedBrands.includes(product.brand_id));
+  
+        // Ensure product has amount property
+        const isPriceMatch =
+          product.amount >= selectedPriceRange[0] &&
+          product.amount <= selectedPriceRange[1];
+  
+        return isBrandMatch && isPriceMatch;
+      });
+    };
+  
+    // Calculate start and end indices of items to display
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filterProducts(productList).slice(
+      indexOfFirstItem,
+      indexOfLastItem
+    );
 
   return (
     <>
@@ -232,63 +330,107 @@ const Brandlist = () => {
 
           <div className="col-md-12">
             <div className="text-end d-flex justify-content-end filter-item">
-              <div className="p-0">
+              <div className="p-0 rounded mx-1">
                 <button
-                  className="btn p-0 text-white"
+                  class="btn p-0 text-white"
                   type="button"
                   data-bs-toggle="offcanvas"
-                  data-bs-target="#offcanvasRight1"
-                  aria-controls="offcanvasRight1"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
                 >
-                  <i className="fa-solid fa-filter mt-2"></i>
+                  <i class="fa-solid fa-filter mt-2 text-white px-4"></i>
                 </button>
 
                 <div
-                  className="offcanvas offcanvas-end"
+                  class="offcanvas offcanvas-end px-3"
                   tabindex="-1"
-                  id="offcanvasRight1"
-                  aria-labelledby="offcanvasRight1Label"
+                  id="offcanvasRight"
+                  aria-labelledby="offcanvasRightLabel"
                 >
-                  <div className="offcanvas-header">
-                    <h5 className="offcanvas-title" id="offcanvasRight1Label">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">
                       Filter BY Brands
                     </h5>
+
                     <button
                       type="button"
-                      className="btn-close"
+                      class="btn-close bg-white"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div className="offcanvas-body position-relative text-start">
+                  <div className="col-md-12 ps-4">
+                    <div className="row">
+                      {productOldlist &&
+                        productOldlist.productList &&
+                        productOldlist.productList.map((item) =>
+                          selectedBrands.some(
+                            (selectedBrandId) =>
+                              selectedBrandId === item.brand._id
+                          ) ? (
+                            <div
+                              key={item.brand._id}
+                              className="col-md-5 btn button filt-bt ms-5"
+                              onClick={() => {
+                                handleBrandClick(item.brand._id);
+                              }}
+                              style={{ backgroundColor: "white" }}
+                            >
+                              <div className=" mx-1">
+                                <p>{item.brand.name}</p>
+                              </div>
+
+                              <div className="x-close">x</div>
+                            </div>
+                          ) : null
+                        )}
+                    </div>
+                  </div>
+
+                  <div class="offcanvas-body position-relative text-start">
                     {productOldlist &&
                       productOldlist.productList &&
                       productOldlist.productList.map((item) => (
-                        <div key={item.brand.id}>
+                        <div
+                          key={item.brand._idid}
+                          onClick={() => {
+                            handleBrandClick(item.brand._id);
+                          }}
+                        >
                           <p>{item.brand.name}</p>
                         </div>
                       ))}
-                    <div style={{
-
-                    }}>
+                    <div style={{}}>
                       {/* <h5>Price</h5>
                       <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
-
                     </div>
-                    <div className="position-absolute bottom-0 end-0">
-                      <button className=" text-black btn button mx-1">
-                        {" "}
+                    <div className="position-fixed bottom-0 end-1 filter-btns-cont ">
+                      <button
+                        className=" text-black btn button mx-1 filter-btns"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight"
+                        onClick={clearFilters}
+                      >
                         Clear All
                       </button>
-                      <button className="text-black btn button mx-1">
+                      <button
+                        className="text-black btn button mx-1 filter-btns"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight"
+                        onClick={() => setapplyFiliter(!applyFiliter)}
+                      >
                         {" "}
                         Apply
                       </button>
                     </div>
-
                   </div>
                 </div>
               </div>
+
               <Dropdown
                 overlay={menu}
                 trigger={["hover"]}
@@ -301,28 +443,6 @@ const Brandlist = () => {
                   {sortby !== "" ? sortby : "Sort by"}
                 </div>
               </Dropdown>
-              <Dropdown
-                overlay={pricemenu}
-                trigger={["hover"]}
-                placement="bottomCenter"
-              >
-                <div
-                  className="ant-dropdown-link"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  {priceby !== "" ? priceby : "Price"}
-
-                </div>
-              </Dropdown>
-              <div>
-                Popular
-              </div>
-              <div>
-                Newest
-              </div>
-              <div>
-                Best Selling
-              </div>
             </div>
           </div>
 
@@ -374,53 +494,79 @@ const Brandlist = () => {
             </div>
 
             <div className="col-md-9">
-              {<div className="row col-md-12 body-card-product" >
-                {productList &&
-                  productList &&
-                  productList.map((prod, ind) => prod.images !== undefined && (
-                    <div className="col-md-3 rounded-border mt-3 "
-                     onClick={() => handleNavigation(prod._id)}
-                    >
-                      <div className="product-card">
-                        <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3">
-
-
-                          < p> {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && <p className="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
-                            {parseFloat(prod.offeramount / 100).toFixed(0)}%
-
-                          </p>}
-                          </p>
-
-                          <HeartButton />
-                        </div>
-                        <div className="home-product-in">
-                          <img
-                            src={prod && prod?.images[0] &&
-                              prod.images[0] !== null && prod.images[0] !== undefined &&
-                              prod.images[0] !== "image_url1"
-                              ? `${prod.images[0]}`
+              <div className="row col-md-12 body-card-product">
+                {currentItems.map((prod, ind) => (
+                  <div
+                    className="col-md-3 my-1"
+                    key={ind}
+                    onMouseEnter={() => setHoveredProductId(prod._id)}
+                    onMouseLeave={() => setHoveredProductId(null)}
+                  >
+                    <div class="product-card">
+                      <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3 px-">
+                        <p>
+                          {" "}
+                          {prod.brand_id ===
+                                    "65aa405f6bfadce6d5a0ef3c" && (
+                                    <p className="text-white text-center  text-decoration-line-through w-100 mt-2 rounded-end bg-theme-dis">
+                                      40%
+                                    </p>
+                                  )}
+                        </p>
+                        <div></div>
+                        <HeartButton />
+                      </div>
+                      <div className="home-product-in">
+                      <img
+                          src={
+                            hoveredProductId === prod._id && prod.images.length > 1 && prod.images[1]
+                              ? prod.images[1]
+                              : prod.images[0] !== null && prod.images[0] !== "image_url1"
+                              ? prod.images[0]
                               : "assets/images/Rectangle 22.png"
-                            }
-                            className=""
-                            alt="Web Project 1"
-                          />
-                          <div className="text-center  border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
-                            <i className="fas fa-cart-plus me-2"></i> Add to Cart
-                          </div>
-                        </div>
-                        <div className="text-center price-card py-2">
-                          <p className="font-z text-truncate" style={{ maxWidth: '200px' }}>{prod.name}</p>
-                          <p className=" mb-0 pro-price">₹{prod.amount}</p>
+                          }
+                          className="product-shopall img-fluid"
+                          alt={prod.name}
+                          onClick={() => handleNavigation(prod._id)}
 
-                          <div className="text-center d-none border-secondary addtocart-btn px-1 py-1 mx-2" onClick={() => handleNavigation(prod._id)}>
-                            <i className="fas fa-cart-plus me-2"></i> Add to Cart
-                          </div>
+                        />
+                        <div
+                          class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2"
+                          onClick={() => handleNavigation(prod._id)}
+                        >
+                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                        </div>
+                      </div>
+                      <div className="text-center price-card py-2">
+                        <p
+                          className="font-z text-truncate"
+                          style={{ maxWidth: "200px" }}
+                        >
+                          {prod.name}
+                        </p>
+                        <p className=" mb-0">₹{prod.amount}</p>
+
+                        <div
+                          class="text-center d-none border-secondary addtocart-btn px-1 py-1 mx-2"
+                          onClick={() => handleNavigation(prod._id)}
+                        >
+                          <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>
                     </div>
-                  ))}
-
-              </div>}
+                  </div>
+                ))}
+              </div>
+              <div className="text-center mt-4">
+                {productList.length > 0 && (
+                  <Pagination
+                    current={currentPage}
+                    pageSize={itemsPerPage}
+                    total={productList.length}
+                    onChange={handlePaginationChange}
+                  />
+                )}
+              </div>
             </div>
 
           </div>

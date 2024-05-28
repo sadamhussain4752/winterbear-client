@@ -19,7 +19,7 @@ const Terms = () => {
           <div className="row justify-content-center">
             <div className="col-md-12">
               <div className="section-heading">
-                <h3 className="theme-bg-text ">Privacy Policy
+                <h3 className="theme-bg-text ">Terms & Conditions
 </h3>
               </div>
             </div>

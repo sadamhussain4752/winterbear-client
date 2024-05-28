@@ -70,7 +70,11 @@
     background-image: url("../constant/images/jar-img.png");
     background-repeat: no-repeat;
     background-size: cover;
+    
 
+  }
+  .jar:hover {
+    cursor: pointer;
   }
 
   .jar::before {

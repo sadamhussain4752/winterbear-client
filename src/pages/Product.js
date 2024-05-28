@@ -288,9 +288,6 @@ const Product = () => {
                 <Nav.Link className="tab-text" eventKey="description">Description</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link className="tab-text" eventKey="additional">Additional information</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
                 <Nav.Link className="tab-text" eventKey="specification">Specification</Nav.Link>
               </Nav.Item>
               <Nav.Item>
@@ -351,75 +348,79 @@ const Product = () => {
               </Tab.Pane>
               <Tab.Pane eventKey="specification">
                 {/* Reviews Tab Content */}
-                <div className="col-md-12 text-start ">
-                  <div className="text-start">
-                    <p className="mt-3">Size:</p>
+                {product.category_id === "65a79023a4420b22a687efa6" && (
+            <div className="col-md-12 text-start ">
+            <div className="text-start">
+              <p className="mt-3">Size:</p>
 
 
-                    <table className="size-speck">
-                      <tr>
-                        <th>Size</th>
-                        <th>	Shoulder</th>
-                        <th>Chest</th>
-                        <th>Sleeve</th>
-                        <th>Length</th>
-                      </tr>
-                      <tr>
-                        <td>S</td>
-                        <td>
-                          55cm
-                        </td>
-                        <td>
-                          114cm
-                        </td>
-                        <td>
-                          56.5cm
-                        </td>
-                        <td>
-                          101cm
-                        </td>
-                          
-                          
-                         
-                       
-                        
-                      </tr>
-                      <tr>
-                        <td>M</td>
-                        <td>56cm</td>
-                        <td>118cm</td>
-                        <td>60cm</td>
-                        <td>105cm</td>
-                      </tr>
-                      <tr>
-                        <td>L</td>
-                        <td>57cm</td>
-                        <td>112cm	</td>
-                        <td>	57cm	</td>
-                        <td>	107cm	</td>
-                      </tr>
+              <table className="size-speck">
+                <tr>
+                  <th>Size</th>
+                  <th>	Shoulder</th>
+                  <th>Chest</th>
+                  <th>Sleeve</th>
+                  <th>Length</th>
+                </tr>
+                <tr>
+                  <td>S</td>
+                  <td>
+                    55cm
+                  </td>
+                  <td>
+                    114cm
+                  </td>
+                  <td>
+                    56.5cm
+                  </td>
+                  <td>
+                    101cm
+                  </td>
+                    
+                    
+                   
+                 
+                  
+                </tr>
+                <tr>
+                  <td>M</td>
+                  <td>56cm</td>
+                  <td>118cm</td>
+                  <td>60cm</td>
+                  <td>105cm</td>
+                </tr>
+                <tr>
+                  <td>L</td>
+                  <td>57cm</td>
+                  <td>112cm	</td>
+                  <td>	57cm	</td>
+                  <td>	107cm	</td>
+                </tr>
 
 
-                      <tr>
-                        <td> XL	</td>
-                        <td>58cm</td>
-                        <td>126cm</td>
-                        <td>61cm</td>
-                        <td>109cm</td>
+                <tr>
+                  <td> XL	</td>
+                  <td>58cm</td>
+                  <td>126cm</td>
+                  <td>61cm</td>
+                  <td>109cm</td>
 
-                      </tr>
-                      <tr>
-                        <td> XXL	</td>
-                        <td>59cm</td>
-                        <td>130cm	</td>
-                        <td>61.5cm	</td>
-                        <td>	111cm</td>
-                      </tr>
-                    </table>
+                </tr>
+                <tr>
+                  <td> XXL	</td>
+                  <td>59cm</td>
+                  <td>130cm	</td>
+                  <td>61.5cm	</td>
+                  <td>	111cm</td>
+                </tr>
+              </table>
 
 
-                  </div>
-                </div>
+            </div>
+          </div>
+
+          )}
+               
               </Tab.Pane>
               <Tab.Pane eventKey="reviews">
                 {/* Reviews Tab Content */}

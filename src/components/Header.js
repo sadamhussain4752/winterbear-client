@@ -417,7 +417,7 @@ const Header = () => {
                           FAQs
                         </a>
                       </li>
-                      {/* <li className="nav-item">
+                      <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
                             }`}
@@ -425,7 +425,7 @@ const Header = () => {
                         >
                           EVENT
                         </a>
-                      </li> */}
+                      </li>
 
                       <li className="nav-item">
                         <a
@@ -447,7 +447,7 @@ const Header = () => {
                         </a>
                       </li>
 
-                      {/* <li className="nav-item">
+                      <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
                             }`}
@@ -455,7 +455,7 @@ const Header = () => {
                         >
                           SNS
                         </a>
-                      </li> */}
+                      </li> 
 
                       {/* <li className="nav-item">
                         <a
@@ -465,7 +465,7 @@ const Header = () => {
                         >
                           LOYALTY
                         </a>
-                      </li> */}
+                      </li>
 
                       {/* <li className="nav-item dropdown">
                           <a

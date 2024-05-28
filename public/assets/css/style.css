@@ -2485,9 +2485,13 @@ input {
 
 .filter-btns-cont {
   display: flex;
+<<<<<<< Updated upstream
   min-width: 25%;
+=======
+  min-width: 20%;
+  margin-bottom: 10px;
+>>>>>>> Stashed changes
 }
-
 .filter-btns-cont button {
   width: 50%;
   height: auto;

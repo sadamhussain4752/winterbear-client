@@ -35,8 +35,8 @@ const ShopAll = () => {
 
   // States to store product list, selected category, and current page
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15; // Number of items per page
+const [currentPage, setCurrentPage] = useState(1);
+const itemsPerPage = 15; // Number of items per page
 
   const { productlist, loading: productListLoading } = useSelector(
     (state) => state.productlist
@@ -320,11 +320,6 @@ const ShopAll = () => {
                       {/* <h5>Price</h5>
                       <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
                     </div>
-<<<<<<< Updated upstream
-                    <div className="position-fixed bottom-0 end-0 filter-btns-cont ">
-                      <button className=" text-black btn button mx-1 filter-btns">
-                        {" "}
-=======
                     <div className="position-fixed bottom-0 end-1 filter-btns-cont ">
                       <button
                         className=" text-black btn button mx-1 filter-btns"
@@ -334,7 +329,6 @@ const ShopAll = () => {
                         aria-controls="offcanvasRight"
                         onClick={clearFilters}
                       >
->>>>>>> Stashed changes
                         Clear All
                       </button>
                       <button
@@ -451,11 +445,12 @@ const ShopAll = () => {
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3 px-">
                         <p>
                           {" "}
-                          {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && (
-                            <p class="text-white text-center  text-decoration-line-through bg-theme w-25 mt-2 rounded-end">
-                              {parseFloat(prod.offeramount / 100).toFixed(0)}%
-                            </p>
-                          )}
+                          {prod.brand_id ===
+                                    "65aa405f6bfadce6d5a0ef3c" && (
+                                    <p className="text-white text-center  text-decoration-line-through w-100 mt-2 rounded-end bg-theme-dis">
+                                      40%
+                                    </p>
+                                  )}
                         </p>
                         <HeartButton />
                       </div>
@@ -489,12 +484,12 @@ const ShopAll = () => {
                         </p>
                         <p className=" mb-0">₹{prod.amount}</p>
 
-                        {/* <div
+                        <div
                           class="text-center d-none border-secondary addtocart-btn px-1 py-1 mx-2"
                           onClick={() => handleNavigation(prod._id)}
                         >
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                   </div>

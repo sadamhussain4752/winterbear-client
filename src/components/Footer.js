@@ -29,19 +29,19 @@ const Footer = () => {
                   <div className="col-md-6 col-6">
                     <ul>
                       <li>
-                        <a href="#"> Home</a>
+                        <a href="/"> Home</a>
                       </li>
                       <li>
-                        <a href="#">shop</a>
+                        <a href="/shop/0">shop</a>
                       </li>
                       <li>
-                        <a href="#">bearclub</a>
+                        <a href="/events">Events</a>
                       </li>
                       <li>
-                        <a href="#">About</a>
+                        <a href="/about">About</a>
                       </li>
                       <li>
-                        <a href="#">faq</a>
+                        <a href="/faqs">faq</a>
                       </li>
                       <li>
                         <a href="/blogs">Blogs</a>
@@ -54,14 +54,12 @@ const Footer = () => {
                         <a href="/account">my account</a>
                       </li>
                       <li>
-                        <a href="#">wishlist</a>
+                        <a href="/wishlist">wishlist</a>
                       </li>
                       <li>
-                        <a href="#">our stores</a>
+                        <a href="/stores">our stores</a>
                       </li>
-                      <li>
-                        <a href="#">events</a>
-                      </li>
+                     
                     </ul>
                   </div>
                 </div>
@@ -72,16 +70,16 @@ const Footer = () => {
                 <h4>Important links</h4>
                 <ul className=''>
                   <li>
-                    <a href="#">privacy policy</a>
+                    <a href="/privacy">privacy policy</a>
                   </li>
                   <li>
-                    <a href="#">shipping policy</a>
+                    <a href="/faqs">shipping policy</a>
                   </li>
                   <li>
-                    <a href="#">terms &amp; conditions</a>
+                    <a href="/term">terms &amp; conditions</a>
                   </li>
                   <li>
-                    <a href="#">returns &amp; refunds</a>
+                    <a href="/faqs">returns &amp; refunds</a>
                   </li>
                 </ul>
               </div>

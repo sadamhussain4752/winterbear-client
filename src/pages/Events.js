@@ -6,7 +6,7 @@ import Gallery from "../components/Gallery";
 // import Wave from "../components/Wave";
 import { fetchEventData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
-import { Popover, Button } from 'antd';
+import { Popover, Button } from "antd";
 
 import "./Events.css";
 
@@ -40,9 +40,9 @@ const EventsSection = () => {
 
   // calender
 
-  const [day, setDay] = useState('');
-  const [month, setMonth] = useState('');
-  const [year, setYear] = useState('');
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
 
   // hover message
 
@@ -50,13 +50,24 @@ const EventsSection = () => {
 
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
   const months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
   const currentYear = new Date().getFullYear();
-  const years = Array.from({ length: currentYear - 1899 }, (_, i) => currentYear - i);
-
-
+  const years = Array.from(
+    { length: currentYear - 1899 },
+    (_, i) => currentYear - i
+  );
 
   const wavesData = [
     {
@@ -189,7 +200,10 @@ const EventsSection = () => {
         </div>
       </section>
       <section style={{ position: "relative" }}>
-      <h2 className="text-center">Discover your next fandom adventure with WINTERBEAR's whimsical event jars!</h2>
+        <h2 className="text-center">
+          Discover your next fandom adventure with WINTERBEAR's whimsical event
+          jars!
+        </h2>
 
         <div className="container py-5 my" style={{ position: "relative" }}>
           {/* <div className="row event-cont">
@@ -209,7 +223,7 @@ const EventsSection = () => {
                   </div>}
                 </div>
               </div>
-              <Popover content={content} title="Title" trigger="hover">
+              <Popover content={content}  trigger="hover">
               <div id="image-div" className="image-div d-flex align-items-center">
 
 </div>
@@ -383,125 +397,106 @@ const EventsSection = () => {
               <div className="vending-machine">
                 <div className="shelves">
                   <div className="shelf">
-                    <div className="jar">
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
 
-                    </div>
-                    <div className="jar">
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
 
-                    </div>
-                    <div className="jar">
+                    <Popover content={content} trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
 
-                    </div>
-                    <div className="jar">
-
-                    </div>
                   </div>
                   <div className="shelf">
-                    <div className="jar">
+                  <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
 
-                    </div>
-                    <div className="jar">
-
-                    </div>
-                    <div className="jar">
-
-                    </div>
-                    <div className="jar">
-
-                    </div>
                   </div>
                   <div className="shelf">
-                    <div className="jar">
+                  <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
 
-                    </div>
-                    <div className="jar">
-
-                    </div>
-                    <div className="jar">
-
-                    </div>
-                    <div className="jar">
-
-                    </div>
                   </div>
                   <div className="shelf">
-                    <div className="jar">
+                  <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
+                    <Popover content={content}  trigger="hover">
+                      <div className="jar"></div>
+                    </Popover>
 
-                    </div>
-                    <div className="jar">
-
-                    </div>
-                    <div className="jar">
-
-                    </div>
-                    <div className="jar">
-
-                    </div>
                   </div>
                 </div>
                 <div className="controls">
                   <div className="cont-display">
-
                     <div className="row month-sec px-2 mb-2">
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          jan
-                        </div>
+                        <div className="mont">jan</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Feb
-                        </div>
+                        <div className="mont">Feb</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Mar
-                        </div>
+                        <div className="mont">Mar</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Apr
-                        </div>
+                        <div className="mont">Apr</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          May
-                        </div>
+                        <div className="mont">May</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Jun
-                        </div>
+                        <div className="mont">Jun</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Jul
-                        </div>
+                        <div className="mont">Jul</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Aug
-                        </div>
+                        <div className="mont">Aug</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Sep
-                        </div>
+                        <div className="mont">Sep</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Oct
-                        </div>
+                        <div className="mont">Oct</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Nov
-                        </div>
+                        <div className="mont">Nov</div>
                       </div>
                       <div className="col-2 p-0 text-center">
-                        <div className="mont">
-                          Dec
-                        </div>
+                        <div className="mont">Dec</div>
                       </div>
 
                       <>
@@ -517,34 +512,58 @@ const EventsSection = () => {
                                   id="prev"
                                 ></span>
                               </td>
-                              {activeDays === "" ?
+                              {activeDays === "" ? (
                                 <>
                                   <tr className="table-row">
-
-                                    <td className="month text-dark px-3  event-image">2024</td>
-                                    <td className="month text-dark px-3  event-image">2025</td>
-                                    <td className="month text-dark px-3  event-image">2026</td>
-                                  </tr>
-                                </> :
-                                <>
-                                  <tr className="table-row">
-
-                                    <td className="month text-dark px-3  event-image-days">1</td>
-                                    <td className="month text-dark px-3  event-image-days">2</td>
-                                    <td className="month text-dark px-3  event-image-days">3</td>
-                                    <td className="month text-dark px-3  event-image-days">4</td>
-                                    <td className="month text-dark px-3  event-image-days">5</td>
-                                  </tr>
-                                  <tr className="table-row">
-                                    <td className="month text-dark px-3  event-image-days">6</td>
-                                    <td className="month text-dark px-3  event-image-days">7</td>
-                                    <td className="month text-dark px-3  event-image-days">8</td>
-                                    <td className="month text-dark px-3  event-image-days">9</td>
-                                    <td className="month text-dark px-3  event-image-days">10</td>
+                                    <td className="month text-dark px-3  event-image">
+                                      2024
+                                    </td>
+                                    <td className="month text-dark px-3  event-image">
+                                      2025
+                                    </td>
+                                    <td className="month text-dark px-3  event-image">
+                                      2026
+                                    </td>
                                   </tr>
                                 </>
-                              }
-
+                              ) : (
+                                <>
+                                  <tr className="table-row">
+                                    <td className="month text-dark px-3  event-image-days">
+                                      1
+                                    </td>
+                                    <td className="month text-dark px-3  event-image-days">
+                                      2
+                                    </td>
+                                    <td className="month text-dark px-3  event-image-days">
+                                      3
+                                    </td>
+                                    <td className="month text-dark px-3  event-image-days">
+                                      4
+                                    </td>
+                                    <td className="month text-dark px-3  event-image-days">
+                                      5
+                                    </td>
+                                  </tr>
+                                  <tr className="table-row">
+                                    <td className="month text-dark px-3  event-image-days">
+                                      6
+                                    </td>
+                                    <td className="month text-dark px-3  event-image-days">
+                                      7
+                                    </td>
+                                    <td className="month text-dark px-3  event-image-days">
+                                      8
+                                    </td>
+                                    <td className="month text-dark px-3  event-image-days">
+                                      9
+                                    </td>
+                                    <td className="month text-dark px-3  event-image-days">
+                                      10
+                                    </td>
+                                  </tr>
+                                </>
+                              )}
 
                               <td>
                                 <span
@@ -557,7 +576,6 @@ const EventsSection = () => {
                         </table>
                       </>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -569,45 +587,60 @@ const EventsSection = () => {
             <h2>Select Your Events</h2>
             <div className="dropdown-container">
               <div className="two-cont">
-
-                <select className="sel-2" value={year} onChange={(e) => setYear(e.target.value)}>
-                  <option value="" disabled>Year</option>
+                <select
+                  className="sel-2"
+                  value={year}
+                  onChange={(e) => setYear(e.target.value)}
+                >
+                  <option value="" disabled>
+                    Year
+                  </option>
                   {years.map((y) => (
-                    <option key={y} value={y}>{y}</option>
+                    <option key={y} value={y}>
+                      {y}
+                    </option>
                   ))}
                 </select>
-                <select className="sel-2" value={month} onChange={(e) => setMonth(e.target.value)}>
-                  <option value="" disabled>Month</option>
+                <select
+                  className="sel-2"
+                  value={month}
+                  onChange={(e) => setMonth(e.target.value)}
+                >
+                  <option value="" disabled>
+                    Month
+                  </option>
                   {months.map((m, index) => (
-                    <option key={index} value={index + 1}>{m}</option>
+                    <option key={index} value={index + 1}>
+                      {m}
+                    </option>
                   ))}
                 </select>
               </div>
 
-              <select className="sel-3" value={day} onChange={(e) => setDay(e.target.value)}>
-                <option value="" disabled>Day</option>
+              <select
+                className="sel-3"
+                value={day}
+                onChange={(e) => setDay(e.target.value)}
+              >
+                <option value="" disabled>
+                  Day
+                </option>
                 {days.map((d) => (
-                  <option key={d} value={d}>{d}</option>
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
                 ))}
               </select>
 
-
               <button className="find-yer mt-4 px-4 py-2">FInd Event</button>
-
             </div>
           </div>
-
         </div>
-        
-      
       </section>
-
-
 
       <Gallery />
       <Footer />
     </>
-
   );
 };
 
