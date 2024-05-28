@@ -42,13 +42,13 @@ const NewsPaper = ({ visible, onClose }) => {
 
                         <div className="text-center ">
                             <p className="text-white font-news">
-                                Welcome To WINTERBEAR !
+                            Welcome to Winterbear! 
                             </p>
                             <p className="text-white fs-5 fw-bold ">
                                 GET 21% OFF
                             </p>
                             <p className="text-white font-news-text">
-                                Escape the noise, It’s time to hear the magic with Xiaomi Earbuds.
+                            India's first one-stop destination for all official licensed merchandise.
                             </p>
                             <div className="d-flex justify-content-center align-items-center align-self-center font-news-text">
                                 <p className="text-white ">

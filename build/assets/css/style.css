@@ -2485,8 +2485,12 @@ input {
 
 .filter-btns-cont {
   display: flex;
+<<<<<<< Updated upstream
+  min-width: 25%;
+=======
   min-width: 20%;
   margin-bottom: 10px;
+>>>>>>> Stashed changes
 }
 .filter-btns-cont button {
   width: 50%;
@@ -3159,4 +3163,18 @@ a {
 
 .size-option:hover {
   border-color: black;
+}
+
+
+.size-speck {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.size-speck td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  font-size: 14px;
+  padding: 8px;
 }

@@ -8,12 +8,13 @@ import {
   fetchProductDataOld,
   AddWishlistFetch,
   fetchWishlistData,
+  AddCardProductById,
 } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
 import "./innerstyle.css";
-
+import {message} from "antd"
 const Home2 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -95,7 +96,15 @@ const Home2 = () => {
     });
   };
   
-
+  const addcard = async (id) => {
+    let addcarditem = {
+      userId: userId,
+      productId: id._id,
+      quantity: "1",
+    };
+   await dispatch(AddCardProductById(addcarditem))
+   message.success(`Succesfully Add the Cart ${id.name}`)
+  };
 
   const loadAllProducts = (brandId) => {
     navigate(`/brand/${brandId}`);
@@ -233,7 +242,8 @@ const Home2 = () => {
 
                                 <div
                                   className="text-center  border-secondary addtocart-btn px-1 py-1 "
-                                  // onClick={() => handleNavigation(prod._id)}
+                                  style={{ cursor: "pointer" }}
+                                  onClick={() => addcard(prod)}
                                 >
                                   <i className="fas fa-cart-plus me-2" /> Add to
                                   Cart

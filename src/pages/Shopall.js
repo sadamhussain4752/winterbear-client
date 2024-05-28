@@ -11,9 +11,12 @@ import {
   fetchProductData,
   fetchBannerData,
   fetchProductDataOld,
+  AddCardProductById,
+  AddWishlistFetch,
+  fetchWishlistData,
 } from "../reducer/thunks";
 import HomeSlider from "../components/BrandSlider";
-import { Dropdown, Menu, Empty, Pagination, Slider } from "antd";
+import { Dropdown, Menu, Empty, Pagination, Slider,message } from "antd";
 
 const ShopAll = () => {
   const dispatch = useDispatch();
@@ -30,6 +33,7 @@ const ShopAll = () => {
   const [applyFiliter, setapplyFiliter] = useState(false);
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 10000]); // Adjust the range as needed
   const [hoveredProductId, setHoveredProductId] = useState("");
+  const userIds = localStorage.getItem("userId");
 
   const { id } = useParams();
 
@@ -44,6 +48,11 @@ const itemsPerPage = 15; // Number of items per page
   const { productOldlist, loading: productListLoadings } = useSelector(
     (state) => state.productOldlist
   );
+  const {
+    wishlist,
+    addloading: addloadingLoading,
+    error: productListErrors,
+  } = useSelector((state) => state.wishlist);
   const { data, loading: bannerLoading } = useSelector((state) => state.data);
 
   // Fetch product data when component mounts
@@ -51,6 +60,9 @@ const itemsPerPage = 15; // Number of items per page
     dispatch(fetchProductData());
     dispatch(fetchBannerData());
     dispatch(fetchProductDataOld());
+    if (userIds !== undefined && userIds !== null) {
+      dispatch(fetchWishlistData(userIds));
+    }
   }, [dispatch]);
 
   // Set productList when productlist changes
@@ -183,6 +195,21 @@ const itemsPerPage = 15; // Number of items per page
     setSelectedPriceRange(range);
   };
 
+  const addcard = async (id) => {
+    let addcarditem = {
+      userId: userIds,
+      productId: id._id,
+      quantity: "1",
+    };
+   await dispatch(AddCardProductById(addcarditem))
+   message.success(`Succesfully Add the Cart ${id.name}`)
+  };
+
+  const handleWishlists = async (prod_id) => {
+    const userIds = localStorage.getItem("userId");
+    const passbody = { userId: userIds, productId: prod_id };
+    await dispatch(AddWishlistFetch(passbody));
+  };
   // Filter products based on selected filters
   const filterProducts = (products) => {
     return products.filter((product) => {
@@ -452,7 +479,24 @@ const itemsPerPage = 15; // Number of items per page
                                     </p>
                                   )}
                         </p>
-                        <HeartButton />
+                        <div></div>
+
+                                  <button
+                                    className="heart-btn"
+                                    id="hertbtn"
+                                    onClick={() => {
+                                      handleWishlists(prod._id);
+                                    }}
+                                  >
+                                    {wishlist?.wishlistItems?.some(
+                                      (item) => item.productId === prod._id
+                                    ) ? (
+                                      <HeartButton isActives={true} />
+                                    ) : (
+                                      <HeartButton isActives={false} />
+                                    )}
+                                    
+                                  </button>
                       </div>
                       <div className="home-product-in">
                       <img
@@ -470,8 +514,8 @@ const itemsPerPage = 15; // Number of items per page
                         />
                         <div
                           class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2"
-                          onClick={() => handleNavigation(prod._id)}
-                        >
+                          onClick={() => addcard(prod)}
+                          >
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>

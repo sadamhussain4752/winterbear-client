@@ -7,10 +7,11 @@ import {
   DeleteWishlistFetch,
   QtyOrderProductById,
   fetchWishlistData,
+  AddCardProductById,
 } from "../reducer/thunks";
 import constant from "../constant/constant";
 import { useNavigate } from "react-router-dom";
-import { Steps } from "antd";
+import { Steps,message } from "antd";
 import Relatedproducts from "../components/Relatedproducts";
 
 const Wishlist = () => {
@@ -66,6 +67,18 @@ const Wishlist = () => {
         0
       )
     );
+  };
+
+  const buyproduct = async (id) => {
+    let addcarditem = {
+      userId: userId,
+      productId: id.productId,
+      quantity: "1",
+    };
+    await dispatch(AddCardProductById(addcarditem))
+    await dispatch(DeleteWishlistFetch(id._id));
+    dispatch(fetchWishlistData(userId));
+    message.success(`Move to Add the Cart ${id?.product?.name} successfully`)
   };
   const handleRemoveItem = async (productId) => {
    await dispatch(DeleteWishlistFetch(productId));
@@ -145,13 +158,19 @@ const Wishlist = () => {
                     ₹{item.product.amount}
                   </td>
 
-                  <td>
-                    <button
-                      className="delete-button pointer-cur"
+                  <td className="product-amount w-100 d-flex justify-content-center mt-5">
+                    <div
+                      className="delete-button pointer-cur mx-2"
                       onClick={() => handleRemoveItem(item._id)}
                     >
                       <i class="fa-solid fa-trash"></i>
-                    </button>
+                    </div>
+                    <div
+                      className="delete-button pointer-cur mx-2"
+                      onClick={() => buyproduct(item)}
+                    >
+                     <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
                   </td>
                 </tr>
               ))}

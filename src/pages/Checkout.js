@@ -192,13 +192,13 @@ const Checkout = () => {
           <span>Subtotal :</span>
           <span>₹{getSubtotal()}</span>
         </div>
-        <div className="cart-totals-item">
+        {/* <div className="cart-totals-item">
           <span>Shipping :</span>
           <span>Free shipping</span>
-        </div>
+        </div> */}
         <div className="cart-totals-item">
           <span>Flat rate :</span>
-          <span>₹150.00</span>
+          <span>{getTotal() < "999" ? `₹150.00` : 'Free shipping'}</span>
         </div>
         <div className="cart-totals-item">
           <span>Tax :</span>
@@ -206,7 +206,7 @@ const Checkout = () => {
         </div>
         <div className="cart-totals-item total border-top mt-4 pt-3">
           <span>Total :</span>
-          <span>₹{getTotal()}</span>
+          <span>{getTotal() < "999" ? getTotal() + "150.00" : getTotal()}</span>
         </div>
         {/* Proceed to Checkout button */}
         <div className="cart-totals-item-btn mt-4 mb-4 ">

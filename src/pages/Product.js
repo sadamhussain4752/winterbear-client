@@ -172,13 +172,14 @@ const Product = () => {
     );
   };
 
-  const addcard = (id) => {
+  const addcard = async (id) => {
     let addcarditem = {
       userId: userId,
-      productId: id,
+      productId: id._id,
       quantity: "1",
     };
-    dispatch(AddCardProductById(addcarditem))
+   await dispatch(AddCardProductById(addcarditem))
+   message.success(`Succesfully Add the Cart ${id.name}`)
   };
 
   const buyproduct = async (id) => {
@@ -256,7 +257,7 @@ const Product = () => {
             <div className="col-md-4">
               <button
                 className="btn w-100  buy-now-tag add-to-cart-btn"
-                onClick={() => addcard(product._id)}
+                onClick={() => addcard(product)}
               >
                 Add to Cart <i class=" ms-4 fa-solid fa-cart-arrow-down"></i>
               </button>
