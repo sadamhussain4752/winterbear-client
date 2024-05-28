@@ -15,7 +15,7 @@ const HomeSlider = () => {
   console.log(data);
 
   function shopAllpag(brand) {
-    
+
     navigate(`/brand/${brand.link_brand}`)
 
   }
@@ -33,35 +33,35 @@ const HomeSlider = () => {
         autoplay
         responsive={{
           0: {
-            items: 1,
+            items: 1, // Show 3 items on mobile
           },
           600: {
-            items: 1,
+            items: 1, // Adjust as needed for tablets
           },
           1000: {
-            items: 1,
+            items: 1, // Adjust as needed for desktops
           },
         }}
       >
-        {data && data?.banners &&  // Check if data is not null or undefined
-          data?.banners.map((item, index) => (
-            <div key={index} className="item" onClick={()=> shopAllpag(item)}>
+        {data && data.banners &&  // Check if data is not null or undefined
+          data.banners.map((item, index) => (
+            <div key={index} className="item" onClick={() => shopAllpag(item)}>
               <picture>
                 <source
                   media="(min-width:768px)"
                   src={`${item.imageUrl}`}
-                  className="w-100 "
+                  className="w-100"
                 />
                 <source
                   media="(max-width:768px)"
                   className="w-100"
-                  src={`${item.imageUrl}`}
+                  src={`${item.banner_img_mob}`}
                   height={486}
                   width={320}
                 />
                 <img
                   src={`${item.imageUrl}`}
-                  className=" w-100"
+                  className="w-100"
                   alt=""
                   title=""
                 />
@@ -71,12 +71,12 @@ const HomeSlider = () => {
       </OwlCarousel>
 
       {/* <div className="carousel-content d-md-block d-none width-dynimc">
-        <h3>Step into the K-pop Style Realm</h3>
-        <h5>Your Ultimate Destination for Trendsetting Fashion</h5>
-        <a href="#" className="button">
-          Shop now
-        </a>
-      </div> */}
+      <h3>Step into the K-pop Style Realm</h3>
+      <h5>Your Ultimate Destination for Trendsetting Fashion</h5>
+      <a href="#" className="button">
+        Shop now
+      </a>
+    </div> */}
     </div>
   );
 };

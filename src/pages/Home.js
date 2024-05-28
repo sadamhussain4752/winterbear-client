@@ -84,14 +84,14 @@ const Home2 = () => {
     setVisibleProducts((prevState) => {
       const currentCount = prevState[brandId] || 8;
       let newState = { ...prevState };
-      
+
       if (currentCount + 4 <= 12) {
         newState[brandId] = currentCount + 4;
       } else {
         const { [brandId]: _, ...rest } = prevState;
         newState = rest;
       }
-  
+
       return newState;
     });
   };
@@ -220,18 +220,18 @@ const Home2 = () => {
                           ))}
                         </ul>
                       </div>
-                      <div className="portfolio mx-3 ml-3 row">
+                      <div className="portfolio mx-lg-3 ml-3 row">
                         {item.products
                           .slice(0, visibleProducts[item.brand._id] || 8)
                           .map((prod, ind) => (
-                            <div className="item col-lg-3 position-relative mb-3 home-product px-0"                                   
+                            <div className="item col-lg-3 col-6 position-relative mb-3 home-product px-0 px-4"
                             // onClick={() => handleNavigation(prod._id)}
                             >
                               <div className="home-product-in">
                                 <img
                                   src={
                                     prod.images[0] !== null &&
-                                    prod.images[0] !== "image_url1"
+                                      prod.images[0] !== "image_url1"
                                       ? `${prod.images[0]}`
                                       : "assets/images/Rectangle 22.png"
                                   }
@@ -251,13 +251,13 @@ const Home2 = () => {
                               </div>
 
                               <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
-                                <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
+                                <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100  px-4 px-lg-0">
                                   {item.brand._id ===
                                     "65aa405f6bfadce6d5a0ef3c" && (
-                                    <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
-                                      40%
-                                    </p>
-                                  )}
+                                      <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
+                                        40%
+                                      </p>
+                                    )}
 
                                   <div></div>
 
@@ -275,10 +275,7 @@ const Home2 = () => {
                                     ) : (
                                       <HeartButton isActives={false} />
                                     )}
-                                    {/* <Rate
-                              character={<HeartOutlined />  }
-                              count={1}
-                            /> */}
+
                                   </button>
                                 </div>
 

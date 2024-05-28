@@ -627,13 +627,16 @@ footer ul a {
   padding-bottom: 50px;
 }
 
-.tile-1 .item {
-  width: 246px;
-  background-color: white;
-  /* margin: 5px; */
-  position: relative;
-  overflow: hidden;
+@media only screen and(min-width:760px) {
+  .tile-1 .item {
+    width: 246px;
+    background-color: white;
+    /* margin: 5px; */
+    position: relative;
+    overflow: hidden;
+  }
 }
+
 
 .tile-1 .item img {
   width: 100%;
@@ -2485,13 +2488,11 @@ input {
 
 .filter-btns-cont {
   display: flex;
-<<<<<<< Updated upstream
   min-width: 25%;
-=======
-  min-width: 20%;
+ min-width: 20%;
   margin-bottom: 10px;
->>>>>>> Stashed changes
 }
+
 .filter-btns-cont button {
   width: 50%;
   height: auto;
@@ -2801,13 +2802,17 @@ a {
     width: 100%;
   }
 
-  .filter-btns-cont{
+  .filter-btns-cont {
     width: 100% !important;
   }
 
   .image-container img {
     width: 100px;
     height: 100px;
+  }
+
+  .prize-size {
+    font-size: 12px;
   }
 
   /* 
@@ -2887,8 +2892,13 @@ a {
     justify-content: center;
   }
 
+  .image-container-1 {
+    height: 140px !important;
+    width: 100%;
+  }
+
   .image-container-1 img {
-    width: 120px !important;
+    width: 90px !important;
     height: auto !important;
   }
 
@@ -2938,7 +2948,7 @@ a {
 
 }
 
-.add-to-cart-btn{
+.add-to-cart-btn {
   background-color: #ffe5e5 !important;
   color: black !important;
   border: 2px solid black;
@@ -3111,7 +3121,7 @@ a {
   right: -5%;
   height: 20px;
   /* color: black !important; */
-  border:1px solid white;
+  border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3172,9 +3182,162 @@ a {
   width: 100%;
 }
 
-.size-speck td, th {
+.size-speck td,
+th {
   border: 1px solid #dddddd;
   text-align: left;
   font-size: 14px;
   padding: 8px;
 }
+
+
+
+/* menu toggle mob */
+
+.navigation{
+  cursor: pointer !important;
+}
+
+#menuToggleone
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  cursor: pointer !important;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggleone a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggleone a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggleone input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggleone span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggleone span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggleone span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggleone input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggleone input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggleone input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menuone
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menuone li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggleone input:checked ~ ul
+{
+  transform: none;
+}
+

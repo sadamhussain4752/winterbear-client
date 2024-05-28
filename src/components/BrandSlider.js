@@ -27,10 +27,10 @@ const HomeSlider = () => {
           smartSpeed={3000}
           responsive={{
             0: {
-              items: 1,
+              items: 3,
             },
             600: {
-              items: 2,
+              items: 3,
             },
             1000: {
               items: 5,
@@ -43,7 +43,7 @@ const HomeSlider = () => {
           {data &&
             data?.Brands &&
             data?.Brands.slice(0,8).map((brand, index) => (
-              <div key={index} className="item mx-4" onClick={()=>{
+              <div key={index} className="item mx-lg-4 mx-3" onClick={()=>{
                 handleNavigation(brand._id)
               }}>
                 <img
