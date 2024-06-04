@@ -538,23 +538,21 @@ const Header = () => {
                                     className={'dropdown-item'}
                                     to="/account"
                                   >
-                                    Account
+                                  <i class="fa-solid fa-user"></i>  Account
                                   </Link>
                                 </li>
                                 <li>
                                   <hr className="dropdown-divider" />
                                 </li>
 
-                                <li>
-                                  <hr className="dropdown-divider" />
-                                </li>
+                               
                                 <li>
                                   <a
                                     className="dropdown-item"
                                     onClick={logoutFunction}
                                     href="#"
                                   >
-                                    Sign out
+                                   <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
                                   </a>
                                 </li>
                               </ul>
