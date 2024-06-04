@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate, useParams } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
+// import './components/Sidenav.css';
+
+// import Sidenav from "../components/Sidenav";
 
 import {
   fetchProductData,
@@ -16,7 +19,7 @@ import {
   fetchWishlistData,
 } from "../reducer/thunks";
 import HomeSlider from "../components/BrandSlider";
-import { Dropdown, Menu, Empty, Pagination, Slider,message } from "antd";
+import { Dropdown, Menu, Empty, Pagination, Slider, message } from "antd";
 
 const ShopAll = () => {
   const dispatch = useDispatch();
@@ -122,6 +125,21 @@ const ShopAll = () => {
     });
   };
 
+
+
+  // side nav
+
+  const [sidenavWidth, setSidenavWidth] = useState(0);
+
+  const openNav = () => {
+    setSidenavWidth(350);
+  };
+
+  const closeNav = () => {
+    setSidenavWidth(0);
+  };
+
+
   const menu = (
     <Menu>
       <Menu.ItemGroup title="Price">
@@ -201,8 +219,8 @@ const ShopAll = () => {
       productId: id._id,
       quantity: "1",
     };
-   await dispatch(AddCardProductById(addcarditem))
-   message.success(`Succesfully Add the Cart ${id.name}`)
+    await dispatch(AddCardProductById(addcarditem))
+    message.success(`Succesfully Add the Cart ${id.name}`)
   };
 
   const handleWishlists = async (prod_id) => {
@@ -260,26 +278,26 @@ const ShopAll = () => {
                 {selectedCategory && selectedCategory?.category_img_desktop && (
                   <div className="align-items-center">
                     <picture>
-                <source
-                  media="(min-width: 769px)"
-                  srcSet={`${selectedCategory.category_img_desktop}`}
-                  className="w-100"
-                />
-                <source
-                  media="(max-width: 768px)"
-                  srcSet={`${selectedCategory.category_img_mobile}`}
-                  className="w-100"
-                  
-                />
-                <img
-                  loading="lazy"
-                  src={`${selectedCategory.category_img_desktop}`}
-                  className="w-100"
-                  alt={selectedCategory.altText || ""}
-                  title={selectedCategory.title || ""}
-                />
-              </picture>
-                   
+                      <source
+                        media="(min-width: 769px)"
+                        srcSet={`${selectedCategory.category_img_desktop}`}
+                        className="w-100"
+                      />
+                      <source
+                        media="(max-width: 768px)"
+                        srcSet={`${selectedCategory.category_img_mobile}`}
+                        className="w-100"
+
+                      />
+                      <img
+                        loading="lazy"
+                        src={`${selectedCategory.category_img_desktop}`}
+                        className="w-100"
+                        alt={selectedCategory.altText || ""}
+                        title={selectedCategory.title || ""}
+                      />
+                    </picture>
+
                     {/* <p>{item.brand.name}</p> */}
                   </div>
                 )}
@@ -287,8 +305,25 @@ const ShopAll = () => {
             </div>
           </div>
 
-          <div className="col-md-12">
-            <div className="text-end d-flex justify-content-end filter-item">
+          <div className="col-md-12 mb-4">
+
+            <div className="text-end d-flex justify-content-lg-end justify-content-between align-items-center filter-item">
+
+              <p className="d-lg-none d-block mb-0 py-2 px-4 rounded">
+                <span
+                  style={{ fontSize: '25px', cursor: 'pointer',border:' 1px solid black',
+                  padding:' 0px 10px' }}
+                  onClick={openNav}
+                >
+
+                  &#9776;
+
+                {/* <span className="cat-brand">CATEGORY & BRANDS </span>  */}
+
+                </span>
+
+              </p>
+
               <div className="p-0 rounded mx-1">
                 <button
                   class="btn p-0 text-white"
@@ -390,6 +425,8 @@ const ShopAll = () => {
                 </div>
               </div>
 
+
+
               <Dropdown
                 overlay={menu}
                 trigger={["hover"]}
@@ -406,100 +443,81 @@ const ShopAll = () => {
           </div>
 
 
-          <div className="mob-nav d-md-none d-block">
+          <div className="mob-nav ">
+            {/* d-block d-lg-none */}
 
-            <nav role="navigation">
-              <div id="menuToggleone">
+            <div>
+              <div
+                id="mySidenav"
+                className="sidenav mt-5 text-white"
+                style={{ width: `${sidenavWidth}px` }}
+              >
+                <a href="#" className="closebtn" onClick={closeNav}>
+                  &times;
+                </a>
 
+                <div className="p-0 text-center rounded mx-5">
+                  <h3 className=" fs-2 fw-bolder text-start text-white mb-4 text-uppercase mt-5">
+                    Category
+                  </h3>
+                  {data &&
+                    data.Categorys &&
+                    data.Categorys.map((item) => (
+                      <div
+                        className={`${item._id === selectedCategory?._id
+                          ? ""
+                          : "col-md-12 d-flex justify-content-start "
+                          }`}
+                        key={item._id}
+                        onClick={() => handleCategoryClick(item)}
+                      >
+                        <div className="align-items-start shop-all-card-item ">
+                          <p className="">{item.name}</p>
+                        </div>
+                      </div>
+                    ))}
 
-                <input type="checkbox" />
+                </div>
 
+                <div className="p-0  text-center rounded mx-5">
+                  <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase text-white mt-5">
+                    Brands
+                  </h3>
 
-                <span></span>
-                <span></span>
-                <span></span>
-
-                <div id="menuone">
-                  <div className="p-0 text-center rounded mx-5">
-                    <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase mt-5">
-                      Category
-                    </h3>
-                    {data &&
-                      data.Categorys &&
-                      data.Categorys.map((item) => (
+                  {productOldlist &&
+                    productOldlist.productList &&
+                    productOldlist.productList.slice(0, 8).map((item) => (
+                      <div key={item.brand.id}>
                         <div
-                          className={`${item._id === selectedCategory?._id
-                            ? ""
-                            : "col-md-12 d-flex justify-content-start "
-                            }`}
-                          key={item._id}
-                          onClick={() => handleCategoryClick(item)}
+                          className=" shop-all-cards"
+                          onClick={() => handleNavigationbrand(item.brand._id)}
                         >
-                          <div className="align-items-start shop-all-card-item ">
-                            <p className="">{item.name}</p>
-                          </div>
-                        </div>
-                      ))}
 
-                  </div>
-
-                  <div className="p-0  text-center rounded mx-5">
-                    <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase  mt-5">
-                      Brands
-                    </h3>
-
-                    {productOldlist &&
-                      productOldlist.productList &&
-                      productOldlist.productList.slice(0, 8).map((item) => (
-                        <div key={item.brand.id}>
-                          <div
-                            className=" shop-all-cards"
-                            onClick={() => handleNavigationbrand(item.brand._id)}
-                          >
-                            {/* <img
-                          src={item.brand.imageUrl}
-                          alt={item.brand.name}
-                          className="img-pop"
-                        /> */}
-                            <p className="brand-namee">{item.brand.name}</p>
-                          </div>
-                          {/* <div>
-                      {item.subbrand.map((subItem) => (
-                        <div key={subItem.id} className="align-items-center shop-all-cards" onClick={() => handleSubbrandClick(subItem)}>
-                          <div className="d-flex justify-content-start align-items-center text-center mx-5">
-                            <img src={subItem.imageUrl} alt={subItem.name} />
-                            <p className="mt-3 mx-2">{subItem.name}</p>
-                          </div>
+                          <p className="brand-namee">{item.brand.name}</p>
                         </div>
-                      ))}
-                    </div> */}
-                        </div>
-                      ))}
-                    <div
-                      className="shop-all-cards"
-                      onClick={() => {
-                        navigate(`/Allbrand`);
-                      }}
-                    >
-                      <p className="brand-namee">
-                        More Brands <i class="fa-solid fa-arrow-right"></i>
-                      </p>
-                    </div>
+
+                      </div>
+                    ))}
+                  <div
+                    className="shop-all-cards"
+                    onClick={() => {
+                      navigate(`/Allbrand`);
+                    }}
+                  >
+                    <p className="brand-namee">
+                      More Brands <i class="fa-solid fa-arrow-right"></i>
+                    </p>
                   </div>
                 </div>
+
+
+
+
               </div>
-            </nav>
 
 
 
-
-
-
-
-
-
-
-
+            </div>
           </div>
 
 
@@ -579,7 +597,7 @@ const ShopAll = () => {
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
                   <div
-                    className="col-md-3 my-1"
+                    className="col-md-3 col-6 my-1"
                     key={ind}
                     onMouseEnter={() => setHoveredProductId(prod._id)}
                     onMouseLeave={() => setHoveredProductId(null)}
@@ -597,22 +615,22 @@ const ShopAll = () => {
                         </p>
                         <div></div>
 
-                                  <button
-                                    className="heart-btn"
-                                    id="hertbtn"
-                                    onClick={() => {
-                                      handleWishlists(prod._id);
-                                    }}
-                                  >
-                                    {wishlist?.wishlistItems?.some(
-                                      (item) => item.productId === prod._id
-                                    ) ? (
-                                      <HeartButton isActives={true} />
-                                    ) : (
-                                      <HeartButton isActives={false} />
-                                    )}
-                                    
-                                  </button>
+                        <button
+                          className="heart-btn"
+                          id="hertbtn"
+                          onClick={() => {
+                            handleWishlists(prod._id);
+                          }}
+                        >
+                          {wishlist?.wishlistItems?.some(
+                            (item) => item.productId === prod._id
+                          ) ? (
+                            <HeartButton isActives={true} />
+                          ) : (
+                            <HeartButton isActives={false} />
+                          )}
+
+                        </button>
                       </div>
                       <div className="home-product-in">
                         <img
@@ -632,7 +650,7 @@ const ShopAll = () => {
                         <div
                           class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2"
                           onClick={() => addcard(prod)}
-                          >
+                        >
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>
