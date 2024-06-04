@@ -183,13 +183,13 @@ const Header = () => {
 
             <div className="row align-items-center justify-content-between ">
               {/* Language Selection */}
-              <div className="col-md-5 col-6  ps-1 order-first text-left  border-0 shadow-none">
+              <div className="col-md-5 col-2  ps-1 order-first text-left  border-0 shadow-none">
                 <div class="container-fluid ">
                   <div className="row">
                     <div className="col-md-2">
                       <button
 
-                        className="btn navbar  navbar-toggler border-0 "
+                        className="btn navbar  navbar-toggler border-0 p-0"
                         data-bs-toggle="offcanvas"
                         href="#offcanvasExample"
                         role="button"
@@ -258,7 +258,7 @@ const Header = () => {
                                         <div key={item._id} className="col-6 col-md-3 mb-4 d-flex align-items-center">
                                           <a href="" onClick={() => navigate(`/brand/${item._id}`)}>
                                             <img
-                                            loading="lazy"
+                                              loading="lazy"
                                               src={item.imageUrl}
                                               alt={item.name}
                                               className="shop-online-brand d-block mx-auto"
@@ -359,7 +359,7 @@ const Header = () => {
                           HOME
                         </a>
                       </li>
-                      
+
                       <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
@@ -427,9 +427,9 @@ const Header = () => {
                         >
                           SNS
                         </a>
-                      </li> 
+                      </li>
 
-                    
+
 
                       <li className="mt-md-5 nav-item">
                         <a
@@ -464,7 +464,7 @@ const Header = () => {
                 </div>
               </div>
               {/* Logo */}
-              <div className="col-md-3 col-6">
+              <div className="col-md-3 col-4 px-0">
                 <a href="/">
                   <img
                     src="../assets/images/winterbear-logo.png"
@@ -475,16 +475,26 @@ const Header = () => {
                 </a>
               </div>
               {/* Login/Register and Cart Icons */}
-              <div className="col-md-4 d-md-block d-none  text-start mt-md-0">
+              <div className="col-md-4 col-6 text-start mt-md-0">
                 <div className="row d-flex justify-content-between align-items-center">
-                  <div className="col-md-6">
+                  <div className="col-md-6 d-md-block d-none">
                     <SearchList />
                   </div>
-                  <div className="col-md-6 mt-1">
+                  <div className="col-md-6">
                     <div className="text-end">
                       <div className="d-flex justify-content-between align-items-center">
                         {getUserResponse && getUserResponse.User ? (
                           <>
+
+                            <p className="d-md-none d-block search-a mb-0">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                              <div className="mob-search ">
+                                <SearchList />
+                              </div>
+                            </p>
+
+
+
                             <a
                               href="/loyalty"
                               className="link-body-emphasis text-decoration-none"
@@ -595,7 +605,7 @@ const Header = () => {
                               href="/cart"
                               className="text-decoration-none ps-3"
                             >
-                              <img src="../assets/images/icon_cart.svg" loading="lazy"/>
+                              <img src="../assets/images/icon_cart.svg" loading="lazy" />
                               {/* <i className="fa-solid fa-bag-shopping" /> */}
                             </a>
                           </>
