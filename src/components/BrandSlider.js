@@ -53,6 +53,7 @@ const HomeSlider = () => {
                   className="d-block  mx-auto "
                   width={"60px"}
                   height={"60px"}
+                  loading="lazy"
                 />
                 {/* <div className="text-center mt-2">
                   <h5 className="font-weight-bold">{brand.name || "Brand"}</h5>

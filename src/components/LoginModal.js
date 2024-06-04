@@ -118,6 +118,7 @@ const LoginModal = ({ visible, onClose }) => {
               width={"76px"}
               height={"55px"}
               alt=""
+              loading="lazy"
               src={Google}
             />
           </div>

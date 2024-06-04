@@ -259,11 +259,27 @@ const ShopAll = () => {
               <div className="section-heading">
                 {selectedCategory && selectedCategory?.category_img_desktop && (
                   <div className="align-items-center">
-                    <img
-                      className="w-100"
-                      src={selectedCategory?.category_img_desktop}
-                      alt={selectedCategory?.category_img_desktop}
-                    />
+                    <picture>
+                <source
+                  media="(min-width: 769px)"
+                  srcSet={`${selectedCategory.category_img_desktop}`}
+                  className="w-100"
+                />
+                <source
+                  media="(max-width: 768px)"
+                  srcSet={`${selectedCategory.category_img_mobile}`}
+                  className="w-100"
+                  
+                />
+                <img
+                  loading="lazy"
+                  src={`${selectedCategory.category_img_desktop}`}
+                  className="w-100"
+                  alt={selectedCategory.altText || ""}
+                  title={selectedCategory.title || ""}
+                />
+              </picture>
+                   
                     {/* <p>{item.brand.name}</p> */}
                   </div>
                 )}
@@ -343,10 +359,10 @@ const ShopAll = () => {
                           <p>{item.brand.name}</p>
                         </div>
                       ))}
-                    <div style={{}}>
-                      {/* <h5>Price</h5>
-                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
-                    </div>
+                    {/* <div style={{}}>
+                      <h5>Price</h5>
+                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} />
+                    </div> */}
                     <div className="position-fixed bottom-0 end-1 filter-btns-cont ">
                       <button
                         className=" text-black btn button mx-1 filter-btns"
@@ -607,6 +623,7 @@ const ShopAll = () => {
                                 ? prod.images[0]
                                 : "assets/images/Rectangle 22.png"
                           }
+                          loading="lazy"
                           className="product-shopall img-fluid"
                           alt={prod.name}
                           onClick={() => handleNavigation(prod._id)}

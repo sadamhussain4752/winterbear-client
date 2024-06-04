@@ -258,6 +258,7 @@ const Header = () => {
                                         <div key={item._id} className="col-6 col-md-3 mb-4 d-flex align-items-center">
                                           <a href="" onClick={() => navigate(`/brand/${item._id}`)}>
                                             <img
+                                            loading="lazy"
                                               src={item.imageUrl}
                                               alt={item.name}
                                               className="shop-online-brand d-block mx-auto"
@@ -337,6 +338,7 @@ const Header = () => {
                         src="../assets/images/winterbear-logo.png"
                         className="d-block ps-md-2 img-fluid my-5 "
                         alt="Logo"
+                        loading="lazy"
                       />
                     </div>
                     <button
@@ -357,37 +359,7 @@ const Header = () => {
                           HOME
                         </a>
                       </li>
-                      {/* <li className="nav-item dropdown">
-                          <a
-                            className="nav-link pb-3 fs-5 dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            SHOP ALL
-                          </a>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item pb-3 fs-5" href="#">
-                                ACTION
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item pb-3 fs-5" href="#">
-                                ANOTHER ACTION
-                              </a>
-                            </li>
-                            <li>
-                              <hr className="dropdown-divider" />
-                            </li>
-                            <li>
-                              <a className="dropdown-item pb-3 fs-5" href="#">
-                                SOMETHING ELSE HERE
-                              </a>
-                            </li>
-                          </ul>
-                        </li> */}
+                      
                       <li className="nav-item">
                         <a
                           className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
@@ -457,50 +429,7 @@ const Header = () => {
                         </a>
                       </li> 
 
-                      {/* <li className="nav-item">
-                        <a
-                          className={`nav-link pb-3 fs-5 ${location.pathname === "/" ? "active" : ""
-                            }`}
-                          href="/loyalty"
-                        >
-                          LOYALTY
-                        </a>
-                      </li>
-
-                      {/* <li className="nav-item dropdown">
-                          <a
-                            className="nav-link pb-3 fs-5 dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Language
-                          </a>
-                          <ul class="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item pb-3 fs-5" href="#">
-                                English
-                              </a>
-                            </li>
-                            <li>
-                              <hr className="dropdown-divider" />
-                            </li>
-                            <li>
-                              <a className="dropdown-item pb-3 fs-5" href="#">
-                                Japanese
-                              </a>
-                            </li>
-                            <li>
-                              <hr className="dropdown-divider" />
-                            </li>
-                            <li>
-                              <a className="dropdown-item pb-3 fs-5" href="#">
-                                Australian
-                              </a>
-                            </li>
-                          </ul>
-                        </li> */}
+                    
 
                       <li className="mt-md-5 nav-item">
                         <a
@@ -535,12 +464,13 @@ const Header = () => {
                 </div>
               </div>
               {/* Logo */}
-              <div className="col-md-3  col-6">
+              <div className="col-md-3 col-6">
                 <a href="/">
                   <img
                     src="../assets/images/winterbear-logo.png"
                     className="d-block header-logo"
                     alt="Logo"
+                    loading="lazy"
                   />
                 </a>
               </div>
@@ -600,7 +530,7 @@ const Header = () => {
                               href="/cart"
                               className="text-decoration-none mx-2"
                             >
-                              <img src="../assets/images/icon_cart.svg" />
+                              <img src="../assets/images/icon_cart.svg" loading="lazy" />
 
                               <ul className="mt-3 dropdown-menu text-small">
                                 <li>
@@ -667,7 +597,7 @@ const Header = () => {
                               href="/cart"
                               className="text-decoration-none ps-3"
                             >
-                              <img src="../assets/images/icon_cart.svg" />
+                              <img src="../assets/images/icon_cart.svg" loading="lazy"/>
                               {/* <i className="fa-solid fa-bag-shopping" /> */}
                             </a>
                           </>

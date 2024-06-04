@@ -139,6 +139,7 @@ const Wishlist = () => {
                           alt={`Product Image ${item.product.name}`}
                           style={{ width: "80px", height: "80px" }}
                           className="me-0 "
+                          loading="lazy"
                         />
                       </div>
                       {/* <div className="product-details d-flex align-items-cente justify-content-center mt-4">

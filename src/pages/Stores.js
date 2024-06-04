@@ -147,16 +147,19 @@ const Store = () => {
                             src="assets/images/store.png"
                             className="col-md-4"
                             style={{ height: "220px" }}
+                            loading="lazy"
                           />
                           <img
                             src="assets/images/store1.png"
                             className="col-md-4"
                             style={{ height: "220px" }}
+                            loading="lazy"
                           />
                           <img
                             src="assets/images/store2.png"
                             className="col-md-4"
                             style={{ height: "220px" }}
+                            loading="lazy"
                           />
                         </div>
 

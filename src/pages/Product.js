@@ -21,6 +21,7 @@ import Copyimage from "../constant/images/Copy.svg";
 import Facebookimage from "../constant/images/Facebook.svg";
 import Pinterestimage from "../constant/images/Pinterest.svg";
 import Twitterimage from "../constant/images/Twitter.svg";
+import HeartButton from "../components/heartbutton";
 const options = {
   // loop: true,
   // center: true,
@@ -84,6 +85,12 @@ const Product = () => {
   } = useSelector((state) => state.GetAddcardRes);
   const [productId, setProductId] = useState(id);
 
+  const {
+    wishlist,
+    addloading: addloadingLoading,
+    error: productListErrors,
+  } = useSelector((state) => state.wishlist);
+
   useEffect(() => {
     // Fetch product details based on the productId
     fetchProductbyId(productId);
@@ -135,18 +142,30 @@ const Product = () => {
 
     return (
       <>
-        <OwlCarousel className="owl-theme" loop margin={10} items={1} dots={false} nav={false}>
+        <OwlCarousel className="owl-theme " loop margin={10} items={1} dots={false} nav={false}>
           {product?.images &&
             product?.images.map((image, index) => (
-              <div key={index} className="item">
+              <div key={index} className="item ">
                 <img
                   src={`${image}`}
                   alt={`Product Image ${index}`}
                   className="product-img-main rounded"
+                  loading="lazy"
                 />
+              
               </div>
             ))}
         </OwlCarousel>
+        <div className="position-absolute top-0 end-0 mx-3 mt-2">
+                {wishlist?.wishlistItems?.some(
+                                      (item) => item.productId === product._id
+                                    ) ? (
+                                      <HeartButton isActives={true} />
+                                    ) : (
+                                      <HeartButton isActives={false} />
+                                    )}
+
+                </div>
         <div className="d-flex justify-content-center">
           {product && product?.images && product?.images.length > 1 && <MultiCarousel images={product?.images} />}
 
@@ -267,9 +286,9 @@ const Product = () => {
           </div>
           <div className="d-flex justify-content-between mt-5 sku-tag">
             <p className="w-50 d-flex">
-              <HeartOutlined />
+              {/* <HeartOutlined />
 
-              Add to Wishlist
+              Add to Wishlist */}
             </p>
             <p className="w-50 d-flex">
               Share product:{<div className="mx-1" alt={`Product Image`} style={{ cursor: "pointer" }} onClick={handleCopyUrl}>
@@ -483,6 +502,7 @@ const Product = () => {
                     ? `${prod.images[0]}`
                     : "assets/images/Rectangle 22.png"
                 }
+                loading="lazy"
                 className="product-shopby trans"
                 alt="Web Project 1"
               />
@@ -493,6 +513,7 @@ const Product = () => {
                 <i className="fas fa-cart-plus me-2" /> Add to
                 Cart
               </div>
+
             </div>
 
             <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
@@ -549,6 +570,7 @@ const Product = () => {
               <img
                 src={`${image}`}
                 alt={`Product Image ${index}`}
+                loading="lazy"
               />
             </div>
           ))}

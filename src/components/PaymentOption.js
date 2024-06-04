@@ -55,6 +55,7 @@ const PaymentOption = () => {
                       src={item.card_img}
                       className="card-image"
                       alt="Logo"
+                      loading="lazy"
                     />
                     <div className="col-md-5">
                       <div>

@@ -15,9 +15,7 @@ const HomeSlider = () => {
   console.log(data);
 
   function shopAllpag(brand) {
-
-    navigate(`/brand/${brand.link_brand}`)
-
+    navigate(`/brand/${brand.link_brand}`);
   }
 
   return (
@@ -43,27 +41,28 @@ const HomeSlider = () => {
           },
         }}
       >
-        {data && data.banners &&  // Check if data is not null or undefined
+        {data &&
+          data.banners && // Check if data is not null or undefined
           data.banners.map((item, index) => (
             <div key={index} className="item" onClick={() => shopAllpag(item)}>
               <picture>
                 <source
-                  media="(min-width:768px)"
-                  src={`${item.imageUrl}`}
+                  media="(min-width: 769px)"
+                  srcSet={`${item.imageUrl}`}
                   className="w-100"
                 />
                 <source
-                  media="(max-width:768px)"
+                  media="(max-width: 768px)"
+                  srcSet={`${item.banner_img_mob}`}
                   className="w-100"
-                  src={`${item.banner_img_mob}`}
-                  height={486}
-                  width={320}
+                  height={700}
                 />
                 <img
+                  loading="lazy"
                   src={`${item.imageUrl}`}
                   className="w-100"
-                  alt=""
-                  title=""
+                  alt={item.altText || ""}
+                  title={item.title || ""}
                 />
               </picture>
             </div>

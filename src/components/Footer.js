@@ -116,7 +116,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-md-12 text-center text-white">
-              <img src={require("../constant/images/footer-logo.png")} className="img-fluid" />
+              <img src={require("../constant/images/footer-logo.png")} className="img-fluid" loading="lazy"/>
               <p>Official BT21 &amp; LINE FRIENDS Merchandise in India</p>
             </div>
           </div>
@@ -125,7 +125,7 @@ const Footer = () => {
       <div className="copy-rights-img mt-5">
         <div className="container">
           <div className="text-center">
-            <img src="assets/images/footer-img.png" className="" />
+            <img src="assets/images/footer-img.png" className="" loading="lazy"/>
           </div>
         </div>
       </div>

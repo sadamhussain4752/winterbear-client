@@ -132,6 +132,7 @@ const Home2 = () => {
                         src={`${item.imageUrl}`}
                         className="mb-0"
                         alt={item.name}
+                        loading="lazy"
                       />
                       <h4>{item.name}</h4>
                     </div>
@@ -164,6 +165,7 @@ const Home2 = () => {
                           src={`${item.brand.imageUrl}`}
                           className="w-75 d-block mx-auto"
                           alt={item.brand.name}
+                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -177,6 +179,7 @@ const Home2 = () => {
                           src={`${item.brand.imageUrl}`}
                           className="d-block mx-auto sticky-log2"
                           alt={item.brand.name}
+                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -203,6 +206,7 @@ const Home2 = () => {
                                 src={`${itemname.imageUrl}`}
                                 className="shopby-top-icoimg"
                                 alt={itemname.name}
+                                loading="lazy"
                               />
                               <button
                                 className="nav-link fw-semibold py-0 position-relative rounded-pill"
@@ -237,6 +241,7 @@ const Home2 = () => {
                                   }
                                   className="product-shopby img-fluid"
                                   alt="Web Project 1"
+                                  loading="lazy"
                                   onClick={() => handleNavigation(prod._id)}
                                 />
 

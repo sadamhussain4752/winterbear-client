@@ -50,6 +50,7 @@ const Order = () => {
               src={`${product.images[0]}`}
               alt={product.title}
               style={{ maxWidth: "100%", maxHeight: "100%" }}
+              loading="lazy"
             />
           </Col>
 

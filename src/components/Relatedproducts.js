@@ -64,6 +64,7 @@ const Relatedproducts = () => {
                       }
                       className="product-shopby img-fluid"
                       alt="Web Project 1"
+                      loading="lazy"
                     />
                      <div
                     className="text-center  border-secondary addtocart-btn px-1 py-1 "

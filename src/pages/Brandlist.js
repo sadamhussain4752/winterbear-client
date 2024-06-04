@@ -38,6 +38,7 @@ const Brandlist = () => {
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 10000]); // Adjust the range as needed
   const [hoveredProductId, setHoveredProductId] = useState("");
   const userIds = localStorage.getItem("userId");
+  const [isMobile, setIsMobile] = useState(false);
 
   const {
     productlist,
@@ -253,6 +254,28 @@ const Brandlist = () => {
     indexOfFirstItem,
     indexOfLastItem
   );
+  useEffect(() => {
+    // Function to check the screen width
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Check screen size on initial render
+    checkScreenSize();
+
+    // Add event listener to handle window resize
+    window.addEventListener('resize', checkScreenSize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
+
+  const bannerImages = isMobile
+  ? subBrandlist[0]?.brand?.banner_mob_img
+  : subBrandlist[0]?.brand?.banner_img;
 
   return (
     <>
@@ -272,24 +295,38 @@ const Brandlist = () => {
                         className="carousel slide w-100"
                       >
                         <div className="carousel-inner">
-                          {subBrandlist[0]?.brand.banner_img?.map(
-                            (img_item, isIndex) => {
-                              return (
-                                <div
-                                  className={`carousel-item  ${
-                                    isIndex === 0 ? "active" : ""
-                                  }`}
-                                >
+                          {bannerImages?.map(
+                            (img_item, index) => (
+                              <div
+                                key={index}
+                                className={`carousel-item ${
+                                  index === 0 ? "active" : ""
+                                }`}
+                              >
+                                <picture>
+                                  <source
+                                    media="(min-width: 769px)"
+                                    srcSet={img_item}
+                                    className="w-100"
+                                  />
+                                  <source
+                                    media="(max-width: 768px)"
+                                    srcSet={img_item}
+                                    className="w-100"
+                                    height={260}
+                                  />
                                   <img
-                                    src={img_item}
-                                    alt={img_item}
+                                    src={img_item} // Fallback for browsers that don't support <picture>
+                                    alt={`Brand image ${index}`}
+                                    loading="lazy"
                                     className="brand-img px-0 rounded-0"
                                   />
-                                </div>
-                              );
-                            }
+                                </picture>
+                              </div>
+                            )
                           )}
                         </div>
+
                         <button
                           className="carousel-control-prev"
                           type="button"

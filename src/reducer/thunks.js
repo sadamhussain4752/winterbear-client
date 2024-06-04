@@ -91,7 +91,7 @@ const RatingProductid = `${constant.baseUrl}api/review/GetProductByID`;
 const CouponProductid = `${constant.baseUrl}api/coupon/GetCoupon`;
 const AddupdateCartItemId = `${constant.baseUrl}api/addcart/updateCartItem`;
 const EventList = `${constant.baseUrl}api/event/allevents`;
-const Uploadprofile = `${constant.baseUrl}api/user/User`;
+const Uploadprofile = `${constant.baseUrl}api/user/UserImage`;
 const AddWishAPI = `${constant.baseUrl}api/wishlist/createWishlistItem`;
 const GetWishAPI = `${constant.baseUrl}api/wishlist/wishlistUser`;
 const DeleteWishAPI = `${constant.baseUrl}api/wishlist/deleteWishlistItem`;
@@ -344,7 +344,7 @@ export const fetchEventData = () => async (dispatch) => {
   }
 };
 
-export const UserUploadById = (body,userId) => async (dispatch) => {
+export const UserUploadById = (userId,body) => async (dispatch) => {
   dispatch(UserUploadIdRequest());
 
   try {

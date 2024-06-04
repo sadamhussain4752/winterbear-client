@@ -77,7 +77,7 @@ const Blogs = () => {
                                                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
                                             </p>
                                             <p className="m-2 text-start">
-                                                <Button className="btn button rounded text-start" type="primary">Read More</Button>
+                                                <Button className="btn button w-auto rounded text-start" type="primary">Read More</Button>
 
                                             </p>
 

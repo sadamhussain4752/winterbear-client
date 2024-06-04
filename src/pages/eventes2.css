@@ -147,7 +147,7 @@ justify-content: space-between;
   }
 
   .button {
-    width: 50px;
+    /* width: 50px; */
     /* Increased width */
     height: 50px;
     /* Increased height */

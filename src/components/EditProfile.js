@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { fetchStoreData, UserUploadById } from "../reducer/thunks";
+import { fetchStoreData, UserUploadById ,ProfileUserData} from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Form,
@@ -85,14 +85,21 @@ const EditProfile = () => {
     setLoginData({ ...loginData, [fieldName]: value });
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // Handle form submission
     // Access form data using form.getFieldsValue()
     const formData = form.getFieldsValue();
     console.log("Form Data:", formData);
+     // Add the imageBase64 to formData if it exists
+     if (selectImg) {
+      formData.profile_img = selectImg;
+    }
+    console.log(formData);
     // Add your logic for handling form data submission
 
-    // dispatch(UserUploadById(formData._id,formData))
+   await dispatch(UserUploadById(getUserResponse.User._id,formData))
+   await dispatch(ProfileUserData(getUserResponse.User._id));
+
   };
 
   const handleChanges = ({ fileList: newFileList }) => setFileList(newFileList);
@@ -230,6 +237,7 @@ const EditProfile = () => {
                     className="form-control bg-input"
                     placeholder="Email"
                     value={loginData.email}
+                    disabled
                     onChange={(e) => handleChange("email", e.target.value)}
                   />
                 </Form.Item>
@@ -246,6 +254,7 @@ const EditProfile = () => {
                   ]}
                 >
                   <Input
+                    disabled
                     className="form-control bg-input"
                     placeholder="Phone No"
                     value={loginData.phoneNo}
@@ -359,6 +368,7 @@ onChange={(e) => handleChange("address", e.target.value)}
           style={{
             width: "100%",
           }}
+          loading="lazy"
           src={previewImage}
         />
       </Modal>
@@ -373,6 +383,7 @@ onChange={(e) => handleChange("address", e.target.value)}
         <div className="">
           {AvatarIcons.map((avatarUrl, index) => (
             <img
+            loading="lazy"
               key={index} // Ensure each image has a unique key
               alt={`Avatar ${index + 1}`}
               style={{
