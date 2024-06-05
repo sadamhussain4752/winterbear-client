@@ -81,7 +81,7 @@ const YearRow = ({ activeDays }) => {
           ) : (
             <>
               <tr className="table-row">
-                {days.slice(dayRange.start - 1, dayRange.end - 5).map((day, index) => (
+                {days.slice(dayRange.start - 1, dayRange.end - 6).map((day, index) => (
                   <td className="month text-dark px-1 event-image" key={index}>{day}</td>
                 ))}
               </tr>
@@ -213,7 +213,6 @@ const EventsSection = () => {
             </div>
           </div>
         </div>
-
 
       </section>
 

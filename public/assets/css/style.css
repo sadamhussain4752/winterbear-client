@@ -2788,6 +2788,11 @@ a {
 
 
 
+.fa-chevron-right, .fa-chevron-left{
+  cursor: pointer !important;
+}
+
+
 
 .event-image:hover {
   background-size: 80% !important;
