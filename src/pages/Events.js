@@ -161,11 +161,16 @@ const EventsSection = () => {
 
           <div className="row justify-content-center text-center ">
             <div className="position-relative">
-              <img
+            <picture>
+  <source media="(min-width: 769px)" src={require("../constant/images/EventPageAnimation.gif")} className="w-100" />
+  <source media="(max-width: 768px)" src={require("../constant/images/EventPageresize.gif")} className="img-fluid" height={260} />
+  <img src={require("../constant/images/EventPageAnimation.gif")} alt="Brand image" loading="lazy" className="img-fluid" />
+</picture>
+              {/* <img
                 src={require("../constant/images/EventPageAnimation.gif")}
                 alt="Upcoming Sale"
                 className="img-fluid "
-              />
+              /> */}
               <div className="col-md-12 row d-flex justify-content-center position-absolute top-0 ">
                 {/* <div className=" col-md-9 row d-flex justify-content-center event-tap ">
                   <p className="col-md-3 event-text-color">Upcoming Events</p>

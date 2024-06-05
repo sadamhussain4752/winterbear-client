@@ -116,3 +116,82 @@
  .cor-minimg {
      border: 1px solid gray;
  }
+
+ /* SplashScreen.css */
+
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    /* Initial opacity */
+    transition: opacity 1s ease-in-out;
+    /* Add a fade-in transition effect */
+  }
+  
+  .splash-screen.fade-in {
+    opacity: 1;
+    /* Make the splash screen visible */
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .logo-container {
+    perspective: 1000px;
+    margin-bottom: 10rem; /* Adjusted to relative unit */
+    margin-right: 12rem; /* Adjusted to relative unit */
+  }
+  
+  /* Styling for the front image */
+  .logo-wid-image-font {
+    width: 200px;
+    height: auto;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    animation: showFront 2s linear infinite;
+  }
+  
+  /* Styling for the end image */
+  .logo-wid-image-end {
+    width: 200px;
+    height: auto;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    animation: showEnd 2s linear infinite;
+  }
+  
+  
+  /* Keyframes for showing the front image and hiding the end image */
+  @keyframes showFront {
+    0% {
+      opacity: 1; /* Fully visible */
+      transform: rotateY(0deg);
+    }
+    100% {
+      opacity: 0; /* Fully invisible */
+      transform: rotateY(-180deg);
+    }
+  }
+  
+  /* Keyframes for showing the end image and hiding the front image */
+  @keyframes showEnd {
+    0% {
+      opacity: 0; /* Fully invisible */
+      transform: rotateY(180deg);
+    }
+    100% {
+      opacity: 1; /* Fully visible */
+      transform: rotateY(0deg);
+    }
+  }

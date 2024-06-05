@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
 import "./innerstyle.css";
 import {message} from "antd"
+import SplashScreen from "../components/SplashScreen";
 const Home2 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -109,6 +110,9 @@ const Home2 = () => {
   const loadAllProducts = (brandId) => {
     navigate(`/brand/${brandId}`);
   };
+  if(!data){
+   return <SplashScreen/>
+  }
 
   return (
     <>
