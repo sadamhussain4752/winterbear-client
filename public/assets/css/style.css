@@ -499,7 +499,7 @@ footer ul a {
   left: 50% !important;
   bottom: 0;
   transform: translateX(-50%);
-
+  width: 100%;
 }
 
 .copy-right {
@@ -2771,6 +2771,23 @@ a {
   font-weight: 900;
 
 }
+
+
+.event-image-day {
+  background-image: url("../images/HeartShape.png");
+  background-repeat: no-repeat;
+  background-size: 68%;
+  background-position: center;
+  height: 25px;
+  font-size: 11px;
+  text-align: center;
+  width: 70px;
+  font-weight: 900;
+
+}
+
+
+
 
 .event-image:hover {
   background-size: 80% !important;
