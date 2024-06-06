@@ -445,7 +445,8 @@ footer {
 }
 
 .p-text:hover {
-  font-weight: 300 !important;
+  font-weight: 500 !important;
+  color: #221A42;
 }
 
 .footer-heading h4 {

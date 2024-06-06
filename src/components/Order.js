@@ -4,7 +4,8 @@ import { Table, Button, Modal, Row, Col, Form, Rate } from "antd";
 import { OrderUserList } from "../reducer/thunks";
 import moment from "moment";
 import constant from "../constant/constant";
-
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 const Order = () => {
   let userId = localStorage.getItem("userId");
@@ -124,7 +125,9 @@ const Order = () => {
           </p>
         </Col>
       </Row>
-
+      <Button type="primary" onClick={()=> generatePDF()}>
+        Download Invoice
+      </Button>
     </div>
   );
 
@@ -138,6 +141,104 @@ const Order = () => {
   useEffect(() => {
     dispatch(OrderUserList(userId));
   }, []);
+
+  const generatePDF = () => {
+    if (!selectedOrder) {
+      return;
+    }
+  
+    const doc = new jsPDF();
+  
+    // Set font styles
+    doc.setFont("helvetica");
+    doc.setFontSize(12);
+  
+    // Title
+    doc.setTextColor("#1976d2");
+    doc.setFontSize(22);
+    doc.text("Order Invoice", 105, 20, null, null, "center");
+  
+    // Customer Information
+    doc.setFontSize(12);
+    doc.setTextColor("#333333");
+    doc.text(`Customer Name: ${selectedOrder?.user?.firstname}`, 20, 40);
+    doc.text(`Address: ${selectedOrder?.address?.street}`, 20, 50);
+    doc.text(`Phone Number: ${selectedOrder?.user?.mobilenumber}`, 20, 60);
+  
+    // Table Header
+    const tableHeaders = [
+      { header: "Product", dataKey: "product" },
+      { header: "Image", dataKey: "image" },
+      { header: "Delivery Status", dataKey: "deliveryStatus" },
+      { header: "Payment Mode", dataKey: "paymentMode" },
+      { header: "Sub-total", dataKey: "subTotal" },
+      { header: "GST Tax", dataKey: "gstTax" },
+      { header: "Shipping Fee", dataKey: "shippingFee" },
+    ];
+  
+    // Table Body
+    const tableData = selectedOrder?.products.map((product) => ({
+      product: product.name,
+      image: {
+        image: product.images[0],
+        width: 40,
+        height: 40,
+      },
+      deliveryStatus: product.delivered_type === "1" ? "Card" : "COD",
+      paymentMode: product.delivery,
+      subTotal: `$${product.amount}`,
+      gstTax: `$${(product.offeramount * 0.18).toFixed(2)}`,
+      shippingFee: "Free",
+    }));
+  
+    // AutoTable configuration
+    doc.autoTable({
+      startY: 80,
+      head: [tableHeaders.map((header) => header.header)],
+      body: tableData,
+      theme: "grid",
+      styles: {
+        fontSize: 10,
+        cellPadding: 3,
+        halign: "center",
+        valign: "middle",
+      },
+      columnStyles: {
+        image: { cellWidth: 25, halign: "center" },
+        product: { fontStyle: "bold" },
+      },
+      headStyles: {
+        fillColor: "#f5f5f5",
+        textColor: "#333333",
+        fontStyle: "bold",
+      },
+      margin: { top: 70 },
+    });
+  
+    // Total Amount
+    const totalAmountY = doc.autoTable.previous.finalY + 10;
+    doc.setFontSize(12);
+    doc.setTextColor("#333333");
+    doc.text(`Total Order Amount: $${selectedOrder?.totalAmount}`, 20, totalAmountY);
+  
+    // Footer
+    const footerY = doc.internal.pageSize.height - 20;
+    doc.setFontSize(10);
+    doc.setTextColor("#999999");
+    doc.text(
+      "This is a computer-generated invoice. No signature is required.",
+      105,
+      footerY,
+      null,
+      null,
+      "center"
+    );
+  
+    // Save PDF
+    doc.save("invoice.pdf");
+  };
+  
+  
 
   return (
     <div className="col-md-9 p-4 ">
