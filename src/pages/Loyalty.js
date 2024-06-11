@@ -7,9 +7,12 @@ import "./Loyalty.css";
 const Loyalty = () => {
   const backgroundImageStyle = {
     background: '#9B91C4',
-    backgroundImage: 'url("../assets/images/Loyalty-banner.png")',
+    backgroundImage: 'url("../assets/images/Banner_image.jpg")',
     backgroundSize: "100% 100%",
     postion: "relative",
+    backgroundRepeat: "no-repeat"
+
+
   };
   document.title = "Awards";
   document.getElementsByTagName("META")[2].content = "Awards";

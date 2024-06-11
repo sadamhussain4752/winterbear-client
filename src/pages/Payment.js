@@ -10,6 +10,7 @@ import Cards from "react-credit-cards-2";
 import useRazorpay from "react-razorpay";
 import { useNavigate } from "react-router-dom";
 import { CloseCircleOutlined } from '@ant-design/icons';
+import CryptoJS from 'crypto-js';
 
 const { Option } = Select;
 const { Paragraph, Text } = Typography;
@@ -394,6 +395,55 @@ const Payment = () => {
       console.error("Invalid CouponResponse:", CouponResponse);
     }
   }, [CouponResponse]);
+
+  // useEffect(() => {
+  //   const accessCode = 'AVFB13KA80BY11BFYB';  // Replace with your actual access code
+  //   const workingKey = '63996EAD7AA24C65DF40D20D8DF58581';  // Replace with your actual working key
+  //   const merchantId = '2018136';  // Replace with your actual merchant ID
+
+  //   const getQueryParams = () => {
+  //     return new URLSearchParams(window.location.search);
+  //   };
+
+  //   const params = getQueryParams();
+  //   let ccaRequest = '';
+  //   for (let [key, value] of params.entries()) {
+  //     ccaRequest += `${key}=${value}&`;
+  //   }
+
+  //   // Encrypt the request
+  //   const encrypted = CryptoJS.AES.encrypt(ccaRequest, CryptoJS.enc.Utf8.parse(workingKey), {
+  //     mode: CryptoJS.mode.ECB,
+  //     padding: CryptoJS.pad.Pkcs7,
+  //   });
+  //   const encRequest = encrypted.toString();
+
+  //   // Create form and submit
+  //   const form = document.createElement('form');
+  //   form.method = 'POST';
+  //   form.action = 'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
+
+  //   const encRequestInput = document.createElement('input');
+  //   encRequestInput.type = 'hidden';
+  //   encRequestInput.name = 'encRequest';
+  //   encRequestInput.value = encRequest;
+  //   form.appendChild(encRequestInput);
+
+  //   const accessCodeInput = document.createElement('input');
+  //   accessCodeInput.type = 'hidden';
+  //   accessCodeInput.name = 'access_code';
+  //   accessCodeInput.value = accessCode;
+  //   form.appendChild(accessCodeInput);
+
+  //   const merchantIdInput = document.createElement('input');
+  //   merchantIdInput.type = 'hidden';
+  //   merchantIdInput.name = 'merchant_id';
+  //   merchantIdInput.value = merchantId;
+  //   form.appendChild(merchantIdInput);
+
+  //   document.body.appendChild(form);
+  //   form.submit();
+  // }, []);
 
   const handlePaymentDetailsChange = (details) => {
     setPaymentDetails(details);
