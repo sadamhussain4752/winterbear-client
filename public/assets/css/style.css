@@ -2788,7 +2788,8 @@ a {
 
 
 
-.fa-chevron-right, .fa-chevron-left{
+.fa-chevron-right,
+.fa-chevron-left {
   cursor: pointer !important;
 }
 
@@ -3396,6 +3397,10 @@ th {
     width: 200px;
   }
 
+  .tab-wid {
+    min-width: 650px;
+  }
+
 }
 
 
@@ -3473,4 +3478,3 @@ th {
     font-size: 18px;
   }
 }
-

@@ -254,7 +254,7 @@ const Checkout = () => {
                   },
                 ]}
               /> */}
-              <div className="col-md-12 row mt-5">
+              <div className="col-md-12 row mt-5 tab-wid">
               {renderCartList()}
               {renderCardtotals()}
               
