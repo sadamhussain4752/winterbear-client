@@ -387,9 +387,9 @@ onChange={(e) => handleChange("address", e.target.value)}
               key={index} // Ensure each image has a unique key
               alt={`Avatar ${index + 1}`}
               style={{
-                width: "60px",
-                height: "60px",
-                margin: "10px", // Add some margin between images
+                width: "65px",
+                height: "65px",
+                margin: "13px", // Add some margin between images
               }}
               onClick={() => {
                 setSelectImg(avatarUrl);
