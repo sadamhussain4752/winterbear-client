@@ -221,8 +221,8 @@ const Product = () => {
         <div className="col-md-7">
           <div className="row col-md-12">
             <Rate disabled defaultValue={5} className="col-md-4" />
-            <p className="col-md-4">4.7 Star Rating</p>
-            <p className="col-md-4">(0 User feedback)</p>
+            <p className="col-md-4 mb-0 ">4.7 Star Rating</p>
+            <p className="col-md-4 ">(0 User feedback)</p>
           </div>
           <h3>{product.name}</h3>
           <div className="col-md-12 row sku-tag mt-3">
@@ -266,14 +266,14 @@ const Product = () => {
           <hr />
 
           <div className="text-start col-md-12 row mt-3">
-            <div className="col-md-3 col-6">
+            <div className="col-md-3">
               <p className="d-flex justify-content-center align-items-center border qty-button">
                 <button className="btn btn-primary me-2 bg-cl-tr">+</button>
                 <span>1</span>
                 <button className="btn btn-primary me-2 bg-cl-tr ">-</button>
               </p>
             </div>
-            <div className="col-md-3 col-6">
+            <div className="col-md-3 col-5">
               <button
                 className="btn w-100 text-white button buy-now-tag"
                 onClick={() => buyproduct(product._id)}
