@@ -2789,6 +2789,12 @@ a {
 
 
 
+.fa-chevron-right,
+.fa-chevron-left {
+  cursor: pointer !important;
+}
+
+
 
 .event-image:hover {
   background-size: 80% !important;
@@ -3392,6 +3398,10 @@ th {
     width: 200px;
   }
 
+  .tab-wid {
+    min-width: 650px;
+  }
+
 }
 
 
@@ -3469,4 +3479,3 @@ th {
     font-size: 18px;
   }
 }
-
