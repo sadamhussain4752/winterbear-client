@@ -10,10 +10,10 @@ const LoyaltyList = () => {
       <div
         className="container-fluid rounded-5 py-5 "
         style={{
-          background: "#4f3c97",
+          background: "#bae6f7",
         }}
       >
-        <div className=" theme-bg-text mb-2 fs-1  text-white y-5 text-center rewards">
+        <div className=" theme-bg-text mb-2 fs-1 y-5 text-center rewards">
           May Rewards
         </div>
 
@@ -37,94 +37,51 @@ const LoyaltyList = () => {
             },
           }}
         >
-          <div className="item">
+          <div className="item px-3">
             <img
-              src="assets/images/about2.png"
-              className="w-100 d-block mx-auto px-md-5 px-3"
+              src="assets/images/reward-1.png"
+              className="w-100 d-block mx-auto"
               alt="Gallery Item"
             />
-            <p className="fw-bold fs-5 text-white text-center lh-sm mb-0 mt-3">
-              Heimish All Clean Heimish All Clean Heimish All Clean
+            <p className=" loy-lis-fs text-center lh-sm mb-0 mt-3">
+            BT21 MININI PHOTO ALBUM
             </p>
-            <p className="fw-bold fs-2 text-white text-center"> 150 points</p>
+            <p className=" loy-lis-poi text-center"> 150 points</p>
           </div>
-          <div className="item">
+          <div className="item px-3">
             <img
-              src="assets/images/about2.png"
-              className="w-100 d-block mx-auto px-md-5 px-3"
+              src="assets/images/reward-2.png"
+              className="w-100 d-block mx-auto"
               alt="Gallery Item"
             />
-            <p className="fw-bold fs-5 text-white text-center lh-sm mb-0 mt-3">
-              Heimish All Clean Heimish All Clean
+            <p className=" loy-lis-fs text-center lh-sm mb-0 mt-3">
+            BT21 HAND MIRROR PINK
             </p>
-            <p className="fw-bold fs-2 text-white text-center"> 150 points</p>
+            <p className=" loy-lis-poi text-center"> 200 points</p>
           </div>
-          <div className="item">
+          <div className="item px-3">
             <img
-              src="assets/images/about2.png"
-              className="w-100 d-block mx-auto px-md-5 px-3"
+              src="assets/images/reward-3.png"
+              className="w-100 d-block mx-auto"
               alt="Gallery Item"
             />
-            <p className="fw-bold fs-5 text-white text-center lh-sm mb-0 mt-3">
-              Heimish All Clean Heimish All Clean
+            <p className=" loy-lis-fs text-center lh-sm mb-0 mt-3">
+            BT21MININI DOLL ECO BAG
             </p>
-            <p className="fw-bold fs-2 text-white text-center"> 150 points</p>
+            <p className=" loy-lis-poi text-center"> 350 points</p>
           </div>
-          <div className="item">
+          <div className="item px-3">
             <img
-              src="assets/images/about2.png"
-              className="w-100 d-block mx-auto px-md-5 px-3"
+              src="assets/images/reward-4.png"
+              className="w-100 d-block mx-auto"
               alt="Gallery Item"
             />
-            <p className="fw-bold fs-5 text-white text-center lh-sm mb-0 mt-3">
-              Heimish All Clean Heimish All Clean
+            <p className=" loy-lis-fs text-center lh-sm mb-0 mt-3">
+            BT21 MININI SOFT KEYRING
             </p>
-            <p className="fw-bold fs-2 text-white text-center"> 150 points</p>
+            <p className=" loy-lis-poi text-center"> 600 points</p>
           </div>
-          <div className="item">
-            <img
-              src="assets/images/about2.png"
-              className="w-100 d-block mx-auto px-md-5 px-3"
-              alt="Gallery Item"
-            />
-            <p className="fw-bold fs-5 text-white text-center lh-sm mb-0 mt-3">
-              Heimish All Clean Heimish All Clean
-            </p>
-            <p className="fw-bold fs-2 text-white text-center"> 150 points</p>
-          </div>
-          <div className="item">
-            <img
-              src="assets/images/about2.png"
-              className="w-100 d-block mx-auto px-md-5 px-3"
-              alt="Gallery Item"
-            />
-            <p className="fw-bold fs-5 text-white text-center lh-sm mb-0 mt-3">
-              Heimish All Clean Heimish All Clean
-            </p>
-            <p className="fw-bold fs-2 text-white text-center"> 150 points</p>
-          </div>
-          <div className="item">
-            <img
-              src="assets/images/about2.png"
-              className="w-100 d-block mx-auto px-md-5 px-3"
-              alt="Gallery Item"
-            />
-            <p className="fw-bold fs-5 text-white text-center lh-sm mb-0 mt-3">
-              Heimish All Clean Heimish All Clean
-            </p>
-            <p className="fw-bold fs-2 text-white text-center"> 150 points</p>
-          </div>
-          <div className="item">
-            <img
-              src="assets/images/about2.png"
-              className="w-100 d-block mx-auto px-md-5 px-3"
-              alt="Gallery Item"
-            />
-            <p className="fw-bold fs-5 text-white text-center lh-sm mb-0 mt-3">
-              Heimish All Clean Heimish All Clean
-            </p>
-            <p className="fw-bold fs-2 text-white text-center"> 150 points</p>
-          </div>
+         
         </OwlCarousel>
 
        
