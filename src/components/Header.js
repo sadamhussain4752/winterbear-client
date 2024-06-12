@@ -4,13 +4,13 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
-import { ProfileUserData, CouponUserById } from "../reducer/thunks";
+import { ProfileUserData, CouponUserById ,GetAddCardProductById} from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { message } from "antd/es";
 import { IoIosLogIn } from "react-icons/io";
 import NewsPaper from "./NewsPaper";
 import { ShoppingCartOutlined, WalletOutlined } from "@ant-design/icons";
-import { Carousel, Select } from "antd";
+import { Carousel, Select, Badge } from "antd";
 import Language from "../constant/Language";
 import SearchList from "./SearchList";
 const { Option } = Select;
@@ -74,6 +74,12 @@ const Header = () => {
     loading: bannerLoading,
     error: bannerError,
   } = useSelector((state) => state.data);
+
+  const {
+    GetAddcardUserRes,
+    addloading: addloadingLoading,
+    error: productListError,
+  } = useSelector((state) => state.GetAddcardUserRes);
   const { CouponListsRes: getCouponResponse } = useSelector(
     (state) => state.CouponListsRes
   );
@@ -99,6 +105,7 @@ const Header = () => {
     console.log(userId, "userId");
     if (userId !== undefined || userId !== null) {
       dispatch(ProfileUserData(userId));
+      dispatch(GetAddCardProductById(userId));
       // dispatch(CouponUserById())
     }
     if (NewsPaperId === null) {
@@ -120,7 +127,7 @@ const Header = () => {
     const changeColorPosition = 100; // Change color after scrolling down 100 pixels
 
     if (scrollPosition > changeColorPosition) {
-      setNavbarBg("d-none");
+      setNavbarBg("fixed-top");
     } else {
       setNavbarBg("fixed-top");
     }
@@ -487,7 +494,7 @@ const Header = () => {
                           <>
 
                             <p className="d-md-none d-block search-a mb-0">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                              <i class="fa-solid fa-magnifying-glass"></i>
                               <div className="mob-search ">
                                 <SearchList />
                               </div>
@@ -540,7 +547,10 @@ const Header = () => {
                               href="/cart"
                               className="text-decoration-none mx-2"
                             >
-                              <img src="../assets/images/icon_cart.svg" loading="lazy" />
+                              <Badge count={GetAddcardUserRes?.AddCarts?.length || 0}>
+                                <img src="../assets/images/icon_cart.svg" loading="lazy" />
+
+                              </Badge>
 
                               <ul className="mt-3 dropdown-menu text-small">
                                 <li>
@@ -548,21 +558,21 @@ const Header = () => {
                                     className={'dropdown-item'}
                                     to="/account"
                                   >
-                                  <i class="fa-solid fa-user"></i>  Account
+                                    <i class="fa-solid fa-user"></i>  Account
                                   </Link>
                                 </li>
                                 <li>
                                   <hr className="dropdown-divider" />
                                 </li>
 
-                               
+
                                 <li>
                                   <a
                                     className="dropdown-item"
                                     onClick={logoutFunction}
                                     href="#"
                                   >
-                                   <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
                                   </a>
                                 </li>
                               </ul>

@@ -23,7 +23,8 @@ const rootReducer = combineReducers({
   eventlist: dataReducer,
   productOldlist: dataReducer,
   UserUploadRes: dataReducer,
-  wishlist: dataReducer
+  wishlist: dataReducer,
+  otpVerificationResponse: dataReducer
 });
 
 export default rootReducer;

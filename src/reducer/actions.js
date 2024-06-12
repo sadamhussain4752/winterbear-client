@@ -82,6 +82,10 @@ export const FETCH_WISH_LIST_REQUEST = 'FETCH_WISH_LIST_REQUEST';
 export const FETCH_WISH_LIST_SUCCESS = 'FETCH_WISH_LIST_SUCCESS';
 export const FETCH_WISH_LIST_FAILURE = 'FETCH_WISH_LIST_FAILURE';
 
+export const VERIFY_OTP_IB_BY_REQUEST = 'VERIFY_OTP_IB_BY_REQUEST';
+export const VERIFY_OTP_IB_BY_SUCCESS = 'VERIFY_OTP_IB_BY_SUCCESS';
+export const VERIFY_OTP_IB_BY_FAILURE = 'VERIFY_OTP_IB_BY_FAILURE';
+
 export const fetchHeaderRequest = () => ({
   type: FETCH_DATA_REQUEST,
 });
@@ -397,5 +401,19 @@ export const fetchWishlistSuccess = (data) => ({
 
 export const fetchWishlistFailure = (error) => ({
   type: FETCH_WISH_LIST_FAILURE,
+  payload: error,
+});
+
+export const VerifyOTPRequest = () => ({
+  type: VERIFY_OTP_IB_BY_REQUEST,
+});
+
+export const VerifyOTPSuccess = (data) => ({
+  type: VERIFY_OTP_IB_BY_SUCCESS,
+  payload: data,
+});
+
+export const VerifyOTPFailure = (error) => ({
+  type: VERIFY_OTP_IB_BY_FAILURE,
   payload: error,
 });

@@ -9,6 +9,7 @@ import {
   AddWishlistFetch,
   fetchWishlistData,
   AddCardProductById,
+  GetAddCardProductById
 } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -104,6 +105,8 @@ const Home2 = () => {
       quantity: "1",
     };
    await dispatch(AddCardProductById(addcarditem))
+   await dispatch(GetAddCardProductById(userId))
+
    message.success(`Succesfully Add the Cart ${id.name}`)
   };
 

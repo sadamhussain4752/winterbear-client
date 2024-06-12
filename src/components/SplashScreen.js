@@ -1,31 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import logoImage from "../../src/constant/images/Winterbear-Favicon-Purple.png";
+import splashVideo from "../../src/constant/video/OUTROW.mp4"; // Adjust the path as needed
 
 const SplashScreen = () => {
   return (
     <div className="splash-screen fade-in">
       <div className="text-center">
-
-        <div className="logo-container">
-          <div className="position-relative ">
-            <img
-              src={require("../../src/constant/images/Winterbear-Favicon-Purple.png")}
-              className="position-absolute logo-wid-image-font"
-              alt="Logo"
-            />
-            <img
-              src={require("../../src/constant/images/Winterbear-Favicon-Purple.png")}
-              className="position-absolute logo-wid-image-end"
-              alt="Logo"
-            />
-
-          </div>
-
+        <div className="video-container">
+          <video autoPlay muted loop className="splash-video">
+            <source src={splashVideo} type="video/mp4" />
+          </video>
         </div>
-
+     
       </div>
-
     </div>
-
   );
 };
 

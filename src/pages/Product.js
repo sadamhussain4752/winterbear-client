@@ -221,8 +221,8 @@ const Product = () => {
         <div className="col-md-7">
           <div className="row col-md-12">
             <Rate disabled defaultValue={5} className="col-md-4" />
-            <p className="col-md-4">4.7 Star Rating</p>
-            <p className="col-md-4">(0 User feedback)</p>
+            {/* <p className="col-md-4">4.7 Star Rating</p>
+            <p className="col-md-4">(0 User feedback)</p> */}
           </div>
           <h3>{product.name}</h3>
           <div className="col-md-12 row sku-tag mt-3">

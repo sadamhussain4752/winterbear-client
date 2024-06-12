@@ -66,7 +66,10 @@ import {
   WishlistFailure,
   fetchWishlistRequest,
   fetchWishlistSuccess,
-  fetchWishlistFailure
+  fetchWishlistFailure,
+  VerifyOTPRequest,
+  VerifyOTPSuccess,
+  VerifyOTPFailure
 } from './actions';
 import constant from '../constant/constant';
 
@@ -95,6 +98,7 @@ const Uploadprofile = `${constant.baseUrl}api/user/UserImage`;
 const AddWishAPI = `${constant.baseUrl}api/wishlist/createWishlistItem`;
 const GetWishAPI = `${constant.baseUrl}api/wishlist/wishlistUser`;
 const DeleteWishAPI = `${constant.baseUrl}api/wishlist/deleteWishlistItem`;
+const VerifyOTPURL = `${constant.baseUrl}api/user/verify-otp`;
 
 
 
@@ -191,6 +195,18 @@ export const ProfileUserData = (body) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch(ProfileFailure(error.response.data.message));
+  }
+};
+export const VerifyOTP = (body,userId) => async (dispatch) => {
+  dispatch(VerifyOTPRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.post(`${VerifyOTPURL}`,body);
+    dispatch(VerifyOTPSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(VerifyOTPFailure(error.response.data.message));
   }
 };
 export const OrderUserList = (body) => async (dispatch) => {
