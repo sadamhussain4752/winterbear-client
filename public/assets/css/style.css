@@ -508,11 +508,32 @@ footer ul a {
   position: relative;
 }
 
+.share-prod{
+  width: 50%;
+  display: flex;
+}
+
 @media only screen and (max-width: 767px) {
 
   footer {
     background: #221A42;
     padding: 60px 0 40px 0;
+  }
+  .share-prod{
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .offer-per{
+    width: 50%;
+    margin-left: 3%;
+  }
+
+  .qty-button{
+    width: 100% !important;
+    margin-bottom: 5% !important;
+    display: block;
+    margin: auto;
   }
 
   .copy-rights-img {
@@ -3470,3 +3491,45 @@ th {
   }
 }
 
+
+.loy-lis-fs{
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.loy-lis-poi{
+  font-size: 25px;
+  padding-top: 2%;
+}
+
+.cm-bg-sty {
+  background-color: #221A42;
+  color: white;
+
+}
+
+.ul-vip li::before{
+
+}
+
+
+.cardd{
+  background-color: #fdeef5 !important;
+  border-radius: 20px;
+}
+
+.accordion-item , .accordion-body{
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #221A42;
+  color: white;
+}
+
+.cm-bg-sty.accordion-button::after {
+  background-color: white !important;
+  border-radius: 50%;
+}

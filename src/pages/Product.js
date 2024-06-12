@@ -152,7 +152,7 @@ const Product = () => {
         >
           {product?.images &&
             product?.images.map((image, index) => (
-              <div key={index} className="item ">
+              <div key={index} className="item mb-4 mb-0">
                 <img
                   src={`${image}`}
                   alt={`Product Image ${index}`}
@@ -266,14 +266,14 @@ const Product = () => {
           <hr />
 
           <div className="text-start col-md-12 row mt-3">
-            <div className="col-md-3 ">
+            <div className="col-md-3 col-6">
               <p className="d-flex justify-content-center align-items-center border qty-button">
                 <button className="btn btn-primary me-2 bg-cl-tr">+</button>
                 <span>1</span>
                 <button className="btn btn-primary me-2 bg-cl-tr ">-</button>
               </p>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-3 col-6">
               <button
                 className="btn w-100 text-white button buy-now-tag"
                 onClick={() => buyproduct(product._id)}
@@ -281,7 +281,7 @@ const Product = () => {
                 Buy Now
               </button>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 col-7">
               <button
                 className="btn w-100  buy-now-tag add-to-cart-btn"
                 onClick={() => addcard(product)}
@@ -291,12 +291,12 @@ const Product = () => {
             </div>
           </div>
           <div className="d-flex justify-content-between mt-5 sku-tag">
-            <p className="w-50 d-flex">
+            <p className="w-50 d-md-flex d-none">
               {/* <HeartOutlined />
 
               Add to Wishlist */}
             </p>
-            <p className="w-50 d-flex">
+            <p className="share-prod">
               Share product:
               {
                 <div
@@ -332,7 +332,7 @@ const Product = () => {
             </p>
           </div>
         </div>
-        <div className="col-md-12 text-center mt-80 prod-bot-tab">
+        <div className="col-md-12 text-center mt-lg-5 mt-4 prod-bot-tab">
           {/* Product Tabs */}
           <Tab.Container
             defaultActiveKey="description"
