@@ -530,10 +530,10 @@ footer ul a {
   }
 
   .qty-button{
-    width: 100% !important;
+    width: 50% !important;
     margin-bottom: 5% !important;
     display: block;
-    margin: auto;
+    /* margin: auto; */
   }
 
   .copy-rights-img {
