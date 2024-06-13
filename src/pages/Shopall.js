@@ -214,19 +214,29 @@ const ShopAll = () => {
   };
 
   const addcard = async (id) => {
-    let addcarditem = {
-      userId: userIds,
-      productId: id._id,
-      quantity: "1",
-    };
-    await dispatch(AddCardProductById(addcarditem))
-    message.success(`Succesfully Add the Cart ${id.name}`)
+    if(userIds){
+      let addcarditem = {
+        userId: userIds,
+        productId: id._id,
+        quantity: "1",
+      };
+      await dispatch(AddCardProductById(addcarditem))
+      message.success(`Succesfully Add the Cart ${id.name}`)
+    }else{
+      message.error(`Please log in to add to cart.`)
+    }
+   
   };
 
   const handleWishlists = async (prod_id) => {
-    const userIds = localStorage.getItem("userId");
-    const passbody = { userId: userIds, productId: prod_id };
-    await dispatch(AddWishlistFetch(passbody));
+    if(userIds){
+      const userIds = localStorage.getItem("userId");
+      const passbody = { userId: userIds, productId: prod_id };
+      await dispatch(AddWishlistFetch(passbody));
+    }else{
+      message.error(`Please log in to Wishlist the product.`)
+    }
+  
   };
   // Filter products based on selected filters
   const filterProducts = (products) => {

@@ -55,9 +55,13 @@ const Home2 = () => {
   };
 
   const handleWishlists = async (prod_id) => {
-    const userIds = localStorage.getItem("userId");
-    const passbody = { userId: userIds, productId: prod_id };
-    await dispatch(AddWishlistFetch(passbody));
+    if(userId){
+      const passbody = { userId: userId, productId: prod_id };
+      await dispatch(AddWishlistFetch(passbody));
+    }else{
+      message.error(`Please log in to Wishlist the product.`)
+    }
+   
   };
 
   useEffect(() => {
@@ -99,15 +103,21 @@ const Home2 = () => {
   };
   
   const addcard = async (id) => {
-    let addcarditem = {
-      userId: userId,
-      productId: id._id,
-      quantity: "1",
-    };
-   await dispatch(AddCardProductById(addcarditem))
-   await dispatch(GetAddCardProductById(userId))
+    if(userId){
+      let addcarditem = {
+        userId: userId,
+        productId: id._id,
+        quantity: "1",
+      };
+     await dispatch(AddCardProductById(addcarditem))
+     await dispatch(GetAddCardProductById(userId))
+  
+     message.success(`Succesfully Add the Cart ${id.name}`)
+    }else{
+      message.error(`Please log in to add to cart.`)
+    }
 
-   message.success(`Succesfully Add the Cart ${id.name}`)
+ 
   };
 
   const loadAllProducts = (brandId) => {
