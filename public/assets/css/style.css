@@ -2113,6 +2113,7 @@ input {
 
   background-image: url('../images/Newspaper.png');
   background-size: cover;
+  background-color: transparent !important;
   /* Ensure the image covers the entire modal */
 }
 

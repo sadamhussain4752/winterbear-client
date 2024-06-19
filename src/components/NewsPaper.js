@@ -31,7 +31,7 @@ const NewsPaper = ({ visible, onClose }) => {
         <Modal
             visible={visible}
             onCancel={onClose}
-            width="50%"
+          
             footer={null}
             className="news-paper-modal"
         >
@@ -63,7 +63,7 @@ const NewsPaper = ({ visible, onClose }) => {
 
                     </div>
 
-                    <div className="col-lg-6">
+                    <div className="col-lg-6 pt-5 pt-lg-0">
                         <Form initialValues={notificationData}>
                             <Form.Item
                                 name="email"
