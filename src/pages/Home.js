@@ -9,7 +9,8 @@ import {
   AddWishlistFetch,
   fetchWishlistData,
   AddCardProductById,
-  GetAddCardProductById
+  GetAddCardProductById,
+  GetCardProductById
 } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -103,22 +104,58 @@ const Home2 = () => {
   };
   
   const addcard = async (id) => {
-    if(userId){
+    if (userId) {
       let addcarditem = {
         userId: userId,
         productId: id._id,
         quantity: "1",
       };
-     await dispatch(AddCardProductById(addcarditem))
-     await dispatch(GetAddCardProductById(userId))
+      await dispatch(AddCardProductById(addcarditem));
+      await dispatch(GetAddCardProductById(userId));
   
-     message.success(`Succesfully Add the Cart ${id.name}`)
-    }else{
-      message.error(`Please log in to add to cart.`)
+      message.success(`Successfully Added to Cart: ${id.name}`);
+    } else {
+      const passbody = {
+        userId: userId,
+        productId: id._id,
+        quantity: 1, // Use number for quantity
+      };
+  
+      let getlistcarts = localStorage.getItem("cardstore");
+      console.log(getlistcarts,"getlistcarts");
+      let addtocarts = [];
+  
+      if (getlistcarts) {
+        addtocarts = JSON.parse(getlistcarts);
+      }
+  
+      // Check if the product already exists in the cart
+      let productExists = false;
+      addtocarts = addtocarts.map((item) => {
+        if (item.productId === id._id) {
+          productExists = true;
+          return {
+            ...item,
+            quantity: parseInt(item.quantity) + 1,
+          };
+        }
+        return item;
+      });
+  
+      // If the product does not exist, add it to the cart
+      if (!productExists) {
+        addtocarts.push(passbody);
+      }
+      if (getlistcarts) {
+        const productIds =  {productIds :addtocarts}
+        console.log(productIds);
+        dispatch(GetCardProductById(productIds));
+      }
+      localStorage.setItem("cardstore", JSON.stringify(addtocarts));
+      message.success(`Successfully Added to Cart: ${id.name}`);
     }
-
- 
   };
+  
 
   const loadAllProducts = (brandId) => {
     navigate(`/brand/${brandId}`);

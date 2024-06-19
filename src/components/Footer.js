@@ -242,7 +242,7 @@ const Footer = () => {
 
 
       </footer>
-      <div className="copy-rights-img mt-5">
+      <div className="copy-rights-img mt-80">
         <div className="container">
           <div className="text-center">
             <img src="assets/images/footer-img.png" className="" loading="lazy" />

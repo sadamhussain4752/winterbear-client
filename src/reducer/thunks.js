@@ -99,6 +99,7 @@ const AddWishAPI = `${constant.baseUrl}api/wishlist/createWishlistItem`;
 const GetWishAPI = `${constant.baseUrl}api/wishlist/wishlistUser`;
 const DeleteWishAPI = `${constant.baseUrl}api/wishlist/deleteWishlistItem`;
 const VerifyOTPURL = `${constant.baseUrl}api/user/verify-otp`;
+const GetgetCartItemProductcard = `${constant.baseUrl}api/addcart/getCartItem`;
 
 
 
@@ -251,6 +252,19 @@ export const GetAddCardProductById = (body) => async (dispatch) => {
   try {
     // Send the POST request with the provided body data
     const response = await axios.get(`${GetAddCardProductcard}/${body}`);
+    dispatch(GetAddCardIdSuccess(response.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(GetAddCardIdFailure(error.response.data.message));
+  }
+};
+
+export const GetCardProductById = (body) => async (dispatch) => {
+  dispatch(GetAddCardIdRequest());
+
+  try {
+    // Send the POST request with the provided body data
+    const response = await axios.post(GetgetCartItemProductcard,body);
     dispatch(GetAddCardIdSuccess(response.data));
   } catch (error) {
     console.log(error);

@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   GetAddCardProductById,
   DeleteAddCardProductById,
-  QtyOrderProductById
+  QtyOrderProductById,
+  GetCardProductById
 } from "../reducer/thunks";
 import constant from "../constant/constant";
 import { useNavigate } from "react-router-dom";
@@ -35,11 +36,19 @@ const Checkout = () => {
     error: qtycardIdListError,
   } = useSelector((state) => state.qtyAddcardRes);
   useEffect(() => {
-    if (userId !== undefined && userId !== null || qtyAddcardRes) {
+    if (userId !== undefined && userId !== null && userId !== "") {
       dispatch(GetAddCardProductById(userId));
+    } else {
+      let getlistcarts = localStorage.getItem("cardstore");
+      if (getlistcarts) {
+        const productIds =  {productIds :JSON.parse(getlistcarts)}
+        console.log(productIds);
+        dispatch(GetCardProductById(productIds));
+      }
     }
   }, [userId, qtyAddcardRes, DeleteAddcardUserRes]); // Add qtyAddcardRes and DeleteAddcardUserRes as dependencies
-// Add DeleteAddcardUserRes as a dependency
+  
+  // Add DeleteAddcardUserRes as a dependency
 
 
 
@@ -70,13 +79,32 @@ const Checkout = () => {
     );
   };
   const handleRemoveItem = (productId) => {
-    dispatch(DeleteAddCardProductById(productId));
+    console.log(productId,"productId");
+    if (userId !== undefined && userId !== null && userId !== "") {
+      dispatch(DeleteAddCardProductById(productId._id));
+    } else {
+      let getlistcarts = localStorage.getItem("cardstore");
+  
+      if (getlistcarts) {
+        let cartItems = JSON.parse(getlistcarts);
+  
+        // Remove the product with the specified productId
+        cartItems = cartItems.filter(item => item.productId !== productId.productId);
+  
+        // Update localStorage with the new cart data
+        localStorage.setItem("cardstore", JSON.stringify(cartItems));
+  
+        // Dispatch the updated cart items
+        dispatch(GetCardProductById({ productIds :cartItems}));
+      }
+    }
   };
+  
   const handleCheckout = () => {
     navigate(`/checkout`);
   };
 
-  
+
 
   // Define the getSubtotal function
   function getSubtotal() {
@@ -169,7 +197,7 @@ const Checkout = () => {
                       style={{ cursor: "pointer" }}
 
                       className="delete-button"
-                      onClick={() => handleRemoveItem(item._id)}
+                      onClick={() => handleRemoveItem(item)}
                     >
                       <i class="fa-solid fa-trash"></i>
                     </div>
@@ -185,38 +213,38 @@ const Checkout = () => {
 
   const renderCardtotals = () => {
     return (
-        <div className="col-md-4">
- <div className="cart-totals mx-2">
-        <h6 className="mt-4 mb-3">Price Details</h6>
-        <div className="cart-totals-item border-top mt-3 pt-3">
-          <span>Subtotal :</span>
-          <span>₹{getSubtotal()}</span>
-        </div>
-        {/* <div className="cart-totals-item">
+      <div className="col-md-4">
+        <div className="cart-totals mx-2">
+          <h6 className="mt-4 mb-3">Price Details</h6>
+          <div className="cart-totals-item border-top mt-3 pt-3">
+            <span>Subtotal :</span>
+            <span>₹{getSubtotal()}</span>
+          </div>
+          {/* <div className="cart-totals-item">
           <span>Shipping :</span>
           <span>Free shipping</span>
         </div> */}
-        <div className="cart-totals-item">
-          <span>Flat rate :</span>
-          <span>{getTotal() < "999" ? `₹150.00` : 'Free shipping'}</span>
-        </div>
-        <div className="cart-totals-item">
-          <span>Tax :</span>
-          <span>₹15.00</span>
-        </div>
-        <div className="cart-totals-item total border-top mt-4 pt-3">
-          <span>Total :</span>
-          <span>{getTotal() < "999" ? getTotal() + "150.00" : getTotal()}</span>
-        </div>
-        {/* Proceed to Checkout button */}
-        <div className="cart-totals-item-btn mt-4 mb-4 ">
-          <button className="btn button w-75 rounded-pill" onClick={handleCheckout}>
-            Proceed to Checkout
-          </button>
+          <div className="cart-totals-item">
+            <span>Flat rate :</span>
+            <span>{getTotal() < "999" ? `₹150.00` : 'Free shipping'}</span>
+          </div>
+          <div className="cart-totals-item">
+            <span>Tax :</span>
+            <span>₹15.00</span>
+          </div>
+          <div className="cart-totals-item total border-top mt-4 pt-3">
+            <span>Total :</span>
+            <span>{getTotal() < "999" ? getTotal() + 150.00 : getTotal()}</span>
+          </div>
+          {/* Proceed to Checkout button */}
+          <div className="cart-totals-item-btn mt-4 mb-4 ">
+            <button className="btn button w-75 rounded-pill" onClick={handleCheckout}>
+              Proceed to Checkout
+            </button>
+          </div>
         </div>
       </div>
-        </div>
-       
+
     );
   };
 
@@ -255,12 +283,12 @@ const Checkout = () => {
                 ]}
               /> */}
               <div className="col-md-12 row mt-5 tab-wid">
-              {renderCartList()}
-              {renderCardtotals()}
-              
-              {/* <Relatedproducts/> */}
+                {renderCartList()}
+                {renderCardtotals()}
+
+                {/* <Relatedproducts/> */}
               </div>
-             
+
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
-import { ProfileUserData, CouponUserById ,GetAddCardProductById} from "../reducer/thunks";
+import { ProfileUserData, CouponUserById ,GetAddCardProductById,GetCardProductById} from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { message } from "antd/es";
 import { IoIosLogIn } from "react-icons/io";
@@ -102,17 +102,24 @@ const Header = () => {
     setModalVisible(false);
   };
   useEffect(() => {
-    console.log(userId, "userId");
-    if (userId !== undefined || userId !== null) {
+    console.log(userId, "userId",userId !== undefined , userId !== null);
+    if (userId !== undefined && userId !== null) {
       dispatch(ProfileUserData(userId));
       dispatch(GetAddCardProductById(userId));
       // dispatch(CouponUserById())
+    }else{
+      let getlistcarts = localStorage.getItem("cardstore");
+      if (getlistcarts) {
+        const productIds =  {productIds :JSON.parse(getlistcarts)}
+        console.log(productIds);
+        dispatch(GetCardProductById(productIds));
+      }
     }
     if (NewsPaperId === null) {
       setNewsVisible(true);
       localStorage.setItem("NewsPaperID", true);
     }
-    // localStorage.removeItem("NewsPaperID")
+    localStorage.removeItem("NewsPaperID")
 
     // if (getUserResponse) {
     //   const { firstname, lastname } = getUserResponse.User;
@@ -615,7 +622,10 @@ const Header = () => {
                               href="/cart"
                               className="text-decoration-none ps-3"
                             >
-                              <img src="../assets/images/icon_cart.svg" loading="lazy" />
+                               <Badge count={GetAddcardUserRes?.AddCarts?.length || 0}>
+                                <img src="../assets/images/icon_cart.svg" loading="lazy" />
+
+                              </Badge>
                               {/* <i className="fa-solid fa-bag-shopping" /> */}
                             </a>
                           </>
