@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Modal, Form, Input, Button, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import Google from "../constant/images/button.svg";
-import { LoginUserData, VerifyOTP } from "./../reducer/thunks"; // Import the CreateUserData action
+import { LoginUserData, VerifyOTP,AddCardProductById } from "./../reducer/thunks"; // Import the CreateUserData action
 import { signInWithGooglePopup, auth } from "../firebase/firebaseconfig";
 import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 
@@ -137,18 +137,50 @@ const LoginModal = ({ visible, onClose }) => {
         message.error(otpVerification, 5);
       }
     }
+    
   }, [otpVerification]);
 
   useEffect(() => {
-    if (loginresponce?.userId) {
-      message.success("Success", 5); // Display success message for 5 seconds
-      console.log(loginresponce);
-      localStorage.setItem("userId", loginresponce.userId);
-      onClose();
-      window.location.reload();
-      window.location.href = "/";
-    }
-  }, [loginresponce?.userId])
+    const handleLoginResponse = async () => {
+      if (loginresponce?.userId) {
+        try {
+          message.success("Success", 5); // Display success message for 5 seconds
+          console.log(loginresponce);
+  
+          // Set userId in localStorage
+          localStorage.setItem("userId", loginresponce.userId);
+  
+          // Close the modal or perform any UI updates
+          onClose();
+  
+          // Reload the page and redirect to the home page
+          window.location.reload();
+          window.location.href = "/";
+  
+          // Get the cart items from localStorage
+          let getlistcarts = localStorage.getItem("cardstore");
+  
+          if (getlistcarts) {
+            const cartItems = JSON.parse(getlistcarts).map(item => ({
+              ...item,
+              userId: loginresponce.userId,
+            }));
+  
+            // Dispatch all add card actions
+            await Promise.all(cartItems.map(item => dispatch(AddCardProductById(item))));
+  
+            // Remove cart items from localStorage
+            localStorage.removeItem("cardstore");
+          }
+        } catch (error) {
+          console.error("Error handling login response:", error);
+        }
+      }
+    };
+  
+    handleLoginResponse();
+  }, [loginresponce?.userId]);
+  
 
   const logGoogleUser = async () => {
     const response = await signInWithGooglePopup();
