@@ -147,8 +147,8 @@ const Checkout = () => {
               GetAddcardUserRes.AddCarts.map((item) => (
                 <tr className="text-center" key={item.id}>
                   <td>
-                    <div className="product-item mt-4">
-                      <div className="product-image w-75">
+                    <div className="product-item mt-4 d-flex align-items-center" style={{width:'275px'}}>
+                      <div className="product-image ">
                         <img
                           src={`${item?.product?.images[0]}`}
                           alt={`Product Image ${item.product.name}`}
@@ -164,7 +164,7 @@ const Checkout = () => {
                   </td>
                   <td className="product-amount text-center">₹{item.product.amount}</td>
                   <td className="product-amount text-center">
-                    <div className="quantity-col text-center w-75">
+                    <div className="quantity-col text-center">
                       <button
                         className="quantity-btn"
                         onClick={() =>
