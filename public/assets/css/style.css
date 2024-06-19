@@ -657,8 +657,18 @@ footer ul a {
     position: relative;
     overflow: hidden;
   }
+
+
+
+  .product-item {
+    width: 275px !important;
+  }
+
 }
 
+.cart-list{
+  overflow-x: scroll;
+}
 
 .tile-1 .item img {
   width: 100%;
