@@ -119,36 +119,77 @@
 
  /* SplashScreen.css */
 
- .splash-screen {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.video-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1; /* Ensures video is behind other elements */
-}
-
-.splash-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the video covers the whole container */
-}
-
-.logo-container {
-  position: relative;
-  z-index: 1; /* Ensures logo is in front of the video */
-}
-
-.logo-wid-image-font,
-.logo-wid-image-end {
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-}
-
+ /* Base styles for desktop */
+.splash-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .video-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensures video is behind other elements */
+  }
+  
+  .splash-video {
+    width: 100%;
+    height: 100%;
+    object-fit:  contain; /* Ensures the video covers the whole container */
+    background-color: #4e3c98;
+  }
+  
+  .logo-container {
+    position: relative;
+    z-index: 1; /* Ensures logo is in front of the video */
+  }
+  
+  .logo-wid-image-font,
+  .logo-wid-image-end {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+  }
+  
+  /* Styles for tablets and mobile devices */
+  @media (max-width: 768px) {
+    .splash-screen {
+      height: 100vh;
+    }
+  
+    .logo-wid-image-font,
+    .logo-wid-image-end {
+      width: 40px; /* Adjust size for smaller screens */
+      height: 40px; /* Adjust size for smaller screens */
+    }
+  
+    .splash-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the video covers the whole container */
+      }
+    .logo-container {
+      padding: 10px; /* Add padding to position logo properly */
+    }
+  }
+  
+  /* Styles for smaller mobile devices */
+  @media (max-width: 480px) {
+    .logo-wid-image-font,
+    .logo-wid-image-end {
+      width: 30px; /* Further adjust size for smaller screens */
+      height: 30px; /* Further adjust size for smaller screens */
+    }
+    .splash-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the video covers the whole container */
+      }
+    .logo-container {
+      padding: 5px; /* Adjust padding for smaller screens */
+    }
+  }
+  
