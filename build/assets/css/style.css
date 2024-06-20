@@ -683,7 +683,7 @@ footer ul a {
 
 .product-shopby {
   height: 150px !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   transition: transform 0.7s ease;
 }
 
@@ -2619,7 +2619,7 @@ input {
 
 .product-shopby:hover {
   transition: transform 0.9s ease;
-  transform: scale(1.5);
+  transform: scale(1.2);
   overflow: hidden !important;
 
 }
@@ -2650,7 +2650,7 @@ input {
 
 .product-card img {
   height: 250px !important;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.3s;
 }
 
@@ -2663,7 +2663,7 @@ input {
 }
 
 .product-card img:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
   overflow: hidden !important;
 }
 
@@ -2674,6 +2674,10 @@ a {
 .home-product {
   position: relative;
   overflow-y: hidden !important;
+}
+
+.sing-prod{
+  object-fit: contain !important; 
 }
 
 .home-product-in {

@@ -18,7 +18,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Nav, Tab } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { message, Rate,notification } from "antd";
+import { message, Rate,notification,Image } from "antd";
 import MultiCarousel from "../components/MultiCarousel";
 import { HeartOutlined, ShareAltOutlined } from "@ant-design/icons";
 import Copyimage from "../constant/images/Copy.svg";
@@ -63,6 +63,7 @@ const Product = () => {
   }, []);
 
   const [selectedSize, setSelectedSize] = useState(null);
+  const [indesitem, setSelecteditem] = useState(1);
 
   const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL"];
 
@@ -152,14 +153,17 @@ const Product = () => {
           loop
           margin={10}
           items={1}
+          startPosition={indesitem}
           dots={false}
           nav={false}
         >
           {product?.images &&
             product?.images.map((image, index) => (
               <div key={index} className="item mb-4 mb-0">
-                <img
+                <Image
                   src={`${image}`}
+                  height={500}
+                  
                   alt={`Product Image ${index}`}
                   className="product-img-main rounded sing-prod"
                   loading="lazy"
@@ -178,21 +182,14 @@ const Product = () => {
         </div>
         <div className="d-flex justify-content-center">
           {product && product?.images && product?.images.length > 1 && (
-            <MultiCarousel images={product?.images} />
+            <MultiCarousel images={product?.images} indexs={(item)=>{
+              console.log(item,"item");
+              setSelecteditem(item)
+            }}/>
           )}
         </div>
 
-        {/* <OwlCarousel className="owl-theme" loop margin={10} items={4} dots={false} nav={product.images && product.images.length > 4}>
-  {product.images &&
-    product.images.map((image, index) => (
-      <div key={index} className="item">
-        <img
-          src={`${constant.baseUrl}${image}`}
-          alt={`Product Image ${index}`}
-        />
-      </div>
-    ))}
-</OwlCarousel> */}
+       
       </>
     );
   };
