@@ -161,7 +161,7 @@ const Product = () => {
                 <img
                   src={`${image}`}
                   alt={`Product Image ${index}`}
-                  className="product-img-main rounded"
+                  className="product-img-main rounded sing-prod"
                   loading="lazy"
                 />
               </div>
