@@ -657,8 +657,18 @@ footer ul a {
     position: relative;
     overflow: hidden;
   }
+
+
+
+  .product-item {
+    width: 275px !important;
+  }
+
 }
 
+.cart-list{
+  overflow-x: scroll;
+}
 
 .tile-1 .item img {
   width: 100%;
@@ -2113,6 +2123,7 @@ input {
 
   background-image: url('../images/Newspaper.png');
   background-size: cover;
+  background-color: transparent !important;
   /* Ensure the image covers the entire modal */
 }
 

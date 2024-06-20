@@ -8,6 +8,8 @@ import {
   AddCardProductById,
   RatingProductUserById,
   fetchProductData,
+  GetAddCardProductById,
+  GetCardProductById
 } from "../../src/reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
@@ -16,7 +18,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Nav, Tab } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { message, Rate } from "antd";
+import { message, Rate,notification } from "antd";
 import MultiCarousel from "../components/MultiCarousel";
 import { HeartOutlined, ShareAltOutlined } from "@ant-design/icons";
 import Copyimage from "../constant/images/Copy.svg";
@@ -67,6 +69,9 @@ const Product = () => {
   const handleSizeClick = (size) => {
     setSelectedSize(size);
   };
+
+  const [messageApi, contextHolder] = message.useMessage();
+
 
   const {
     productlist,
@@ -192,14 +197,69 @@ const Product = () => {
     );
   };
 
+  
+
   const addcard = async (id) => {
-    let addcarditem = {
-      userId: userId,
-      productId: id._id,
-      quantity: "1",
-    };
-    await dispatch(AddCardProductById(addcarditem));
-    message.success(`Succesfully Add the Cart ${id.name}`);
+    success(`Successfully Added to Cart: ${id.name}`)
+    if (userId) {
+      let addcarditem = {
+        userId: userId,
+        productId: id._id,
+        quantity: "1",
+      };
+      await dispatch(AddCardProductById(addcarditem));
+      await dispatch(GetAddCardProductById(userId));
+  
+    } else {
+      const passbody = {
+        userId: userId,
+        productId: id._id,
+        quantity: 1, // Use number for quantity
+      };
+  
+      let getlistcarts = localStorage.getItem("cardstore");
+      console.log(getlistcarts,"getlistcarts");
+      let addtocarts = [];
+  
+      if (getlistcarts) {
+        addtocarts = JSON.parse(getlistcarts);
+      }
+  
+      // Check if the product already exists in the cart
+      let productExists = false;
+      addtocarts = addtocarts.map((item) => {
+        if (item.productId === id._id) {
+          productExists = true;
+          return {
+            ...item,
+            quantity: parseInt(item.quantity) + 1,
+          };
+        }
+        return item;
+      });
+  
+      // If the product does not exist, add it to the cart
+      if (!productExists) {
+        addtocarts.push(passbody);
+      }
+      if (getlistcarts) {
+        const productIds =  {productIds :addtocarts}
+        console.log(productIds);
+        dispatch(GetCardProductById(productIds));
+      }
+      localStorage.setItem("cardstore", JSON.stringify(addtocarts));
+    }
+  };
+
+  
+  const success = (items) => {
+    messageApi.open({
+      type: 'loading',
+      content: items,
+      duration: 0,
+    });
+    // Dismiss manually and asynchronously
+    setTimeout(messageApi.destroy, 2500);
   };
 
   const buyproduct = async (id) => {
@@ -635,6 +695,7 @@ const Product = () => {
 
   return (
     <>
+        {contextHolder}
       <Header />
       <section className="py-5 mt-80">
         <div className="container">

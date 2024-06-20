@@ -6,7 +6,6 @@ import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
 import { ProfileUserData, CouponUserById ,GetAddCardProductById,GetCardProductById} from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
-import { message } from "antd/es";
 import { IoIosLogIn } from "react-icons/io";
 import NewsPaper from "./NewsPaper";
 import { ShoppingCartOutlined, WalletOutlined } from "@ant-design/icons";
@@ -56,7 +55,6 @@ const Header = () => {
   ];
 
   let userId = localStorage.getItem("userId");
-  let NewsPaperId = localStorage.getItem("NewsPaperID");
 
   const [navbarBg, setNavbarBg] = useState("bg-white");
   const [modalVisible, setModalVisible] = useState(false);
@@ -115,11 +113,14 @@ const Header = () => {
         dispatch(GetCardProductById(productIds));
       }
     }
-    if (NewsPaperId === null) {
+    const lastShown = localStorage.getItem('NewsPaperLastShown');
+    const today = new Date().toLocaleDateString();
+
+    if (lastShown !== today) {
       setNewsVisible(true);
-      localStorage.setItem("NewsPaperID", true);
+      // Update the last shown date in localStorage
+      localStorage.setItem('NewsPaperLastShown', today);
     }
-    localStorage.removeItem("NewsPaperID")
 
     // if (getUserResponse) {
     //   const { firstname, lastname } = getUserResponse.User;

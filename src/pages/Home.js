@@ -16,9 +16,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
 import "./innerstyle.css";
-import {message} from "antd"
+import {  message, } from 'antd';
 import SplashScreen from "../components/SplashScreen";
 const Home2 = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [visibleProducts, setVisibleProducts] = useState({}); // Initial number of products to display for each brand
@@ -51,6 +52,16 @@ const Home2 = () => {
     }
   }, [dispatch, userId]);
 
+  const success = (items) => {
+    messageApi.open({
+      type: 'loading',
+      content: items,
+      duration: 0,
+    });
+    // Dismiss manually and asynchronously
+    setTimeout(messageApi.destroy, 2500);
+  };
+
   const handleNavigation = (productId) => {
     navigate(`/product/${productId}`);
   };
@@ -64,6 +75,8 @@ const Home2 = () => {
     }
    
   };
+
+  
 
   useEffect(() => {
     const handleSticky = () => {
@@ -104,6 +117,7 @@ const Home2 = () => {
   };
   
   const addcard = async (id) => {
+    success(`Successfully Added to Cart: ${id.name}`)
     if (userId) {
       let addcarditem = {
         userId: userId,
@@ -113,7 +127,7 @@ const Home2 = () => {
       await dispatch(AddCardProductById(addcarditem));
       await dispatch(GetAddCardProductById(userId));
   
-      message.success(`Successfully Added to Cart: ${id.name}`);
+      // message.success(`Successfully Added to Cart: ${id.name}`);
     } else {
       const passbody = {
         userId: userId,
@@ -122,7 +136,6 @@ const Home2 = () => {
       };
   
       let getlistcarts = localStorage.getItem("cardstore");
-      console.log(getlistcarts,"getlistcarts");
       let addtocarts = [];
   
       if (getlistcarts) {
@@ -146,13 +159,15 @@ const Home2 = () => {
       if (!productExists) {
         addtocarts.push(passbody);
       }
+  
+      localStorage.setItem("cardstore", JSON.stringify(addtocarts));
+      
       if (getlistcarts) {
-        const productIds =  {productIds :addtocarts}
-        console.log(productIds);
+        const productIds =  {productIds : addtocarts}
         dispatch(GetCardProductById(productIds));
       }
-      localStorage.setItem("cardstore", JSON.stringify(addtocarts));
-      message.success(`Successfully Added to Cart: ${id.name}`);
+      
+      // message.success(`Successfully Added to Cart: ${id.name}`);
     }
   };
   
@@ -166,6 +181,7 @@ const Home2 = () => {
 
   return (
     <>
+    {contextHolder}
       <Header />
       {data && data.banners && <HomeSlider />}
       <div className="pt-md-5">{data && data.Brands && <BrandSlider />}</div>
