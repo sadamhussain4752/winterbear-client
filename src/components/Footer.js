@@ -3,6 +3,8 @@ import Newsletter from './Newsletter';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 
+import footerimg from '../constant/images/footer-img.png';
+
 const Footer = () => {
   const navigate = useNavigate();
 
@@ -245,7 +247,7 @@ const Footer = () => {
       <div className="copy-rights-img mt-80">
         <div className="container">
           <div className="text-center">
-            <img src="assets/images/footer-img.png" className="" loading="lazy" />
+            <img src={footerimg} className="" loading="lazy" />
           </div>
         </div>
       </div>

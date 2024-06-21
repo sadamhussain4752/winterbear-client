@@ -2635,7 +2635,6 @@ input {
 
 }
 
-
 .brand-list-nav {
   display: flex;
   flex-direction: column;
@@ -2660,6 +2659,10 @@ input {
 
 .brandimg-cont {
   overflow: hidden;
+}
+
+:where(.css-dev-only-do-not-override-3rel02).ant-image .ant-image-mask:hover {
+  opacity: 0 !important;
 }
 
 .product-card img:hover {

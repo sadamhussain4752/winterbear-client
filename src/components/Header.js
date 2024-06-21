@@ -14,6 +14,8 @@ import Language from "../constant/Language";
 import SearchList from "./SearchList";
 const { Option } = Select;
 
+import Logo from '../constant/images/Winterbear-Logo.webp';
+
 function chunkArray(array, chunkSize) {
   const chunks = [];
   for (let i = 0; i < array.length; i += chunkSize) {
@@ -482,7 +484,8 @@ const Header = () => {
               <div className="col-md-3 col-4 px-0">
                 <a href="/">
                   <img
-                    src="../assets/images/winterbear-logo.png"
+                    // src="../assets/images/winterbear-logo.png"
+                     src={Logo}
                     className="d-block header-logo"
                     alt="Logo"
                     loading="lazy"

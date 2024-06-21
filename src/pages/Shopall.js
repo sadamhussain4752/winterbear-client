@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate, useParams } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
+
+import imggif from "../constant/images/1.webp";
 // import './components/Sidenav.css';
 
 // import Sidenav from "../components/Sidenav";
@@ -214,7 +216,7 @@ const ShopAll = () => {
   };
 
   const addcard = async (id) => {
-    if(userIds){
+    if (userIds) {
       let addcarditem = {
         userId: userIds,
         productId: id._id,
@@ -222,21 +224,21 @@ const ShopAll = () => {
       };
       await dispatch(AddCardProductById(addcarditem))
       message.success(`Succesfully Add the Cart ${id.name}`)
-    }else{
+    } else {
       message.error(`Please log in to add to cart.`)
     }
-   
+
   };
 
   const handleWishlists = async (prod_id) => {
-    if(userIds){
+    if (userIds) {
       const userIds = localStorage.getItem("userId");
       const passbody = { userId: userIds, productId: prod_id };
       await dispatch(AddWishlistFetch(passbody));
-    }else{
+    } else {
       message.error(`Please log in to Wishlist the product.`)
     }
-  
+
   };
   // Filter products based on selected filters
   const filterProducts = (products) => {
@@ -285,6 +287,10 @@ const ShopAll = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="section-heading">
+                <img src={imggif} className="w-100 bg-white" />
+              </div>
+
+              <div className="section-heading d-none">
                 {selectedCategory && selectedCategory?.category_img_desktop && (
                   <div className="align-items-center">
                     <picture>
@@ -321,14 +327,16 @@ const ShopAll = () => {
 
               <p className="d-lg-none d-block mb-0 py-2 px-4 rounded">
                 <span
-                  style={{ fontSize: '25px', cursor: 'pointer',border:' 1px solid black',
-                  padding:' 0px 10px' }}
+                  style={{
+                    fontSize: '25px', cursor: 'pointer', border: ' 1px solid black',
+                    padding: ' 0px 10px'
+                  }}
                   onClick={openNav}
                 >
 
                   &#9776;
 
-                {/* <span className="cat-brand">CATEGORY & BRANDS </span>  */}
+                  {/* <span className="cat-brand">CATEGORY & BRANDS </span>  */}
 
                 </span>
 
