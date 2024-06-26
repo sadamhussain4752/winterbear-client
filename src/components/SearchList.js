@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Spin, Avatar, Popover, List } from 'antd';
+import { Input, Spin, Avatar, Popover, List } from 'antd'; // Import required components from antd
 import debounce from 'lodash/debounce';
 import constant from '../constant/constant';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,8 @@ async function fetchUserList(searchValue) {
     .then((response) => response.json())
     .then((body) => {
       const filteredProducts = body.products.filter((product) =>
-        product.key_word && product.key_word.toLowerCase().includes(searchValue.toLowerCase())
+        product.key_word && product.key_word.toLowerCase().includes(searchValue.toLowerCase())  ||
+        product.name && product.name.toLowerCase().includes(searchValue.toLowerCase())
       );
       console.log(filteredProducts, "filteredProducts");
       return filteredProducts.map((product) => ({
@@ -53,19 +54,21 @@ const SearchList = () => {
       {fetching ? (
         <Spin size="small" />
       ) : (
-        <div className='row'>
-          {options.map((item, index) => (
-            <div key={index} className='col-md-6' onClick={() => handleSelect(item.value)}>
-              {item.label}
-            </div>
-          ))}
+        <div className='search-drpdwn'>
+          <div className='row'>
+            {options.map((item, index) => (
+              <div key={index} className='col-md-6' onClick={() => handleSelect(item.value)}>
+                {item.label}
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
   );
 
   return (
-    <div style={{ position: 'relative', width: '100%' }}>
+    <div className='mni-contt'>
       <Popover
         content={content}
         trigger="click"

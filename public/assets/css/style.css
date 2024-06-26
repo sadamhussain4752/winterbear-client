@@ -2694,6 +2694,33 @@ a {
 }
 
 
+.drp-dwnn{
+  background-color: white !important;
+}
+
+.ant-popover {
+  /* background-color: white !important; */
+  box-shadow: none !important;
+}
+
+
+.search-drpdwn{
+  width: 75%;
+  background-color: white;
+  display: block;
+  margin: auto;
+}
+
+.search-drpdwn .row{
+  background-color: #FFE5E5 !important;
+  border-radius: 10px;
+  padding: 3%;
+}
+
+.search-drpdwn .row .col-md-6 .col-md-12{
+  border-bottom: 0.5px solid #c1baba;
+}
+
 .shopall-menu:hover {
   display: block !important;
 }
@@ -2863,6 +2890,10 @@ a {
 
   .filter-btns-cont {
     width: 100% !important;
+  }
+
+  .search-drpdwn {
+    width: 95%;
   }
 
   .image-container img {
