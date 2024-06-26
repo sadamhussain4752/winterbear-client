@@ -44,7 +44,7 @@ const MultiCarousel = ({ deviceType, images,indexs }) => {
         <img
         loading="lazy"
           key={index} // Add the key prop here
-          draggable={false} className="cor-minimg"
+          draggable={false} className=""
           style={{ width: "90%", height: "100%", }}
           src={`${image}`}
           onClick={()=>indexs(index)}

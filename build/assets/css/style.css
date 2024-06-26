@@ -2635,7 +2635,6 @@ input {
 
 }
 
-
 .brand-list-nav {
   display: flex;
   flex-direction: column;
@@ -2660,6 +2659,12 @@ input {
 
 .brandimg-cont {
   overflow: hidden;
+}
+
+.ant-image-mask {
+
+  background: rgba(0, 0, 0, 0) !important;
+
 }
 
 .product-card img:hover {
@@ -3547,4 +3552,9 @@ th {
 .cm-bg-sty.accordion-button::after {
   background-color: white !important;
   border-radius: 50%;
+}
+
+.homebanner img {
+  height: 100vh !important;
+  /* object-fit: cover !important; */
 }

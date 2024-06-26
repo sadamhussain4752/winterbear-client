@@ -24,6 +24,7 @@ const Home2 = () => {
   const navigate = useNavigate();
   const [visibleProducts, setVisibleProducts] = useState({}); // Initial number of products to display for each brand
   const userId = localStorage.getItem("userId");
+  const [hoveredProductId, setHoveredProductId] = useState("");
 
   const {
     data,
@@ -300,13 +301,19 @@ const Home2 = () => {
                           .map((prod, ind) => (
                             <div className="item col-lg-3 col-6 position-relative mb-3 home-product px-0 px-4"
                             // onClick={() => handleNavigation(prod._id)}
+                            onMouseEnter={() => setHoveredProductId(prod._id)}
+                            onMouseLeave={() => setHoveredProductId(null)}
                             >
                               <div className="home-product-in">
                                 <img
-                                  src={
-                                    prod.images[0] !== null &&
-                                      prod.images[0] !== "image_url1"
-                                      ? `${prod.images[0]}`
+                                   src={
+                                    hoveredProductId === prod._id &&
+                                    prod.images.length > 1 &&
+                                    prod.images[1]
+                                      ? prod.images[1]
+                                      : prod.images[0] !== null &&
+                                        prod.images[0] !== "image_url1"
+                                      ? prod.images[0]
                                       : "assets/images/Rectangle 22.png"
                                   }
                                   className="product-shopby img-fluid"
@@ -357,7 +364,7 @@ const Home2 = () => {
                                 <div className=" mt-4 col-md-12 price-prodname">
                                   <p className="text-start prize-size mb-0 ">
                                     {" "}
-                                    {item.brand.name} @{prod.name}
+                                    {prod.name}
                                   </p>
                                   <p className="prod-pric mb-0 ">
                                     ₹{prod.amount}

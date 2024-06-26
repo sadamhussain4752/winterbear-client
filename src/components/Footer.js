@@ -247,7 +247,7 @@ const Footer = () => {
       <div className="copy-rights-img mt-80">
         <div className="container">
           <div className="text-center">
-            <img src={footerimg} className="" loading="lazy" />
+            <img src={require("../constant/images/footer-img.png")} className="" loading="lazy" />
           </div>
         </div>
       </div>

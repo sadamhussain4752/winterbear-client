@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
 
 import imggif from "../constant/images/1.webp";
@@ -21,24 +21,25 @@ import {
   fetchWishlistData,
 } from "../reducer/thunks";
 import HomeSlider from "../components/BrandSlider";
-import { Dropdown, Menu, Empty, Pagination, Slider, message } from "antd";
+import { Dropdown, Menu, Empty, Pagination, Slider, message, Input } from "antd";
+const { Search } = Input;
 
 const ShopAll = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+
   document.title = "Winter Bear";
   document.getElementsByTagName("META")[2].content = "Winter Bear";
 
   const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
-  const [selectCategory, setCategory] = useState([]);
   const [sortby, setSortby] = useState("");
-  const [priceby, setpriceby] = useState("");
-  const [BrandId, setBrandId] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [applyFiliter, setapplyFiliter] = useState(false);
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 10000]); // Adjust the range as needed
   const [hoveredProductId, setHoveredProductId] = useState("");
   const userIds = localStorage.getItem("userId");
+  const [searchText, setsearchText] = useState("");
 
   const { id } = useParams();
 
@@ -86,6 +87,18 @@ const ShopAll = () => {
       }
     }
   }, [id, productlist]);
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const searchQuery = queryParams.get('search');
+    setsearchText(searchQuery)
+
+    if (searchQuery && productlist && productlist.products) {
+      const filteredProducts = productlist.products.filter((product) =>
+        product.key_word && product.key_word.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setProductList(filteredProducts);
+    }
+  }, [location.search, productlist]);
   useEffect(() => {
     let sortedProducts = [...productList];
     switch (sortby) {
@@ -268,6 +281,20 @@ const ShopAll = () => {
     indexOfLastItem
   );
 
+  const onSearch = (value) => {
+    console.log(value);
+    setsearchText(value)
+    if (value && productlist && productlist.products) {
+      const filteredProducts = productlist.products.filter((product) =>
+        product.key_word && product.key_word.toLowerCase().includes(value.toLowerCase()) ||
+        product.name && product.name.toLowerCase().includes(value.toLowerCase())
+
+      );
+      setProductList(filteredProducts);
+    }
+
+  }
+
   return (
     <>
       <Header />
@@ -286,11 +313,9 @@ const ShopAll = () => {
 
           <div className="row">
             <div className="col-md-12">
-              <div className="section-heading">
-                <img src={imggif} className="w-100 bg-white" />
-              </div>
 
-              <div className="section-heading d-none">
+
+              <div className="section-heading">
                 {selectedCategory && selectedCategory?.category_img_desktop && (
                   <div className="align-items-center">
                     <picture>
@@ -459,6 +484,9 @@ const ShopAll = () => {
               </Dropdown>
             </div>
           </div>
+          <div>
+
+          </div>
 
 
           <div className="mob-nav ">
@@ -612,6 +640,19 @@ const ShopAll = () => {
             </div>
 
             <div className="col-md-9">
+              <Search placeholder="Search Your Product"
+                value={searchText}
+                onChange={(e) => {
+                  setsearchText(e.target.value)
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    onSearch(e.target.value);
+                  }
+                }}
+                onSearch={onSearch}
+                className="mt-5 " style={{ width: "500px" }} />
+
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
                   <div

@@ -304,8 +304,8 @@
 
 }
 
-.ant-popover div{
-  background-color: transparent !important;
+.ant-popover{
+  background-color: white !important;
   box-shadow: none !important;
 }
 

@@ -2661,8 +2661,10 @@ input {
   overflow: hidden;
 }
 
-:where(.css-dev-only-do-not-override-3rel02).ant-image .ant-image-mask:hover {
-  opacity: 0 !important;
+.ant-image-mask {
+
+  background: rgba(0, 0, 0, 0) !important;
+
 }
 
 .product-card img:hover {
@@ -3550,4 +3552,13 @@ th {
 .cm-bg-sty.accordion-button::after {
   background-color: white !important;
   border-radius: 50%;
+}
+
+.homebanner img {
+  height: 100vh !important;
+  /* object-fit: cover !important; */
+}
+
+.popover-item{
+  background-color: red !important;
 }

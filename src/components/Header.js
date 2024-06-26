@@ -14,7 +14,7 @@ import Language from "../constant/Language";
 import SearchList from "./SearchList";
 const { Option } = Select;
 
-import Logo from '../constant/images/Winterbear-Logo.webp';
+// import Logo from '../constant/images/Winterbear-Logo.webp';
 
 function chunkArray(array, chunkSize) {
   const chunks = [];
@@ -352,7 +352,7 @@ const Header = () => {
                       id="offcanvasExampleLabel"
                     >
                       <img
-                        src="../assets/images/winterbear-logo.png"
+                        src={require("../constant/images//Winterbear-Logo.webp")}
                         className="d-block ps-md-2 img-fluid my-5 "
                         alt="Logo"
                         loading="lazy"
@@ -485,7 +485,7 @@ const Header = () => {
                 <a href="/">
                   <img
                     // src="../assets/images/winterbear-logo.png"
-                     src={Logo}
+                    src={require("../constant/images//Winterbear-Logo.webp")}
                     className="d-block header-logo"
                     alt="Logo"
                     loading="lazy"
