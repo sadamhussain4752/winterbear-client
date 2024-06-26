@@ -6,6 +6,7 @@ import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
 import { ProfileUserData, CouponUserById ,GetAddCardProductById,GetCardProductById} from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
+import Logo from '../constant/images/Winterbear-Logo.webp';
 import { IoIosLogIn } from "react-icons/io";
 import NewsPaper from "./NewsPaper";
 import { ShoppingCartOutlined, WalletOutlined } from "@ant-design/icons";
@@ -14,7 +15,7 @@ import Language from "../constant/Language";
 import SearchList from "./SearchList";
 const { Option } = Select;
 
-import Logo from '../constant/images/Winterbear-Logo.webp';
+
 
 function chunkArray(array, chunkSize) {
   const chunks = [];

@@ -1,47 +1,9 @@
-import React, { useMemo, useRef, useState } from 'react';
-import { Select, Spin, Avatar } from 'antd'; // Import Avatar component from antd
+import React, { useState } from 'react';
+import { Input, Spin, Avatar, Popover, List } from 'antd'; // Import required components from antd
 import debounce from 'lodash/debounce';
 import constant from '../constant/constant';
 import { useNavigate } from 'react-router-dom';
 
-function DebounceSelect({ fetchOptions, debounceTimeout = 800, ...props }) {
-  const [fetching, setFetching] = useState(false);
-  const [options, setOptions] = useState([]);
-  const fetchRef = useRef(0);
-  
-  const debounceFetcher = useMemo(() => {
-    const loadOptions = (value) => {
-      fetchRef.current += 1;
-      const fetchId = fetchRef.current;
-      setOptions([]);
-      setFetching(true);
-      fetchOptions(value).then((newOptions) => {
-        if (fetchId !== fetchRef.current) {
-          // for fetch callback order
-          return;
-        }
-        setOptions(newOptions);
-        setFetching(false);
-      });
-    };
-    return debounce(loadOptions, debounceTimeout);
-  }, [fetchOptions, debounceTimeout]);
-  
-  return (
-    <Select
-      labelInValue
-      filterOption={false}
-      onSearch={debounceFetcher}
-      notFoundContent={fetching ? <Spin size="small" /> : null}
-      {...props}
-      options={options}
-    />
-  );
-}
-
-const handleNavigation = (productId) => {
-    // Navigate to the specified product id
-};
 
 async function fetchUserList(searchValue) {
   console.log('fetching products with keyword', searchValue);
@@ -51,12 +13,12 @@ async function fetchUserList(searchValue) {
       const filteredProducts = body.products.filter((product) =>
         product.key_word && product.key_word.toLowerCase().includes(searchValue.toLowerCase())
       );
-      console.log(filteredProducts,"filteredProducts");
+      console.log(filteredProducts, "filteredProducts");
       return filteredProducts.map((product) => ({
         label: (
-          <div className='col-md-12' style={{ display: 'flex', alignItems: 'center' ,height:"60px"}}>
-            <Avatar className='col-md-4' src={product.images[0]} style={{ marginRight: 8, width:"30px", height:"30px" }} /> {/* Use Avatar component to display image */}
-            <span className='col-md-8'>{product.name}</span> 
+          <div className='col-md-12' style={{ display: 'flex', alignItems: 'center', height: "60px" }}>
+            <Avatar className='col-md-4' src={product.images[0]} style={{ marginRight: 8, width: "30px", height: "30px" }} />
+            <span className='col-md-8'>{product.name}</span>
           </div>
         ),
         value: product._id,
@@ -66,23 +28,61 @@ async function fetchUserList(searchValue) {
 
 const SearchList = () => {
   const navigate = useNavigate();
-  const [value, setValue] = useState([]);
-  
+  const [searchText, setSearchText] = useState('');
+  const [options, setOptions] = useState([]);
+  const [fetching, setFetching] = useState(false);
+
+  const handleSearch = debounce((value) => {
+    setFetching(true);
+    fetchUserList(value).then((newOptions) => {
+      setOptions(newOptions.slice(0, 6)); // Display only top 6 results
+      setFetching(false);
+    });
+  }, 800);
+
+  const handleSelect = (value) => {
+    navigate(`/product/${value}`);
+  };
+
+  const content = (
+    <div>
+      {fetching ? (
+        <Spin size="small" />
+      ) : (
+        <div className='search-drpdwn'>
+          <div className='row'>
+            {options.map((item, index) => (
+              <div key={index} className='col-md-6' onClick={() => handleSelect(item.value)}>
+                {item.label}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
   return (
-    <DebounceSelect
-      mode="multiple"
-      value={value}
-      suffixIcon={null}
-      placeholder="Search"
-      fetchOptions={fetchUserList}
-      onChange={(newValue) => {
-        setValue(newValue);
-        navigate(`/product/${newValue[0].value}`);
-      }}
-      style={{
-        width: '100%',
-      }}
-    />
+    <div className='mni-contt'>
+      <Popover
+        content={content}
+        trigger="click"
+        visible={searchText.length > 0}
+        onVisibleChange={(visible) => {
+          if (!visible) setSearchText('');
+        }}
+      >
+        <Input
+          placeholder="Search"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+            handleSearch(e.target.value);
+          }}
+          style={{ width: '100%' }}
+        />
+      </Popover>
+    </div>
   );
 };
 
