@@ -94,7 +94,8 @@ const ShopAll = () => {
 
     if (searchQuery && productlist && productlist.products) {
       const filteredProducts = productlist.products.filter((product) =>
-        product.key_word && product.key_word.toLowerCase().includes(searchQuery.toLowerCase())
+        product.key_word && product.key_word.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.name && product.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setProductList(filteredProducts);
     }
@@ -651,7 +652,7 @@ const ShopAll = () => {
                   }
                 }}
                 onSearch={onSearch}
-                className="mt-5 " style={{ width: "500px" }} />
+                className="mt-5 " style={{ width: "auto" }} />
 
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
