@@ -5,6 +5,7 @@ import Gallery from "../components/Gallery";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate, useParams } from "react-router-dom";
+import Loader from "../components/loder";
 import {
   fetchProductData,
   fetchBannerData,
@@ -280,6 +281,8 @@ const Brandlist = () => {
   return (
     <>
       <Header />
+
+      <Loader />
 
       <section className="py-5 shop">
         <div className="container-fluid">

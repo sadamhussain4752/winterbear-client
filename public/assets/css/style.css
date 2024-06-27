@@ -2624,6 +2624,15 @@ input {
 
 }
 
+.lodder{
+  position: absolute;
+  background-color: #000;
+  top: 0%;
+  left:0%;
+  bottom: 0%;
+  right: 0%;
+}
+
 .product-shopall:hover {
   transform: scale(1.5);
   overflow: hidden !important;

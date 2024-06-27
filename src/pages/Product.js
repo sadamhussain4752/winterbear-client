@@ -297,9 +297,9 @@ const Product = () => {
             <p className="col-md-2 text-decoration-line-through">
               ₹ {product.offeramount}
             </p>
-            <p className="col-md-2 offer-per">
+            {/* <p className="col-md-2 offer-per">
               {parseFloat(product.offeramount / product.amount).toFixed(0)}% OFF
-            </p>
+            </p> */}
           </div>
           {product.category_id === "65a79023a4420b22a687efa6" && (
             <div className="size-selector col-md-12 sku-tag row mt-3">

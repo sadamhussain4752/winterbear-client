@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
+import Loader from "../components/loder";
 
 import imggif from "../constant/images/1.webp";
 // import './components/Sidenav.css';
@@ -158,6 +159,9 @@ const ShopAll = () => {
 
   const menu = (
     <Menu>
+
+     
+
       <Menu.ItemGroup title="Price">
         <Menu.Item onClick={() => setSortby("Low to High")}>
           Lower to Higher
@@ -298,6 +302,7 @@ const ShopAll = () => {
 
   return (
     <>
+     <Loader />
       <Header />
 
       <section className="py-5 shop">
@@ -641,7 +646,7 @@ const ShopAll = () => {
             </div>
 
             <div className="col-md-9">
-              <Search placeholder="Search Your Product"
+              {/* <Search placeholder="Search Your Product"
                 value={searchText}
                 onChange={(e) => {
                   setsearchText(e.target.value)
@@ -652,7 +657,7 @@ const ShopAll = () => {
                   }
                 }}
                 onSearch={onSearch}
-                className="mt-5 " style={{ width: "auto" }} />
+                className="mt-5 " style={{ width: "auto" }} /> */}
 
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
@@ -736,6 +741,7 @@ const ShopAll = () => {
               </div>
               <div className="text-center mt-4">
                 {productList.length > 0 && (
+
                   <Pagination
                     current={currentPage}
                     pageSize={itemsPerPage}
