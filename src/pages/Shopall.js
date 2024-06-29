@@ -46,7 +46,7 @@ const ShopAll = () => {
   // States to store product list, selected category, and current page
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15; // Number of items per page
+  const itemsPerPage = 16; // Number of items per page
 
   const { productlist, loading: productListLoading } = useSelector(
     (state) => state.productlist
@@ -641,7 +641,7 @@ const ShopAll = () => {
             </div>
 
             <div className="col-md-9">
-              <Search placeholder="Search Your Product"
+              {/* <Search placeholder="Search Your Product"
                 value={searchText}
                 onChange={(e) => {
                   setsearchText(e.target.value)
@@ -652,7 +652,7 @@ const ShopAll = () => {
                   }
                 }}
                 onSearch={onSearch}
-                className="mt-5 " style={{ width: "auto" }} />
+                className="mt-5 " style={{ width: "auto" }} /> */}
 
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
@@ -737,8 +737,8 @@ const ShopAll = () => {
               <div className="text-center mt-4">
                 {productList.length > 0 && (
                   <Pagination
-                    current={currentPage}
-                    pageSize={itemsPerPage}
+                    // current={currentPage}
+                    // pageSize={itemsPerPage}
                     total={productList.length}
                     onChange={handlePaginationChange}
                   />

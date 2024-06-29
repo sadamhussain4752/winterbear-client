@@ -29,7 +29,7 @@ const Brandlist = () => {
   const [subBrandlist, setSubbrand] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15; // Number of items per page
+  const itemsPerPage = 16; // Number of items per page
   const [selectCategory, setCategory] = useState([]);
   const [sortby, setSortby] = useState("");
   const [priceby, setpriceby] = useState("");
@@ -659,8 +659,8 @@ const Brandlist = () => {
               <div className="text-center mt-4">
                 {productList.length > 0 && (
                   <Pagination
-                    current={currentPage}
-                    pageSize={itemsPerPage}
+                    // current={currentPage}
+                    // pageSize={itemsPerPage}
                     total={productList.length}
                     onChange={handlePaginationChange}
                   />

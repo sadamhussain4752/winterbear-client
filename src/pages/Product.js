@@ -75,10 +75,10 @@ const Product = () => {
 
 
   const {
-    productlist,
+    productOldlist,
     loading: productListLoading,
     error: productListError,
-  } = useSelector((state) => state.productlist);
+  } = useSelector((state) => state.productOldlist);
 
   const {
     RatingProductRes: RatingResponce,
@@ -290,16 +290,18 @@ const Product = () => {
             </p>
           </div>
           <div className="sku-tag">
-            <p>CATEGORIES: FILES, STATIONERY</p>
+          <p>CATEGORIES: {product.category && product?.category?.split('>')[1] && product.category.split('>')[1]}</p>
           </div>
           <div className="col-md-12 sku-tag row mt-3">
             <p className="price-amount col-md-2">₹{product.amount}</p>
-            <p className="col-md-2 text-decoration-line-through">
+            {/* <p className="col-md-2 text-decoration-line-through">
               ₹ {product.offeramount}
-            </p>
-            <p className="col-md-2 offer-per">
-              {parseFloat(product.offeramount / product.amount).toFixed(0)}% OFF
-            </p>
+            </p> */}
+            {product.category_id === "65a79023a4420b22a687efa6" &&
+             <p className="col-md-2 offer-per">
+             {parseFloat(40).toFixed(0)}% OFF
+           </p>}
+           
           </div>
           {product.category_id === "65a79023a4420b22a687efa6" && (
             <div className="size-selector col-md-12 sku-tag row mt-3">
@@ -323,13 +325,13 @@ const Product = () => {
           <hr />
 
           <div className="text-start col-md-12 row mt-3">
-            <div className="col-md-3">
+            {/* <div className="col-md-3">
               <p className="d-flex justify-content-center align-items-center border qty-button">
                 <button className="btn btn-primary me-2 bg-cl-tr">+</button>
                 <span>1</span>
                 <button className="btn btn-primary me-2 bg-cl-tr ">-</button>
               </p>
-            </div>
+            </div> */}
             <div className="col-md-3 col-5">
               <button
                 className="btn w-100 text-white button buy-now-tag"
@@ -585,6 +587,9 @@ const Product = () => {
   };
 
   const renderRelatedProducts = () => {
+    const product = GetProductIdResponse?.Products || {};
+    const relatedProducts = productOldlist?.productList?.find((i) => i.brand._id === product.brand_id)?.products?.slice(0, 10) || [];
+  
     return (
       <OwlCarousel
         className="owl-theme col-md-12"
@@ -603,54 +608,40 @@ const Product = () => {
           },
         }}
       >
-        {productlist?.products?.slice(0, 10).map((prod, ind) => (
-          <div className="item col-md-10 position-relative mb-3 home-product px-0 ">
+        {relatedProducts.map((prod, ind) => (
+          <div key={ind} className="item col-md-10 position-relative mb-3 home-product px-0">
             <div className="home-product-in px-">
               <img
-                src={
-                  prod.images[0] !== null && prod.images[0] !== "image_url1"
-                    ? `${prod.images[0]}`
-                    : "assets/images/Rectangle 22.png"
-                }
+                src={prod.images[0] !== null && prod.images[0] !== "image_url1"
+                  ? `${prod.images[0]}`
+                  : "assets/images/Rectangle 22.png"}
                 loading="lazy"
                 className="product-shopby trans"
                 alt="Web Project 1"
               />
               <div
-                className="text-center  border-secondary addtocart-btn px-1 py-1 "
+                className="text-center border-secondary addtocart-btn px-1 py-1"
                 onClick={() => handleNavigation(prod._id)}
               >
                 <i className="fas fa-cart-plus me-2" /> Add to Cart
               </div>
             </div>
-
+  
             <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
               <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
-                {/* {item.brand._id ===
-              "65aa405f6bfadce6d5a0ef3c" && (
-              <p className="text-white text-center  text-decoration-line-through w-25 mt-2 rounded-end bg-theme-dis">
-                40%
-              </p>
-            )} */}
-
                 <div></div>
-
                 <button className="heart-btn" id="hertbtn">
-                  <i class="fa-regular fa-heart"></i>
-                  {/* <Rate
-                character={<HeartOutlined />  }
-                count={1}
-              /> */}
+                  <i className="fa-regular fa-heart"></i>
                 </button>
               </div>
-
-              <div className=" mt-4 col-md-12 price-prodname">
-                <p className="text-start prize-size mb-0 "> {prod.name}</p>
-                <p className="prod-pric mb-0 ">₹{prod.amount}</p>
+  
+              <div className="mt-4 col-md-12 price-prodname">
+                <p className="text-start prize-size mb-0">{prod.name}</p>
+                <p className="prod-pric mb-0">₹{prod.amount}</p>
               </div>
             </div>
             <div
-              className="text-center d-none border-secondary addtocart-btn px-1 py-1 "
+              className="text-center d-none border-secondary addtocart-btn px-1 py-1"
               onClick={() => handleNavigation(prod._id)}
             >
               <i className="fas fa-cart-plus me-2" /> Add to Cart
@@ -660,6 +651,7 @@ const Product = () => {
       </OwlCarousel>
     );
   };
+  
 
   const renderImageProducts = () => {
     const product = GetProductIdResponse?.Products || {};

@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
-import { Input, Spin, Avatar, Popover, List } from 'antd'; // Import required components from antd
+import React, { useState, useEffect, useCallback } from 'react';
+import { Input, Spin, Avatar, Popover } from 'antd';
 import debounce from 'lodash/debounce';
 import constant from '../constant/constant';
 import { useNavigate } from 'react-router-dom';
 
 async function fetchUserList(searchValue) {
   console.log('fetching products with keyword', searchValue);
-  return fetch(`${constant.baseUrl}api/product/allProduct?lang=1`)
+  return fetch(`${constant.baseUrl}api/product/ProductUserId?lang=1&search=${searchValue}&page=1&limit=10`)
     .then((response) => response.json())
     .then((body) => {
-      const filteredProducts = body.products.filter((product) =>
-        product.key_word && product.key_word.toLowerCase().includes(searchValue.toLowerCase())  ||
-        product.name && product.name.toLowerCase().includes(searchValue.toLowerCase())
-      );
-      console.log(filteredProducts, "filteredProducts");
-      return filteredProducts.map((product) => ({
+      return body.products.map((product) => ({
         label: (
           <div className='col-md-12' style={{ display: 'flex', alignItems: 'center', height: "60px" }}>
             <Avatar className='col-md-4' src={product.images[0]} style={{ marginRight: 8, width: "30px", height: "30px" }} />
@@ -32,13 +27,31 @@ const SearchList = () => {
   const [options, setOptions] = useState([]);
   const [fetching, setFetching] = useState(false);
 
-  const handleSearch = debounce((value) => {
-    setFetching(true);
-    fetchUserList(value).then((newOptions) => {
-      setOptions(newOptions.slice(0, 6)); // Display only top 6 results
-      setFetching(false);
-    });
-  }, 800);
+  // Define a debounced search function
+  const debouncedSearch = useCallback(debounce((value) => {
+    if (value) {
+      setFetching(true);
+      fetchUserList(value).then((newOptions) => {
+        setOptions(newOptions.slice(0, 6)); // Display only top 6 results
+        setFetching(false);
+      });
+    } else {
+      setOptions([]);
+    }
+  }, 1000), []);
+
+  // Handle search input change
+  useEffect(() => {
+    if (searchText.trim()) {
+      debouncedSearch(searchText);
+    } else {
+      setOptions([]);
+    }
+    // Cancel the debounce search call if the component unmounts or searchText changes
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [searchText, debouncedSearch]);
 
   const handleSelect = (value) => {
     navigate(`/product/${value}`);
@@ -82,11 +95,10 @@ const SearchList = () => {
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
-            handleSearch(e.target.value);
           }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              handleNavigation(navigate, e.target.value);
+              handleNavigation();
             }
           }} style={{ width: '100%' }}
         />
