@@ -389,7 +389,7 @@ const Product = () => {
             </p>
           </div>
         </div>
-        <div className="col-md-12 text-center mt-lg-5 mt-4 prod-bot-tab">
+        <div className="col-md-12 text-center mt-lg-5 mt-4 prod-bot-tab d-none">
           {/* Product Tabs */}
           <Tab.Container
             defaultActiveKey="description"

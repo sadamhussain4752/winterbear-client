@@ -160,7 +160,7 @@ const ShopAll = () => {
   const menu = (
     <Menu>
 
-     
+
 
       <Menu.ItemGroup title="Price">
         <Menu.Item onClick={() => setSortby("Low to High")}>
@@ -302,10 +302,17 @@ const ShopAll = () => {
 
   return (
     <>
-     <Loader />
+      <Loader />
       <Header />
 
+
       <section className="py-5 shop">
+
+
+        <a href="" className="prod-bck-btn">
+          <i class="fa-solid fa-circle-arrow-left"></i>
+        </a>
+
         <div className="container-fluid">
           {!selectedCategory && (
             <div className="row">
@@ -316,6 +323,8 @@ const ShopAll = () => {
               </div>
             </div>
           )}
+
+
 
           <div className="row">
             <div className="col-md-12">
