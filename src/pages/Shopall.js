@@ -7,6 +7,7 @@ import constant from "../constant/constant";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
 import Loader from "../components/loder";
+import Gobackbtn from "../components/gobackbtn";
 
 import imggif from "../constant/images/1.webp";
 // import './components/Sidenav.css';
@@ -309,9 +310,18 @@ const ShopAll = () => {
       <section className="py-5 shop">
 
 
-        <a href="" className="prod-bck-btn">
-          <i class="fa-solid fa-circle-arrow-left"></i>
-        </a>
+        <div className="text-center mt-4">
+          {productList.length > 0 && (
+
+            <Pagination
+              current={currentPage}
+              pageSize={itemsPerPage}
+              total={productList.length}
+              onChange={handlePaginationChange}
+            />
+          )}
+        </div>
+
 
         <div className="container-fluid">
           {!selectedCategory && (

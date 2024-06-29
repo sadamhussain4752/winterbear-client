@@ -2674,6 +2674,12 @@ input {
   position: relative;
 }
 
+
+.product-card::-webkit-scrollbar {
+  display: none !important; /* Hide the scrollbar */
+}
+
+
 .brandimg-cont {
   overflow: hidden;
 }
@@ -3609,4 +3615,19 @@ th {
 
 .popover-item{
   background-color: red !important;
+}
+
+
+
+.prod-bck-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.prod-bck-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
