@@ -296,12 +296,10 @@ const Product = () => {
             <p className="price-amount col-md-2">₹{product.amount}</p>
             {/* <p className="col-md-2 text-decoration-line-through">
               ₹ {product.offeramount}
+            </p>
+            {/* <p className="col-md-2 offer-per">
+              {parseFloat(product.offeramount / product.amount).toFixed(0)}% OFF
             </p> */}
-            {product.category_id === "65a79023a4420b22a687efa6" &&
-             <p className="col-md-2 offer-per">
-             {parseFloat(40).toFixed(0)}% OFF
-           </p>}
-           
           </div>
           {product.category_id === "65a79023a4420b22a687efa6" && (
             <div className="size-selector col-md-12 sku-tag row mt-3">
@@ -391,7 +389,7 @@ const Product = () => {
             </p>
           </div>
         </div>
-        <div className="col-md-12 text-center mt-lg-5 mt-4 prod-bot-tab">
+        <div className="col-md-12 text-center mt-lg-5 mt-4 prod-bot-tab d-none">
           {/* Product Tabs */}
           <Tab.Container
             defaultActiveKey="description"

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
+import Loader from "../components/loder";
 
 import imggif from "../constant/images/1.webp";
 // import './components/Sidenav.css';
@@ -158,6 +159,9 @@ const ShopAll = () => {
 
   const menu = (
     <Menu>
+
+
+
       <Menu.ItemGroup title="Price">
         <Menu.Item onClick={() => setSortby("Low to High")}>
           Lower to Higher
@@ -298,9 +302,17 @@ const ShopAll = () => {
 
   return (
     <>
+      <Loader />
       <Header />
 
+
       <section className="py-5 shop">
+
+
+        <a href="" className="prod-bck-btn">
+          <i class="fa-solid fa-circle-arrow-left"></i>
+        </a>
+
         <div className="container-fluid">
           {!selectedCategory && (
             <div className="row">
@@ -311,6 +323,8 @@ const ShopAll = () => {
               </div>
             </div>
           )}
+
+
 
           <div className="row">
             <div className="col-md-12">
@@ -736,6 +750,7 @@ const ShopAll = () => {
               </div>
               <div className="text-center mt-4">
                 {productList.length > 0 && (
+
                   <Pagination
                     // current={currentPage}
                     // pageSize={itemsPerPage}
