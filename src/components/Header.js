@@ -225,7 +225,7 @@ const Header = () => {
                         {Language.shop_all}
                         <div id="dropdown-products">
                           <div
-                            className="shopall-menu"
+                            className="shopall-menu px-3"
                             style={{ marginTop: "50px" }}
                           >
                             <div className="container-fluid bg-light">

@@ -9,7 +9,7 @@ import {
   RatingProductUserById,
   fetchProductData,
   GetAddCardProductById,
-  GetCardProductById
+  GetCardProductById,
 } from "../../src/reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
@@ -18,7 +18,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Nav, Tab } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { message, Rate,notification,Image } from "antd";
+import { message, Rate, notification, Image } from "antd";
 import MultiCarousel from "../components/MultiCarousel";
 import { HeartOutlined, ShareAltOutlined } from "@ant-design/icons";
 import Copyimage from "../constant/images/Copy.svg";
@@ -26,6 +26,8 @@ import Facebookimage from "../constant/images/Facebook.svg";
 import Pinterestimage from "../constant/images/Pinterest.svg";
 import Twitterimage from "../constant/images/Twitter.svg";
 import HeartButton from "../components/heartbutton";
+import { Badge, Card, Space } from "antd";
+
 const options = {
   // loop: true,
   // center: true,
@@ -72,7 +74,6 @@ const Product = () => {
   };
 
   const [messageApi, contextHolder] = message.useMessage();
-
 
   const {
     productOldlist,
@@ -159,16 +160,16 @@ const Product = () => {
         >
           {product?.images &&
             product?.images.map((image, index) => (
+              <Badge.Ribbon text={`${product.qty} left`}  placement="start" className="ani-rd1 py-2 px-3">
               <div key={index} className="item mb-4 mb-0">
-                <Image
+                <img
                   src={`${image}`}
-                  height={500}
-                  
                   alt={`Product Image ${index}`}
-                  className="product-img-main rounded sing-prod"
+                  className="product-img-main rounded"
                   loading="lazy"
                 />
               </div>
+              </Badge.Ribbon>
             ))}
         </OwlCarousel>
         <div className="position-absolute top-0 end-0 mx-3 mt-2">
@@ -182,22 +183,21 @@ const Product = () => {
         </div>
         <div className="d-flex justify-content-center">
           {product && product?.images && product?.images.length > 1 && (
-            <MultiCarousel images={product?.images} indexs={(item)=>{
-              console.log(item,"item");
-              setSelecteditem(item)
-            }}/>
+            <MultiCarousel
+              images={product?.images}
+              indexs={(item) => {
+                console.log(item, "item");
+                setSelecteditem(item);
+              }}
+            />
           )}
         </div>
-
-       
       </>
     );
   };
 
-  
-
   const addcard = async (id) => {
-    success(`Successfully Added to Cart: ${id.name}`)
+    success(`Successfully Added to Cart: ${id.name}`);
     if (userId) {
       let addcarditem = {
         userId: userId,
@@ -206,22 +206,21 @@ const Product = () => {
       };
       await dispatch(AddCardProductById(addcarditem));
       await dispatch(GetAddCardProductById(userId));
-  
     } else {
       const passbody = {
         userId: userId,
         productId: id._id,
         quantity: 1, // Use number for quantity
       };
-  
+
       let getlistcarts = localStorage.getItem("cardstore");
-      console.log(getlistcarts,"getlistcarts");
+      console.log(getlistcarts, "getlistcarts");
       let addtocarts = [];
-  
+
       if (getlistcarts) {
         addtocarts = JSON.parse(getlistcarts);
       }
-  
+
       // Check if the product already exists in the cart
       let productExists = false;
       addtocarts = addtocarts.map((item) => {
@@ -234,13 +233,13 @@ const Product = () => {
         }
         return item;
       });
-  
+
       // If the product does not exist, add it to the cart
       if (!productExists) {
         addtocarts.push(passbody);
       }
       if (getlistcarts) {
-        const productIds =  {productIds :addtocarts}
+        const productIds = { productIds: addtocarts };
         console.log(productIds);
         dispatch(GetCardProductById(productIds));
       }
@@ -248,10 +247,9 @@ const Product = () => {
     }
   };
 
-  
   const success = (items) => {
     messageApi.open({
-      type: 'loading',
+      type: "loading",
       content: items,
       duration: 0,
     });
@@ -290,16 +288,26 @@ const Product = () => {
             </p>
           </div>
           <div className="sku-tag">
-          <p>CATEGORIES: {product.category && product?.category?.split('>')[1] && product.category.split('>')[1]}</p>
+            <p>
+              CATEGORIES:{" "}
+              {product.category &&
+                product?.category?.split(">")[1] &&
+                product.category.split(">")[1]}
+            </p>
           </div>
           <div className="col-md-12 sku-tag row mt-3">
-            <p className="price-amount col-md-2">₹{product.amount}</p>
+            <p className="prod-pric1 price-amount mb-0">
+              <span className="prod-pric">₹{product.offeramount} </span>{" "}
+              <span className="fw-semibold prod-cl">₹{product.amount}</span>
+            </p>
             {/* <p className="col-md-2 text-decoration-line-through">
               ₹ {product.offeramount}
-            </p>
-            {/* <p className="col-md-2 offer-per">
-              {parseFloat(product.offeramount / product.amount).toFixed(0)}% OFF
             </p> */}
+            {product.category_id === "65a79023a4420b22a687efa6" && (
+              <p className="col-md-2 offer-per">
+                {parseFloat(40).toFixed(0)}% OFF
+              </p>
+            )}
           </div>
           {product.category_id === "65a79023a4420b22a687efa6" && (
             <div className="size-selector col-md-12 sku-tag row mt-3">
@@ -389,7 +397,7 @@ const Product = () => {
             </p>
           </div>
         </div>
-        <div className="col-md-12 text-center mt-lg-5 mt-4 prod-bot-tab d-none">
+        <div className="col-md-12 text-center mt-lg-5 mt-4 prod-bot-tab">
           {/* Product Tabs */}
           <Tab.Container
             defaultActiveKey="description"
@@ -421,8 +429,10 @@ const Product = () => {
                 <div className="text-start col-md-12 row mt-5">
                   <div className="col-md-5 sku-tag feature-item ">
                     <h4>Description</h4>
-                    <div>{product.description && product.description.replaceAll(/\\n/g, ' ')}</div>
-                   
+                    <div>
+                      {product.description &&
+                        product.description.replaceAll(/\\n/g, " ")}
+                    </div>
                   </div>
                   <div className="col-md-4 sku-tag feature-item ">
                     <h4>Feature</h4>
@@ -586,8 +596,11 @@ const Product = () => {
 
   const renderRelatedProducts = () => {
     const product = GetProductIdResponse?.Products || {};
-    const relatedProducts = productOldlist?.productList?.find((i) => i.brand._id === product.brand_id)?.products?.slice(0, 10) || [];
-  
+    const relatedProducts =
+      productOldlist?.productList
+        ?.find((i) => i.brand._id === product.brand_id)
+        ?.products?.slice(0, 10) || [];
+
     return (
       <OwlCarousel
         className="owl-theme col-md-12"
@@ -607,12 +620,17 @@ const Product = () => {
         }}
       >
         {relatedProducts.map((prod, ind) => (
-          <div key={ind} className="item col-md-10 position-relative mb-3 home-product px-0">
+          <div
+            key={ind}
+            className="item col-md-10 position-relative mb-3 home-product px-0"
+          >
             <div className="home-product-in px-">
               <img
-                src={prod.images[0] !== null && prod.images[0] !== "image_url1"
-                  ? `${prod.images[0]}`
-                  : "assets/images/Rectangle 22.png"}
+                src={
+                  prod.images[0] !== null && prod.images[0] !== "image_url1"
+                    ? `${prod.images[0]}`
+                    : "assets/images/Rectangle 22.png"
+                }
                 loading="lazy"
                 className="product-shopby trans"
                 alt="Web Project 1"
@@ -624,7 +642,7 @@ const Product = () => {
                 <i className="fas fa-cart-plus me-2" /> Add to Cart
               </div>
             </div>
-  
+
             <div className="col-md-12 d-flex justify-content-between align-items-end mb-2">
               <div className="d-flex justify-content-between position-absolute top-0 start-0 w-100">
                 <div></div>
@@ -632,7 +650,7 @@ const Product = () => {
                   <i className="fa-regular fa-heart"></i>
                 </button>
               </div>
-  
+
               <div className="mt-4 col-md-12 price-prodname">
                 <p className="text-start prize-size mb-0">{prod.name}</p>
                 <p className="prod-pric mb-0">₹{prod.amount}</p>
@@ -649,7 +667,6 @@ const Product = () => {
       </OwlCarousel>
     );
   };
-  
 
   const renderImageProducts = () => {
     const product = GetProductIdResponse?.Products || {};
@@ -672,7 +689,7 @@ const Product = () => {
 
   return (
     <>
-        {contextHolder}
+      {contextHolder}
       <Header />
       <section className="py-5 mt-80">
         <div className="container">

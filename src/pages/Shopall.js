@@ -21,7 +21,16 @@ import {
   fetchWishlistData,
 } from "../reducer/thunks";
 import HomeSlider from "../components/BrandSlider";
-import { Dropdown, Menu, Empty, Pagination, Slider, message, Input } from "antd";
+import {
+  Dropdown,
+  Menu,
+  Empty,
+  Pagination,
+  Slider,
+  message,
+  Input,
+} from "antd";
+import { Badge, Card, Space } from "antd";
 const { Search } = Input;
 
 const ShopAll = () => {
@@ -46,7 +55,7 @@ const ShopAll = () => {
   // States to store product list, selected category, and current page
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15; // Number of items per page
+  const itemsPerPage = 16; // Number of items per page
 
   const { productlist, loading: productListLoading } = useSelector(
     (state) => state.productlist
@@ -89,13 +98,18 @@ const ShopAll = () => {
   }, [id, productlist]);
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
-    const searchQuery = queryParams.get('search');
-    setsearchText(searchQuery)
+    const searchQuery = queryParams.get("search");
+    setsearchText(searchQuery);
 
     if (searchQuery && productlist && productlist.products) {
-      const filteredProducts = productlist.products.filter((product) =>
-        product.key_word && product.key_word.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.name && product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      const filteredProducts = productlist.products.filter(
+        (product) =>
+          (product.key_word &&
+            product.key_word
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase())) ||
+          (product.name &&
+            product.name.toLowerCase().includes(searchQuery.toLowerCase()))
       );
       setProductList(filteredProducts);
     }
@@ -141,8 +155,6 @@ const ShopAll = () => {
     });
   };
 
-
-
   // side nav
 
   const [sidenavWidth, setSidenavWidth] = useState(0);
@@ -154,7 +166,6 @@ const ShopAll = () => {
   const closeNav = () => {
     setSidenavWidth(0);
   };
-
 
   const menu = (
     <Menu>
@@ -236,12 +247,11 @@ const ShopAll = () => {
         productId: id._id,
         quantity: "1",
       };
-      await dispatch(AddCardProductById(addcarditem))
-      message.success(`Succesfully Add the Cart ${id.name}`)
+      await dispatch(AddCardProductById(addcarditem));
+      message.success(`Succesfully Add the Cart ${id.name}`);
     } else {
-      message.error(`Please log in to add to cart.`)
+      message.error(`Please log in to add to cart.`);
     }
-
   };
 
   const handleWishlists = async (prod_id) => {
@@ -250,9 +260,8 @@ const ShopAll = () => {
       const passbody = { userId: userIds, productId: prod_id };
       await dispatch(AddWishlistFetch(passbody));
     } else {
-      message.error(`Please log in to Wishlist the product.`)
+      message.error(`Please log in to Wishlist the product.`);
     }
-
   };
   // Filter products based on selected filters
   const filterProducts = (products) => {
@@ -284,17 +293,18 @@ const ShopAll = () => {
 
   const onSearch = (value) => {
     console.log(value);
-    setsearchText(value)
+    setsearchText(value);
     if (value && productlist && productlist.products) {
-      const filteredProducts = productlist.products.filter((product) =>
-        product.key_word && product.key_word.toLowerCase().includes(value.toLowerCase()) ||
-        product.name && product.name.toLowerCase().includes(value.toLowerCase())
-
+      const filteredProducts = productlist.products.filter(
+        (product) =>
+          (product.key_word &&
+            product.key_word.toLowerCase().includes(value.toLowerCase())) ||
+          (product.name &&
+            product.name.toLowerCase().includes(value.toLowerCase()))
       );
       setProductList(filteredProducts);
     }
-
-  }
+  };
 
   return (
     <>
@@ -314,8 +324,6 @@ const ShopAll = () => {
 
           <div className="row">
             <div className="col-md-12">
-
-
               <div className="section-heading">
                 {selectedCategory && selectedCategory?.category_img_desktop && (
                   <div className="align-items-center">
@@ -329,7 +337,6 @@ const ShopAll = () => {
                         media="(max-width: 768px)"
                         srcSet={`${selectedCategory.category_img_mobile}`}
                         className="w-100"
-
                       />
                       <img
                         loading="lazy"
@@ -348,24 +355,20 @@ const ShopAll = () => {
           </div>
 
           <div className="col-md-12 mb-4">
-
             <div className="text-end d-flex justify-content-lg-end justify-content-between align-items-center filter-item">
-
               <p className="d-lg-none d-block mb-0 py-2 px-4 rounded">
                 <span
                   style={{
-                    fontSize: '25px', cursor: 'pointer', border: ' 1px solid black',
-                    padding: ' 0px 10px'
+                    fontSize: "25px",
+                    cursor: "pointer",
+                    border: " 1px solid black",
+                    padding: " 0px 10px",
                   }}
                   onClick={openNav}
                 >
-
                   &#9776;
-
                   {/* <span className="cat-brand">CATEGORY & BRANDS </span>  */}
-
                 </span>
-
               </p>
 
               <div className="p-0 rounded mx-1">
@@ -469,8 +472,6 @@ const ShopAll = () => {
                 </div>
               </div>
 
-
-
               <Dropdown
                 overlay={menu}
                 trigger={["hover"]}
@@ -485,10 +486,7 @@ const ShopAll = () => {
               </Dropdown>
             </div>
           </div>
-          <div>
-
-          </div>
-
+          <div></div>
 
           <div className="mob-nav ">
             {/* d-block d-lg-none */}
@@ -511,10 +509,11 @@ const ShopAll = () => {
                     data.Categorys &&
                     data.Categorys.map((item) => (
                       <div
-                        className={`${item._id === selectedCategory?._id
-                          ? ""
-                          : "col-md-12 d-flex justify-content-start "
-                          }`}
+                        className={`${
+                          item._id === selectedCategory?._id
+                            ? ""
+                            : "col-md-12 d-flex justify-content-start "
+                        }`}
                         key={item._id}
                         onClick={() => handleCategoryClick(item)}
                       >
@@ -523,7 +522,6 @@ const ShopAll = () => {
                         </div>
                       </div>
                     ))}
-
                 </div>
 
                 <div className="p-0  text-center rounded mx-5">
@@ -539,10 +537,8 @@ const ShopAll = () => {
                           className=" shop-all-cards"
                           onClick={() => handleNavigationbrand(item.brand._id)}
                         >
-
                           <p className="brand-namee">{item.brand.name}</p>
                         </div>
-
                       </div>
                     ))}
                   <div
@@ -556,14 +552,7 @@ const ShopAll = () => {
                     </p>
                   </div>
                 </div>
-
-
-
-
               </div>
-
-
-
             </div>
           </div>
 
@@ -577,10 +566,11 @@ const ShopAll = () => {
                   data.Categorys &&
                   data.Categorys.map((item) => (
                     <div
-                      className={`${item._id === selectedCategory?._id
-                        ? ""
-                        : "col-md-12 d-flex justify-content-start "
-                        }`}
+                      className={`${
+                        item._id === selectedCategory?._id
+                          ? ""
+                          : "col-md-12 d-flex justify-content-start "
+                      }`}
                       key={item._id}
                       onClick={() => handleCategoryClick(item)}
                     >
@@ -589,7 +579,6 @@ const ShopAll = () => {
                       </div>
                     </div>
                   ))}
-
               </div>
 
               <div className="p-0  text-center rounded mx-5">
@@ -651,19 +640,6 @@ const ShopAll = () => {
                 onSearch={onSearch}
                 className="mt-5 " style={{ width: "auto" }} /> */}
 
-
-              <div className="text-center my-4 paginationone">
-                {productList.length > 0 && (
-                  <Pagination
-                    current={currentPage}
-                    pageSize={itemsPerPage}
-                    total={productList.length / 2}
-                    onChange={handlePaginationChange}
-                  />
-                )}
-              </div>
-
-
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
                   <div
@@ -676,12 +652,11 @@ const ShopAll = () => {
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3 px-">
                         <p>
                           {" "}
-                          {prod.brand_id ===
-                            "65aa405f6bfadce6d5a0ef3c" && (
-                              <p className="text-white text-center  text-decoration-line-through w-100 mt-2 rounded-end bg-theme-dis">
-                                40%
-                              </p>
-                            )}
+                          {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && (
+                            <p className="text-white text-center  text-decoration-line-through w-100 mt-2 rounded-end bg-theme-dis">
+                              40%
+                            </p>
+                          )}
                         </p>
                         <div></div>
 
@@ -699,24 +674,59 @@ const ShopAll = () => {
                           ) : (
                             <HeartButton isActives={false} />
                           )}
-
                         </button>
                       </div>
                       <div className="home-product-in">
-                        <img
-                          src={
-                            hoveredProductId === prod._id && prod.images.length > 1 && prod.images[1]
-                              ? prod.images[1]
-                              : prod.images[0] !== null && prod.images[0] !== "image_url1"
-                                ? prod.images[0]
-                                : "assets/images/Rectangle 22.png"
-                          }
-                          loading="lazy"
-                          className="product-shopall img-fluid"
-                          alt={prod.name}
-                          onClick={() => handleNavigation(prod._id)}
+                        {prod.qty < 10 ? (
+                          <Badge.Ribbon
+                            text={`${prod.qty} left`}
+                            placement="start"
+                            className="ani-rd"
+                          >
+                            <div
+                              data-aos="flip-left"
+                              size="small"
+                              data-aos-duration="1000"
+                            >
+                              <img
+                                src={
+                                  hoveredProductId === prod._id &&
+                                  prod.images.length > 1 &&
+                                  prod.images[1]
+                                    ? prod.images[1]
+                                    : prod.images[0] !== null &&
+                                      prod.images[0] !== "image_url1"
+                                    ? prod.images[0]
+                                    : "assets/images/Rectangle 22.png"
+                                }
+                                loading="lazy"
+                                className="product-shopall img-fluid"
+                                alt={prod.name}
+                                onClick={() => handleNavigation(prod._id)}
+                              />
+                            </div>
+                          </Badge.Ribbon>
+                        ) : (
+                          <div data-aos="flip-left" data-aos-duration="1000">
+                            <img
+                              src={
+                                hoveredProductId === prod._id &&
+                                prod.images.length > 1 &&
+                                prod.images[1]
+                                  ? prod.images[1]
+                                  : prod.images[0] !== null &&
+                                    prod.images[0] !== "image_url1"
+                                  ? prod.images[0]
+                                  : "assets/images/Rectangle 22.png"
+                              }
+                              loading="lazy"
+                              className="product-shopall img-fluid"
+                              alt={prod.name}
+                              onClick={() => handleNavigation(prod._id)}
+                            />
+                          </div>
+                        )}
 
-                        />
                         <div
                           class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2"
                           onClick={() => addcard(prod)}
@@ -724,14 +734,18 @@ const ShopAll = () => {
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>
                       </div>
-                      <div className="text-center price-card py-2">
-                        <p
-                          className="font-z text-truncate"
-                          style={{ maxWidth: "200px" }}
-                        >
+                      <div className="price-card py-2">
+                        <div data-aos="fade-up" data-aos-duration="1000">
                           {prod.name}
+                        </div>
+                        <p className="prod-pric1 mb-0">
+                          <span className="prod-pric">
+                            ₹{prod.offeramount}{" "}
+                          </span>{" "}
+                          <span className="fw-semibold prod-cl">
+                            ₹{prod.amount}
+                          </span>
                         </p>
-                        <p className=" mb-0">₹{prod.amount}</p>
 
                         <div
                           class="text-center d-none border-secondary addtocart-btn px-1 py-1 mx-2"
@@ -744,17 +758,16 @@ const ShopAll = () => {
                   </div>
                 ))}
               </div>
-
-              <div className="text-center mt-4"> 
+              <div className="text-center mt-4">
                 {productList.length > 0 && (
                   <Pagination
-                    current={currentPage}
-                    pageSize={itemsPerPage}
-                    total={productList.length / 2}
-                    onChange={handlePaginationChange}                 
+                    // current={currentPage}
+                    // pageSize={itemsPerPage}
+                    total={productList.length}
+                    onChange={handlePaginationChange}
                   />
                 )}
-              </div> 
+              </div>
             </div>
           </div>
         </div>
