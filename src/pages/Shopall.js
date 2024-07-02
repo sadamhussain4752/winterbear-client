@@ -567,9 +567,6 @@ const ShopAll = () => {
             </div>
           </div>
 
-
-
-
           <div className="row justify-content-end">
             <div className="col-md-3 cat-brand d-md-block d-none">
               <div className="p-0 text-center rounded mx-5">
@@ -654,6 +651,19 @@ const ShopAll = () => {
                 onSearch={onSearch}
                 className="mt-5 " style={{ width: "auto" }} /> */}
 
+
+              <div className="text-center my-4 paginationone">
+                {productList.length > 0 && (
+                  <Pagination
+                    current={currentPage}
+                    pageSize={itemsPerPage}
+                    total={productList.length / 2}
+                    onChange={handlePaginationChange}
+                  />
+                )}
+              </div>
+
+
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
                   <div
@@ -734,16 +744,17 @@ const ShopAll = () => {
                   </div>
                 ))}
               </div>
-              <div className="text-center mt-4">
+
+              <div className="text-center mt-4"> 
                 {productList.length > 0 && (
                   <Pagination
                     current={currentPage}
                     pageSize={itemsPerPage}
-                    total={productList.length/2}
-                    onChange={handlePaginationChange}
+                    total={productList.length / 2}
+                    onChange={handlePaginationChange}                 
                   />
                 )}
-              </div>
+              </div> 
             </div>
           </div>
         </div>

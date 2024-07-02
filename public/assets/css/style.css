@@ -6,6 +6,8 @@ body {
 
 .top-header {
   padding: 5px 5px;
+  z-index: 800;
+  background-color: white !important;
 }
 
 .top-header .lang {
@@ -508,7 +510,7 @@ footer ul a {
   position: relative;
 }
 
-.share-prod{
+.share-prod {
   width: 50%;
   display: flex;
 }
@@ -519,17 +521,18 @@ footer ul a {
     background: #221A42;
     padding: 60px 0 40px 0;
   }
-  .share-prod{
+
+  .share-prod {
     width: 100%;
     justify-content: space-between;
   }
 
-  .offer-per{
+  .offer-per {
     width: 50%;
     margin-left: 3%;
   }
 
-  .qty-button{
+  .qty-button {
     width: 50% !important;
     margin-bottom: 5% !important;
     display: block;
@@ -666,7 +669,7 @@ footer ul a {
 
 }
 
-.cart-list{
+.cart-list {
   overflow-x: scroll;
 }
 
@@ -1977,7 +1980,52 @@ input {
 
 .bg-theme-color {
   background-color: #FFE5E5 !important;
+}
 
+.ant-select-selector {
+  display: none !important;
+}
+
+.product-card::-webkit-scrollbar {
+  display: none;
+}
+
+.ant-pagination-options {
+  display: none !important;
+}
+
+.paginationone .ant-pagination .ant-pagination-item {
+  display: none !important;
+}
+
+.paginationone .ant-pagination .ant-pagination-next {
+  display: none !important;
+}
+
+.paginationone .ant-pagination .ant-pagination-item-ellipsis {
+  display: none !important;
+}
+
+.paginationone .ant-pagination .ant-pagination-prev {
+  border: 2px solid #221A42;
+  border-radius: 50%;
+}
+
+.paginationone .ant-pagination .ant-pagination-prev button .anticon-left {
+  display: block;
+  margin: auto;
+}
+
+.paginationone .ant-pagination {
+  display: flex;
+}
+
+.paginationone .paginationone ul li {
+  display: none !important;
+}
+
+.paginationone .paginationone ul .ant-pagination-prev {
+  display: block !important;
 }
 
 .find-store {
@@ -2620,15 +2668,15 @@ input {
 .product-shopby:hover {
   transition: transform 0.9s ease;
   transform: scale(1.2);
-  overflow:visible !important;
+  overflow: visible !important;
 
 }
 
-.lodder{
+.lodder {
   position: absolute;
   background-color: #000;
   top: 0%;
-  left:0%;
+  left: 0%;
   bottom: 0%;
   right: 0%;
 }
@@ -2653,11 +2701,11 @@ input {
 }
 
 
-.prod-bck-btn{
-    color: #221A42;
-    font-size: 25px;
-    padding: 3%;
-    border-radius: 50%;
+.prod-bck-btn {
+  color: #221A42;
+  font-size: 25px;
+  padding: 3%;
+  border-radius: 50%;
 }
 
 .news-latter-bg h3 {
@@ -2695,15 +2743,15 @@ a {
 
 .home-product {
   position: relative;
-  overflow-y:visible !important;
+  overflow-y: visible !important;
 }
 
-.sing-prod{
-  object-fit: contain !important; 
+.sing-prod {
+  object-fit: contain !important;
 }
 
 .home-product-in {
-  overflow:visible;
+  overflow: visible;
 }
 
 .shop-online-brand {
@@ -2711,7 +2759,7 @@ a {
 }
 
 
-.drp-dwnn{
+.drp-dwnn {
   background-color: white !important;
 }
 
@@ -2721,20 +2769,20 @@ a {
 }
 
 
-.search-drpdwn{
+.search-drpdwn {
   width: 75%;
   background-color: white;
   display: block;
   margin: auto;
 }
 
-.search-drpdwn .row{
+.search-drpdwn .row {
   background-color: #FFE5E5 !important;
   border-radius: 10px;
   padding: 3%;
 }
 
-.search-drpdwn .row .col-md-6 .col-md-12{
+.search-drpdwn .row .col-md-6 .col-md-12 {
   border-bottom: 0.5px solid #c1baba;
 }
 
@@ -3199,17 +3247,19 @@ a {
 
 #dropdown-products {
   display: none;
+  z-index: -1;
   position: absolute;
   top: 0px;
   left: 0%;
   right: 0%;
   opacity: 0;
-  animation: animatetop 0.8s;
+  animation: animatetop .5s;
 }
 
 #menu-products:hover #dropdown-products {
   display: block;
   opacity: 1;
+  z-index: -1;
 }
 
 
@@ -3238,7 +3288,7 @@ a {
 
 @keyframes animatetop {
   from {
-    top: -10px;
+    top: -45px;
     opacity: 0
   }
 
@@ -3560,12 +3610,12 @@ th {
 }
 
 
-.loy-lis-fs{
+.loy-lis-fs {
   font-size: 14px;
   text-transform: uppercase;
 }
 
-.loy-lis-poi{
+.loy-lis-poi {
   font-size: 25px;
   padding-top: 2%;
 }
@@ -3576,17 +3626,16 @@ th {
 
 }
 
-.ul-vip li::before{
-
-}
+.ul-vip li::before {}
 
 
-.cardd{
+.cardd {
   background-color: #fdeef5 !important;
   border-radius: 20px;
 }
 
-.accordion-item , .accordion-body{
+.accordion-item,
+.accordion-body {
   border-top: none !important;
   border-left: none !important;
   border-right: none !important;
@@ -3607,6 +3656,6 @@ th {
   /* object-fit: cover !important; */
 }
 
-.popover-item{
+.popover-item {
   background-color: red !important;
 }
