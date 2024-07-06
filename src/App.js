@@ -8,7 +8,7 @@ import Contact from "./pages/Contact";
 import Stores from "./pages/Stores";
 import Faqs from "./pages/Faqs";
 import ShopAll from "./pages/Shopall";
-import Login from "./pages/Login";
+import Login from "./components/Login";
 import Account from "./pages/Account";
 import Awards from "./pages/Awards";
 import Allbrand from "./pages/Allbrand";
@@ -27,7 +27,7 @@ import StoreLocator from "./pages/StoreLocator";
 import Wishlist from "./pages/Wishlist";
 import Offers from "./pages/offers";
 import Shoponline from "./pages/Shoponline";
-
+import Invoice from "./pages/Invoice"
 import Event2 from "./pages/Event2";
 import Upcoming from "./pages/Upcoming";
 import Error from "./components/Errorpage";
@@ -70,6 +70,7 @@ const App = () => {
 
 
           <Route path="/offers" element={<Offers />} />
+          <Route path="/Invoice" element={<Invoice />} />
 
           <Route path="/shop-online" element={<Shoponline/>}/>
           <Route path="/upcoming/:id" element={<Upcoming />} />
