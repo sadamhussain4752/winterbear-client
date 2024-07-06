@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { fetchStoreData, UserUploadById ,ProfileUserData} from "../reducer/thunks";
+import { fetchStoreData, UserUploadById, ProfileUserData } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Form,
@@ -14,7 +14,7 @@ import {
   Upload,
   Image,
 } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
 
 const getBase64 = (file) =>
   new Promise((resolve, reject) => {
@@ -52,6 +52,7 @@ const EditProfile = () => {
       file.name || file.url.substring(file.url.lastIndexOf("/") + 1)
     );
   };
+ 
   const uploadButton = (
     <button
       style={{
@@ -90,15 +91,15 @@ const EditProfile = () => {
     // Access form data using form.getFieldsValue()
     const formData = form.getFieldsValue();
     console.log("Form Data:", formData);
-     // Add the imageBase64 to formData if it exists
-     if (selectImg) {
+    // Add the imageBase64 to formData if it exists
+    if (selectImg) {
       formData.profile_img = selectImg;
     }
     console.log(formData);
     // Add your logic for handling form data submission
 
-   await dispatch(UserUploadById(getUserResponse.User._id,formData))
-   await dispatch(ProfileUserData(getUserResponse.User._id));
+    await dispatch(UserUploadById(getUserResponse.User._id, formData))
+    await dispatch(ProfileUserData(getUserResponse.User._id));
 
   };
 
@@ -128,13 +129,39 @@ const EditProfile = () => {
     let AvatarIcons = Array(30)
       .fill()
       .map((_, index) => {
-        return `https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/Icons-${index + 1
-          }.png`;
+        return `https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/Icons-${index + 1}.png`;
       });
 
     setAvatarList(AvatarIcons);
     // Now AvatarIcons contains an array of 30 URLs for avatar icons
   }, []);
+
+  const props = {
+    action: `http://192.168.88.137:5000/api/user/UserImage/${getUserResponse?.User._id}`,
+    listType: 'picture',
+    beforeUpload(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          const img = document.createElement('img');
+          img.src = reader.result;
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            ctx.fillStyle = 'red';
+            ctx.textBaseline = 'middle';
+            ctx.font = '33px Arial';
+            ctx.fillText('Ant Design', 20, 20);
+            canvas.toBlob((result) => resolve(result));
+          };
+        };
+      });
+    },
+  };
 
   return (
     <div className="col-md-9 p-4 ">
@@ -381,9 +408,12 @@ onChange={(e) => handleChange("address", e.target.value)}
         }}
       >
         <div className="">
+          <Upload {...props}>
+            <Button icon={<UploadOutlined />}>Upload the Profile</Button>
+          </Upload>
           {AvatarIcons.map((avatarUrl, index) => (
             <img
-            loading="lazy"
+              loading="lazy"
               key={index} // Ensure each image has a unique key
               alt={`Avatar ${index + 1}`}
               style={{

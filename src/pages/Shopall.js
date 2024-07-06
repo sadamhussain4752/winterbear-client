@@ -39,6 +39,7 @@ const ShopAll = () => {
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 10000]); // Adjust the range as needed
   const [hoveredProductId, setHoveredProductId] = useState("");
   const userIds = localStorage.getItem("userId");
+
   const [searchText, setsearchText] = useState("");
 
   const { id } = useParams();
@@ -46,7 +47,8 @@ const ShopAll = () => {
   // States to store product list, selected category, and current page
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15; // Number of items per page
+  const [currentPagearray, setCurrentPagearray] = useState([]);
+  const itemsPerPage = 16; // Number of items per page
 
   const { productlist, loading: productListLoading } = useSelector(
     (state) => state.productlist
@@ -63,6 +65,7 @@ const ShopAll = () => {
 
   // Fetch product data when component mounts
   useEffect(() => {
+    localStorage.setItem("product-array", JSON.stringify([1]))
     dispatch(fetchProductData());
     dispatch(fetchBannerData());
     dispatch(fetchProductDataOld());
@@ -190,7 +193,7 @@ const ShopAll = () => {
     const filteredProducts = productlist.products.filter(
       (item) => item.category_id === categoryId._id
     );
-    console.log(categoryId, "categoryId");
+    console.log(categoryId, "categoryId",filteredProducts);
     setProductList(filteredProducts);
     setCurrentPage(1); // Reset current page to 1 when category changes
   };
@@ -213,10 +216,26 @@ const ShopAll = () => {
     navigate(`/product/${productId}`);
   };
 
-  // Function to handle pagination change
   const handlePaginationChange = (page) => {
+    console.log(page, "arrays.length-1");
+
+    // Update the current page state
     setCurrentPage(page);
+
+    // Retrieve the product array from local storage or initialize it
+    const productarrays = JSON.parse(localStorage.getItem("product-array")) || [];
+
+    // Add the new page to the product array
+    const updatedArrays = [...productarrays, page];
+
+    // Save the updated array back to local storage
+    localStorage.setItem("product-array", JSON.stringify(updatedArrays));
+
+    // Update the current page array state
+
+    console.log(updatedArrays);
   };
+
 
   // Clear all filters
   const clearFilters = () => {
@@ -282,19 +301,41 @@ const ShopAll = () => {
     indexOfLastItem
   );
 
-  const onSearch = (value) => {
-    console.log(value);
-    setsearchText(value)
-    if (value && productlist && productlist.products) {
-      const filteredProducts = productlist.products.filter((product) =>
-        product.key_word && product.key_word.toLowerCase().includes(value.toLowerCase()) ||
-        product.name && product.name.toLowerCase().includes(value.toLowerCase())
+  useEffect(() => {
+    const handlePreventBack = (event) => {
+      event.preventDefault();
+      console.log("Back button blocked and function called.");
 
-      );
-      setProductList(filteredProducts);
-    }
+      // Retrieve the product array from local storage or initialize it
+      const productarrays = JSON.parse(localStorage.getItem("product-array")) || [];
+      console.log(productarrays, productarrays[productarrays.length - 1]);
 
-  }
+      // Remove the last element from the array
+      if (productarrays.length > 0) {
+        productarrays.pop();
+
+        // Update local storage with the modified array
+        localStorage.setItem("product-array", JSON.stringify(productarrays));
+
+        // Set the current page to the new last element in the array
+        setCurrentPage(productarrays[productarrays.length - 1] || 1); // Default to page 1 if array is empty
+      }
+
+      // Optionally, push a new history entry to maintain the current page
+      // window.history.pushState(null, "", window.location.href);
+      return null
+    };
+
+    // Push a new entry to history stack to replace current location
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = handlePreventBack;
+
+    return () => {
+      window.onpopstate = null; // Clean up event listener
+    };
+  }, []);
+
+
 
   return (
     <>
@@ -556,20 +597,9 @@ const ShopAll = () => {
                     </p>
                   </div>
                 </div>
-
-
-
-
               </div>
-
-
-
             </div>
           </div>
-
-
-
-
           <div className="row justify-content-end">
             <div className="col-md-3 cat-brand d-md-block d-none">
               <div className="p-0 text-center rounded mx-5">
@@ -641,18 +671,7 @@ const ShopAll = () => {
             </div>
 
             <div className="col-md-9">
-              {/* <Search placeholder="Search Your Product"
-                value={searchText}
-                onChange={(e) => {
-                  setsearchText(e.target.value)
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    onSearch(e.target.value);
-                  }
-                }}
-                onSearch={onSearch}
-                className="mt-5 " style={{ width: "auto" }} /> */}
+             
 
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
@@ -737,9 +756,9 @@ const ShopAll = () => {
               <div className="text-center mt-4">
                 {productList.length > 0 && (
                   <Pagination
-                    current={currentPage}
+                   current={currentPage}
                     pageSize={itemsPerPage}
-                    total={productList.length/2}
+                    total={productList.length}
                     onChange={handlePaginationChange}
                   />
                 )}

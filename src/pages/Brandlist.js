@@ -662,8 +662,8 @@ const Brandlist = () => {
               <div className="text-center mt-4">
                 {productList.length > 0 && (
                   <Pagination
-                    // current={currentPage}
-                    // pageSize={itemsPerPage}
+                    current={currentPage}
+                    pageSize={itemsPerPage}
                     total={productList.length}
                     onChange={handlePaginationChange}
                   />

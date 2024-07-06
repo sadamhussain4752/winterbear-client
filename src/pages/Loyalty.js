@@ -11,8 +11,6 @@ const Loyalty = () => {
     backgroundSize: "100% 100%",
     postion: "relative",
     backgroundRepeat: "no-repeat"
-
-
   };
   document.title = "Awards";
   document.getElementsByTagName("META")[2].content = "Awards";

@@ -3610,3 +3610,11 @@ th {
 .popover-item{
   background-color: red !important;
 }
+
+.product-card::-webkit-scrollbar{
+  display: none;
+}
+
+.ant-pagination-options{
+  display: none !important;
+}

@@ -29,6 +29,8 @@ import Offers from "./pages/offers";
 import Shoponline from "./pages/Shoponline";
 
 import Event2 from "./pages/Event2";
+import Upcoming from "./pages/Upcoming";
+import Error from "./components/Errorpage";
 
 const App = () => {
   return (
@@ -70,6 +72,10 @@ const App = () => {
           <Route path="/offers" element={<Offers />} />
 
           <Route path="/shop-online" element={<Shoponline/>}/>
+          <Route path="/upcoming/:id" element={<Upcoming />} />
+          <Route path="*" element={<Error />} />
+
+
         </Routes>
       </Router>
 

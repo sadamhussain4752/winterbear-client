@@ -206,7 +206,7 @@ const LoginModal = ({ visible, onClose }) => {
     >
       <h4 className="text-center font-weight-bold head-control mt-4">Login</h4>
       <p className="text-center p-text mb-4">Choose one of the options below</p>
-      <Form onFinish={handleLogin} initialValues={loginData}>
+      <Form onFinish={handleSendOtp} initialValues={loginData}>
         {!otpSent ? (
           <>
             {loginData.mobilenumber.length !== 10 && (

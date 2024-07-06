@@ -335,7 +335,7 @@ const Product = () => {
                 className="btn w-100 text-white button buy-now-tag"
                 onClick={() => buyproduct(product._id)}
               >
-                Buy Now
+               {product.qty && product.qty > 0 ? "Buy Now" :"Pre-Order"} 
               </button>
             </div>
             <div className="col-md-4 col-7">
