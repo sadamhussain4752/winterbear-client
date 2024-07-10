@@ -28,6 +28,27 @@ const Blogs = () => {
     document.title = "about";
     document.getElementsByTagName("META")[2].content = "about";
     const dispatch = useDispatch();
+      useEffect(() => {
+    // Function to load the Elfsight script
+    const loadElfsightScript = () => {
+      const script = document.createElement('script');
+      script.src = 'https://static.elfsight.com/platform/platform.js';
+      script.dataset.useServiceCore = true;
+      script.defer = true;
+      document.body.appendChild(script);
+
+      // Cleanup function to remove the script when the component unmounts
+      return () => {
+        document.body.removeChild(script);
+      };
+    };
+
+    // Load the Elfsight script only once
+    if (!window.elfsightScriptLoaded) {
+      window.elfsightScriptLoaded = true;
+      loadElfsightScript();
+    }
+  }, []);
     // Destructuring with different names to avoid conflict
     const {
         storelist,
@@ -42,6 +63,28 @@ const Blogs = () => {
     useEffect(() => {
         dispatch(fetchStoreData());
     }, []);
+
+    useEffect(() => {
+        // Function to load the Elfsight script
+        const loadElfsightScript = () => {
+          const script = document.createElement('script');
+          script.src = 'https://static.elfsight.com/platform/platform.js';
+          script.dataset.useServiceCore = true;
+          script.defer = true;
+          document.body.appendChild(script);
+    
+          // Cleanup function to remove the script when the component unmounts
+          return () => {
+            document.body.removeChild(script);
+          };
+        };
+    
+        // Load the Elfsight script only once
+        if (!window.elfsightScriptLoaded) {
+          window.elfsightScriptLoaded = true;
+          loadElfsightScript();
+        }
+      }, []);
     return (
         <>
             <Header />
@@ -216,19 +259,8 @@ const Blogs = () => {
 
                 <div style={{ display: 'flex', justifyContent: 'center', overflowX: 'auto' }} className="m-5 insta">
 
-                    <div className="reels-container">
-                        {/* <div className="insta-cont">
-                            <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        </div> */}
-                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
-                        <iframe width="100%" height="550" src="https://www.instagram.com/p/CUbHfhpswxt/embed/" frameborder="0"></iframe>
+                <div className="elfsight-app-841d23e5-59a5-44b9-bcd2-ee730cd8d10b" data-elfsight-app-lazy></div>
 
-                    </div>
                 </div>
             </section>
 

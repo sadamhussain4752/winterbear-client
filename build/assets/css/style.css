@@ -2714,6 +2714,7 @@ a {
 
 .shop-online-brand {
   width: 120px;
+  object-fit: contain !important;
 }
 
 
@@ -3174,6 +3175,7 @@ a {
   display: block;
   margin: auto !important;
   object-fit: contain !important;
+
 }
 
 .brand-innimg-cont {
