@@ -379,7 +379,7 @@ export const UserUploadById = (userId,body) => async (dispatch) => {
 
   try {
     // Send the POST request with the provided body data
-    const response = await axios.put(`${Uploadprofile}/${userId}`,body);
+    const response = await axios.post(`${Uploadprofile}/${userId}`,body);
     dispatch(UserUploadIdSuccess(response.data));
   } catch (error) {
     console.log(error);
