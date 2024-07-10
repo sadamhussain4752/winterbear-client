@@ -507,7 +507,7 @@ const Product = () => {
             </p>
           </div>
         </div>
-        <div className="col-md-12 text-center mt-lg-5 mt-4 prod-bot-tab d-none">
+        <div className="col-md-12 text-center mt-lg-5 mt-4 prod-bot-tab">
           {/* Product Tabs */}
           <Tab.Container
             defaultActiveKey="description"
@@ -580,7 +580,7 @@ const Product = () => {
                       Secure payment method
                     </p>
                   </div>
-                  <div className="col-md-3 sku-tag feature-item ">
+                  {/* <div className="col-md-3 sku-tag feature-item ">
                     <h4>Shipping Information</h4>
                     <p>
                       <strong>Courier:</strong> 2 - 4 days, free shipping
@@ -595,7 +595,7 @@ const Product = () => {
                       <strong>Unishop Global Export:</strong> 3 - 4 days, ₹39.00
                     </p>
                     <p>Secure payment method</p>
-                  </div>
+                  </div> */}
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="additional">
