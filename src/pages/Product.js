@@ -10,6 +10,7 @@ import {
   fetchProductData,
   GetAddCardProductById,
   GetCardProductById,
+  fetchProductDataOld
 } from "../../src/reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
@@ -64,9 +65,7 @@ const Product = () => {
     GetProductId: GetProductIdResponse,
   } = useSelector((state) => state.GetProductId);
 
-  useEffect(() => {
-    dispatch(fetchProductData());
-  }, []);
+
 
   const [selectedSize, setSelectedSize] = useState(null);
   const [indesitem, setSelecteditem] = useState(1);
@@ -112,9 +111,11 @@ const Product = () => {
     }
   }, [dispatch, productId]);
 
+
   const fetchProductbyId = (productI) => {
     dispatch(ProductUserById(productI));
     dispatch(RatingProductUserById(productId));
+    dispatch(fetchProductDataOld())
   };
 
   const handleCopyUrl = () => {
@@ -163,8 +164,8 @@ const Product = () => {
           nav={false}
         >
           {product?.images &&
-            product?.images.map((image, index) => (
-              <Badge.Ribbon text={`${product.qty} left`} placement="start" className="ani-rd1 py-2 px-3">
+            product.images.map((image, index) => {
+              return product.qty > 10 ? (
                 <div key={index} className="item mb-4 mb-0">
                   <img
                     src={`${image}`}
@@ -173,8 +174,27 @@ const Product = () => {
                     loading="lazy"
                   />
                 </div>
-              </Badge.Ribbon>
-            ))}
+              ) : (
+                <Badge.Ribbon
+                  key={index}
+                  text={`${product.qty} left`}
+                  placement="start"
+                  className="ani-rd1 py-2 px-3"
+                >
+                  <div className="item mb-4 mb-0">
+                    <img
+                      src={`${image}`}
+                      alt={`Product Image ${index}`}
+                      className="product-img-main rounded"
+                      loading="lazy"
+                    />
+                  </div>
+                </Badge.Ribbon>
+
+              );
+            })
+          }
+
         </OwlCarousel>
         <div className="position-absolute top-0 end-0 mx-3 mt-2">
           {wishlist?.wishlistItems?.some(
@@ -301,7 +321,7 @@ const Product = () => {
           </div>
           <div className="col-md-12 sku-tag row mt-3">
             <p className="prod-pric1 price-amount mb-0">
-              <span className="prod-pric">₹{product.offeramount} </span>{" "}
+              <span className="prod-pric">₹{(product.amount * 2).toFixed(0)} </span>{" "}
               <span className="fw-semibold prod-cl">₹{product.amount}</span>
             </p>
             {/* <p className="col-md-2 text-decoration-line-through">
@@ -592,7 +612,7 @@ const Product = () => {
                       Secure payment method
                     </p>
                   </div>
-                  <div className="col-md-3 sku-tag feature-item ">
+                  {/* <div className="col-md-3 sku-tag feature-item ">
                     <h4>Shipping Information</h4>
                     <p>
                       <strong>Courier:</strong> 2 - 4 days, free shipping
@@ -607,7 +627,7 @@ const Product = () => {
                       <strong>Unishop Global Export:</strong> 3 - 4 days, ₹39.00
                     </p>
                     <p>Secure payment method</p>
-                  </div>
+                  </div> */}
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="additional">
@@ -773,8 +793,12 @@ const Product = () => {
 
               <div className="mt-4 col-md-12 price-prodname">
                 <p className="text-start prize-size mb-0">{prod.name}</p>
-                <p className="prod-pric mb-0">₹{prod.amount}</p>
-              </div>
+                <p className="prod-pric1 mb-0">
+
+                  <span className="fw-semibold prod-cl">
+                    ₹{prod.amount}
+                  </span>
+                </p>              </div>
             </div>
             <div
               className="text-center d-none border-secondary addtocart-btn px-1 py-1"
@@ -819,7 +843,7 @@ const Product = () => {
               <div className="text-center mt-5 mb-5">
                 <h3 className="fw-bolder">Related Products</h3>
               </div>
-              <div className="col-md-12">{renderRelatedProducts()}</div>
+              <div className="col-md-12">{productOldlist?.productList && renderRelatedProducts()}</div>
             </div>
           </section>
         </div>
