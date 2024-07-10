@@ -3631,3 +3631,9 @@ th {
   cursor: not-allowed;
   opacity: 0.5;
 }
+
+@media screen and (min-width: 1200px) {
+  .size-options {
+      display: flex;
+  }
+}

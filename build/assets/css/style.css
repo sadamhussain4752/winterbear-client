@@ -2620,8 +2620,17 @@ input {
 .product-shopby:hover {
   transition: transform 0.9s ease;
   transform: scale(1.2);
-  overflow: hidden !important;
+  overflow:visible !important;
 
+}
+
+.lodder{
+  position: absolute;
+  background-color: #000;
+  top: 0%;
+  left:0%;
+  bottom: 0%;
+  right: 0%;
 }
 
 .product-shopall:hover {
@@ -2643,6 +2652,14 @@ input {
 
 }
 
+
+.prod-bck-btn{
+    color: #221A42;
+    font-size: 25px;
+    padding: 3%;
+    border-radius: 50%;
+}
+
 .news-latter-bg h3 {
   font-size: 30px !important;
 }
@@ -2656,6 +2673,12 @@ input {
 .product-card {
   position: relative;
 }
+
+
+.product-card::-webkit-scrollbar {
+  display: none !important; /* Hide the scrollbar */
+}
+
 
 .brandimg-cont {
   overflow: hidden;
@@ -2678,7 +2701,7 @@ a {
 
 .home-product {
   position: relative;
-  overflow-y: hidden !important;
+  overflow-y:visible !important;
 }
 
 .sing-prod{
@@ -2686,7 +2709,7 @@ a {
 }
 
 .home-product-in {
-  overflow: hidden;
+  overflow:visible;
 }
 
 .shop-online-brand {
@@ -3592,4 +3615,25 @@ th {
 
 .popover-item{
   background-color: red !important;
+}
+
+
+
+.prod-bck-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.prod-bck-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 1200px) {
+  .size-options {
+      display: flex;
+  }
 }

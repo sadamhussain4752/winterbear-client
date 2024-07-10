@@ -26,6 +26,9 @@ import Facebookimage from "../constant/images/Facebook.svg";
 import Pinterestimage from "../constant/images/Pinterest.svg";
 import Twitterimage from "../constant/images/Twitter.svg";
 import HeartButton from "../components/heartbutton";
+import shirtimg from "../constant/images/shirt-sizes.jpg";
+import shirtimg1 from "../constant/images/shirt-half_sleeve-men.jpg";
+
 const options = {
   // loop: true,
   // center: true,
@@ -295,7 +298,7 @@ const Product = () => {
           <div className="col-md-12 sku-tag row mt-3">
             <p className="price-amount col-md-2">₹{product.amount}</p>
             <p className="col-md-2 text-decoration-line-through">
-              ₹ {product.offeramount}
+              ₹ {(product.amount * 2).toFixed(0)}
             </p>
             {/* <p className="col-md-2 offer-per">
               {parseFloat(product.offeramount / product.amount).toFixed(0)}% OFF
@@ -316,6 +319,121 @@ const Product = () => {
                     {size}
                   </button>
                 ))}
+
+<button type="button" className="btn siz-btnn" data-bs-toggle="modal"                   data-bs-target="#exampleModal">
+                  Size Chart
+                </button>
+                <div className="size-chart">
+                  <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-xl">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h1 className="modal-title fs-5" id="exampleModalLabel">Size Chart</h1>
+                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                          <div className="row">
+                            <div className="col-lg-12">
+
+
+                              <div class="table-responsive">
+                                <table class="table table-striped table-bordered">
+                                  <thead class="thead-dark">
+                                    <tr>
+                                      <th>Size</th>
+                                      <th>Chest (in inches)</th>
+                                      <th>Waist (in inches)</th>
+                                      <th>Length (in inches)</th>
+                                      <th>Sleeve Length (in inches)</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Small</td>
+                                      <td>34 - 36</td>
+                                      <td>28 - 30</td>
+                                      <td>28</td>
+                                      <td>32</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Medium</td>
+                                      <td>38 - 40</td>
+                                      <td>32 - 34</td>
+                                      <td>29</td>
+                                      <td>33</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Large</td>
+                                      <td>42 - 44</td>
+                                      <td>36 - 38</td>
+                                      <td>30</td>
+                                      <td>34</td>
+                                    </tr>
+                                    <tr>
+                                      <td>XL</td>
+                                      <td>46 - 48</td>
+                                      <td>40 - 42</td>
+                                      <td>31</td>
+                                      <td>35</td>
+                                    </tr>
+                                    <tr>
+                                      <td>XXL</td>
+                                      <td>50 - 52</td>
+                                      <td>44 - 46</td>
+                                      <td>32</td>
+                                      <td>36</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <div className="col-lg-6">
+
+                              <div className="cont">
+                                <h5>
+                                  Full Sleeve Shirts
+                                </h5>
+
+                                <p>
+
+                                  Not sure about your shirt size? Follow these simple steps to figure it out: Shoulder - Measure the shoulder at the back, from edge to edge with arms relaxed on both sides Chest - Measure around the body under the arms at the fullest part of the chest with your arms relaxed at both sides. Sleeve - Measure from the shoulder seam through the outer arm to the cuff/hem Neck - Measured horizontally across the neck Length - Measure from the highest point of the shoulder seam to the bottom hem of the garment's
+
+                                </p>
+                              </div>
+                            </div>
+                            <div className="col-lg-6">
+                              <img src={shirtimg} className="w-50 d-block mx-auto" alt="" />
+
+                            </div>
+                            <div className="col-lg-6">
+                              <div className="cont pt-4">
+                                <h5>
+                                  Half Sleeve Shirts
+                                </h5>
+
+                                <p>
+
+                                  Not sure about your shirt size? Follow these simple steps to figure it out: Shoulder - Measure the shoulder at the back, from edge to edge with arms relaxed on both sides Chest - Measure around the body under the arms at the fullest part of the chest with your arms relaxed at both sides. Sleeve - Measure from the shoulder seam through the outer arm to the cuff/hem Neck - Measured horizontally across the neck Length - Measure from the highest point of the shoulder seam to the bottom hem of the garment's
+
+                                </p>
+                              </div>
+
+                            </div>
+                            <div className="col-lg-6">
+                              <img src={shirtimg1} className="w-50 d-block mx-auto" alt="" />
+                            </div>
+                          </div>
+
+                        </div>
+                        {/* <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" className="btn btn-primary">Save changes</button>
+                      </div> */}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           )}
@@ -323,13 +441,13 @@ const Product = () => {
           <hr />
 
           <div className="text-start col-md-12 row mt-3">
-            <div className="col-md-3">
+            {/* <div className="col-md-3">
               <p className="d-flex justify-content-center align-items-center border qty-button">
                 <button className="btn btn-primary me-2 bg-cl-tr">+</button>
                 <span>1</span>
                 <button className="btn btn-primary me-2 bg-cl-tr ">-</button>
               </p>
-            </div>
+            </div> */}
             <div className="col-md-3 col-5">
               <button
                 className="btn w-100 text-white button buy-now-tag"
