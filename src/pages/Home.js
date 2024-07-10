@@ -198,7 +198,9 @@ const Home2 = () => {
                     onClick={() => navigate(`/shop/${item._id}`)}
                   >
                     <div className="image-container-1">
-                    <div data-aos="flip-left" size="small"  data-aos-duration="1000">
+                    <div 
+                    // data-aos="flip-left" size="small"  data-aos-duration="1000"
+                    >
                       <img
                         src={`${item.imageUrl}`}
                         className="mb-0"
@@ -314,7 +316,9 @@ const Home2 = () => {
                                     className="ani-rd"
                                   >
                                    
-                                    <div data-aos="flip-left" size="small"  data-aos-duration="1000">
+                                    <div 
+                                    // data-aos="flip-left" size="small"  data-aos-duration="1000"
+                                    >
                                       <img
                                         src={
                                           prod.images[0] !== null &&
@@ -333,7 +337,9 @@ const Home2 = () => {
                                   
                                   </Badge.Ribbon>
                                 ) : (
-                                  <div size="small" data-aos="flip-left"  data-aos-duration="1000">
+                                  <div 
+                                  // size="small" data-aos="flip-left"  data-aos-duration="1000"
+                                  >
                                     <img
                                       src={
                                         prod.images[0] !== null &&
@@ -392,16 +398,14 @@ const Home2 = () => {
                                     {" "}
                                     {/* {item.brand.name} @ */}
                                     <div
-                                      data-aos="fade-up"
-                                      data-aos-duration="1000"
+                                      // data-aos="fade-up"
+                                      // data-aos-duration="1000"
                                     >
                                       {prod.name}
                                     </div>
                                   </p>
                                   <p className="prod-pric1 mb-0">
-                                    <span className="prod-pric">
-                                      ₹{prod.offeramount}{" "}
-                                    </span>{" "}
+                                   
                                     <span className="fw-semibold prod-cl">
                                       ₹{prod.amount}
                                     </span>

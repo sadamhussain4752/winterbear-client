@@ -137,7 +137,7 @@ const EditProfile = () => {
   }, []);
 
   const props = {
-    action: `http://192.168.88.137:5000/api/user/UserImage/${getUserResponse?.User._id}`,
+    action: `http://192.168.31.24:5000/api/user/UserImage/${getUserResponse?.User._id}`,
     listType: 'picture',
     beforeUpload(file) {
       return new Promise((resolve) => {
