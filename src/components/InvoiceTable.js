@@ -54,7 +54,7 @@ const InvoiceTable = ({ products }) => {
     deliveryStatus: product.delivered_type === "1" ? "Card" : "COD",
     paymentMode: product.delivery,
     amount: product.amount,
-    gstTax: (product.amount * 0.18).toFixed(2),
+    gstTax: (product.offeramount * 0.18).toFixed(2),
     shippingFee: "Free",
   }));
 

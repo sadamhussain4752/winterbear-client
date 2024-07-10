@@ -88,7 +88,7 @@ const Order = () => {
               </Col>
               <Col span={12}>
                 <p className="text-end">
-                  <span>18% ({product.amount} * 0.18) = {(product.amount * 0.18).toFixed(2)}</span>
+                  <span>18% ({product.offeramount} * 0.18) = {(product.offeramount * 0.18).toFixed(2)}</span>
 
                 </p>
               </Col>
@@ -187,7 +187,7 @@ const Order = () => {
       deliveryStatus: product.delivered_type === "1" ? "Card" : "COD",
       paymentMode: product.delivery,
       subTotal: `$${product.amount}`,
-      gstTax: `$${(product.amount * 0.18).toFixed(2)}`,
+      gstTax: `$${(product.offeramount * 0.18).toFixed(2)}`,
       shippingFee: "Free",
     }));
   

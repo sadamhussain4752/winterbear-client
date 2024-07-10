@@ -64,10 +64,6 @@ padding: 15px 0;*/
     letter-spacing: 0.05em;
   }
 
-  .size-options {
-    display: flex;
-  }
-
   .navbar-collapse .navbar-nav .nav-link {
     padding: 0.2em 1em;
   }
@@ -125,7 +121,7 @@ padding: 15px 0;*/
     background: #fff;
     box-shadow: none;
   }
-  
+}
 
 
 
@@ -161,9 +157,6 @@ padding: 15px 0;*/
 
 input {
   background-color: #FFE5E5 !important;
-}
-.form-control {
-  background-color: #fcfcfc !important;
 }
 
 .text-with-line {
@@ -366,10 +359,6 @@ input {
   text-align: center;
 }
 
-.siz-btnn{
-  color: #007bff !important;
-}
-
 @media only screen and (max-width: 767px) {
   .news-latter-bg {
     background-color: #33295d;
@@ -379,11 +368,6 @@ input {
     width: 100%;
     text-align: center;
   }
-  .size-option{
-    padding: 0px;
-    margin: 0px;
-  }
-}
 }
 
 
@@ -2623,24 +2607,30 @@ input {
 
 .prize-size {
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 15px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .prod-pric {
   font-size: 15px;
   font-weight: 500;
-  color: rgb(156, 156, 156);
-  text-decoration: line-through;
 }
-
 
 .product-shopby:hover {
   transition: transform 0.9s ease;
   transform: scale(1.2);
-  overflow: hidden !important;
+  overflow:visible !important;
 
+}
+
+.lodder{
+  position: absolute;
+  background-color: #000;
+  top: 0%;
+  left:0%;
+  bottom: 0%;
+  right: 0%;
 }
 
 .product-shopall:hover {
@@ -2660,6 +2650,14 @@ input {
   justify-content: space-around;
   align-items: center;
 
+}
+
+
+.prod-bck-btn{
+    color: #221A42;
+    font-size: 25px;
+    padding: 3%;
+    border-radius: 50%;
 }
 
 .news-latter-bg h3 {
@@ -2697,7 +2695,7 @@ a {
 
 .home-product {
   position: relative;
-  /* overflow-y: hidden !important; */
+  overflow-y:visible !important;
 }
 
 .sing-prod{
@@ -2705,13 +2703,11 @@ a {
 }
 
 .home-product-in {
-  /* overflow: hidden; */
+  overflow:visible;
 }
 
 .shop-online-brand {
   width: 120px;
-  object-fit: contain !important;
-
 }
 
 
@@ -3075,14 +3071,6 @@ a {
   text-align: center;
   width: 300px;
 }
-.card-in {
-  background-color: white;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
- 
-}
 
 
 .card2 {
@@ -3179,8 +3167,6 @@ a {
   max-height: 75px;
   display: block;
   margin: auto !important;
-  object-fit: contain !important;
-
 }
 
 .brand-innimg-cont {
@@ -3273,7 +3259,9 @@ a {
   margin-right: 10px;
 }
 
-
+.size-options {
+  display: flex;
+}
 
 .size-option {
   border: 1px solid #ccc;
@@ -3622,85 +3610,11 @@ th {
 .popover-item{
   background-color: red !important;
 }
-/* afreen css...............start.... */
 
-
-.clr-tp {
-  background-color: #f2edf2;
-}
-.bor-updn {
-  border: 5px solid #4e3c98;
-  padding: 0px 0px;
-  font-size: x-small;
-}
-@media only screen and (max-width: 760px) {
-  #table {
-    width: 100% !important;
-    border-collapse: collapse;
-    overflow-x: auto;
-  }
-}
-#table {
-  width: 90%;
-  border-collapse: collapse;
-}
-.tableitem {
-  padding: 5px 0 5px 15px;
-  border: 1px solid #eee;
-}
-.tabletitle {
-  background-color: #f2edf2;
-
-  .item {
-    padding: 10px;
-  }
+.product-card::-webkit-scrollbar{
+  display: none;
 }
 
-.service {
-  border: 1px solid #eee;
+.ant-pagination-options{
+  display: none !important;
 }
-
-.itemtext {
-  font-size: 1em;
-  padding: 7px 0px;
-  margin-bottom: 0%;
-}
-.sub-total {
-  display: flex;
-  justify-content: end;
-}
-.ani-rd {
-  padding-left: 12px;
-  margin-left: 5px;
-background: linear-gradient(45deg,#df4346,rgb(250, 152, 152),#df4346);
-background-size: 200% 200%; 
-animation: shine 2s infinite linear;
-
-}
-.ani-rd1 {
-  padding-left: 12px;
-  margin-left: 5px;
-  font-size: large;
-background: linear-gradient(45deg,#df4346,rgb(250, 152, 152),#df4346);
-background-size: 200% 200%; 
-animation: shine 2s infinite linear;
-
-}
-@keyframes shine{
-  0% {
-    background-position: 0% 50%; /* Start position of the gradient */
-  }
-  100% {
-    background-position: 100% 50%; /* End position of the gradient */
-  }
-
-}
-.prod-cl{
-  color: #df4346;
-  margin-left: 7px;
-}
-.btn-login{
-  background-color:#221a42 ;
-  color: white;
-}
-/* afreen css...............end.... */

@@ -225,16 +225,12 @@ const Checkout = () => {
           <span>Free shipping</span>
         </div> */}
           <div className="cart-totals-item">
-            <span>{getTotal() < "999" ? 'Shipping Charges' : ""}</span>
+            <span>Flat rate :</span>
             <span>{getTotal() < "999" ? `₹150.00` : 'Free shipping'}</span>
           </div>
           <div className="cart-totals-item">
             <span>Tax :</span>
             <span>₹15.00</span>
-          </div>
-          <div className="cart-totals-item font-weight-bold">
-            <span>(Free Shipping above 999)</span>
-            <span></span>
           </div>
           <div className="cart-totals-item total border-top mt-4 pt-3">
             <span>Total :</span>

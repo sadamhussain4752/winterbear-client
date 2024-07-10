@@ -9,7 +9,7 @@ async function fetchUserList(searchValue) {
   return fetch(`${constant.baseUrl}api/product/ProductUserId?lang=1&search=${searchValue}&page=1&limit=10`)
     .then((response) => response.json())
     .then((body) => {
-      return body.userProducts.map((product) => ({
+      return body.products.map((product) => ({
         label: (
           <div className='col-md-12' style={{ display: 'flex', alignItems: 'center', height: "60px" }}>
             <Avatar className='col-md-4' src={product.images[0]} style={{ marginRight: 8, width: "30px", height: "30px" }} />

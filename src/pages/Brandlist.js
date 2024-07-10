@@ -621,9 +621,9 @@ const Brandlist = () => {
                             className="ani-rd"
                           >
                             <div
-                              // data-aos="flip-left"
-                              // size="small"
-                              // data-aos-duration="1000"
+                              data-aos="flip-left"
+                              size="small"
+                              data-aos-duration="1000"
                             >
                                <img
                           src={
@@ -643,9 +643,7 @@ const Brandlist = () => {
                             </div>
                           </Badge.Ribbon>
                         ) : (
-                          <div
-                          // data-aos="flip-left" data-aos-duration="1000"
-                          >
+                          <div data-aos="flip-left" data-aos-duration="1000">
                             <img
                           src={
                             hoveredProductId === prod._id &&
@@ -676,14 +674,12 @@ const Brandlist = () => {
                         </div>
                       </div>
                       <div className="price-card py-2">
-                      <div 
-                      // data-aos="fade-up" data-aos-duration="1000"
-                      >
+                      <div data-aos="fade-up" data-aos-duration="1000">
                           {prod.name}
                         </div>
                         <p className="prod-pric1 mb-0">
                           <span className="prod-pric">
-                            ₹{(prod.amount * 2).toFixed(0)}{" "}
+                            ₹{prod.offeramount}{" "}
                           </span>{" "}
                           <span className="fw-semibold prod-cl">
                             ₹{prod.amount}
