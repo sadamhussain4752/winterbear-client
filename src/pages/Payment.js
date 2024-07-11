@@ -586,6 +586,10 @@ const Payment = () => {
             <span>₹ 18</span>
           </div>
           <div className="cart-totals-item">
+            <span>(Free Shipping above 999)</span>
+            <span></span>
+          </div>
+          <div className="cart-totals-item">
             <div class="loyalty-points-container">
               <div class="loyalty-points-flip-card">
                 <div class="loyalty-points-front">

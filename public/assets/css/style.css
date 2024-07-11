@@ -3640,3 +3640,7 @@ th {
       display: flex;
   }
 }
+
+.tooltip-inner {
+  background-color: transparent;
+}

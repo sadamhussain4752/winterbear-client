@@ -232,6 +232,10 @@ const Checkout = () => {
             <span>Tax :</span>
             <span>₹15.00</span>
           </div>
+          <div className="cart-totals-item">
+          <span>(Free Shipping above 999)</span>
+          <span></span>
+          </div>
           <div className="cart-totals-item total border-top mt-4 pt-3">
             <span>Total :</span>
             <span>{getTotal() < "999" ? getTotal() + 150.00 : getTotal()}</span>
@@ -284,7 +288,7 @@ const Checkout = () => {
               /> */}
               <div className="col-md-12 row mt-5 tab-wid">
                 {renderCartList()}
-                {renderCardtotals()}
+                {GetAddcardUserRes?.AddCarts && GetAddcardUserRes?.AddCarts.length > 0 && renderCardtotals()}
 
                 {/* <Relatedproducts/> */}
               </div>

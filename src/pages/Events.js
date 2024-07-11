@@ -23,7 +23,7 @@ const PopoverContent = () => (
     <img src={require('../constant/images/page01.png')} className="frame-img" />
     <div className="card-pos">
 
-      <img src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/Classics_E_Commerce_Banners-24.png" className="pop-imgg" />
+      {/* <img src="https://storage.googleapis.com/email-js-1a09b.appspot.com/winterbear/Classics_E_Commerce_Banners-24.png" className="pop-imgg" /> */}
 
       <p>Pop the lid, and reveal your next WINTERBEAR event!</p>
     </div>

@@ -291,21 +291,18 @@
     object-fit: cover;
   }
 
-
-
-
 }
 
 
 .popup-cont {
   position: relative;
   background-color: transparent !important;
-  width: 30%;
-
+  height: 500px; 
+  width:400px; 
 }
 
 .ant-popover{
-  background-color: white !important;
+  background-color: transparent !important;
   box-shadow: none !important;
 }
 
@@ -328,9 +325,10 @@
 }
 
 
-.popup-cont {
-  /* background-image: url(.././constant/images/page01.png); */
-  /* height: 200px; */
-  /* width: 300px; */
-
+.ant-popover .ant-popover-inner {
+  background-color: rgba(0, 0, 0, 0);
+  background-clip: none;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 12px;
 }

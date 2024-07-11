@@ -44,11 +44,9 @@ const NewsPaper = ({ visible, onClose }) => {
                             <p className="text-white font-news">
                             Welcome to Winterbear! 
                             </p>
-                            <p className="text-white fs-5 fw-bold ">
-                                GET 21% OFF
-                            </p>
+                            
                             <p className="text-white font-news-text">
-                            India's first one-stop destination for One Stop Destination for Official Licensed Merchandise
+                             One Stop Destination for Official Licensed Merchandise
                             </p>
                             <div className="d-flex justify-content-center align-items-center align-self-center font-news-text">
                                 <p className="text-white ">

@@ -52,7 +52,8 @@ const SearchList = () => {
   const content = (
     <div>
       {fetching ? (
-        <Spin size="small" />
+        // <Spin size="small" />
+        <></>
       ) : (
         <div className='search-drpdwn'>
           <div className='row'>
