@@ -197,7 +197,13 @@ const EventsSection = () => {
                   {Array.from({ length: 4 }, (_, index) => (
                     <div className="shelf" key={index}>
                       {Array.from({ length: 4 }, (_, jarIndex) => (
-                        <Popover content={<PopoverContent />} trigger="hover" key={jarIndex}>
+                        <Popover content={<PopoverContent />}
+                         arrow={false}
+                         
+                        //  autoAdjustOverflow={false}
+                        //  placement={"bottom"}
+                         popupAlign={{ offset: [0, 5] }}
+                        trigger="hover" key={jarIndex}>
                           <div className="jar ant-popover-open"></div>
 
                         </Popover>
