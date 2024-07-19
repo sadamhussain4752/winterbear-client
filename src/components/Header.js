@@ -200,10 +200,10 @@ const Header = () => {
 
             <div className="row align-items-center justify-content-between ">
               {/* Language Selection */}
-              <div className="col-md-5 col-2  ps-1 order-first text-left  border-0 shadow-none">
+              <div className="col-md-5 col-2  ps-1 order-first text-left  border-0 shadow-none pe-lg-5">
                 <div class="container-fluid ">
-                  <div className="row">
-                    <div className="col-md-2">
+                  <div className="row d-flex align-items-center">
+                    <div className="col-md-1">
                       <button
 
                         className="btn navbar  navbar-toggler border-0 p-0"
@@ -216,92 +216,94 @@ const Header = () => {
                         <span class="navbar-toggler-icon"></span>
                       </button>
                     </div>
-                    <div className="col-md-10 d-md-block d-none mt-2">
-                      <div
-                        id="menu-products"
-                        className="ps-1 fs-6 text-main text-decoration-none"
-                        to="#"
-                      >
-                        {Language.shop_all}
-                        <div id="dropdown-products">
-                          <div
-                            className="shopall-menu px-3"
-                            style={{ marginTop: "50px" }}
-                          >
-                            <div className="container-fluid bg-light">
-                              <div className="row">
-                                <div className="col-md-3  ps-5">
-                                  <div className="menu-items px-3 py-3">
-                                    <div className="ps-2">
-                                      <div
-                                        onClick={() => {
-                                          navigate("/shop/0");
-                                          console.log("call");
-                                        }}
-                                        className="btn text-decoration-none btn-outline-dark pointer"
-                                      >
-                                        {" "}
-                                        SHOP ALL
+                    <div className="col-md-11 d-md-block d-none pe-0 ">
+                      <div className="d-flex justify-content-end">
+                        <div
+                          id="menu-products"
+                          className=" fs-6 text-main text-decoration-none"
+                          to="#"
+                        >
+                          {Language.shop_all}
+                          <div id="dropdown-products">
+                            <div
+                              className="shopall-menu"
+                              style={{ marginTop: "50px" }}
+                            >
+                              <div className="container-fluid bg-light">
+                                <div className="row">
+                                  <div className="col-md-3  ps-5">
+                                    <div className="menu-items py-3">
+                                      <div className="ps-2">
+                                        <div
+                                          onClick={() => {
+                                            navigate("/shop/0");
+                                            console.log("call");
+                                          }}
+                                          className="btn text-decoration-none btn-outline-dark pointer"
+                                        >
+                                          {" "}
+                                          SHOP ALL
+                                        </div>
+                                      </div>
+
+                                      <p className="fw-bold ps-3 text-uppercase my-2">
+                                        Shop by category
+                                      </p>
+                                      <div className="d-block text-start">
+                                        {data &&
+                                          data.Categorys &&
+                                          data.Categorys.map((item) => (
+                                            <a
+                                              href="#"
+                                              onClick={() => {
+                                                navigate(`/shop/${item._id}`);
+                                                setIsHovered(false);
+                                              }}
+                                              className="btn text-decoration-none d-block fs-6 text-start"
+                                            >
+                                              {" "}
+                                              {item.name}
+                                            </a>
+                                          ))}
                                       </div>
                                     </div>
+                                  </div>
 
-                                    <p className="fw-bold ps-3 text-uppercase my-2">
-                                      Shop by category
-                                    </p>
-                                    <div className="d-block text-start">
+                                  <div className="col-lg-9 brand-list-nav mt-4 ">
+                                    <div className="row">
                                       {data &&
-                                        data.Categorys &&
-                                        data.Categorys.map((item) => (
-                                          <a
-                                            href="#"
-                                            onClick={() => {
-                                              navigate(`/shop/${item._id}`);
-                                              setIsHovered(false);
-                                            }}
-                                            className="btn text-decoration-none d-block fs-6 text-start"
-                                          >
-                                            {" "}
-                                            {item.name}
-                                          </a>
+                                        data.Brands.slice(0, 20).map((item) => (
+                                          <div key={item._id} className="col-6 col-md-3 mb-4 d-flex align-items-center">
+                                            <a href="" onClick={() => navigate(`/brand/${item._id}`)}>
+                                              <img
+                                                loading="lazy"
+                                                src={item.imageUrl}
+                                                alt={item.name}
+                                                className="shop-online-brand d-block mx-auto"
+                                              />
+                                            </a>
+                                          </div>
                                         ))}
                                     </div>
-                                  </div>
-                                </div>
-
-                                <div className="col-lg-9 brand-list-nav mt-4 ">
-                                  <div className="row">
-                                    {data &&
-                                      data.Brands.slice(0, 20).map((item) => (
-                                        <div key={item._id} className="col-6 col-md-3 mb-4 d-flex align-items-center">
-                                          <a href="" onClick={() => navigate(`/brand/${item._id}`)}>
-                                            <img
-                                              loading="lazy"
-                                              src={item.imageUrl}
-                                              alt={item.name}
-                                              className="shop-online-brand d-block mx-auto"
-                                            />
-                                          </a>
-                                        </div>
-                                      ))}
-                                  </div>
-                                  <div
-                                    className="header-all-cards mt-3 w-100 me-lg-5 "
-                                    onClick={() => {
-                                      navigate('Allbrand');
-                                    }}
-                                  >
-                                    <span className="brand-namee me-5 view-mor-brand px-4 py-2 rounded">
-                                      More Brands <i className="fa-solid fa-arrow-right"></i>
-                                    </span>
+                                    <div
+                                      className="header-all-cards mt-3 w-100 me-lg-5 "
+                                      onClick={() => {
+                                        navigate('Allbrand');
+                                      }}
+                                    >
+                                      <span className="brand-namee me-5 view-mor-brand px-4 py-2 rounded">
+                                        More Brands <i className="fa-solid fa-arrow-right"></i>
+                                      </span>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
 
-                      {/* <Link
+                        </div>
+
+                        {/* <Link
                         className="ps-1 fs-6 text-main text-decoration-none"
                         to="#"
                         onMouseEnter={() => setIsHovered(true)}
@@ -309,33 +311,34 @@ const Header = () => {
                       >
                         {Language.shop_all}
                       </Link> */}
-                      <Link
-                        className="ps-1 fs-6 text-main text-decoration-none "
-                        to="/faqs"
-                      >
-                        {Language.faqs}
-                      </Link>
-                      <Link
-                        className="ps-1 fs-6 text-main text-decoration-none "
-                        to="/stores"
-                      >
-                        {Language.find}
-                      </Link>
+                        <Link
+                          className="fs-6 text-main text-decoration-none "
+                          to="/faqs"
+                        >
+                          {Language.faqs}
+                        </Link>
+                        <Link
+                          className="fs-6 text-main text-decoration-none "
+                          to="/stores"
+                        >
+                          {Language.find}
+                        </Link>
 
-                      <Link
-                        className="ps-1 fs-6 text-main text-decoration-none "
-                        to="/events"
-                      >
-                        EVENT
-                      </Link>
+                        <Link
+                          className="fs-6 text-main text-decoration-none "
+                          to="/events"
+                        >
+                          EVENT
+                        </Link>
 
-                      {/* <Link
+                        {/* <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
                         to="/blogs"
                       >
                         {Language.blogs}
 
                       </Link> */}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -499,7 +502,7 @@ const Header = () => {
                 </div>
               </div>
               {/* Logo */}
-              <div className="col-md-3 col-4 px-0">
+              <div className="col-md-2 col-4 px-0">
                 <a href="/">
                   <img
                     // src="../assets/images/winterbear-logo.png"
@@ -511,7 +514,7 @@ const Header = () => {
                 </a>
               </div>
               {/* Login/Register and Cart Icons */}
-              <div className="col-md-4 col-6 text-start mt-md-0">
+              <div className="col-md-5 col-6 text-start mt-md-0 ps-lg-5">
                 <div className="row d-flex justify-content-between align-items-center">
                   <div className="col-md-6 d-md-block d-none">
                     <SearchList />
@@ -569,20 +572,20 @@ const Header = () => {
                               data-bs-toggle="dropdown"
                               aria-expanded="false"
                             >
-                               <Tooltip title="My Profile" color={"#4e3c98"} >
-                               <img
-                                src={getUserResponse?.User?.profile_img}
-                                // src="../assets/images/icon-pofile.svg"
-                                alt="mdo"
-                                width={25}
-                                height={25}
-                                className=" person-icon-img"
-                              />{" "}
+                              <Tooltip title="My Profile" color={"#4e3c98"} >
+                                <img
+                                  src={getUserResponse?.User?.profile_img}
+                                  // src="../assets/images/icon-pofile.svg"
+                                  alt="mdo"
+                                  width={25}
+                                  height={25}
+                                  className=" person-icon-img"
+                                />{" "}
 
 
                               </Tooltip>
 
-                              
+
                               {/* <strong className="px-1">
                                             {getUserResponse.User.firstname}
                                           </strong> */}
@@ -593,14 +596,14 @@ const Header = () => {
                               className="text-decoration-none mx-2"
                             >
                               <Tooltip title="My Cart" color={"#4e3c98"} >
-                              <Badge count={GetAddcardUserRes?.AddCarts?.length || 0}>
-                                <img src="../assets/images/icon_cart.svg" loading="lazy" />
+                                <Badge count={GetAddcardUserRes?.AddCarts?.length || 0}>
+                                  <img src="../assets/images/icon_cart.svg" loading="lazy" />
 
-                              </Badge>
+                                </Badge>
 
 
                               </Tooltip>
-                             
+
 
                               <ul className="mt-3 dropdown-menu text-small">
                                 <li>

@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import HeartButton from "../components/heartbutton";
 import "./innerstyle.css";
-import {  message, } from 'antd';
+import { message, } from 'antd';
 import SplashScreen from "../components/SplashScreen";
 import SnsSl from "../components/SnsSl";
 const Home2 = () => {
@@ -69,16 +69,16 @@ const Home2 = () => {
   };
 
   const handleWishlists = async (prod_id) => {
-    if(userId){
+    if (userId) {
       const passbody = { userId: userId, productId: prod_id };
       await dispatch(AddWishlistFetch(passbody));
-    }else{
+    } else {
       message.error(`Please log in to Wishlist the product.`)
     }
-   
+
   };
 
-  
+
 
   useEffect(() => {
     const handleSticky = () => {
@@ -117,7 +117,7 @@ const Home2 = () => {
       return newState;
     });
   };
-  
+
   const addcard = async (id) => {
     success(`Successfully Added to Cart: ${id.name}`)
     if (userId) {
@@ -128,7 +128,7 @@ const Home2 = () => {
       };
       await dispatch(AddCardProductById(addcarditem));
       await dispatch(GetAddCardProductById(userId));
-  
+
       // message.success(`Successfully Added to Cart: ${id.name}`);
     } else {
       const passbody = {
@@ -136,14 +136,14 @@ const Home2 = () => {
         productId: id._id,
         quantity: 1, // Use number for quantity
       };
-  
+
       let getlistcarts = localStorage.getItem("cardstore");
       let addtocarts = [];
-  
+
       if (getlistcarts) {
         addtocarts = JSON.parse(getlistcarts);
       }
-  
+
       // Check if the product already exists in the cart
       let productExists = false;
       addtocarts = addtocarts.map((item) => {
@@ -156,34 +156,34 @@ const Home2 = () => {
         }
         return item;
       });
-  
+
       // If the product does not exist, add it to the cart
       if (!productExists) {
         addtocarts.push(passbody);
       }
-  
+
       localStorage.setItem("cardstore", JSON.stringify(addtocarts));
-      
+
       if (getlistcarts) {
-        const productIds =  {productIds : addtocarts}
+        const productIds = { productIds: addtocarts }
         dispatch(GetCardProductById(productIds));
       }
-      
+
       // message.success(`Successfully Added to Cart: ${id.name}`);
     }
   };
-  
+
 
   const loadAllProducts = (brandId) => {
     navigate(`/brand/${brandId}`);
   };
-  if(!data){
-   return <SplashScreen/>
+  if (!data) {
+    return <SplashScreen />
   }
 
   return (
     <>
-    {contextHolder}
+      {contextHolder}
       <Header />
       {data && data.banners && <HomeSlider />}
       <div className="pt-md-5">{data && data.Brands && <BrandSlider />}</div>
@@ -214,6 +214,11 @@ const Home2 = () => {
           </div>
         </div>
       </section>
+
+      <section>
+        <SnsSl />
+      </section>
+
       <section className="py-5 shop">
         <div className="container">
           <div className="row">
@@ -301,21 +306,21 @@ const Home2 = () => {
                           .slice(0, visibleProducts[item.brand._id] || 8)
                           .map((prod, ind) => (
                             <div className="item col-lg-3 col-6 position-relative mb-3 home-product px-0 px-4"
-                            // onClick={() => handleNavigation(prod._id)}
-                            onMouseEnter={() => setHoveredProductId(prod._id)}
-                            onMouseLeave={() => setHoveredProductId(null)}
+                              // onClick={() => handleNavigation(prod._id)}
+                              onMouseEnter={() => setHoveredProductId(prod._id)}
+                              onMouseLeave={() => setHoveredProductId(null)}
                             >
                               <div className="home-product-in">
                                 <img
-                                   src={
+                                  src={
                                     hoveredProductId === prod._id &&
-                                    prod.images.length > 1 &&
-                                    prod.images[1]
+                                      prod.images.length > 1 &&
+                                      prod.images[1]
                                       ? prod.images[1]
                                       : prod.images[0] !== null &&
                                         prod.images[0] !== "image_url1"
-                                      ? prod.images[0]
-                                      : "assets/images/Rectangle 22.png"
+                                        ? prod.images[0]
+                                        : "assets/images/Rectangle 22.png"
                                   }
                                   className="product-shopby img-fluid"
                                   alt="Web Project 1"
@@ -418,9 +423,7 @@ const Home2 = () => {
           </div>
         </div>
       </section>
-      <section>
-        <SnsSl/>
-      </section>
+
       <Footer />
     </>
   );

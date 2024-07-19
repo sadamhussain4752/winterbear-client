@@ -28,7 +28,7 @@ const SNS = () => {
       >
         <SnsSl />
 
-      
+
 
         <section className="section  px-3  px-md-5 mb-4">
           <div className="container-fluid px-md-5 bg-purple rounded-5 py-4">
@@ -41,48 +41,48 @@ const SNS = () => {
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/coaster_tata_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© TATA BABY SILICONE COASTER
+                    BT21© TATA BABY SILICONE COASTER
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/coaster_chimmy_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© CHIMMY BABY SILICONE COASTER
+                    BT21© CHIMMY BABY SILICONE COASTER
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="	https://winterbear.in/wp-content/uploads/2023/01/coaster_cooky_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© COOKY BABY SILICONE COASTER
+                    BT21© COOKY BABY SILICONE COASTER
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/magnet_tata_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© TATA SOFT NECK PILLOW
+                    BT21© TATA SILICONE MAGNET
                   </p>
                 </div>
               </div>
@@ -107,96 +107,97 @@ const SNS = () => {
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/baby_silicon_keyring_chimmy_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© CHIMMY SOFT NECK PILLOW
+                    BT21© CHIMMY SILICONE
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/bt21_minini_car_door_guard_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© COOKY SOFT NECK PILLOW
+                    BT21© MININI CAR DOOR
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/BT21_brawl_stars_keyring_tata_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© RJ SOFT NECK PILLOW
+
+                    BRAWL STARS X BT21© EDGAR
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/magnet_tata_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© TATA SILICONE MAGNET
+                    BT21© TATA SILICONE MAG
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/BT21_brawl_stars_keyring_cooky_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© CHIMMY SILICONE MAGNET
+                    BRAWL STARS X BT21
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/BT21_brawl_stars_keyring_chimmy_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© COOKY SILICONE MAGNET
+                    BRAWL STARS X BT21©
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="	https://winterbear.in/wp-content/uploads/2023/01/BT21_brawl_stars_keyring_RJ_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© CHIMMY SILICONE KEYCHAIN
+                    BRAWL STARS X BT21© BIBI 
                   </p>
                 </div>
               </div>
               <div className="col-md-3 ">
                 <div className=" ">
                   <img
-                    src="assets/images/about2.png"
+                    src="https://winterbear.in/wp-content/uploads/2023/01/BT21_brawl_stars_keyring_koya_01.webp"
                     className="w-100 d-block mx-auto px-3"
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                  BT21© MININI CAR DOOR GUARD ZENDPLUS
+                  BRAWL STARS X BT21©SANDY 
                   </p>
                 </div>
               </div>
