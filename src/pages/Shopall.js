@@ -197,6 +197,7 @@ const ShopAll = () => {
     );
     console.log(categoryId, "categoryId",filteredProducts);
     setProductList(filteredProducts);
+    navigate(`/shop/${categoryId._id}`)
     setCurrentPage(1); // Reset current page to 1 when category changes
   };
 

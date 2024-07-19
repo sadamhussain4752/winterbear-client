@@ -46,7 +46,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© TATA BABY SILICONE COASTER
                   </p>
                 </div>
               </div>
@@ -58,7 +58,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© CHIMMY BABY SILICONE COASTER
                   </p>
                 </div>
               </div>
@@ -70,7 +70,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© COOKY BABY SILICONE COASTER
                   </p>
                 </div>
               </div>
@@ -82,7 +82,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© TATA SOFT NECK PILLOW
                   </p>
                 </div>
               </div>
@@ -112,7 +112,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© CHIMMY SOFT NECK PILLOW
                   </p>
                 </div>
               </div>
@@ -124,7 +124,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© COOKY SOFT NECK PILLOW
                   </p>
                 </div>
               </div>
@@ -136,7 +136,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© RJ SOFT NECK PILLOW
                   </p>
                 </div>
               </div>
@@ -148,7 +148,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© TATA SILICONE MAGNET
                   </p>
                 </div>
               </div>
@@ -160,7 +160,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© CHIMMY SILICONE MAGNET
                   </p>
                 </div>
               </div>
@@ -172,7 +172,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© COOKY SILICONE MAGNET
                   </p>
                 </div>
               </div>
@@ -184,7 +184,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© CHIMMY SILICONE KEYCHAIN
                   </p>
                 </div>
               </div>
@@ -196,7 +196,7 @@ const SNS = () => {
                     alt="Gallery Item"
                   />
                   <p className="fw-6 fw-bold text-white text-uppercase py-3 text-center">
-                    BT21 MASQUITO REPELENT BAND
+                  BT21© MININI CAR DOOR GUARD ZENDPLUS
                   </p>
                 </div>
               </div>

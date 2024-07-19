@@ -18,6 +18,7 @@ import HeartButton from "../components/heartbutton";
 import "./innerstyle.css";
 import {  message, } from 'antd';
 import SplashScreen from "../components/SplashScreen";
+import SnsSl from "../components/SnsSl";
 const Home2 = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch();
@@ -416,6 +417,9 @@ const Home2 = () => {
               })}
           </div>
         </div>
+      </section>
+      <section>
+        <SnsSl/>
       </section>
       <Footer />
     </>

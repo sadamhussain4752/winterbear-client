@@ -4,13 +4,13 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
-import { ProfileUserData, CouponUserById ,GetAddCardProductById,GetCardProductById} from "../reducer/thunks";
+import { ProfileUserData, CouponUserById, GetAddCardProductById, GetCardProductById } from "../reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import Logo from '../constant/images/Winterbear-Logo.webp';
 import { IoIosLogIn } from "react-icons/io";
 import NewsPaper from "./NewsPaper";
 import { ShoppingCartOutlined, WalletOutlined } from "@ant-design/icons";
-import { Carousel, Select, Badge } from "antd";
+import { Carousel, Select, Badge, Tooltip } from "antd";
 import Language from "../constant/Language";
 import SearchList from "./SearchList";
 const { Option } = Select;
@@ -102,15 +102,15 @@ const Header = () => {
     setModalVisible(false);
   };
   useEffect(() => {
-    console.log(userId, "userId",userId !== undefined , userId !== null);
+    console.log(userId, "userId", userId !== undefined, userId !== null);
     if (userId !== undefined && userId !== null) {
       dispatch(ProfileUserData(userId));
       dispatch(GetAddCardProductById(userId));
       // dispatch(CouponUserById())
-    }else{
+    } else {
       let getlistcarts = localStorage.getItem("cardstore");
       if (getlistcarts) {
-        const productIds =  {productIds :JSON.parse(getlistcarts)}
+        const productIds = { productIds: JSON.parse(getlistcarts) }
         console.log(productIds);
         dispatch(GetCardProductById(productIds));
       }
@@ -324,9 +324,9 @@ const Header = () => {
 
                       <Link
                         className="ps-1 fs-6 text-main text-decoration-none "
-                        to="/offers"
+                        to="/events"
                       >
-                        OFFERS
+                        EVENT
                       </Link>
 
                       {/* <Link
@@ -536,21 +536,31 @@ const Header = () => {
                               className="link-body-emphasis text-decoration-none"
                             >
                               {/* <WalletOutlined style={{ fontSize: '16px', color: '#9E2717', marginRight: '5px' }} /> */}
-                              <i
-                                class="fa-solid fa-star"
-                                style={{ color: "#ffdc64" }}
-                              ></i>
-                              {getUserResponse.User.loyalty_point}
+                              <Tooltip title="Bear club" color={"#4e3c98"} >
+                                <i
+                                  class="fa-solid fa-star"
+                                  style={{ color: "#ffdc64" }}
+                                ></i>
+                                {getUserResponse.User.loyalty_point}
+                              </Tooltip>
+
                             </a>
                             <a
                               href="/wishlist"
                               className="text-decoration-none "
                             >
-                              {/* <img src="../assets/images/icon_cart.svg" /> */}
-                              <i
-                                class="fa-regular fa-bookmark"
-                                style={{ fontSize: "20px" }}
-                              ></i>
+
+                              <Tooltip title="My WishList" color={"#4e3c98"} >
+                                <div>
+                                  <i
+                                    class="fa-regular fa-bookmark"
+                                    style={{ fontSize: "20px" }}
+                                  ></i>
+                                </div>
+
+
+                              </Tooltip>
+
                             </a>
 
                             <a
@@ -559,7 +569,8 @@ const Header = () => {
                               data-bs-toggle="dropdown"
                               aria-expanded="false"
                             >
-                              <img
+                               <Tooltip title="My Profile" color={"#4e3c98"} >
+                               <img
                                 src={getUserResponse?.User?.profile_img}
                                 // src="../assets/images/icon-pofile.svg"
                                 alt="mdo"
@@ -567,6 +578,11 @@ const Header = () => {
                                 height={25}
                                 className=" person-icon-img"
                               />{" "}
+
+
+                              </Tooltip>
+
+                              
                               {/* <strong className="px-1">
                                             {getUserResponse.User.firstname}
                                           </strong> */}
@@ -576,10 +592,15 @@ const Header = () => {
                               href="/cart"
                               className="text-decoration-none mx-2"
                             >
+                              <Tooltip title="My Cart" color={"#4e3c98"} >
                               <Badge count={GetAddcardUserRes?.AddCarts?.length || 0}>
                                 <img src="../assets/images/icon_cart.svg" loading="lazy" />
 
                               </Badge>
+
+
+                              </Tooltip>
+                             
 
                               <ul className="mt-3 dropdown-menu text-small">
                                 <li>
@@ -644,7 +665,7 @@ const Header = () => {
                               href="/cart"
                               className="text-decoration-none ps-3"
                             >
-                               <Badge count={GetAddcardUserRes?.AddCarts?.length || 0}>
+                              <Badge count={GetAddcardUserRes?.AddCarts?.length || 0}>
                                 <img src="../assets/images/icon_cart.svg" loading="lazy" />
 
                               </Badge>

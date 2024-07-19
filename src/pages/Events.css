@@ -297,8 +297,8 @@
 .popup-cont {
   position: relative;
   background-color: transparent !important;
-  height: 500px; 
-  width:400px; 
+  height: 350px; 
+  width:250px; 
 }
 
 .ant-popover{
