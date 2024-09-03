@@ -12,9 +12,10 @@ import {
   fetchProductDataOld,
   fetchWishlistData,
   AddWishlistFetch,
+  AddCardProductById
 } from "../reducer/thunks";
 import HomeSlider from "../components/BrandSlider";
-import { Dropdown, Menu, Empty, Pagination, Slider } from "antd";
+import { Dropdown, Menu, Empty, Pagination, Slider, message } from "antd";
 
 import HeartButton from "../components/heartbutton";
 
@@ -40,7 +41,15 @@ const Brandlist = () => {
   const [hoveredProductId, setHoveredProductId] = useState("");
   const userIds = localStorage.getItem("userId");
   const [isMobile, setIsMobile] = useState(false);
+  const [sidenavWidth, setSidenavWidth] = useState(0);
 
+  const openNav = () => {
+    setSidenavWidth(350);
+  };
+
+  const closeNav = () => {
+    setSidenavWidth(0);
+  };
   const {
     productlist,
     loading: productListLoading,
@@ -219,6 +228,21 @@ const Brandlist = () => {
     setProductList(filteredProducts);
   };
 
+  const addcard = async (id) => {
+    if (userIds) {
+      let addcarditem = {
+        userId: userIds,
+        productId: id._id,
+        quantity: "1",
+      };
+      await dispatch(AddCardProductById(addcarditem))
+      message.success(`Succesfully Add the Cart ${id.name}`)
+    } else {
+      message.error(`Please log in to add to cart.`)
+    }
+
+  };
+
   const handleWishlists = async (prod_id) => {
     const passbody = { userId: userIds, productId: prod_id };
     await dispatch(AddWishlistFetch(passbody));
@@ -275,8 +299,8 @@ const Brandlist = () => {
 
 
   const bannerImages = isMobile
-  ? subBrandlist[0]?.brand?.banner_mob_img
-  : subBrandlist[0]?.brand?.banner_img;
+    ? subBrandlist[0]?.brand?.banner_mob_img
+    : subBrandlist[0]?.brand?.banner_img;
 
   return (
     <>
@@ -302,9 +326,8 @@ const Brandlist = () => {
                             (img_item, index) => (
                               <div
                                 key={index}
-                                className={`carousel-item ${
-                                  index === 0 ? "active" : ""
-                                }`}
+                                className={`carousel-item ${index === 0 ? "active" : ""
+                                  }`}
                               >
                                 <picture>
                                   <source
@@ -394,9 +417,27 @@ const Brandlist = () => {
                 ))}
             </div>
           </div>
+          <div className="col-md-12 mb-4">
 
-          <div className="col-md-12">
-            <div className="text-end d-flex justify-content-end filter-item">
+            <div className="text-end d-flex justify-content-lg-end justify-content-between align-items-center filter-item">
+
+              <p className="d-lg-none d-block mb-0 py-2 px-4 rounded">
+                <span
+                  style={{
+                    fontSize: '25px', cursor: 'pointer', border: ' 1px solid black',
+                    padding: ' 0px 10px'
+                  }}
+                  onClick={openNav}
+                >
+
+                  &#9776;
+
+                  {/* <span className="cat-brand">CATEGORY & BRANDS </span>  */}
+
+                </span>
+
+              </p>
+
               <div className="p-0 rounded mx-1">
                 <button
                   class="btn p-0 text-white"
@@ -467,10 +508,10 @@ const Brandlist = () => {
                           <p>{item.brand.name}</p>
                         </div>
                       ))}
-                    <div style={{}}>
-                      {/* <h5>Price</h5>
-                      <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} /> */}
-                    </div>
+                    {/* <div style={{}}>
+          <h5>Price</h5>
+          <Slider defaultValue={0} tooltip={{ open: true, formatter: value => `$${value * 100}` }} />
+        </div> */}
                     <div className="position-fixed bottom-0 end-1 filter-btns-cont ">
                       <button
                         className=" text-black btn button mx-1 filter-btns"
@@ -498,6 +539,8 @@ const Brandlist = () => {
                 </div>
               </div>
 
+
+
               <Dropdown
                 overlay={menu}
                 trigger={["hover"]}
@@ -512,47 +555,121 @@ const Brandlist = () => {
               </Dropdown>
             </div>
           </div>
+          <div className="mob-nav ">
+            {/* d-block d-lg-none */}
 
+            <div>
+              <div
+                id="mySidenav"
+                className="sidenav mt-5 text-white"
+                style={{ width: `${sidenavWidth}px` }}
+              >
+                <a href="#" className="closebtn" onClick={closeNav}>
+                  &times;
+                </a>
+
+                <div className="p-0 text-center rounded mx-5">
+                  <h3 className=" fs-2 fw-bolder text-start text-white mb-4 text-uppercase mt-5">
+                    Category
+                  </h3>
+                  {data &&
+                    data.Categorys &&
+                    data.Categorys.map((item) => (
+                      <div
+                        className={`${item._id === selectedCategory?._id
+                          ? ""
+                          : "col-md-12 d-flex justify-content-start "
+                          }`}
+                        key={item._id}
+                        onClick={() => handleCategoryClick(item)}
+                      >
+                        <div className="align-items-start shop-all-card-item ">
+                          <p className="">{item.name}</p>
+                        </div>
+                      </div>
+                    ))}
+
+                </div>
+
+                <div className="p-0  text-center rounded mx-5">
+                  <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase text-white mt-5">
+                    Brands
+                  </h3>
+
+                  {productOldlist &&
+                    productOldlist.productList &&
+                    productOldlist.productList.slice(0, 8).map((item) => (
+                      <div key={item.brand.id}>
+                        <div
+                          className=" shop-all-cards"
+                          onClick={() => handleNavigationbrand(item.brand._id)}
+                        >
+
+                          <p className="brand-namee">{item.brand.name}</p>
+                        </div>
+
+                      </div>
+                    ))}
+                  <div
+                    className="shop-all-cards"
+                    onClick={() => {
+                      navigate(`/Allbrand`);
+                    }}
+                  >
+                    <p className="brand-namee">
+                      More Brands <i class="fa-solid fa-arrow-right"></i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="row justify-content-end">
-            <div className="col-md-3">
+            <div className="col-md-3 cat-brand d-md-block d-none">
               <div className="p-0 text-center rounded mx-5">
-                <h3 className=" fs-2 fw-bolder text-start mb-4">Category</h3>
-
+                <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase mt-5">
+                  Category
+                </h3>
                 {data &&
                   data.Categorys &&
                   data.Categorys.map((item) => (
                     <div
-                      className={`${
-                        item._id === selectedCategory?._id
-                          ? ""
-                          : "col-md-12 d-flex justify-content-start "
-                      }`}
+                      className={`${item._id === selectedCategory?._id
+                        ? ""
+                        : "col-md-12 d-flex justify-content-start "
+                        }`}
                       key={item._id}
-                      onClick={() => navigate(`/shop/${item._id}`)}
+                      onClick={() => handleCategoryClick(item)}
                     >
                       <div className="align-items-start shop-all-card-item ">
-                        <p>{item.name}</p>
+                        <p className="">{item.name}</p>
                       </div>
                     </div>
                   ))}
+
               </div>
+
               <div className="p-0  text-center rounded mx-5">
-                <h3 className=" fs-2 fw-bolder text-start mb-4">Brands</h3>
+                <h3 className=" fs-2 fw-bolder text-start mb-4 text-uppercase  mt-5">
+                  Brands
+                </h3>
+
                 {productOldlist &&
                   productOldlist.productList &&
-                  productOldlist.productList.slice(0, 8).map(
-                    (item) =>
-                      item.brand._id !== id && (
-                        <div key={item.brand._id}>
-                          <div
-                            className="align-items-center shop-all-cards"
-                            onClick={() =>
-                              handleNavigationbrand(item.brand._id)
-                            }
-                          >
-                            <p>{item.brand.name}</p>
-                          </div>
-                          {/* <div>
+                  productOldlist.productList.slice(0, 8).map((item) => (
+                    <div key={item.brand.id}>
+                      <div
+                        className=" shop-all-cards"
+                        onClick={() => handleNavigationbrand(item.brand._id)}
+                      >
+                        {/* <img
+                          src={item.brand.imageUrl}
+                          alt={item.brand.name}
+                          className="img-pop"
+                        /> */}
+                        <p className="brand-namee">{item.brand.name}</p>
+                      </div>
+                      {/* <div>
                       {item.subbrand.map((subItem) => (
                         <div key={subItem.id} className="align-items-center shop-all-cards" onClick={() => handleSubbrandClick(subItem)}>
                           <div className="d-flex justify-content-start align-items-center text-center mx-5">
@@ -562,11 +679,9 @@ const Brandlist = () => {
                         </div>
                       ))}
                     </div> */}
-                        </div>
-                      )
-                  )}
+                    </div>
+                  ))}
                 <div
-                  style={{ cursor: "pointer" }}
                   className="shop-all-cards"
                   onClick={() => {
                     navigate(`/Allbrand`);
@@ -580,10 +695,12 @@ const Brandlist = () => {
             </div>
 
             <div className="col-md-9">
+
+
               <div className="row col-md-12 body-card-product">
                 {currentItems.map((prod, ind) => (
                   <div
-                    className="col-md-3 my-1"
+                    className="col-md-3 col-6 my-1"
                     key={ind}
                     onMouseEnter={() => setHoveredProductId(prod._id)}
                     onMouseLeave={() => setHoveredProductId(null)}
@@ -592,11 +709,12 @@ const Brandlist = () => {
                       <div class="d-flex justify-content-between position-absolute top-0 start-0 w-100 z-3 px-">
                         <p>
                           {" "}
-                          {prod.brand_id === "65aa405f6bfadce6d5a0ef3c" && (
-                            <p className="text-white text-center  text-decoration-line-through w-100 mt-2 rounded-end bg-theme-dis">
-                              40%
-                            </p>
-                          )}
+                          {prod.brand_id ===
+                            "65aa405f6bfadce6d5a0ef3c" && (
+                              <p className="text-white text-center  text-decoration-line-through w-100 mt-2 rounded-end bg-theme-dis">
+                                40%
+                              </p>
+                            )}
                         </p>
                         <div></div>
 
@@ -614,27 +732,27 @@ const Brandlist = () => {
                           ) : (
                             <HeartButton isActives={false} />
                           )}
+
                         </button>
                       </div>
                       <div className="home-product-in">
                         <img
                           src={
-                            hoveredProductId === prod._id &&
-                            prod.images.length > 1 &&
-                            prod.images[1]
+                            hoveredProductId === prod._id && prod.images.length > 1 && prod.images[1]
                               ? prod.images[1]
-                              : prod.images[0] !== null &&
-                                prod.images[0] !== "image_url1"
-                              ? prod.images[0]
-                              : "assets/images/Rectangle 22.png"
+                              : prod.images[0] !== null && prod.images[0] !== "image_url1"
+                                ? prod.images[0]
+                                : "assets/images/Rectangle 22.png"
                           }
+                          loading="lazy"
                           className="product-shopall img-fluid"
                           alt={prod.name}
                           onClick={() => handleNavigation(prod._id)}
+
                         />
                         <div
                           class="text-center  border-secondary addtocart-btn px-1 py-1 mx-2"
-                          onClick={() => handleNavigation(prod._id)}
+                          onClick={() => addcard(prod)}
                         >
                           <i class="fas fa-cart-plus me-2"></i> Add to Cart
                         </div>

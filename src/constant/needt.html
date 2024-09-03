@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLC Embed Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="dialog_error" style="display:none; color: red;"></div>
+  <button id="run-vlc-btn">Run VLC</button>
+  <div id="video-container"></div>
+
+  <script>
+    function runvlc() {
+      var target = $('#video-container');
+      var error = $('#dialog_error');
+      var addr = 'rtsp://admin:Florenza2026@36.255.85.5:554/Streaming/Channels/101';
+
+      // Remove any existing VLC elements
+      target.empty();
+
+      // Embed VLC plugin with the RTSP stream
+      var vlcEmbed = `
+        <embed type="application/x-vlc-plugin"
+               pluginspage="http://www.videolan.org"
+               width="640"
+               height="480"
+               id="vlc">
+        </embed>
+      `;
+      
+      target.append(vlcEmbed);
+
+      // Allow time for the VLC plugin to initialize
+      setTimeout(function() {
+        var vlc = document.getElementById('vlc');
+        if (vlc) {
+          vlc.target = addr;
+          try {
+            // Adding and playing the stream using VLC plugin
+            var options = [':network-caching=300']; // Additional options if needed
+            vlc.playlist.add(addr, null, options);
+            vlc.playlist.play();
+          } catch (e) {
+            error.empty().html('Error: ' + e + '<br>URL: ' + addr);
+            error.show();
+          }
+        } else {
+          error.empty().html('Error: VLC plugin not initialized. Ensure the VLC plugin is installed and enabled in your browser.');
+          error.show();
+        }
+      }, 1000); // Adjust the timeout as needed to ensure VLC plugin initializes
+    }
+
+    // Attach the runvlc function to the button click event
+    $(document).ready(function() {
+      $('#run-vlc-btn').on('click', function() {
+        runvlc();
+      });
+    });
+  </script>
+</body>
+</html>

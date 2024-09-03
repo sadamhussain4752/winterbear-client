@@ -1218,6 +1218,21 @@ width: 77%;
   margin: 10px 10px 10px 10px;
 }
 
+/* For devices with a maximum width of 768px (tablets and smaller devices) */
+@media (max-width: 768px) {
+  .text-decoration-none {
+    margin: 10px 3px 10px 3px ; /* Further increase margin for very small screens */
+
+  }
+}
+
+/* For devices with a maximum width of 480px (small devices like smartphones) */
+@media (max-width: 480px) {
+  .text-decoration-none {
+    margin: 10px 3px 10px 3px ; /* Further increase margin for very small screens */
+  }
+}
+
 /* Add these styles to your existing CSS file or create a new one */
 
 /* Checkout Section */
@@ -2754,7 +2769,7 @@ a {
 .product-card {
   position: relative;
   cursor: pointer;
-  overflow-y: hidden !important;
+  /* overflow-y: hidden !important; */
 }
 
 .home-product .addtocart-btn {
@@ -3664,7 +3679,7 @@ th {
     /* Full viewport height */
     overflow: hidden;
     /* Hide overflow on the modal body */
-  }
+}
 
   .scroll-container {
     max-height: 80vh;
@@ -3687,3 +3702,44 @@ th {
   }
 
 }
+
+#hertbtn1{
+  position: relative;
+  
+  }
+  #hertbtn{
+    position: absolute;
+    left: 80%;
+    color: #000;
+    top: 3%;
+    margin-top: 10px !important;
+
+  }
+
+  @media only screen and (max-width:760px) {
+    #hertbtn1{
+      position: relative;
+      }
+      #hertbtn{
+        position: absolute;
+        left: 65%;
+        color: #000;
+        top: 3%;
+        margin-top: 5px !important;
+      }
+      #hertbtn2{
+        position: absolute;
+        right: 0%;
+        color: #000;
+        top: 3%;
+        margin-top: 5px !important;
+      }
+
+     
+     
+    }
+
+
+    
+   
+  

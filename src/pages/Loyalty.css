@@ -132,3 +132,17 @@
         font-size: 1em !important;
     }
 }
+
+.background-image-style {
+    background: #9B91C4;
+    background-image: url("../constant/images/Asset 1ldpi.png");
+    background-size: 100% 100%;
+    position: relative;
+    background-repeat: no-repeat;
+  }
+
+  @media only screen and (max-width:760px) {
+    .background-image-style {
+        background-image: url("../constant/images/Asset 2.png");
+    }
+    }

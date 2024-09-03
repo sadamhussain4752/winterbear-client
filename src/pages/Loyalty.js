@@ -5,15 +5,7 @@ import LoyaltyList from "../components/LoyaltyList";
 import Testimonals from "../components/Testimonals";
 import "./Loyalty.css";
 const Loyalty = () => {
-  const backgroundImageStyle = {
-    background: '#9B91C4',
-    backgroundImage: 'url("../assets/images/Banner_image.jpg")',
-    backgroundSize: "100% 100%",
-    postion: "relative",
-    backgroundRepeat: "no-repeat"
 
-
-  };
   document.title = "Awards";
   document.getElementsByTagName("META")[2].content = "Awards";
   return (
@@ -29,7 +21,7 @@ const Loyalty = () => {
           height: "100%",
         }}
       >
-        <div className="breadcum mt-80" style={backgroundImageStyle}>
+        <div className="breadcum mt-80 background-image-style">
           <div className="award">
             <div className="row ">
               <div className="offset-md-2 my-md-5 awards">

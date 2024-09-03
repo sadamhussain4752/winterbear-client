@@ -41,6 +41,7 @@ const ShopAll = () => {
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 10000]); // Adjust the range as needed
   const [hoveredProductId, setHoveredProductId] = useState("");
   const userIds = localStorage.getItem("userId");
+  const [sidenavWidth, setSidenavWidth] = useState(0);
 
   const [searchText, setsearchText] = useState("");
 
@@ -150,7 +151,6 @@ const ShopAll = () => {
 
   // side nav
 
-  const [sidenavWidth, setSidenavWidth] = useState(0);
 
   const openNav = () => {
     setSidenavWidth(350);
@@ -199,6 +199,8 @@ const ShopAll = () => {
     setProductList(filteredProducts);
     navigate(`/shop/${categoryId._id}`)
     setCurrentPage(1); // Reset current page to 1 when category changes
+    setSidenavWidth(0) 
+
   };
 
   const handleSubbrandClick = (categoryId) => {
@@ -360,7 +362,7 @@ const ShopAll = () => {
             <div className="col-md-12">
 
 
-              <div className="section-heading">
+              <div className="section-heading mt-5">
                 {selectedCategory && selectedCategory?.category_img_desktop && (
                   <div className="align-items-center">
                     <picture>
@@ -529,9 +531,7 @@ const ShopAll = () => {
               </Dropdown>
             </div>
           </div>
-          <div>
-
-          </div>
+       
 
 
           <div className="mob-nav ">

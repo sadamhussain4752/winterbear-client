@@ -9,7 +9,8 @@ import {
   RatingProductUserById,
   fetchProductData,
   GetAddCardProductById,
-  GetCardProductById
+  GetCardProductById,
+  AddWishlistFetch,
 } from "../../src/reducer/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import constant from "../constant/constant";
@@ -18,7 +19,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Nav, Tab } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { message, Rate, notification, Image } from "antd";
+import { message, Rate, notification, Image, Button, InputNumber } from "antd";
 import MultiCarousel from "../components/MultiCarousel";
 import { HeartOutlined, ShareAltOutlined } from "@ant-design/icons";
 import Copyimage from "../constant/images/Copy.svg";
@@ -29,7 +30,7 @@ import HeartButton from "../components/heartbutton";
 import shirtimg from "../constant/images/shirt-sizes.jpg";
 import shirtimg1 from "../constant/images/shirt-half_sleeve-men.jpg";
 
-import sizechart from "../constant/images/measurements.jpg"
+import sizechart from "../constant/images/Sizemeasurements.jpg"
 
 const options = {
   // loop: true,
@@ -57,6 +58,10 @@ const Product = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [scaleStep, setScaleStep] = useState(0.5);
+  const [showSizeChart, setShowSizeChart] = useState(false);
   const {
     ProductIdloading: getOrderUserLoading,
     ProductIderror: ProductIdError,
@@ -148,13 +153,22 @@ const Product = () => {
     // navigate(`/product/${newProductId}`);
   };
 
+  const handleWishlists = async (prod_id) => {
+    if (userId) {
+      const passbody = { userId: userId, productId: prod_id };
+      await dispatch(AddWishlistFetch(passbody));
+    } else {
+      message.error(`Please log in to Wishlist the product.`);
+    }
+  };
+
   const renderProductImages = () => {
     const product = GetProductIdResponse?.Products || {};
 
     return (
       <>
         <OwlCarousel
-          className="owl-theme "
+          className="owl-theme pos-rel"
           loop
           margin={10}
           items={1}
@@ -164,7 +178,7 @@ const Product = () => {
         >
           {product?.images &&
             product?.images.map((image, index) => (
-              <div key={index} className="item mb-4 mb-0">
+              <div key={index} className="item mb-4 mb-0 hertbtn1">
                 <Image
                   src={`${image}`}
                   height={500}
@@ -173,6 +187,22 @@ const Product = () => {
                   className="product-img-main rounded sing-prod"
                   loading="lazy"
                 />
+
+                <button
+                  class="heart-btn heart-btn-div"
+                  id="hertbtn"
+                  onClick={() => {
+                    handleWishlists(product._id);
+                  }}
+                >
+                  {wishlist?.wishlistItems?.some(
+                    (item) => item.productId === product._id
+                  ) ? (
+                    <HeartButton isActives={true} />
+                  ) : (
+                    <HeartButton isActives={false} />
+                  )}
+                </button>
               </div>
             ))}
         </OwlCarousel>
@@ -187,10 +217,13 @@ const Product = () => {
         </div>
         <div className="d-flex justify-content-center">
           {product && product?.images && product?.images.length > 1 && (
-            <MultiCarousel images={product?.images} indexs={(item) => {
-              console.log(item, "item");
-              setSelecteditem(item)
-            }} />
+            <MultiCarousel
+              images={product?.images}
+              indexs={(item) => {
+                console.log(item, "item");
+                setSelecteditem(item);
+              }}
+            />
           )}
         </div>
 
@@ -264,6 +297,10 @@ const Product = () => {
     setTimeout(messageApi.destroy, 2500);
   };
 
+  const handleButtonClick = () => {
+    setShowSizeChart(!showSizeChart);
+  };
+
   const buyproduct = async (id) => {
     let addcarditem = {
       userId: userId,
@@ -278,7 +315,8 @@ const Product = () => {
     const product = GetProductIdResponse?.Products || {};
 
     return (
-      <div className="row mt-5 product-des" key={product.id}>
+      <>
+       <div className="row mt-5 product-des" key={product.id}>
         <div className="col-md-5">{renderProductImages()}</div>
         <div className="col-md-7">
           <div className="row col-md-12">
@@ -321,254 +359,28 @@ const Product = () => {
                   </button>
                 ))}
 
-                <button type="button" className="btn siz-btnn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Size Chart
-                </button>
-                <div className="size-chart">
-                  <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog modal-xl">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h1 className="modal-title fs-5" id="exampleModalLabel">Size Chart</h1>
-                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
+                <>
 
-                        <div className="modal-body">
-                          <div className="scroll-container">
-                            <img src={sizechart} className="scrolling-image" />
-                          </div>
-                        </div>
-
-
-
-                        <div className="modal-body d-none">
-
-
-                          <img src={sizechart} className="w-100" />
-
-
-                          <div className="row d-none">
-                            <div className="col-lg-12">
-
-
-                              <div class="table-responsive">
-                                <table class="table table-striped table-bordered">
-                                  <thead class="thead-dark">
-                                    <tr>
-                                      <th>Particulars</th>
-                                      <th>XS</th>
-                                      <th>S</th>
-                                      <th>M</th>
-                                      <th>L</th>
-                                      <th>XL</th>
-                                    </tr>
-                                  </thead>
-
-                                  <tbody>
-                                    <tr>
-                                      <td>Body Length From HSP</td>
-                                      <td>69</td>
-                                      <td>71</td>
-                                      <td>73</td>
-                                      <td>75</td>
-                                      <td>77</td>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Shoulder</td>
-                                      <p className="text-center">  Cm Shoulder drop</p>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Chest below 1 cm from the armhole</td>
-                                      <td>54.5</td>
-                                      <td>58.5</td>
-                                      <td>62.5</td>
-                                      <td>66.5</td>
-                                      <td>70.5</td>
-                                    </tr>
-                                    <tr>
-                                      <td>Waist</td>
-                                      <td>54.5</td>
-                                      <td>58.5</td>
-                                      <td>62.5</td>
-                                      <td>66.5</td>
-                                      <td>70.5</td>
-                                    </tr>
-                                    <tr>
-                                      <td>Bottom</td>
-                                      <td>56.5</td>
-                                      <td>60.5</td>
-                                      <td>64.5</td>
-                                      <td>68.5</td>
-                                      <td>72.5</td>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Bottom rib height</td>
-                                      <td>6.5</td>
-                                      <td>6.5</td>
-                                      <td>6.5</td>
-                                      <td>6.5</td>
-                                      <td>6.5</td>
-                                    </tr>
-
-
-                                    <tr>
-                                      <td>Bottom helm [rib]</td>
-                                      <td>54.5</td>
-                                      <td>58.5</td>
-                                      <td>62.5</td>
-                                      <td>66.5</td>
-                                      <td>70.5</td>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Armhole straight</td>
-                                      <td>25</td>
-                                      <td>26</td>
-                                      <td>27</td>
-                                      <td>28</td>
-                                      <td>29</td>
-                                    </tr>
-
-
-                                    <tr>
-                                      <td>Sleeve length (Without Cuff)</td>
-                                      <td>49.5</td>
-                                      <td>50.5</td>
-                                      <td>51.5</td>
-                                      <td>52.5</td>
-                                      <td>53.5</td>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Sleeve open (Without Cuff)</td>
-                                      <td>18</td>
-                                      <td>19</td>
-                                      <td>20</td>
-                                      <td>21</td>
-                                      <td>22</td>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Sleeve Cuff width 1/2</td>
-                                      <td>8</td>
-                                      <td>8.5</td>
-                                      <td>9</td>
-                                      <td>9.5</td>
-                                      <td>10</td>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Sleeve Cuff height</td>
-                                      <td>6</td>
-                                      <td>6</td>
-                                      <td>6</td>
-                                      <td>6</td>
-                                      <td>6</td>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Bicep</td>
-                                      <td>22.5</td>
-                                      <td>23.5</td>
-                                      <td>24.5</td>
-                                      <td>25.5</td>
-                                      <td>26.5</td>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Back Neck width (Seam to seam)</td>
-                                      <td>18.5</td>
-                                      <td>19</td>
-                                      <td>19.5</td>
-                                      <td>20</td>
-                                      <td>20.5</td>
-                                    </tr>
-
-                                    <tr>
-                                      <td>Neck Collar height</td>
-                                      <td>5</td>
-                                      <td>5</td>
-                                      <td>5</td>
-                                      <td>5</td>
-                                      <td>5</td>
-                                    </tr>
-
-
-                                    <tr>
-                                      <td>Frount Neck drop (FIL)</td>
-                                      <td>11.5</td>
-                                      <td>12</td>
-                                      <td>12.5</td>
-                                      <td>13</td>
-                                      <td>13.5</td>
-                                    </tr>
-
-
-                                    <tr>
-                                      <td>Back Neck drop (FIL)</td>
-                                      <td>2</td>
-                                      <td>2</td>
-                                      <td>2</td>
-                                      <td>2</td>
-                                      <td>2</td>
-                                    </tr>
-
-
-
-
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                            <div className="col-lg-6">
-
-                              <div className="cont">
-                                <h5>
-                                  Full Sleeve Shirts
-                                </h5>
-
-                                <p>
-
-                                  Not sure about your shirt size? Follow these simple steps to figure it out: Shoulder - Measure the shoulder at the back, from edge to edge with arms relaxed on both sides Chest - Measure around the body under the arms at the fullest part of the chest with your arms relaxed at both sides. Sleeve - Measure from the shoulder seam through the outer arm to the cuff/hem Neck - Measured horizontally across the neck Length - Measure from the highest point of the shoulder seam to the bottom hem of the garment's
-
-                                </p>
-                              </div>
-                            </div>
-
-                            {/* <div className="col-lg-6">
-                              <img src={shirtimg} className="w-50 d-block mx-auto" alt="" />
-
-                            </div> */}
-
-                            <div className="col-lg-6">
-                              <div className="cont pt-lg-0 pt-4">
-                                <h5>
-                                  Half Sleeve Shirts
-                                </h5>
-
-                                <p>
-                                  Not sure about your shirt size? Follow these simple steps to figure it out: Shoulder - Measure the shoulder at the back, from edge to edge with arms relaxed on both sides Chest - Measure around the body under the arms at the fullest part of the chest with your arms relaxed at both sides. Sleeve - Measure from the shoulder seam through the outer arm to the cuff/hem Neck - Measured horizontally across the neck Length - Measure from the highest point of the shoulder seam to the bottom hem of the garment's
-                                </p>
-                              </div>
-
-                            </div>
-                            {/* <div className="col-lg-6">
-                              <img src={shirtimg1} className="w-50 d-block mx-auto" alt="" />
-                            </div> */}
-                          </div>
-
-                        </div>
-                        {/* <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
-                      </div> */}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <br />
+                  <Button type="primary" className="btn siz-btnn" onClick={() => setVisible(true)}>
+                    Size Chart
+                  </Button>
+                  <Image
+                    width={200}
+                    style={{
+                      display: 'none',
+                    }}
+                    src={sizechart}
+                    preview={{
+                      visible,
+                      scaleStep,
+                      src: sizechart,
+                      onVisibleChange: (value) => {
+                        setVisible(value);
+                      },
+                    }}
+                  />
+                </>
 
               </div>
             </div>
@@ -834,7 +646,17 @@ const Product = () => {
             </Tab.Content>
           </Tab.Container>
         </div>
+        
       </div>
+      {product?.websiteInfographics &&(
+          <section>
+          <div className="row product-des text-center border">
+            <img className="w-100" src={product?.websiteInfographics} alt="Infographic" />
+          </div>
+        </section>
+        )}
+        </>
+     
     );
   };
 
@@ -938,9 +760,14 @@ const Product = () => {
     <>
       {contextHolder}
       <Header />
+     
       <section className="py-5 mt-80">
         <div className="container">
           {renderProductDetails()}
+          
+         
+         
+
           <section className="bg-theme-color mt-5 p-3">
             <div className="container-fluid">
               <div className="text-center mt-5 mb-5">

@@ -15,6 +15,7 @@ import {
   Image,
 } from "antd";
 import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import constant from "../constant/constant";
 
 const getBase64 = (file) =>
   new Promise((resolve, reject) => {
@@ -137,7 +138,7 @@ const EditProfile = () => {
   }, []);
 
   const props = {
-    action: `http://192.168.31.24:5000/api/user/UserImage/${getUserResponse?.User._id}`,
+    action: `${constant.baseUrl}api/user/UserImage/${getUserResponse?.User._id}`,
     listType: 'picture',
     beforeUpload(file) {
       return new Promise((resolve) => {

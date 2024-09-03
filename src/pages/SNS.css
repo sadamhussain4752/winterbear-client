@@ -90,11 +90,25 @@
 #carouselExample {
   width: 400px;
   position: relative;
+  /* padding: 2%; */
 }
 
 .carousel-inner img {
   border-radius: 25px;
 }
+@media only screen and (max-width:760px) {
+
+  #carouselExample {
+    width: 30%;
+    position: relative;
+    /* padding: 2%; */
+  }
+  .carousel-inner img {
+    border-radius: 10px;
+  }
+}
+
+
 
 .real-border {
   position: absolute;
