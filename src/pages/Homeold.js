@@ -77,10 +77,14 @@ const Home = () => {
     <>
       <Header />
       <>
-        {data && data?.banners && <HomeSlider />}
-        <div className="pt-5">
-          {data && data?.Brands && <BrandSlider />}
-        </div>
+        {data && data?.banners && 
+        <HomeSlider />
+        }
+        {/* <div className="pt-5">
+          {data && data?.Brands && 
+          <BrandSlider />
+          }
+        </div> */}
 
 
         <section className="py-5">

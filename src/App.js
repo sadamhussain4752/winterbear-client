@@ -1,6 +1,8 @@
 import React from "react";
 
 import Home from "./pages/Home";
+import Home2 from "./pages/Home2";
+import Home3 from "./pages/Home3";
 import About from "./pages/About";
 import Loyalty from "./pages/Loyalty";
 import SNS from "./pages/Sns";
@@ -38,6 +40,8 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Home2" element={<Home2 />} />
+          <Route path="/Home3" element={<Home3 />} />
           <Route path="/about" element={<About />} />
           <Route path="/awards" element={<Awards />} />
           <Route path="/loyalty" element={<Loyalty />} />

@@ -117,10 +117,10 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-12 text-center text-white">
+            {/* <div className="col-md-12 text-center text-white">
               <img src={require("../constant/images/footer-logo.png")} className="img-fluid" loading="lazy" />
               <p>Official BT21 &amp; LINE FRIENDS Merchandise in India</p>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -244,7 +244,7 @@ const Footer = () => {
 
 
       </footer>
-      <div className="copy-rights-img mt-80">
+      {/* <div className="copy-rights-img">
         <div className="container">
           <div className="text-center">
             <img src={require("../constant/images/footer-img.png")} className="" loading="lazy" />
@@ -259,7 +259,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
 
   );

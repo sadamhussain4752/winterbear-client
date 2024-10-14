@@ -186,7 +186,7 @@ const Header = () => {
       <header>
         {/* Top Header */}
         <div
-          className={`top-header shadow-sm bg-white fixed-top ${navbarBg === "d-none" && "bg-white top-headers"
+          className={`top-header shadow-sm fixed-top ${navbarBg === "d-none" && "bg-white top-headers"
             }`}
         >
           <div className="container-fluid">
@@ -217,7 +217,7 @@ const Header = () => {
                       </button>
                     </div>
                     <div className="col-md-11 d-md-block d-none pe-0 ">
-                      <div className="d-flex justify-content-end">
+                      <div className="d-flex justify-content-end align-items-center">
                         <div
                           id="menu-products"
                           className=" fs-6 text-main text-decoration-none"
@@ -355,7 +355,7 @@ const Header = () => {
                       id="offcanvasExampleLabel"
                     >
                       <img
-                        src={require("../constant/images//Winterbear-Logo.webp")}
+                        src={require("../constant/images/Winterbear-Logo.webp")}
                         className="d-block ps-md-2 img-fluid my-5 "
                         alt="Logo"
                         loading="lazy"
